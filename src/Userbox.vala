@@ -4,28 +4,28 @@ public class UserBox : Grid {
     public string fullname;
     
     private Gtk.Label fullname_label;
-    private Gtk.Label status_label
+    private Gtk.Label status_label;
     
     public Gdk.Pixbuf pixbuf;
     
-    public Gtk.Image image
+    public Gtk.Image image;
 
     public UserBox (string user, string fullname) {
 		status = "Logged In";
 				
 		var picture_frame = new Gtk.AspectFrame (null, 0,0,1,true);
 		fullname_label = new Gtk.Label (@"<b>$fullname</b>");
-		status_label = new Gtk.Label (status);
-		status_box = new Gtk.VBox (false, 4);
+		status_label = new Gtk.Label (status); 
+		var status_box = new Gtk.VBox (false, 4);
 		pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$user");		
-		image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48,48, InterpType.BILINEAR));
+		image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48,48, Gdk.InterpType.BILINEAR));
 		
-		name.set_use_markup (true);
-		name.get_style_context ().add_class ("h2");
-		name.xalign = 0;
+		fullname_label.set_use_markup (true);
+		fullname_label.get_style_context ().add_class ("h2");
+		fullname_label.xalign = 0;
 		
-		logged.get_style_context ().add_class ("h3");
-		logged.xalign = 0;
+		status_label.get_style_context ().add_class ("h3");
+		status_label.xalign = 0;
 				
 		picture_frame.add (image);
 		picture_frame.set_border_width (0);
@@ -46,7 +46,7 @@ public class UserBox : Grid {
 	}
 	
 	public string get_username () {
-	
+	    return "";
 	}
 	
 	public void set_fullname (string fullname) {
@@ -54,7 +54,7 @@ public class UserBox : Grid {
 	}
 	
 	public string get_fullname () {
-	
+	    return "";
 	}
 	
 }
