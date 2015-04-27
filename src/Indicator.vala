@@ -17,20 +17,19 @@
 
 public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.DynamicIcon dynamic_icon;
-    
+
     private Wingpanel.Widgets.IndicatorButton lock_screen;
     private Wingpanel.Widgets.IndicatorButton log_out;
     private Wingpanel.Widgets.IndicatorButton suspend;
     private Wingpanel.Widgets.IndicatorButton shutdown;
-    
+
     private Gtk.Grid main_grid;
 
     private const string icon_name = "system-devices-panel";
-  
+
     private string user_name;
     private string full_name;
-    
-      
+
     public Indicator () {
         Object (code_name: Wingpanel.Indicator.SESSION,
                 display_name: _("Session"),
@@ -38,9 +37,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget get_display_widget () {
-        if (dynamic_icon == null) {
+        if (dynamic_icon == null) 
             dynamic_icon = new Wingpanel.Widgets.DynamicIcon (icon_name);
-        }
+        
 
         return dynamic_icon;
     }
@@ -49,22 +48,22 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (main_grid == null) {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
-            
+
             log_out = new Wingpanel.Widgets.IndicatorButton ("Log Out");
             lock_screen = new Wingpanel.Widgets.IndicatorButton ("Lock");
             shutdown = new Wingpanel.Widgets.IndicatorButton ("Shutdown");
             suspend = new Wingpanel.Widgets.IndicatorButton ("Suspend");
-            
-            // FIXME Get the username and fullname form the system 
+
+            // FIXME Get the username and fullname form the system
             full_name = "Felipe Escoto";
             user_name = "felipe";
-           
-            //var user_box = new UserBox ("felipe", "Felipe Escoto");
-            
+
+            var user_box = new Session.Indicator.Widgets.UserBox ("felipe", "Felipe Escoto");
+
             var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
             var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
-            
-            //main_grid.add (user_box);
+
+            main_grid.add (user_box);
             main_grid.add (separator1);
             main_grid.add (lock_screen);
             main_grid.add (log_out);
@@ -72,17 +71,17 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid.add (suspend);
             main_grid.add (shutdown);
         }
-        
+
         this.visible = true;
         return main_grid;
     }
 
     public override void opened () {
-        
+
     }
 
     public override void closed () {
-        
+
     }
 }
 
