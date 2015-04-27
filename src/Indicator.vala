@@ -37,9 +37,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget get_display_widget () {
-        if (dynamic_icon == null) 
+        if (dynamic_icon == null)
             dynamic_icon = new Wingpanel.Widgets.DynamicIcon (icon_name);
-        
+
 
         return dynamic_icon;
     }
@@ -58,7 +58,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             full_name = "Felipe Escoto";
             user_name = "felipe";
 
-            var user_box = new Session.Indicator.Widgets.UserBox ("felipe", "Felipe Escoto");
+            var user_box = new Session.Widgets.UserBox (user_name, full_name);
 
             var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
             var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();

@@ -1,4 +1,4 @@
-public class Session.Indicator.Widgets.UserBox : Grid {
+public class Session.Widgets.UserBox : Gtk.Grid {
     public string status;
     public string username;
     public string fullname;
@@ -16,7 +16,6 @@ public class Session.Indicator.Widgets.UserBox : Grid {
         var picture_frame = new Gtk.AspectFrame (null, 0,0,1,true);
         fullname_label = new Gtk.Label (@"<b>$fullname</b>");
         status_label = new Gtk.Label (status);
-        var status_box = new Gtk.VBox (false, 4);
         pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$user");
         image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48,48, Gdk.InterpType.BILINEAR));
 
@@ -35,10 +34,12 @@ public class Session.Indicator.Widgets.UserBox : Grid {
         this.attach (status_label, 3, 1, 2, 1);
 
         this.set_margin_top (1);
+        this.set_margin_bottom (5);
         this.set_margin_left (6);
+
         picture_frame.set_margin_right (6);
         picture_frame.set_margin_top (6);
-        picture_frame.set_shadow_type (ShadowType.ETCHED_OUT);
+        picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
     }
 
     public void set_username (string username) {
