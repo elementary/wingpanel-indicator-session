@@ -16,77 +16,76 @@
  */
 
 public class Session.Indicator : Wingpanel.Indicator {
-    private Wingpanel.Widgets.DynamicIcon dynamic_icon;
+	private Wingpanel.Widgets.DynamicIcon dynamic_icon;
 
-    private Wingpanel.Widgets.IndicatorButton lock_screen;
-    private Wingpanel.Widgets.IndicatorButton log_out;
-    private Wingpanel.Widgets.IndicatorButton suspend;
-    private Wingpanel.Widgets.IndicatorButton shutdown;
+	private Wingpanel.Widgets.IndicatorButton lock_screen;
+	private Wingpanel.Widgets.IndicatorButton log_out;
+	private Wingpanel.Widgets.IndicatorButton suspend;
+	private Wingpanel.Widgets.IndicatorButton shutdown;
 
-    private Gtk.Grid main_grid;
+	private Gtk.Grid main_grid;
 
-    private const string icon_name = "system-devices-panel";
+	private const string icon_name = "system-devices-panel";
 
-    private string user_name;
-    private string full_name;
+	private string user_name;
+	private string full_name;
 
-    public Indicator () {
-        Object (code_name: Wingpanel.Indicator.SESSION,
-                display_name: _("Session"),
-                description:_("The session indicator"));
-    }
+	public Indicator () {
+		Object (code_name: Wingpanel.Indicator.SESSION,
+				display_name: _("Session"),
+				description:_("The session indicator"));
+	}
 
-    public override Gtk.Widget get_display_widget () {
-        if (dynamic_icon == null)
-            dynamic_icon = new Wingpanel.Widgets.DynamicIcon (icon_name);
+	public override Gtk.Widget get_display_widget () {
+		if (dynamic_icon == null)
+			dynamic_icon = new Wingpanel.Widgets.DynamicIcon (icon_name);
 
+		return dynamic_icon;
+	}
 
-        return dynamic_icon;
-    }
+	public override Gtk.Widget get_widget () {
+		if (main_grid == null) {
+			main_grid = new Gtk.Grid ();
+			main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-    public override Gtk.Widget get_widget () {
-        if (main_grid == null) {
-            main_grid = new Gtk.Grid ();
-            main_grid.set_orientation (Gtk.Orientation.VERTICAL);
+			log_out = new Wingpanel.Widgets.IndicatorButton ("Log Out");
+			lock_screen = new Wingpanel.Widgets.IndicatorButton ("Lock");
+			shutdown = new Wingpanel.Widgets.IndicatorButton ("Shutdown");
+			suspend = new Wingpanel.Widgets.IndicatorButton ("Suspend");
 
-            log_out = new Wingpanel.Widgets.IndicatorButton ("Log Out");
-            lock_screen = new Wingpanel.Widgets.IndicatorButton ("Lock");
-            shutdown = new Wingpanel.Widgets.IndicatorButton ("Shutdown");
-            suspend = new Wingpanel.Widgets.IndicatorButton ("Suspend");
+			// FIXME Get the username and fullname form the system
+			full_name = "Felipe Escoto";
+			user_name = "felipe";
 
-            // FIXME Get the username and fullname form the system
-            full_name = "Felipe Escoto";
-            user_name = "felipe";
+			var user_box = new Session.Widgets.UserBox (user_name, full_name);
 
-            var user_box = new Session.Widgets.UserBox (user_name, full_name);
+			var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
+			var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
 
-            var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
-            var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
+			main_grid.add (user_box);
+			main_grid.add (separator1);
+			main_grid.add (lock_screen);
+			main_grid.add (log_out);
+			main_grid.add (separator2);
+			main_grid.add (suspend);
+			main_grid.add (shutdown);
+		}
 
-            main_grid.add (user_box);
-            main_grid.add (separator1);
-            main_grid.add (lock_screen);
-            main_grid.add (log_out);
-            main_grid.add (separator2);
-            main_grid.add (suspend);
-            main_grid.add (shutdown);
-        }
+		this.visible = true;
+		return main_grid;
+	}
 
-        this.visible = true;
-        return main_grid;
-    }
+	public override void opened () {
 
-    public override void opened () {
+	}
 
-    }
+	public override void closed () {
 
-    public override void closed () {
-
-    }
+	}
 }
 
 public Wingpanel.Indicator get_indicator (Module module) {
-    debug ("Activating Session Indicator");
-    var indicator = new Session.Indicator ();
-    return indicator;
+	debug ("Activating Session Indicator");
+	var indicator = new Session.Indicator ();
+	return indicator;
 }
