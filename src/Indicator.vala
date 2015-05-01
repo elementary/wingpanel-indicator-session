@@ -23,12 +23,11 @@ public class Session.Indicator : Wingpanel.Indicator {
 	private Wingpanel.Widgets.IndicatorButton suspend;
 	private Wingpanel.Widgets.IndicatorButton shutdown;
 
+	private Session.Widgets.UserBox user_box;
+
 	private Gtk.Grid main_grid;
 
 	private const string icon_name = "system-devices-panel";
-
-	private string user_name;
-	private string full_name;
 
 	public Indicator () {
 		Object (code_name: Wingpanel.Indicator.SESSION,
@@ -53,11 +52,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 			shutdown = new Wingpanel.Widgets.IndicatorButton ("Shutdown");
 			suspend = new Wingpanel.Widgets.IndicatorButton ("Suspend");
 
-			// FIXME Get the username and fullname form the system
-			full_name = "Felipe Escoto";
-			user_name = "felipe";
-
-			var user_box = new Session.Widgets.UserBox (user_name, full_name);
+			user_box = new Session.Widgets.UserBox ();
 
 			var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
 			var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
@@ -80,7 +75,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 	}
 
 	public override void closed () {
-
+		user_box.update ();
 	}
 }
 

@@ -1,7 +1,7 @@
 find_package (PkgConfig)
 
 # Add all your dependencies to the list below
-pkg_check_modules (DEPS REQUIRED gthread-2.0 gtk+-3.0 wingpanel-2.0 granite)
+pkg_check_modules (DEPS REQUIRED gthread-2.0 gtk+-3.0 accountsservice wingpanel-2.0 granite)
 
 add_definitions (${DEPS_CFLAGS})
 link_directories (${DEPS_LIBRARY_DIRS})
@@ -21,6 +21,7 @@ PACKAGES
   gtk+-3.0
   wingpanel-2.0
   granite
+  AccountsService-1.0
 OPTIONS
   --thread
 )

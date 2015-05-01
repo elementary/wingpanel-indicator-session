@@ -27,17 +27,21 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 	public Gtk.Image? image;
 
-	public UserBox (string user, string fullname) {
-		status = _("Logged In");
+	public UserBox () {
+		username = GLib.Environment.get_user_name ();
+		fullname = GLib.Environment.get_real_name ();
+	
+		status = _(@"Logged In");
 
 		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
 		fullname_label = new Session.Widgets.SoftLabel (fullname, 10);
 		status_label = new Gtk.Label (status);
 
 		try {
-			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$user");
+			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$username");
 			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48, 48, Gdk.InterpType.BILINEAR));
 		} catch (Error e) {
+			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 			warning (e.message);
 		}
 
@@ -63,20 +67,33 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		picture_frame.set_margin_top (6);
 		picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
 	}
+	
+	public static Act.UserManager? usermanager = null;
+	
+	public static unowned Act.UserManager? get_usermanager () {
+		if (usermanager != null && usermanager.is_loaded)
+			return usermanager;
+			
+		usermanager = Act.UserManager.get_default ();
+		return usermanager;
+	}
+	
+	public static Act.User? current_user = null;
 
-	public void set_username (string username) {
-
+	public static unowned Act.User? get_current_user () {
+		if (current_user != null)
+			return current_user;
+		
+		current_user = get_usermanager ().get_user (GLib.Environment.get_user_name ());
+		return current_user;
 	}
 
-	public string get_username () {
-		return username;
-	}
-
-	public void set_fullname (string fullname) {
-
-	}
-
-	public string get_fullname () {
-		return fullname;
+	public void update () {
+		try {
+			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$username");
+			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48, 48, Gdk.InterpType.BILINEAR));
+		} catch (Error e){
+			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
+		}
 	}
 }
