@@ -34,20 +34,20 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		status = _(@"Logged In");
 
 		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
-		fullname_label = new Session.Widgets.SoftLabel (fullname, 10);
+		fullname_label = new Session.Widgets.SoftLabel (fullname, 100);
 		status_label = new Gtk.Label (status);
 
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$username");
-			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48, 48, Gdk.InterpType.BILINEAR));
+			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
 		} catch (Error e) {
 			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 			warning (e.message);
 		}
 
-		fullname_label.get_style_context ().add_class ("h2");
-
-		status_label.get_style_context ().add_class ("h3");
+		fullname_label.get_style_context ().add_class ("h3");
+		fullname_label.valign = Gtk.Align.END;
+		//status_label.get_style_context ().add_class ("h3");
 		status_label.xalign = 0;
 
 		if (image != null)
@@ -59,9 +59,11 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
 
-		this.set_margin_top (1);
+		this.set_margin_top (0);
 		this.set_margin_bottom (5);
-		this.set_margin_left (6);
+		this.set_margin_start (6);
+		this.set_margin_end (6);
+		
 
 		picture_frame.set_margin_right (6);
 		picture_frame.set_margin_top (6);
@@ -91,7 +93,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 	public void update () {
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$username");
-			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (48, 48, Gdk.InterpType.BILINEAR));
+			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
 		} catch (Error e){
 			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 		}

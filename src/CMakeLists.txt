@@ -1,7 +1,7 @@
 find_package (PkgConfig)
 
 # Add all your dependencies to the list below
-pkg_check_modules (DEPS REQUIRED gthread-2.0 gtk+-3.0 accountsservice wingpanel-2.0 granite)
+pkg_check_modules (DEPS REQUIRED gthread-2.0 gtk+-3.0 gio-2.0 accountsservice wingpanel-2.0 granite)
 
 add_definitions (${DEPS_CFLAGS})
 link_directories (${DEPS_LIBRARY_DIRS})
@@ -16,8 +16,10 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Indicator.vala
   Widgets/UserBox.vala
   Widgets/SoftLabel.vala
+  Widgets/EndSessionDialog.vala
   ${CMAKE_CURRENT_BINARY_DIR}/config.vala
 PACKAGES
+  gio-2.0
   gtk+-3.0
   wingpanel-2.0
   granite

@@ -64,10 +64,26 @@ public class Session.Indicator : Wingpanel.Indicator {
 			main_grid.add (separator2);
 			main_grid.add (suspend);
 			main_grid.add (shutdown);
+						
+			main_grid.set_margin_top (6);
+						
+			connections ();
 		}
 
 		this.visible = true;
 		return main_grid;
+	}
+
+	public void connections () {
+		log_out.clicked.connect (() => {
+			new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
+	
+		});
+		
+		shutdown.clicked.connect (() => {
+			new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
+	
+		});
 	}
 
 	public override void opened () {
@@ -75,7 +91,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 	}
 
 	public override void closed () {
-		user_box.update ();
+		
 	}
 }
 
