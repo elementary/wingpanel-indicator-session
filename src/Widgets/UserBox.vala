@@ -30,7 +30,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 	public UserBox () {
 		username = GLib.Environment.get_user_name ();
 		fullname = GLib.Environment.get_real_name ();
-	
+
 		status = _(@"Logged In");
 
 		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
@@ -48,7 +48,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		fullname_label.get_style_context ().add_class ("h3");
 		fullname_label.valign = Gtk.Align.END;
 		//status_label.get_style_context ().add_class ("h3");
-		//status_label.xalign = 0;
+		status_label.halign = Gtk.Align.START;
 
 		if (image != null)
 			picture_frame.add (image);
@@ -63,29 +63,29 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		this.set_margin_bottom (5);
 		this.set_margin_start (6);
 		this.set_margin_end (6);
-		
+
 
 		picture_frame.set_margin_right (6);
 		picture_frame.set_margin_top (6);
 		picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
 	}
-	
+
 	public static Act.UserManager? usermanager = null;
-	
+
 	public static unowned Act.UserManager? get_usermanager () {
 		if (usermanager != null && usermanager.is_loaded)
 			return usermanager;
-			
+
 		usermanager = Act.UserManager.get_default ();
 		return usermanager;
 	}
-	
+
 	public static Act.User? current_user = null;
 
 	public static unowned Act.User? get_current_user () {
 		if (current_user != null)
 			return current_user;
-		
+
 		current_user = get_usermanager ().get_user (GLib.Environment.get_user_name ());
 		return current_user;
 	}

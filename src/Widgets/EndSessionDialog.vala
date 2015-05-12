@@ -85,7 +85,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 		var heading = new Gtk.Label ("<span weight='bold' size='larger'>" + heading_text + "</span>");
 		heading.get_style_context ().add_class ("larger");
 		heading.use_markup = true;
-		//heading.xalign = 0;
+		heading.halign = Gtk.Align.START;
 
 		var grid = new Gtk.Grid ();
 		grid.column_spacing = 12;
@@ -126,7 +126,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 		var action_area = get_action_area ();
 		action_area.margin_right = 6;
 		action_area.margin_bottom = 6;
-		
+
 		this.show_all ();
 	}
 }
