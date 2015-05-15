@@ -26,10 +26,10 @@ public enum Session.Widgets.EndSessionDialogType {
 [DBus (name = "org.gnome.SessionManager")]
 interface SessionManager : Object {
 	public signal void SessionRunning ();
-	public abstract bool CanShutdown () throws IOError;
-    public abstract void Logout (uint mode) throws IOError;
-    public abstract void RequestReboot () throws IOError;
-    public abstract void RequestShutdown () throws IOError;
+	//public abstract bool CanShutdown () throws IOError;
+	public abstract void Logout (uint mode) throws IOError;
+	public abstract void RequestReboot () throws IOError;
+	public abstract void RequestShutdown () throws IOError;
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
@@ -101,7 +101,13 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 		if (dialog_type == EndSessionDialogType.RESTART) {
 			var confirm_restart = add_button (_("Restart"), Gtk.ResponseType.OK) as Gtk.Button;
 			confirm_restart.clicked.connect (() => {
-				session_manager.RequestReboot ();
+				try {
+					session_manager.RequestReboot ();
+				} catch (IOError e) {
+				  stderr.printf ("%s\n", e.message);
+				}
+
+
 				destroy ();
 			});
 		}
@@ -113,9 +119,17 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 		confirm.get_style_context ().add_class ("destructive-action");
 		confirm.clicked.connect (() => {
 			if (dialog_type == EndSessionDialogType.RESTART	|| dialog_type == EndSessionDialogType.SHUTDOWN)
-				session_manager.RequestShutdown ();
+				try {
+					session_manager.RequestShutdown ();
+				} catch (IOError e) {
+					stderr.printf ("%s\n", e.message);
+				}
 			else
-				session_manager.Logout (1);
+				try {
+					session_manager.Logout (1);
+				} catch (IOError e) {
+					stderr.printf ("%s\n", e.message);
+				}
 			destroy ();
 		});
 

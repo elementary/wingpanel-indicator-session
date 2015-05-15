@@ -20,7 +20,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 	public string username;
 	public string fullname;
 
-	private Session.Widgets.SoftLabel fullname_label;
+	private Gtk.Label fullname_label;
 	private Gtk.Label status_label;
 
 	public Gdk.Pixbuf pixbuf;
@@ -34,7 +34,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		status = _(@"Logged In");
 
 		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
-		fullname_label = new Session.Widgets.SoftLabel (fullname, 100);
+		fullname_label = new Gtk.Label (fullname);
 		status_label = new Gtk.Label (status);
 
 		try {
