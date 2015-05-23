@@ -16,12 +16,18 @@
  */
 
 [DBus (name = "org.freedesktop.login1.Manager")]
-interface SessionManager1 : Object {
+interface SuspendManager : Object {
 	public abstract void Suspend (bool interactive) throws IOError;
 }
 
+[DBus (name = "org.freedesktop.DisplayManager.Seat")]
+interface LockManager : Object {
+	public abstract void Lock () throws IOError;
+}
+
 public class Session.Indicator : Wingpanel.Indicator {
-	private SessionManager1 session_manager;
+	private SuspendManager suspend_manager;
+	private LockManager lock_manager;
 
 	private Wingpanel.Widgets.DynamicIcon dynamic_icon;
 
@@ -53,9 +59,16 @@ public class Session.Indicator : Wingpanel.Indicator {
 		if (main_grid == null) {
 
 			try {
-				session_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+				suspend_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
 			} catch (IOError e) {
 				stderr.printf ("%s\n", e.message);
+			}
+			
+			try {
+				lock_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager.Seat", "/org/freedesktop/DisplayManager/Seat0");
+			} catch (IOError e) {
+				stderr.printf ("%s\n", e.message);
+				lock_screen.set_sensitive (false);
 			}
 
 			main_grid = new Gtk.Grid ();
@@ -89,6 +102,16 @@ public class Session.Indicator : Wingpanel.Indicator {
 	}
 
 	public void connections () {
+			
+		lock_screen.clicked.connect (() => {
+			try {
+				lock_manager.Lock ();
+			} catch (IOError e) {
+				stderr.printf ("%s\n", e.message);
+			}
+			close ();
+		});
+	
 		log_out.clicked.connect (() => {
 			new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
 			close ();
@@ -101,7 +124,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 		suspend.clicked.connect (() => {
 			try {
-				session_manager.Suspend (true);
+				suspend_manager.Suspend (true);
 			} catch (IOError e) {
 				stderr.printf ("%s\n", e.message);
 			}

@@ -47,6 +47,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 		fullname_label.get_style_context ().add_class ("h3");
 		fullname_label.valign = Gtk.Align.END;
+		fullname_label.halign = Gtk.Align.START;
 		//status_label.get_style_context ().add_class ("h3");
 		status_label.halign = Gtk.Align.START;
 
