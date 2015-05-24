@@ -20,7 +20,7 @@ interface SuspendManager : Object {
 	public abstract void Suspend (bool interactive) throws IOError;
 }
 
-[DBus (name = "org.freedesktop.DisplayManager.Seat")]
+[DBus (name = "org.freedesktop.ScreenSaver")]
 interface LockManager : Object {
 	public abstract void Lock () throws IOError;
 }
@@ -55,7 +55,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 		return dynamic_icon;
 	}
 
-	public override Gtk.Widget get_widget () {
+	public override Gtk.Widget? get_widget () {
 		if (main_grid == null) {
 
 			try {
@@ -65,7 +65,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 			}
 			
 			try {
-				lock_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager.Seat", "/org/freedesktop/DisplayManager/Seat0");
+				lock_manager = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
 			} catch (IOError e) {
 				stderr.printf ("%s\n", e.message);
 				lock_screen.set_sensitive (false);
@@ -101,8 +101,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 		return main_grid;
 	}
 
-	public void connections () {
-			
+	public void connections () {			
 		lock_screen.clicked.connect (() => {
 			try {
 				lock_manager.Lock ();
