@@ -52,18 +52,18 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		//status_label.get_style_context ().add_class ("h3");
 		status_label.halign = Gtk.Align.START;
 
-		if (pixbuf != null) { //Using user image
-			picture_frame.add (image);
-			picture_frame.set_border_width (0);
-			picture_frame.set_margin_right (6);
-			picture_frame.set_margin_top (6);
-			picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
-			this.attach (picture_frame, 0, 0, 3, 3);
-		} else {	//default image
+//		if (pixbuf != null) { //Using user image
+//			picture_frame.add (image);
+//			picture_frame.set_border_width (0);
+//			picture_frame.set_margin_right (6);
+//			picture_frame.set_margin_top (6);
+//			picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
+//			this.attach (picture_frame, 0, 0, 3, 3);
+//		} else {	//default image
 			image.set_margin_right (6);
 			image.set_margin_top (6);
 			this.attach (image, 0, 0, 3, 3);
-		}
+//		}
 				
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
