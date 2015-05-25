@@ -53,10 +53,6 @@ msgstr ""
 msgid "This will close all open applications."
 msgstr ""
 
-#: ../src/Widgets/EndSessionDialog.vala:74
-msgid "Log Out"
-msgstr ""
-
 #: ../src/Widgets/EndSessionDialog.vala:79
 msgid "Are you sure you want to Shut Down?"
 msgstr ""
