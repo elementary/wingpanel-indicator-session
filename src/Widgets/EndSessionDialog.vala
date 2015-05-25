@@ -107,7 +107,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 				  stderr.printf ("%s\n", e.message);
 				}
 
-
 				destroy ();
 			});
 		}

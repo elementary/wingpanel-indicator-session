@@ -42,7 +42,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
 		} catch (Error e) {
 			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
-			warning (e.message);
+			//warning (e.message);
 		}
 		
 		fullname_label.use_markup = true;
@@ -52,12 +52,19 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		//status_label.get_style_context ().add_class ("h3");
 		status_label.halign = Gtk.Align.START;
 
-		if (image != null)
+		if (pixbuf != null) { //Using user image
 			picture_frame.add (image);
-
-		picture_frame.set_border_width (0);
-
-		this.attach (picture_frame, 0, 0, 3, 3);
+			picture_frame.set_border_width (0);
+			picture_frame.set_margin_right (6);
+			picture_frame.set_margin_top (6);
+			picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
+			this.attach (picture_frame, 0, 0, 3, 3);
+		} else {	//default image
+			image.set_margin_right (6);
+			image.set_margin_top (6);
+			this.attach (image, 0, 0, 3, 3);
+		}
+				
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
 
@@ -65,30 +72,6 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		this.set_margin_bottom (5);
 		this.set_margin_start (6);
 		this.set_margin_end (6);
-
-		picture_frame.set_margin_right (6);
-		picture_frame.set_margin_top (6);
-		picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
-	}
-
-	public static Act.UserManager? usermanager = null;
-
-	public static unowned Act.UserManager? get_usermanager () {
-		if (usermanager != null && usermanager.is_loaded)
-			return usermanager;
-
-		usermanager = Act.UserManager.get_default ();
-		return usermanager;
-	}
-
-	public static Act.User? current_user = null;
-
-	public static unowned Act.User? get_current_user () {
-		if (current_user != null)
-			return current_user;
-
-		current_user = get_usermanager ().get_user (GLib.Environment.get_user_name ());
-		return current_user;
 	}
 
 	public void update () {

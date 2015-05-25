@@ -72,3 +72,4 @@ msgstr ""
 #: ../src/Widgets/EndSessionDialog.vala:121
 msgid "Cancel"
 msgstr ""
+

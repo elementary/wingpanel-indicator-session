@@ -46,7 +46,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 	private Gtk.Grid main_grid;
 
-	private const string icon_name = "system-devices-panel";
+	private const string icon_name = "system-shutdown-symbolic";
 
 	public Indicator () {
 		Object (code_name: Wingpanel.Indicator.SESSION,
@@ -79,10 +79,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 			main_grid = new Gtk.Grid ();
 			main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-			log_out = new Wingpanel.Widgets.IndicatorButton _("Log Out");
-			lock_screen = new Wingpanel.Widgets.IndicatorButton _("Lock");
-			shutdown = new Wingpanel.Widgets.IndicatorButton _("Shutdown");
-			suspend = new Wingpanel.Widgets.IndicatorButton _("Suspend");
+			log_out = new Wingpanel.Widgets.IndicatorButton (_("Log Out"));
+			lock_screen = new Wingpanel.Widgets.IndicatorButton (_("Lock"));
+			shutdown = new Wingpanel.Widgets.IndicatorButton (_("Shutdown"));
+			suspend = new Wingpanel.Widgets.IndicatorButton (_("Suspend"));
 
 			user_box = new Session.Widgets.UserBox ();
 
