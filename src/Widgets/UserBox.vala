@@ -27,14 +27,14 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 	public Gtk.Image? image;
 
-	public UserBox () {
+	public UserBox (string fullname_ = "", string username_ = "", string iconfile_ = "") {
 		username = GLib.Environment.get_user_name ();
 		fullname = GLib.Environment.get_real_name ();
 
 		status = _(@"Logged In");
 
 		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
-		fullname_label = new Gtk.Label (fullname);
+		fullname_label = new Gtk.Label ("<b>" + fullname + "</b>");
 		status_label = new Gtk.Label (status);
 
 		try {
@@ -44,7 +44,8 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 			warning (e.message);
 		}
-
+		
+		fullname_label.use_markup = true;
 		fullname_label.get_style_context ().add_class ("h3");
 		fullname_label.valign = Gtk.Align.END;
 		fullname_label.halign = Gtk.Align.START;
@@ -64,7 +65,6 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		this.set_margin_bottom (5);
 		this.set_margin_start (6);
 		this.set_margin_end (6);
-
 
 		picture_frame.set_margin_right (6);
 		picture_frame.set_margin_top (6);

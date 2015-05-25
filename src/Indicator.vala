@@ -25,6 +25,12 @@ interface LockManager : Object {
 	public abstract void Lock () throws IOError;
 }
 
+[DBus (name = "org.freedesktop.DBus.Properties")]
+interface Properties : Object {
+	public abstract Variant Get (string interface, string propname) throws IOError;
+	public abstract void Set (string interface, string propname, Variant value) throws IOError;
+}
+
 public class Session.Indicator : Wingpanel.Indicator {
 	private SuspendManager suspend_manager;
 	private LockManager lock_manager;
@@ -57,13 +63,12 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 	public override Gtk.Widget? get_widget () {
 		if (main_grid == null) {
-
 			try {
 				suspend_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
 			} catch (IOError e) {
 				stderr.printf ("%s\n", e.message);
 			}
-			
+
 			try {
 				lock_manager = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
 			} catch (IOError e) {
@@ -74,10 +79,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 			main_grid = new Gtk.Grid ();
 			main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-			log_out = new Wingpanel.Widgets.IndicatorButton ("Log Out");
-			lock_screen = new Wingpanel.Widgets.IndicatorButton ("Lock");
-			shutdown = new Wingpanel.Widgets.IndicatorButton ("Shutdown");
-			suspend = new Wingpanel.Widgets.IndicatorButton ("Suspend");
+			log_out = new Wingpanel.Widgets.IndicatorButton _("Log Out");
+			lock_screen = new Wingpanel.Widgets.IndicatorButton _("Lock");
+			shutdown = new Wingpanel.Widgets.IndicatorButton _("Shutdown");
+			suspend = new Wingpanel.Widgets.IndicatorButton _("Suspend");
 
 			user_box = new Session.Widgets.UserBox ();
 
@@ -101,7 +106,11 @@ public class Session.Indicator : Wingpanel.Indicator {
 		return main_grid;
 	}
 
-	public void connections () {			
+	private void get_users () {
+		
+	}
+
+	public void connections () {
 		lock_screen.clicked.connect (() => {
 			try {
 				lock_manager.Lock ();
@@ -110,7 +119,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 			}
 			close ();
 		});
-	
+
 		log_out.clicked.connect (() => {
 			new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
 			close ();
