@@ -16,55 +16,52 @@
  */
 
 public class Session.Widgets.UserBox : Gtk.Grid {
-	public string status;
-	public string username;
-	public string fullname;
+	public string status = null;
+	public string username = null;
+	public string fullname = null;
+	public string iconfile = null;
 
 	private Gtk.Label fullname_label;
 	private Gtk.Label status_label;
 
 	public Gdk.Pixbuf pixbuf;
 
-	public Gtk.Image? image;
+	public Gtk.Image? image; 
+	
+	public UserBox (string fullname_, string username_, string iconfile_ = "", string status = "Logged in") {
+		fullname = fullname_;
+		username = username_;
 
-	public UserBox (string fullname_ = "", string username_ = "", string iconfile_ = "") {
-		username = GLib.Environment.get_user_name ();
-		fullname = GLib.Environment.get_real_name ();
+		if (iconfile_ == "")
+			iconfile = @"/var/lib/AccountsService/icons/$username";
+		else
+			iconfile = iconfile_;
 
-		status = _(@"Logged In");
+		this.status = status;
 
 		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
 		fullname_label = new Gtk.Label ("<b>" + fullname + "</b>");
 		status_label = new Gtk.Label (status);
-
+ 
 		try {
-			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$username");
+			pixbuf = new Gdk.Pixbuf.from_file (iconfile);
 			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
+
 		} catch (Error e) {
 			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
-			//warning (e.message);
 		}
-		
+
 		fullname_label.use_markup = true;
 		fullname_label.get_style_context ().add_class ("h3");
 		fullname_label.valign = Gtk.Align.END;
 		fullname_label.halign = Gtk.Align.START;
-		//status_label.get_style_context ().add_class ("h3");
+
 		status_label.halign = Gtk.Align.START;
 
-//		if (pixbuf != null) { //Using user image
-//			picture_frame.add (image);
-//			picture_frame.set_border_width (0);
-//			picture_frame.set_margin_right (6);
-//			picture_frame.set_margin_top (6);
-//			picture_frame.set_shadow_type (Gtk.ShadowType.ETCHED_OUT);
-//			this.attach (picture_frame, 0, 0, 3, 3);
-//		} else {	//default image
-			image.set_margin_right (6);
-			image.set_margin_top (6);
-			this.attach (image, 0, 0, 3, 3);
-//		}
-				
+		image.set_margin_right (6);
+		image.set_margin_top (6);
+		
+		this.attach (image, 0, 0, 3, 3);
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
 

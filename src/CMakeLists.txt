@@ -16,6 +16,7 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Indicator.vala
   Widgets/UserBox.vala
   Widgets/EndSessionDialog.vala
+  Services/User.vala
   ${CMAKE_CURRENT_BINARY_DIR}/config.vala
 PACKAGES
   gio-2.0

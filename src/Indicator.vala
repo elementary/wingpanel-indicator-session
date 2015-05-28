@@ -25,15 +25,15 @@ interface LockManager : Object {
 	public abstract void Lock () throws IOError;
 }
 
-[DBus (name = "org.freedesktop.DBus.Properties")]
-interface Properties : Object {
-	public abstract Variant Get (string interface, string propname) throws IOError;
-	public abstract void Set (string interface, string propname, Variant value) throws IOError;
+[DBus (name = "org.freedesktop.Accounts")]
+interface UserManager : Object {
+	public abstract string[] ListCachedUsers () throws IOError;
 }
 
 public class Session.Indicator : Wingpanel.Indicator {
 	private SuspendManager suspend_manager;
 	private LockManager lock_manager;
+	private UserManager user_manager;
 
 	private Wingpanel.Widgets.DynamicIcon dynamic_icon;
 
@@ -84,12 +84,13 @@ public class Session.Indicator : Wingpanel.Indicator {
 			shutdown = new Wingpanel.Widgets.IndicatorButton (_("Shutdown"));
 			suspend = new Wingpanel.Widgets.IndicatorButton (_("Suspend"));
 
-			user_box = new Session.Widgets.UserBox ();
+			user_box = new Session.Widgets.UserBox (GLib.Environment.get_real_name () + " ", GLib.Environment.get_user_name ());
 
 			var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
 			var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
 
 			main_grid.add (user_box);
+			get_users ();
 			main_grid.add (separator1);
 			main_grid.add (lock_screen);
 			main_grid.add (log_out);
@@ -107,7 +108,26 @@ public class Session.Indicator : Wingpanel.Indicator {
 	}
 
 	private void get_users () {
-		
+		try {
+			user_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
+		} catch (IOError e) {
+			stderr.printf ("ERROR: %s\n", e.message);
+		}
+
+		var current_user = GLib.Environment.get_user_name ();
+		var users = user_manager.ListCachedUsers ();
+
+		foreach (string user_address in users) {
+			var user = new Session.Services.User (user_address);
+			user.update_properties ();
+			user.update_properties ();
+
+			if (user.user_name != current_user) {
+				//TODO Check logged in users
+				var userbox = new Session.Widgets.UserBox (user.real_name, user.user_name, user.user_pic, "Logged off");
+				main_grid.add (userbox);
+			}
+		}
 	}
 
 	public void connections () {
