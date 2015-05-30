@@ -16,6 +16,9 @@
  */
 
 public class Session.Widgets.UserBox : Gtk.Grid {
+	private const string LOGGED_IN = _("Logged in");
+	private const string LOGGED_OFF = _("Logged out");
+
 	public string status = null;
 	public string username = null;
 	public string fullname = null;
@@ -26,8 +29,8 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 	public Gdk.Pixbuf pixbuf;
 
-	public Gtk.Image? image; 
-	
+	public Gtk.Image? image;
+
 	public UserBox (string fullname_, string username_, string iconfile_ = "", string status = "Logged in") {
 		fullname = fullname_;
 		username = username_;
@@ -39,10 +42,9 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 		this.status = status;
 
-		var picture_frame = new Gtk.AspectFrame (null, 0, 0, 1, true);
 		fullname_label = new Gtk.Label ("<b>" + fullname + "</b>");
 		status_label = new Gtk.Label (status);
- 
+
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (iconfile);
 			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
@@ -60,7 +62,7 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 		image.set_margin_right (6);
 		image.set_margin_top (6);
-		
+
 		this.attach (image, 0, 0, 3, 3);
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
@@ -71,12 +73,21 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		this.set_margin_end (6);
 	}
 
-	public void update () {
+	public void update (string? name, string icon) {
+		this.fullname_label.label = "<b>" + name + "</b>";
+		
 		try {
-			pixbuf = new Gdk.Pixbuf.from_file (@"/var/lib/AccountsService/icons/$username");
-			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
+			pixbuf = new Gdk.Pixbuf.from_file (icon);
+			image.set_from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
 		} catch (Error e){
-			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
+			image.set_from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 		}
 	}
+	
+	public void update_state (bool logged_in) {
+		if (logged_in)
+			status_label.label = LOGGED_IN;
+		else 
+			status_label.label = LOGGED_OFF;
+	}	
 }

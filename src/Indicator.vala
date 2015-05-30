@@ -28,6 +28,7 @@ interface LockManager : Object {
 [DBus (name = "org.freedesktop.Accounts")]
 interface UserManager : Object {
 	public abstract string[] ListCachedUsers () throws IOError;
+	public signal void UserAdded (string user_path);
 }
 
 public class Session.Indicator : Wingpanel.Indicator {
@@ -43,6 +44,9 @@ public class Session.Indicator : Wingpanel.Indicator {
 	private Wingpanel.Widgets.IndicatorButton shutdown;
 
 	private Session.Widgets.UserBox user_box;
+
+	private Wingpanel.Widgets.IndicatorSeparator separator1;
+	private Wingpanel.Widgets.IndicatorSeparator separator2;
 
 	private Gtk.Grid main_grid;
 
@@ -84,12 +88,12 @@ public class Session.Indicator : Wingpanel.Indicator {
 			shutdown = new Wingpanel.Widgets.IndicatorButton (_("Shutdown"));
 			suspend = new Wingpanel.Widgets.IndicatorButton (_("Suspend"));
 
-			user_box = new Session.Widgets.UserBox (GLib.Environment.get_real_name () + " ", GLib.Environment.get_user_name ());
+			//user_box = new Session.Widgets.UserBox (GLib.Environment.get_real_name () + " ", GLib.Environment.get_user_name ());
 
-			var separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
-			var separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
+			separator1 = new Wingpanel.Widgets.IndicatorSeparator ();
+			separator2 = new Wingpanel.Widgets.IndicatorSeparator ();
 
-			main_grid.add (user_box);
+			//main_grid.add (user_box);
 			get_users ();
 			main_grid.add (separator1);
 			main_grid.add (lock_screen);
@@ -108,29 +112,50 @@ public class Session.Indicator : Wingpanel.Indicator {
 	}
 
 	private void get_users () {
+		string[] users;
 		try {
 			user_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
+			
+			users = user_manager.ListCachedUsers ();
+			
+			foreach (string user_address in users) {
+				new_user (user_address);
+			}
+			
 		} catch (IOError e) {
 			stderr.printf ("ERROR: %s\n", e.message);
 		}
+	}
 
-		var current_user = GLib.Environment.get_user_name ();
-		var users = user_manager.ListCachedUsers ();
-
-		foreach (string user_address in users) {
-			var user = new Session.Services.User (user_address);
-			user.update_properties ();
-			user.update_properties ();
-
-			if (user.user_name != current_user) {
-				//TODO Check logged in users
-				var userbox = new Session.Widgets.UserBox (user.real_name, user.user_name, user.user_pic, "Logged off");
-				main_grid.add (userbox);
-			}
-		}
+	public void new_user (string user_address, bool menu_generated = false) {
+		var user = new Session.Services.User (user_address);
+		
+		user.update_properties ();
+		user.update_properties ();
+		
+		var userbox = new Session.Widgets.UserBox (user.real_name, user.user_name, user.icon_file, "Logged off");
+		if (!menu_generated) 
+			main_grid.add (userbox);
+		else 
+			main_grid.attach_next_to (userbox, separator1, Gtk.PositionType.TOP, 1, 1);
+		
+		user.properties_updated.connect (() => {
+			if (user.locked == false) 
+				userbox.visible = true;
+			else 
+				userbox.visible = false;
+				
+			userbox.update (user.real_name, user.icon_file);
+			userbox.update_state (user.state);
+		});
+		user.update_properties ();
 	}
 
 	public void connections () {
+		user_manager.UserAdded.connect ((user_path) => {
+			new_user (user_path, true);
+		});
+	
 		lock_screen.clicked.connect (() => {
 			try {
 				lock_manager.Lock ();
