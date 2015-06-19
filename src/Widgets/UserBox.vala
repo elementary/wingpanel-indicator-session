@@ -31,32 +31,31 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 	public Gtk.Image? image;
 
-	public UserBox (string fullname_, string username_, string iconfile_ = "", string status = "Logged in") {
-		fullname = fullname_;
-		username = username_;
+	public UserBox (string fullname, string username, string iconfile_ = "", string status = "Logged in") {
+		// stderr.printf (@"Found user: $fullname\n");
 
-		if (iconfile_ == "")
-			iconfile = @"/var/lib/AccountsService/icons/$username";
-		else
+		if (iconfile_ == "") {
+			iconfile = @"/var/lib/AccountsService/icons/$username"; }
+		else {
 			iconfile = iconfile_;
+		}
 
 		this.status = status;
 
 		fullname_label = new Gtk.Label ("<b>" + fullname + "</b>");
 		status_label = new Gtk.Label (status);
 
-		try {
-			pixbuf = new Gdk.Pixbuf.from_file (iconfile);
-			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
-
-		} catch (Error e) {
-			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
-		}
-
 		fullname_label.use_markup = true;
 		fullname_label.get_style_context ().add_class ("h3");
 		fullname_label.valign = Gtk.Align.END;
 		fullname_label.halign = Gtk.Align.START;
+
+		try {
+			pixbuf = new Gdk.Pixbuf.from_file (iconfile);
+			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
+		} catch (Error e) {
+			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
+		}
 
 		status_label.halign = Gtk.Align.START;
 
@@ -73,9 +72,9 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 		this.set_margin_end (6);
 	}
 
-	public void update (string? name, string icon) {
-		this.fullname_label.label = "<b>" + name + "</b>";
-		
+	public void update (string? fullname, string icon) {
+		this.fullname_label.set_label ("<b>" + fullname + "</b>");
+
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (icon);
 			image.set_from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
@@ -83,11 +82,11 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 			image.set_from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 		}
 	}
-	
+
 	public void update_state (bool logged_in) {
 		if (logged_in)
 			status_label.label = LOGGED_IN;
-		else 
+		else
 			status_label.label = LOGGED_OFF;
-	}	
+	}
 }
