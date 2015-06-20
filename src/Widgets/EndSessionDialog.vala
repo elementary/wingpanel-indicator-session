@@ -23,18 +23,11 @@ public enum Session.Widgets.EndSessionDialogType {
 	RESTART = 2
 }
 
-[DBus (name = "org.gnome.SessionManager")]
-interface SessionManager : Object {
-	public signal void SessionRunning ();
-	//public abstract bool CanShutdown () throws IOError;
-	public abstract void Logout (uint mode) throws IOError;
-	public abstract void RequestReboot () throws IOError;
-	public abstract void RequestShutdown () throws IOError;
-}
-
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 
 	private SessionManager session_manager;
+	
+	private SystemManager system_manager;
 
 	public EndSessionDialogType dialog_type { get; construct; }
 
@@ -45,6 +38,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 	construct {
 		try {
 			session_manager = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+			system_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
 		} catch (IOError e) {
 			stderr.printf ("%s\n", e.message);
 		}
@@ -102,7 +96,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 			var confirm_restart = add_button (_("Restart"), Gtk.ResponseType.OK) as Gtk.Button;
 			confirm_restart.clicked.connect (() => {
 				try {
-					session_manager.RequestReboot ();
+					system_manager.Reboot (false);
 				} catch (IOError e) {
 				  stderr.printf ("%s\n", e.message);
 				}
@@ -119,7 +113,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 		confirm.clicked.connect (() => {
 			if (dialog_type == EndSessionDialogType.RESTART	|| dialog_type == EndSessionDialogType.SHUTDOWN)
 				try {
-					session_manager.RequestShutdown ();
+					system_manager.PowerOff (false);
 				} catch (IOError e) {
 					stderr.printf ("%s\n", e.message);
 				}

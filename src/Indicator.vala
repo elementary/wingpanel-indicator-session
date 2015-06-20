@@ -15,24 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-[DBus (name = "org.freedesktop.login1.Manager")]
-interface SuspendManager : Object {
-	public abstract void Suspend (bool interactive) throws IOError;
-}
 
-[DBus (name = "org.freedesktop.ScreenSaver")]
-interface LockManager : Object {
-	public abstract void Lock () throws IOError;
-}
-
-[DBus (name = "org.freedesktop.Accounts")]
-interface UserManager : Object {
-	public abstract string[] ListCachedUsers () throws IOError;
-	public signal void UserAdded (string user_path);
-}
 
 public class Session.Indicator : Wingpanel.Indicator {
-	private SuspendManager suspend_manager;
+	private SystemManager suspend_manager;
 	private LockManager lock_manager;
 	private UserManager user_manager;
 

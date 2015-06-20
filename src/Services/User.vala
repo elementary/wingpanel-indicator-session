@@ -15,22 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-
-[DBus (name = "org.freedesktop.Accounts.User")]
-interface UserInterface : Object {
-	public signal void Changed ();
-}
-
-[DBus (name = "org.freedesktop.DBus.Properties")]
-interface Properties : Object {
-	public abstract Variant Get (string interface, string propname) throws IOError;
-	//public abstract void Set (string interface, string propname, Variant value) throws IOError;
-	public signal void PropertiesChanged ();
-}
-
-
-
 public class Session.Services.User : Object {
 	private const string ACCOUNTS_INTERFACE = "org.freedesktop.Accounts";
 	private const string USER_INTERFACE = "org.freedesktop.Accounts.User";
