@@ -1,0 +1,31 @@
+Source: wingpanel-indicator-session
+Section: x11
+Priority: optional
+Maintainer: Cody Garver <cody@elementary.io>
+Build-Depends: cmake,
+               debhelper (>= 9),
+               libaccountsservice-dev,
+               libgranite-dev,
+               libgtk-3-dev (>= 3.12),
+               libwingpanel-dev,
+               valac (>= 0.24)
+Standards-Version: 3.9.6
+Homepage: https://launchpad.net/wingpanel-indicator-session
+
+Package: wingpanel-indicator-session
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Enhances: wingpanel
+Description: WingPanel Session Indicator
+ WingPanel Session Indicator
+
+Package: wingpanel-indicator-session-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: wingpanel-indicator-session (= ${binary:Version}), ${misc:Depends}
+Enhances: wingpanel-indicator-session
+Description: WingPanel Session Indicator (debugging symbols)
+ WingPanel Session Indicator
+ .
+ This package contains debugging symbols for wingpanel-indicator-session.
