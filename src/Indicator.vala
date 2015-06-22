@@ -24,7 +24,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 	private Wingpanel.Widgets.OverlayIcon indicator_icon;
 	//private Gtk.Label dynamic_icon;
-	
+
 	private Wingpanel.Widgets.Button lock_screen;
 	private Wingpanel.Widgets.Button log_out;
 	private Wingpanel.Widgets.Button suspend;
@@ -36,7 +36,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 	private Gtk.Grid main_grid;
 
 	private const string icon_name = "system-shutdown-symbolic";
-	
+
 	private Wingpanel.IndicatorManager.ServerType server_type;
 
 
@@ -51,7 +51,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 		if (indicator_icon == null) {
 			indicator_icon = new Wingpanel.Widgets.OverlayIcon (icon_name);
 		}
-		
+
 		return indicator_icon;
 	}
 
@@ -80,22 +80,22 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 			separator1 = new Wingpanel.Widgets.Separator ();
 			separator2 = new Wingpanel.Widgets.Separator ();
-						
+
 			if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
-				get_users (); 
-				main_grid.add (separator1); 
+				get_users ();
+				main_grid.add (separator1);
 				main_grid.add (lock_screen);
 				main_grid.add (log_out);
 				main_grid.add (separator2);
 			}
-			
+
 			main_grid.add (suspend);
 			main_grid.add (shutdown);
 
 			main_grid.set_margin_top (6);
 
 			connections ();
-		} 
+		}
 
 		this.visible = true;
 		return main_grid;
@@ -104,22 +104,22 @@ public class Session.Indicator : Wingpanel.Indicator {
 	private void get_users () {
 		string[] users;
 		string current_user = GLib.Environment.get_user_name ();
-		
+
 		try {
 			user_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
-			
+
 			users = user_manager.ListCachedUsers ();
-			
-			//look for current user's user adress			
-			foreach (string user_address in users) {
+
+			//look for current user's user adress
+			foreach (var user_address in users) {
 				new_user (user_address, current_user, true);
 			}
-			
+
 			//load the rest of the users
 			foreach (string user_address in users) {
 				new_user (user_address, current_user, false);
 			}
-			
+
 		} catch (IOError e) {
 			stderr.printf ("ERROR: %s\n", e.message);
 		}
@@ -127,38 +127,39 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 	public void new_user (string user_address, string? current_user, bool searching, bool from_user_added = false) {
 		var user = new Session.Services.User (user_address);
-		
+
 		user.update_properties ();
 		user.update_properties ();
-		
-		var userbox = new Session.Widgets.UserBox (user.real_name, user.user_name, user.icon_file, "Logged off");
-		
+
+		var userbox = new Session.Widgets.Userbox (user.real_name, user.user_name, user.icon_file);
+
 		user.properties_updated.connect (() => {
-			if (user.locked == false) 
+			if (user.locked == false)
 				userbox.visible = true;
-			else 
-				userbox.visible = false;
+			else
+				userbox.visible = false; 
 				
 			userbox.update (user.real_name, user.icon_file);
 			userbox.update_state (user.state);
 		});
-		
+
+		user.update_properties ();
 		user.update_properties ();
 		
-		if (searching == true && current_user == user.user_name) 
+		
+		if (searching == true && current_user == user.user_name)
 			main_grid.add (userbox);
 		else if (searching == false && current_user != user.user_name)
 			main_grid.add (userbox);
-		else 
+		else
 			userbox.destroy ();
-			
 	}
 
 	public void connections () {
 		user_manager.UserAdded.connect ((user_path) => {
 			new_user (user_path, GLib.Environment.get_user_name (), false, true);
 		});
-	
+
 		lock_screen.clicked.connect (() => {
 			try {
 				lock_manager.Lock ();
@@ -194,7 +195,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 }
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
-	debug ("Activating Sample Indicator");	
+	debug ("Activating Sample Indicator");
 	var indicator = new Session.Indicator (server_type);
 	return indicator;
 }

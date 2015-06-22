@@ -15,32 +15,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Session.Widgets.UserBox : Gtk.Grid {
+public class Session.Widgets.Userbox : Gtk.Grid {
 	private const string LOGGED_IN = _("Logged in");
 	private const string LOGGED_OFF = _("Logged out");
 
-	public string status = null;
-	public string username = null;
-	public string fullname = null;
-	public string iconfile = null;
+	private const int ICON_SIZE = 48;
+	private const int MAX_WIDTH_TITLE = 200;
+
+	private string status = "";
+	private string iconfile = null;
 
 	private Gtk.Label fullname_label;
 	private Gtk.Label status_label;
 
 	public Gdk.Pixbuf pixbuf;
+	public Gdk.Pixbuf pixbuf_mask;
 
 	public Gtk.Image? image;
+	public Gtk.Image? image_mask;
+	public Gtk.Overlay overlay;
 
-	public UserBox (string fullname, string username, string iconfile_ = "", string status = "Logged in") {
-		// stderr.printf (@"Found user: $fullname\n");
+	public Userbox (string fullname, string username, string iconfile_ = "") {
+		//stderr.printf (@"Found user: $fullname : $username\n");
 
 		if (iconfile_ == "") {
 			iconfile = @"/var/lib/AccountsService/icons/$username"; }
 		else {
 			iconfile = iconfile_;
 		}
-
-		this.status = status;
 
 		fullname_label = new Gtk.Label ("<b>" + fullname + "</b>");
 		status_label = new Gtk.Label (status);
@@ -52,32 +54,60 @@ public class Session.Widgets.UserBox : Gtk.Grid {
 
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (iconfile);
-			image = new Gtk.Image.from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
+			image = new Gtk.Image.from_pixbuf ( mask_pixbuf (pixbuf));
+
 		} catch (Error e) {
 			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 		}
 
 		status_label.halign = Gtk.Align.START;
-
-		image.set_margin_right (6);
-		image.set_margin_top (6);
+		image.set_margin_end (6);
 
 		this.attach (image, 0, 0, 3, 3);
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
 
 		this.set_margin_top (0);
-		this.set_margin_bottom (5);
-		this.set_margin_start (6);
-		this.set_margin_end (6);
+		this.set_margin_bottom (0);
+		this.set_margin_start (3);
+		this.set_margin_end (0);
 	}
+
+	public Gdk.Pixbuf? mask_pixbuf (Gdk.Pixbuf pixbuf) {
+        var size = ICON_SIZE;
+        var mask_offset = 4;
+        var mask_size_offset = mask_offset * 2;
+        var mask_size = ICON_SIZE;
+        var offset_x = mask_offset;
+        var offset_y = mask_offset + 1;
+        size = size - mask_size_offset;
+
+        var input = pixbuf.scale_simple (size, size, Gdk.InterpType.BILINEAR);
+        var surface = new Cairo.ImageSurface (Cairo.Format.ARGB32, mask_size, mask_size);
+        var cr = new Cairo.Context (surface);
+
+        Granite.Drawing.Utilities.cairo_rounded_rectangle (cr,
+            offset_x, offset_y, size, size, 4);
+        cr.clip ();
+
+        Gdk.cairo_set_source_pixbuf (cr, input, offset_x, offset_y);
+        cr.paint ();
+
+        cr.reset_clip ();
+
+        var mask = new Cairo.ImageSurface.from_png ("/usr/share/gala/image-mask.png");
+        cr.set_source_surface (mask, 0, 0);
+        cr.paint ();
+
+        return Gdk.pixbuf_get_from_surface (surface, 0, 0, mask_size, mask_size);
+    }
 
 	public void update (string? fullname, string icon) {
 		this.fullname_label.set_label ("<b>" + fullname + "</b>");
-
+				
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (icon);
-			image.set_from_pixbuf (pixbuf.scale_simple (40, 40, Gdk.InterpType.BILINEAR));
+			image.set_from_pixbuf (mask_pixbuf (pixbuf));
 		} catch (Error e){
 			image.set_from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 		}
