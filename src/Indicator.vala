@@ -16,14 +16,14 @@
  */
 
 
-
 public class Session.Indicator : Wingpanel.Indicator {
+	private signal void delete_user (ObjectPath user_path);
+	
 	private SystemManager suspend_manager;
 	private LockManager lock_manager;
 	private UserManager user_manager;
 
 	private Wingpanel.Widgets.OverlayIcon indicator_icon;
-	//private Gtk.Label dynamic_icon;
 
 	private Wingpanel.Widgets.Button lock_screen;
 	private Wingpanel.Widgets.Button log_out;
@@ -34,12 +34,12 @@ public class Session.Indicator : Wingpanel.Indicator {
 	private Wingpanel.Widgets.Separator separator2;
 
 	private Gtk.Grid main_grid;
+	private Gtk.Grid user_grid;
 
 	private const string icon_name = "system-shutdown-symbolic";
-
+	
 	private Wingpanel.IndicatorManager.ServerType server_type;
-
-
+	
 	public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
 		Object (code_name: Wingpanel.Indicator.SESSION,
 				display_name: _("Session"),
@@ -72,6 +72,9 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 			main_grid = new Gtk.Grid ();
 			main_grid.set_orientation (Gtk.Orientation.VERTICAL);
+			
+			user_grid = new Gtk.Grid ();
+			user_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
 			log_out = new Wingpanel.Widgets.Button (_("Log Out"));
 			lock_screen = new Wingpanel.Widgets.Button (_("Lock"));
@@ -83,6 +86,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 			if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
 				get_users ();
+				main_grid.add (user_grid);
 				main_grid.add (separator1);
 				main_grid.add (lock_screen);
 				main_grid.add (log_out);
@@ -125,13 +129,13 @@ public class Session.Indicator : Wingpanel.Indicator {
 		}
 	}
 
-	public void new_user (string user_address, string? current_user, bool searching, bool from_user_added = false) {
+	public void new_user (string user_address, string? current_user, bool searching = false) {
 		var user = new Session.Services.User (user_address);
 
 		user.update_properties ();
 		user.update_properties ();
 
-		var userbox = new Session.Widgets.Userbox (user.real_name, user.user_name, user.icon_file);
+		var userbox = new Session.Widgets.Userbox (user_address, user.real_name, user.user_name, user.icon_file);
 
 		user.properties_updated.connect (() => {
 			if (user.locked == false)
@@ -143,21 +147,31 @@ public class Session.Indicator : Wingpanel.Indicator {
 			userbox.update_state (user.state);
 		});
 
+		delete_user.connect ((user_path) => {
+			if (userbox.user_path == user_path) {
+				user_grid.remove (userbox);//.destroy ();
+			}
+		});
+
 		user.update_properties ();
 		user.update_properties ();
 		
 		
 		if (searching == true && current_user == user.user_name)
-			main_grid.add (userbox);
+			user_grid.add (userbox);
 		else if (searching == false && current_user != user.user_name)
-			main_grid.add (userbox);
+			user_grid.add (userbox);
 		else
 			userbox.destroy ();
 	}
 
 	public void connections () {
 		user_manager.UserAdded.connect ((user_path) => {
-			new_user (user_path, GLib.Environment.get_user_name (), false, true);
+			new_user (user_path, GLib.Environment.get_user_name ());
+		});
+		
+		user_manager.UserDeleted.connect ((user_path) => {
+			delete_user (user_path);
 		});
 
 		lock_screen.clicked.connect (() => {

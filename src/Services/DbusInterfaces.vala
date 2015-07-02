@@ -19,7 +19,8 @@
 [DBus (name = "org.freedesktop.Accounts")]
 interface UserManager : Object {
 	public abstract string[] ListCachedUsers () throws IOError;
-	public signal void UserAdded (string user_path);
+	public signal void UserAdded (ObjectPath user_path);
+	public signal void UserDeleted (ObjectPath user_path);
 }
 
 // Power and system control

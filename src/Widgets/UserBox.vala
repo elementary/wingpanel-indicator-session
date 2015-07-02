@@ -24,6 +24,7 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 
 	private string status = "";
 	private string iconfile = null;
+	public string user_path = null;
 
 	private Gtk.Label fullname_label;
 	private Gtk.Label status_label;
@@ -35,9 +36,10 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 	public Gtk.Image? image_mask;
 	public Gtk.Overlay overlay;
 
-	public Userbox (string fullname, string username, string iconfile_ = "") {
+	public Userbox (string user_path, string fullname, string username, string iconfile_ = "") {
 		//stderr.printf (@"Found user: $fullname : $username\n");
-
+		this.user_path = user_path;
+		
 		if (iconfile_ == "") {
 			iconfile = @"/var/lib/AccountsService/icons/$username"; }
 		else {
