@@ -76,9 +76,9 @@ public class Session.Indicator : Wingpanel.Indicator {
 			user_grid = new Gtk.Grid ();
 			user_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-			log_out = new Wingpanel.Widgets.Button (_("Log Out"));
+			log_out = new Wingpanel.Widgets.Button (_("Log Out")+ "…");
 			lock_screen = new Wingpanel.Widgets.Button (_("Lock"));
-			shutdown = new Wingpanel.Widgets.Button (_("Shutdown"));
+			shutdown = new Wingpanel.Widgets.Button (_("Shutdown")+ "…");
 			suspend = new Wingpanel.Widgets.Button (_("Suspend"));
 
 			separator1 = new Wingpanel.Widgets.Separator ();
