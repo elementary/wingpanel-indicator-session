@@ -41,8 +41,8 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 		this.user_path = user_path;
 		
 		if (iconfile_ == "") {
-			iconfile = @"/var/lib/AccountsService/icons/$username"; }
-		else {
+			iconfile = @"/var/lib/AccountsService/icons/$username"; 
+		} else {
 			iconfile = iconfile_;
 		}
 

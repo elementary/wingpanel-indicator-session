@@ -18,7 +18,7 @@
 
 public class Session.Indicator : Wingpanel.Indicator {
 	private signal void delete_user (ObjectPath user_path);
-	
+
 	private SystemManager suspend_manager;
 	private LockManager lock_manager;
 	private UserManager user_manager;
@@ -37,9 +37,9 @@ public class Session.Indicator : Wingpanel.Indicator {
 	private Gtk.Grid user_grid;
 
 	private const string icon_name = "system-shutdown-symbolic";
-	
+
 	private Wingpanel.IndicatorManager.ServerType server_type;
-	
+
 	public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
 		Object (code_name: Wingpanel.Indicator.SESSION,
 				display_name: _("Session"),
@@ -72,7 +72,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 			main_grid = new Gtk.Grid ();
 			main_grid.set_orientation (Gtk.Orientation.VERTICAL);
-			
+
 			user_grid = new Gtk.Grid ();
 			user_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
@@ -111,8 +111,11 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 		try {
 			user_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
-
 			users = user_manager.ListCachedUsers ();
+
+			if (GLib.Environment.get_real_name () == "Guest") {
+				guest_user (true);
+			}
 
 			//look for current user's user adress
 			foreach (var user_address in users) {
@@ -122,6 +125,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 			//load the rest of the users
 			foreach (string user_address in users) {
 				new_user (user_address, current_user, false);
+			}
+
+			if (GLib.Environment.get_real_name () != "Guest") {
+				guest_user (false);
 			}
 
 		} catch (IOError e) {
@@ -141,22 +148,22 @@ public class Session.Indicator : Wingpanel.Indicator {
 			if (user.locked == false)
 				userbox.visible = true;
 			else
-				userbox.visible = false; 
-				
+				userbox.visible = false;
+
 			userbox.update (user.real_name, user.icon_file);
 			userbox.update_state (user.state);
 		});
 
 		delete_user.connect ((user_path) => {
 			if (userbox.user_path == user_path) {
-				user_grid.remove (userbox);//.destroy ();
+				user_grid.remove (userbox);
 			}
 		});
 
 		user.update_properties ();
 		user.update_properties ();
-		
-		
+
+
 		if (searching == true && current_user == user.user_name)
 			user_grid.add (userbox);
 		else if (searching == false && current_user != user.user_name)
@@ -165,11 +172,30 @@ public class Session.Indicator : Wingpanel.Indicator {
 			userbox.destroy ();
 	}
 
+	public void guest_user (bool logged_in) {
+		string GUEST_ADDRESS = "/org/freedesktop/login1/user/118";
+		var userbox = new Session.Widgets.Userbox (GUEST_ADDRESS, _("Guest"), "guest_user");
+		userbox.update_state (logged_in);
+
+		if (logged_in) {
+			var user = new Session.Services.User (GUEST_ADDRESS);
+			user.update_properties ();
+			user.update_properties ();
+
+			user.properties_updated.connect (() => {
+				userbox.update (user.real_name, user.icon_file);
+			});
+		}
+		
+		userbox.visible = true;
+		user_grid.add (userbox);
+	}
+
 	public void connections () {
 		user_manager.UserAdded.connect ((user_path) => {
 			new_user (user_path, GLib.Environment.get_user_name ());
 		});
-		
+
 		user_manager.UserDeleted.connect ((user_path) => {
 			delete_user (user_path);
 		});
