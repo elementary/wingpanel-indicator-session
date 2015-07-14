@@ -95,6 +95,9 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 
 				var style_context = imagebox.get_style_context ();
 				var border_radius = style_context.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, Gtk.StateFlags.NORMAL);
+				if (border_radius.get_int () >= width/2) {
+					border_radius.set_int (width / 2);
+				}
 
 				Granite.Drawing.Utilities.cairo_rounded_rectangle (ctx, MARGIN, MARGIN, width, height, (int) border_radius);
 				Gdk.cairo_set_source_pixbuf (ctx, image, MARGIN, MARGIN);
