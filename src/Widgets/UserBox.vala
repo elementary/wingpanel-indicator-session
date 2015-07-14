@@ -66,8 +66,8 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 		}
 
 		status_label.halign = Gtk.Align.START;
-		image.set_margin_end (12);
-		image.set_margin_start (12);
+		image.set_margin_end (9);
+		image.set_margin_start (9);
 
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
@@ -115,7 +115,7 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (icon);
-			avatar (pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR));
+			avatar (pixbuf.scale_simple (42, 42, Gdk.InterpType.BILINEAR));
 		} catch (Error e){
 			image.set_from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
 		}
