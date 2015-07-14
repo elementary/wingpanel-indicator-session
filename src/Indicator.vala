@@ -65,6 +65,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
 			try {
 				lock_manager = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
+				user_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
+
 			} catch (IOError e) {
 				stderr.printf ("%s\n", e.message);
 				lock_screen.set_sensitive (false);
@@ -85,8 +87,11 @@ public class Session.Indicator : Wingpanel.Indicator {
 			separator2 = new Wingpanel.Widgets.Separator ();
 
 			if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
+				main_grid.add (current_user ());
 				get_users ();
+
 				main_grid.add (user_grid);
+				main_grid.add (guest (false)); //TODO Check if guest_user is enabled
 				main_grid.add (separator1);
 				main_grid.add (lock_screen);
 				main_grid.add (log_out);
@@ -110,25 +115,13 @@ public class Session.Indicator : Wingpanel.Indicator {
 		string current_user = GLib.Environment.get_user_name ();
 
 		try {
-			user_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
 			users = user_manager.ListCachedUsers ();
-
-			if (GLib.Environment.get_real_name () == "Guest") {
-				guest_user (true);
-			}
-
-			//look for current user's user adress
-			foreach (var user_address in users) {
-				new_user (user_address, current_user, true);
-			}
 
 			//load the rest of the users
 			foreach (string user_address in users) {
-				new_user (user_address, current_user, false);
-			}
-
-			if (GLib.Environment.get_real_name () != "Guest") {
-				guest_user (false);
+				var user = new_user (user_address, current_user, false);
+				if (user != null)
+					user_grid.add (user);
 			}
 
 		} catch (IOError e) {
@@ -136,7 +129,34 @@ public class Session.Indicator : Wingpanel.Indicator {
 		}
 	}
 
-	public void new_user (string user_address, string? current_user, bool searching = false) {
+	public Session.Widgets.Userbox current_user () {
+		string[] users;
+		string current_user = GLib.Environment.get_user_name ();
+		Session.Widgets.Userbox user = null;
+
+		try {
+			users = user_manager.ListCachedUsers ();
+			if (GLib.Environment.get_real_name () == "Guest") {
+				user = guest (true);
+			}
+
+			//look for current user's user adress
+			foreach (var user_address in users) {
+				user = new_user (user_address, current_user, true);
+
+				if (user != null) {
+					break;
+				}
+			}
+
+		} catch (IOError e) {
+			stderr.printf ("ERROR: %s\n", e.message);
+		}
+
+		return user;
+	}
+
+	public Session.Widgets.Userbox? new_user (string user_address, string? current_user, bool searching = false) {
 		var user = new Session.Services.User (user_address);
 
 		user.update_properties ();
@@ -163,16 +183,15 @@ public class Session.Indicator : Wingpanel.Indicator {
 		user.update_properties ();
 		user.update_properties ();
 
-
 		if (searching == true && current_user == user.user_name)
-			user_grid.add (userbox);
+			return userbox;
 		else if (searching == false && current_user != user.user_name)
-			user_grid.add (userbox);
+			return userbox;
 		else
-			userbox.destroy ();
+			return null;
 	}
 
-	public void guest_user (bool logged_in) {
+	public Session.Widgets.Userbox? guest (bool logged_in) {
 		string GUEST_ADDRESS = "/org/freedesktop/login1/user/118";
 		var userbox = new Session.Widgets.Userbox (GUEST_ADDRESS, _("Guest"), "guest_user");
 		userbox.update_state (logged_in);
@@ -186,14 +205,17 @@ public class Session.Indicator : Wingpanel.Indicator {
 				userbox.update (user.real_name, user.icon_file);
 			});
 		}
-		
+
 		userbox.visible = true;
-		user_grid.add (userbox);
+		return userbox;
 	}
 
 	public void connections () {
 		user_manager.UserAdded.connect ((user_path) => {
-			new_user (user_path, GLib.Environment.get_user_name ());
+			var user = new_user (user_path, GLib.Environment.get_user_name ());
+			if (user != null) {
+				user_grid.add (user);
+			}
 		});
 
 		user_manager.UserDeleted.connect ((user_path) => {
