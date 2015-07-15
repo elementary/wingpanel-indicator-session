@@ -43,9 +43,9 @@ interface SystemManager : Object {
 
 [DBus (name = "org.freedesktop.DisplayManager.Seat")]
 interface SeatManager : Object {
-	public abstract void SwitchToGreeter () throws IOError;
-	public abstract void SwitchToGuest (string session_name) throws IOError;
-	public abstract void SwitchToUser (string username, string session_name) throws IOError;
+	//public abstract void SwitchToGreeter () throws IOError;
+	//public abstract void SwitchToGuest (string session_name) throws IOError;
+	//public abstract void SwitchToUser (string username, string session_name) throws IOError;
 }
 
 // for User.vala, to get the user properties
