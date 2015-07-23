@@ -232,12 +232,16 @@ public class Session.Indicator : Wingpanel.Indicator {
 		});
 
 		log_out.clicked.connect (() => {
-			new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
+			var dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
+			dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+			dialog.show_all ();
 			close ();
 		});
 
 		shutdown.clicked.connect (() => {
-			new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
+			var dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
+			dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+			dialog.show_all ();
 			close ();
 		});
 
