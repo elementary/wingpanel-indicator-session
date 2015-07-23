@@ -133,8 +133,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 		var action_area = get_action_area ();
 		action_area.margin_right = 6;
 		action_area.margin_bottom = 6;
-
-		this.show_all ();
 	}
 }
 
