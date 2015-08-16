@@ -50,21 +50,20 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 
 		status_label = new Gtk.Label (LOGGED_OFF);
 		status_label.halign = Gtk.Align.START;
-
+		avatar = new Session.Widgets.Avatar ();
 		try {
 			var pixbuf = new Gdk.Pixbuf.from_file (iconfile);
 			pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);
-			avatar = new Session.Widgets.Avatar (pixbuf, 12);
-			this.attach (avatar, 0, 0, 3, 3);
-
+			avatar.pixbuf = pixbuf;
+			avatar.set_margin_start (8);
+			avatar.set_margin_end (8);
 		} catch (Error e) {
-			image = new Gtk.Image.from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
-			this.attach (image, 0, 0, 3, 3);
+			avatar.show_default (ICON_SIZE + 4);
+			avatar.set_margin_start (6);
+			avatar.set_margin_end (6);
 		}
-
-		image.set_margin_end (9);
-		image.set_margin_start (9);
-
+		
+		this.attach (avatar, 0, 0, 3, 3);
 		this.attach (fullname_label, 3, 0, 2, 1);
 		this.attach (status_label, 3, 1, 2, 1);
 
@@ -80,10 +79,13 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 		try {
 			var pixbuf = new Gdk.Pixbuf.from_file (icon);
 			pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);
-			avatar.set_pixbuf (pixbuf);
-
+			avatar.pixbuf = pixbuf;
+			avatar.set_margin_start (8);
+			avatar.set_margin_end (8);
 		} catch (Error e){
-			image.set_from_icon_name ("avatar-default", Gtk.IconSize.DIALOG);
+			avatar.show_default (ICON_SIZE + 4);
+			avatar.set_margin_start (6);
+			avatar.set_margin_end (6);
 		}
 	}
 
