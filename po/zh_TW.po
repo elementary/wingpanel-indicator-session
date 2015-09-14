@@ -3,67 +3,67 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-26 19:39+0200\n"
-"PO-Revision-Date: 2015-08-20 21:20+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-09-13 14:25+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-21 05:46+0000\n"
-"X-Generator: Launchpad (build 17690)\n"
+"X-Launchpad-Export-Date: 2015-09-14 06:04+0000\n"
+"X-Generator: Launchpad (build 17720)\n"
 
 #: ../src/Widgets/UserBox.vala:34
 msgid "Logged in"
-msgstr ""
+msgstr "已登入"
 
 #: ../src/Indicator.vala:53
 msgid "Session"
-msgstr ""
+msgstr "作業階段"
 
 #: ../src/Indicator.vala:54
 msgid "The session indicator"
-msgstr ""
+msgstr "作業階段指示器"
 
 #: ../src/Indicator.vala:82
 msgid "Log Out"
-msgstr ""
+msgstr "登出"
 
 #: ../src/Indicator.vala:83
 msgid "Lock"
-msgstr ""
+msgstr "鎖定"
 
 #: ../src/Indicator.vala:84
 msgid "Shutdown"
-msgstr ""
+msgstr "關機"
 
 #: ../src/Indicator.vala:85
 msgid "Suspend"
-msgstr ""
+msgstr "暫停"
 
 #: ../src/Widgets/EndSessionDialog.vala:72
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "您確定要登出？"
 
 #: ../src/Widgets/EndSessionDialog.vala:73
 msgid "This will close all open applications."
-msgstr ""
+msgstr "這會關閉所有開啟的應用程式。"
 
 #: ../src/Widgets/EndSessionDialog.vala:79
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "您確定要關機？"
 
 #: ../src/Widgets/EndSessionDialog.vala:80
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "這會關閉所有開啟的應用程式並關閉此裝置。"
 
 #: ../src/Widgets/EndSessionDialog.vala:81
 msgid "Shut Down"
-msgstr ""
+msgstr "關機"
 
 #: ../src/Widgets/EndSessionDialog.vala:114
 msgid "Restart"
-msgstr ""
+msgstr "重新啟動"
 
 #: ../src/Widgets/EndSessionDialog.vala:121
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
