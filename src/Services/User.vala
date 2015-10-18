@@ -19,7 +19,7 @@ public class Session.Services.User : Object {
 	private const string ACCOUNTS_INTERFACE = "org.freedesktop.Accounts";
 	private const string USER_INTERFACE = "org.freedesktop.Accounts.User";
 	private const string LOGIN_INTERFACE = "org.freedesktop.login1";
-	private const string STATE = "/org/freedesktop/login1/user/";
+	private const string MANAGER = "/org/freedesktop/login1";
 
 	private string user_path;
 	public string real_name;
@@ -71,8 +71,12 @@ public class Session.Services.User : Object {
 		
 		if (state_properties == null) {
 			try {
-				state_properties = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, STATE + Uid.to_string (), DBusProxyFlags.NONE);
-				
+				SystemManager manager = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, MANAGER, DBusProxyFlags.NONE);
+				string? user_object_path = manager.GetUser ((uint32)Uid);
+				if (user_object_path != null)
+					state_properties = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, user_object_path, DBusProxyFlags.NONE);
+				else
+					return false;
 			} catch (Error e) {
 				return false;
 			}
