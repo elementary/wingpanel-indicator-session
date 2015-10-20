@@ -24,7 +24,7 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 	private string iconfile = null;
 	public string user_path = null;
 
-	private Session.Widgets.Avatar avatar;
+	private Granite.Widgets.Avatar avatar;
 	private Gtk.Label fullname_label;
 	private Gtk.Label status_label;
 
@@ -50,7 +50,7 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 
 		status_label = new Gtk.Label (LOGGED_OFF);
 		status_label.halign = Gtk.Align.START;
-		avatar = new Session.Widgets.Avatar ();
+		avatar = new Granite.Widgets.Avatar ();
 		try {
 			var pixbuf = new Gdk.Pixbuf.from_file (iconfile);
 			pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);

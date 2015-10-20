@@ -1,4 +1,81 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-11 18:07+0200\n"
+"PO-Revision-Date: 2015-09-11 21:34+0000\n"
+"Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-10-12 05:39+0000\n"
+"X-Generator: Launchpad (build 17802)\n"
+
+#: ../src/Indicator.vala:45
+msgid "Session"
+msgstr ""
+
+#: ../src/Indicator.vala:46
+msgid "The session indicator"
+msgstr ""
+
+#: ../src/Indicator.vala:81
+msgid "Log Out…"
+msgstr ""
+
+#: ../src/Indicator.vala:82
+msgid "Lock"
+msgstr "Lås"
+
+#: ../src/Indicator.vala:83
+msgid "Shutdown…"
+msgstr ""
+
+#: ../src/Indicator.vala:84
+msgid "Suspend"
+msgstr ""
+
+#: ../src/Indicator.vala:196
+msgid "Guest"
+msgstr ""
+
+#: ../src/Widgets/UserBox.vala:19
+msgid "Logged in"
+msgstr ""
+
+#: ../src/Widgets/UserBox.vala:20
+msgid "Logged out"
+msgstr ""
+
+#: ../src/Widgets/EndSessionDialog.vala:53
+msgid "Are you sure you want to Log Out?"
+msgstr "Är du säker på att du vill logga ut?"
+
+#: ../src/Widgets/EndSessionDialog.vala:54
+msgid "This will close all open applications."
+msgstr "Detta avslutar alla öppna program."
+
+#: ../src/Widgets/EndSessionDialog.vala:55
+msgid "Log Out"
+msgstr "Logga ut"
+
+#: ../src/Widgets/EndSessionDialog.vala:60
+msgid "Are you sure you want to Shut Down?"
+msgstr "Är du säker på att du vill stänga av?"
+
+#: ../src/Widgets/EndSessionDialog.vala:61
+msgid "This will close all open applications and turn off this device."
+msgstr ""
+
+#: ../src/Widgets/EndSessionDialog.vala:62
+msgid "Shut Down"
+msgstr "Stäng av"
+
+#: ../src/Widgets/EndSessionDialog.vala:96
+msgid "Restart"
+msgstr "Starta om"
+
+#: ../src/Widgets/EndSessionDialog.vala:108
+msgid "Cancel"
+msgstr "Avbryt"
