@@ -39,6 +39,7 @@ interface SystemManager : Object {
 	public abstract void Suspend (bool interactive) throws IOError;
 	public abstract void Reboot (bool interactive) throws IOError;
 	public abstract void PowerOff (bool interactive) throws IOError;
+	public abstract string? GetUser (uint32 uuid) throws IOError;
 }
 
 [DBus (name = "org.freedesktop.DisplayManager.Seat")]
