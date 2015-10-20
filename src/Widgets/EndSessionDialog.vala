@@ -125,14 +125,14 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
                     system_manager.PowerOff (false);
                 } catch (IOError e) {
                     stderr.printf ("%s\n", e.message);
-                } else {
-                    try {
-                        session_manager.Logout (1);
-                    } catch (IOError e) {
-                        stderr.printf ("%s\n", e.message);
-                    }
-                    destroy ();
                 }
+            } else {
+                try {
+                    session_manager.Logout (1);
+                } catch (IOError e) {
+                    stderr.printf ("%s\n", e.message);
+                }
+                destroy ();
             }
         });
 
