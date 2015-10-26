@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2015-05-29 11:38+0000\n"
-"Last-Translator: Pedro Monteiro <Unknown>\n"
+"PO-Revision-Date: 2015-10-25 23:41+0000\n"
+"Last-Translator: pedro.e.gordo@gmail.com <pedro.e.gordo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-12 05:39+0000\n"
-"X-Generator: Launchpad (build 17802)\n"
+"X-Launchpad-Export-Date: 2015-10-26 05:27+0000\n"
+"X-Generator: Launchpad (build 17812)\n"
 
 #: ../src/Indicator.vala:45
 msgid "Session"
@@ -22,7 +22,7 @@ msgstr "O indicador de sessão"
 
 #: ../src/Indicator.vala:81
 msgid "Log Out…"
-msgstr ""
+msgstr "Terminar sessão..."
 
 #: ../src/Indicator.vala:82
 msgid "Lock"
@@ -30,7 +30,7 @@ msgstr "Bloquear"
 
 #: ../src/Indicator.vala:83
 msgid "Shutdown…"
-msgstr ""
+msgstr "Desligar"
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
@@ -38,7 +38,7 @@ msgstr "Suspender"
 
 #: ../src/Indicator.vala:196
 msgid "Guest"
-msgstr ""
+msgstr "Convidado"
 
 #: ../src/Widgets/UserBox.vala:19
 msgid "Logged in"
@@ -46,7 +46,7 @@ msgstr "Com Sessão Ativa"
 
 #: ../src/Widgets/UserBox.vala:20
 msgid "Logged out"
-msgstr ""
+msgstr "Sessão terminada"
 
 #: ../src/Widgets/EndSessionDialog.vala:53
 msgid "Are you sure you want to Log Out?"
