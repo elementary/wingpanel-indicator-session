@@ -3,79 +3,79 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2015-08-20 21:20+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-11-17 00:19+0000\n"
+"Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-12 05:39+0000\n"
-"X-Generator: Launchpad (build 17802)\n"
+"X-Launchpad-Export-Date: 2015-11-17 05:56+0000\n"
+"X-Generator: Launchpad (build 17847)\n"
 
 #: ../src/Indicator.vala:45
 msgid "Session"
-msgstr ""
+msgstr "სესია"
 
 #: ../src/Indicator.vala:46
 msgid "The session indicator"
-msgstr ""
+msgstr "სესის მაჩვენებელი"
 
 #: ../src/Indicator.vala:81
 msgid "Log Out…"
-msgstr ""
+msgstr "გასვლა..."
 
 #: ../src/Indicator.vala:82
 msgid "Lock"
-msgstr ""
+msgstr "ჩაკეტვა"
 
 #: ../src/Indicator.vala:83
 msgid "Shutdown…"
-msgstr ""
+msgstr "გამორთვა..."
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
-msgstr ""
+msgstr "შეჩერება"
 
 #: ../src/Indicator.vala:196
 msgid "Guest"
-msgstr ""
+msgstr "სტუმარი"
 
 #: ../src/Widgets/UserBox.vala:19
 msgid "Logged in"
-msgstr ""
+msgstr "შესული"
 
 #: ../src/Widgets/UserBox.vala:20
 msgid "Logged out"
-msgstr ""
+msgstr "გამოსული"
 
 #: ../src/Widgets/EndSessionDialog.vala:53
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "დარწმუნებული ხართ, რომ გამოსვლა გსურთ?"
 
 #: ../src/Widgets/EndSessionDialog.vala:54
 msgid "This will close all open applications."
-msgstr ""
+msgstr "ეს გამოიწვევს ყველა პროგრამის დახურვას"
 
 #: ../src/Widgets/EndSessionDialog.vala:55
 msgid "Log Out"
-msgstr ""
+msgstr "გამოსვლა"
 
 #: ../src/Widgets/EndSessionDialog.vala:60
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "დარწმუნებული ხართ, რომ გამორთვა გსურთ?"
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "ეს დახურავს ყველა პროგრამას და გამორთავს თქვენს მოწყოილობას."
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "Shut Down"
-msgstr ""
+msgstr "გამორთვა"
 
 #: ../src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
-msgstr ""
+msgstr "გადატვირთვა"
 
 #: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
