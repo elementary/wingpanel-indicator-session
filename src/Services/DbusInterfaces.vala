@@ -19,51 +19,49 @@
 
 /* To generate new UserBoxes for each user, and when a new one is added */
 [DBus (name = "org.freedesktop.Accounts")]
-interface UserManager : Object {
-    public abstract string[] ListCachedUsers () throws IOError;
-    public signal void UserAdded (ObjectPath user_path);
-    public signal void UserDeleted (ObjectPath user_path);
+interface AccountsInterface : Object {
+    public abstract string[] list_cached_users () throws IOError;
+    public signal void user_added (ObjectPath user_path);
+    public signal void user_deleted (ObjectPath user_path);
 }
 
 /* Power and system control */
 [DBus (name = "org.freedesktop.ScreenSaver")]
-interface LockManager : Object {
-    public abstract void Lock () throws IOError;
+interface LockInterface : Object {
+    public abstract void lock () throws IOError;
 }
 
 [DBus (name = "org.gnome.SessionManager")]
-interface SessionManager : Object {
-    public signal void SessionRunning ();
-    public abstract void Logout (uint mode) throws IOError;
+interface SessionInterface : Object {
+    public signal void session_running ();
+    public abstract void logout (uint mode) throws IOError;
 }
 [DBus (name = "org.freedesktop.login1.Manager")]
-interface SystemManager : Object {
-    public abstract void Suspend (bool interactive) throws IOError;
-    public abstract void Reboot (bool interactive) throws IOError;
-    public abstract void PowerOff (bool interactive) throws IOError;
+interface SystemInterface : Object {
+    public abstract void suspend (bool interactive) throws IOError;
+    public abstract void reboot (bool interactive) throws IOError;
+    public abstract void power_off (bool interactive) throws IOError;
 
-    public abstract string? GetUser (uint32 uuid) throws IOError;
+    public abstract string? get_user (uint32 uuid) throws IOError;
 }
 
 [DBus (name = "org.freedesktop.DisplayManager.Seat")]
-interface SeatManager : Object {
-    /*
-     * public abstract void SwitchToGreeter () throws IOError;
-     * public abstract void SwitchToGuest (string session_name) throws IOError;
-     * public abstract void SwitchToUser (string username, string session_name) throws IOError;
-     */
+interface SeatInterface : Object {
+    //public abstract void SwitchToGreeter () throws IOError;
+    //public abstract void SwitchToGuest (string session_name) throws IOError;
+    //public abstract void SwitchToUser (string username, string session_name) throws IOError;
 }
 
 /* for User.vala, to get the user properties */
 [DBus (name = "org.freedesktop.Accounts.User")]
 interface UserInterface : Object {
-    public signal void Changed ();
+    public signal void changed ();
 }
 
 [DBus (name = "org.freedesktop.DBus.Properties")]
-interface Properties : Object {
-    public abstract Variant Get (string interface, string propname) throws IOError;
+interface PropertiesInterface : Object {
+    public abstract Variant get (string interface, string propname) throws IOError;
 
     /* public abstract void Set (string interface, string propname, Variant value) throws IOError; */
-    public signal void PropertiesChanged ();
+    public signal void properties_changed ();
 }

@@ -20,31 +20,29 @@
 public class Session.Widgets.Userbox : Gtk.Grid {
     private const string LOGGED_IN = _("Logged in");
     private const string LOGGED_OFF = _("Logged out");
-
     private const int ICON_SIZE = 42;
 
-    private string iconfile = null;
-    public string user_path = null;
+    public Session.Services.User user { public get; private set; }
 
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
     private Gtk.Label status_label;
 
-    public Gtk.Image? image;
+    public Userbox (Session.Services.User user) {
+        this.user = user;
+        build_ui ();
+        connect_signals ();
+        user.update_properties ();
+    }
 
-    public Userbox (string user_path, string fullname, string username, string iconfile_ = "") {
-        debug (@"Creating userbox for: $fullname : $username\n");
+    public Userbox.from_data (string fullname, bool logged_in) {
+        build_ui (false);
+        fullname_label.label = "<b>" + fullname + "</b>";
+        update_state (logged_in);
+    }
 
-        this.user_path = user_path;
-
-        if (iconfile_ == "") {
-            iconfile = @"/var/lib/AccountsService/icons/$username";
-        } else {
-            iconfile = iconfile_;
-        }
-
-        fullname_label = new Gtk.Label ("<b>" + fullname + "</b>");
-
+    private void build_ui (bool load_icon = true) {
+        fullname_label = new Gtk.Label ("");
         fullname_label.use_markup = true;
         fullname_label.get_style_context ().add_class ("h3");
         fullname_label.valign = Gtk.Align.END;
@@ -52,17 +50,11 @@ public class Session.Widgets.Userbox : Gtk.Grid {
 
         status_label = new Gtk.Label (LOGGED_OFF);
         status_label.halign = Gtk.Align.START;
-        avatar = new Granite.Widgets.Avatar ();
-        try {
-            var pixbuf = new Gdk.Pixbuf.from_file (iconfile);
-            pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);
-            avatar.pixbuf = pixbuf;
-            avatar.set_margin_start (8);
-            avatar.set_margin_end (8);
-        } catch (Error e) {
-            avatar.show_default (ICON_SIZE + 4);
-            avatar.set_margin_start (6);
-            avatar.set_margin_end (6);
+
+        if (load_icon) {
+            avatar = new Granite.Widgets.Avatar.from_file (user.icon_file, ICON_SIZE);
+        } else {
+            avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
         }
 
         this.attach (avatar, 0, 0, 3, 3);
@@ -82,12 +74,8 @@ public class Session.Widgets.Userbox : Gtk.Grid {
             var pixbuf = new Gdk.Pixbuf.from_file (icon);
             pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);
             avatar.pixbuf = pixbuf;
-            avatar.set_margin_start (8);
-            avatar.set_margin_end (8);
         } catch (Error e) {
-            avatar.show_default (ICON_SIZE + 4);
-            avatar.set_margin_start (6);
-            avatar.set_margin_end (6);
+            avatar.show_default (ICON_SIZE);
         }
     }
 
@@ -97,5 +85,14 @@ public class Session.Widgets.Userbox : Gtk.Grid {
         } else {
             status_label.label = LOGGED_OFF;
         }
+    }
+
+    private void connect_signals () {
+        user.properties_updated.connect (() => {
+            update (user.real_name, user.icon_file);
+            update_state (user.get_state ());
+        });
+
+        user.bind_property ("locked", this, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
     }
 }
