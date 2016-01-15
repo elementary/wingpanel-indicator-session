@@ -76,8 +76,7 @@ public class Session.Services.User : Object {
         bool state = false;
 
         try {
-            string status;
-            status = state_properties.get (LOGIN_INTERFACE + ".User", "State").get_string ();
+            string status = state_properties.get (LOGIN_INTERFACE + ".User", "State").get_string ();
 
             if (status == "active" || status == "online") {
                 state = true;
