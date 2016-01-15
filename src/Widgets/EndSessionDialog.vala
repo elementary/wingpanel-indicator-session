@@ -34,7 +34,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     public EndSessionDialogType dialog_type { get; construct; }
 
     public EndSessionDialog (Session.Widgets.EndSessionDialogType type) {
-        Object (dialog_type: type, title: "", deletable: false, skip_taskbar_hint: true, skip_pager_hint: true, type_hint: Gdk.WindowTypeHint.POPUP_MENU);
+        Object (dialog_type: type, title: "", deletable: false, skip_taskbar_hint: true, skip_pager_hint: true, type_hint: Gdk.WindowTypeHint.DIALOG);
     }
 
     construct {
