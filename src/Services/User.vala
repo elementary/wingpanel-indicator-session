@@ -18,95 +18,88 @@
  */
 
 public class Session.Services.User : Object {
-    private const string ACCOUNTS_INTERFACE = "org.freedesktop.Accounts";
-    private const string USER_INTERFACE = "org.freedesktop.Accounts.User";
-    private const string LOGIN_INTERFACE = "org.freedesktop.login1";
-    private const string MANAGER = "/org/freedesktop/login1";
+    private static string ACCOUNTS_INTERFACE = "org.freedesktop.Accounts";
+    private static string USER_INTERFACE = "org.freedesktop.Accounts.User";
+    private static string LOGIN_INTERFACE = "org.freedesktop.login1";
+    private static string MANAGER = "/org/freedesktop/login1";
 
-    private string user_path;
-    public string real_name;
-    public string user_name;
-    public string icon_file;
-    public uint64 Uid;
-    public bool state;
-    public bool locked;
+    public string user_path { get; private set; }
+    public string real_name { get; private set; }
+    public string user_name { get; private set; }
+    public string icon_file { get; private set; }
+    public uint64 Uid { get; private set; }
+    public bool locked { get; private set; }
 
-    private UserInterface? user = null;
-    private Properties? user_properties = null;
-    private Properties? state_properties = null;
+    private UserInterface? user_interface = null;
+    private PropertiesInterface? user_properties = null;
+    private PropertiesInterface? state_properties = null;
+    private SystemInterface? system_interface = null;
 
     public signal void properties_updated ();
 
     public User (string user_path_) {
         this.user_path = user_path_;
 
-        if (connect_to_bus ()) {
-            update_properties ();
-            get_state ();
-            connect_signals ();
-        }
+        connect_to_bus ();
+        connect_signals ();
+        update_properties ();
+        get_state ();
+
     }
 
     private bool connect_to_bus () {
         try {
-            user = Bus.get_proxy_sync (BusType.SYSTEM, ACCOUNTS_INTERFACE, user_path, DBusProxyFlags.NONE);
+            system_interface = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, MANAGER, DBusProxyFlags.NONE);
+            user_interface = Bus.get_proxy_sync (BusType.SYSTEM, ACCOUNTS_INTERFACE, user_path, DBusProxyFlags.NONE);
             user_properties = Bus.get_proxy_sync (BusType.SYSTEM, ACCOUNTS_INTERFACE, user_path, DBusProxyFlags.NONE);
 
-            debug ("Connection to user account established");
+            update_properties ();
+            string? user_object_path = system_interface.get_user ((uint32)Uid);
+            state_properties = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, user_object_path, DBusProxyFlags.NONE);
 
-            return user != null & user_properties != null;
+            debug ("Connection to user account established. User path: %s", user_object_path);
+
+            return user_interface != null & user_properties != null;
         } catch (Error e) {
             critical ("Connecting to Accounts failed: %s", e.message);
-
             return false;
         }
     }
 
     private void connect_signals () {
-        user.Changed.connect (update_properties);
-        user_properties.PropertiesChanged.connect (update_properties);
-        state_properties.PropertiesChanged.connect (update_properties);
+        user_interface.changed.connect (update_properties);
+        user_properties.properties_changed.connect (update_properties);
+        state_properties.properties_changed.connect (update_properties);
     }
 
     public bool get_state () {
-        string status;
-
-        if (state_properties == null) {
-            try {
-                SystemManager manager = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, MANAGER, DBusProxyFlags.NONE);
-                string? user_object_path = manager.GetUser ((uint32)Uid);
-
-                if (user_object_path != null) {
-                    state_properties = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_INTERFACE, user_object_path, DBusProxyFlags.NONE);
-                } else {
-                    return false;
-                }
-            } catch (Error e) {
-                return false;
-            }
-        }
+        bool state = false;
 
         try {
-            status = state_properties.Get (LOGIN_INTERFACE + ".User", "State").get_string ();
+            string status = state_properties.get (LOGIN_INTERFACE + ".User", "State").get_string ();
+
+            if (status == "active" || status == "online") {
+                state = true;
+            }
         } catch (Error e) {
-            return false;
+            critical ("Could not get users' state: %s", e.message);
         }
 
-        if (status == "active" || status == "online") {
-            return true;
-        } else {
-            return false;
-        }
+        return state;
     }
 
     public void update_properties () {
         try {
-            real_name = user_properties.Get (USER_INTERFACE, "RealName").get_string ();
-            user_name = user_properties.Get (USER_INTERFACE, "UserName").get_string ();
-            icon_file = user_properties.Get (USER_INTERFACE, "IconFile").get_string ();
-            locked = user_properties.Get (USER_INTERFACE, "Locked").get_boolean ();
-            Uid = user_properties.Get (USER_INTERFACE, "Uid").get_uint64 ();
-            state = get_state ();
+            real_name = user_properties.get (USER_INTERFACE, "RealName").get_string ();
+            user_name = user_properties.get (USER_INTERFACE, "UserName").get_string ();
+            icon_file = user_properties.get (USER_INTERFACE, "IconFile").get_string ();
+            locked = user_properties.get (USER_INTERFACE, "Locked").get_boolean ();
+            Uid = user_properties.get (USER_INTERFACE, "Uid").get_uint64 ();
+
+            if (real_name == "") {
+                real_name = user_name;
+            }
+
             properties_updated ();
         } catch (Error e) {
             critical ("Updating device properties failed: %s", e.message);

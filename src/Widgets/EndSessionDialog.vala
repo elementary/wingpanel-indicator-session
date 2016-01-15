@@ -28,9 +28,8 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
-    private SessionManager session_manager;
-
-    private SystemManager system_manager;
+    private SessionInterface session_interface;
+    private SystemInterface system_interface;
 
     public EndSessionDialogType dialog_type { get; construct; }
 
@@ -40,8 +39,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 
     construct {
         try {
-            session_manager = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
-            system_manager = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            session_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+            system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
         } catch (IOError e) {
             stderr.printf ("%s\n", e.message);
         }
@@ -105,7 +104,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             var confirm_restart = add_button (_("Restart"), Gtk.ResponseType.OK) as Gtk.Button;
             confirm_restart.clicked.connect (() => {
                 try {
-                    system_manager.Reboot (false);
+                    system_interface.reboot (false);
                 } catch (IOError e) {
                     stderr.printf ("%s\n", e.message);
                 }
@@ -122,13 +121,13 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         confirm.clicked.connect (() => {
             if (dialog_type == EndSessionDialogType.RESTART || dialog_type == EndSessionDialogType.SHUTDOWN) {
                 try {
-                    system_manager.PowerOff (false);
+                    system_interface.power_off (false);
                 } catch (IOError e) {
                     stderr.printf ("%s\n", e.message);
                 }
             } else {
                 try {
-                    session_manager.Logout (1);
+                    session_interface.logout (1);
                 } catch (IOError e) {
                     stderr.printf ("%s\n", e.message);
                 }
