@@ -26,8 +26,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
-    private Wingpanel.Widgets.Separator separator1;
-    private Wingpanel.Widgets.Separator separator2;
     private Wingpanel.Widgets.Button lock_screen;
     private Wingpanel.Widgets.Button log_out;
     private Wingpanel.Widgets.Button suspend;
@@ -63,9 +61,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             shutdown = new Wingpanel.Widgets.Button (_("Shutdown…"));
             suspend = new Wingpanel.Widgets.Button (_("Suspend"));
 
-            separator1 = new Wingpanel.Widgets.Separator ();
-            separator2 = new Wingpanel.Widgets.Separator ();
-
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
                 manager = new Session.Services.UserManager ();
                 main_grid.add (manager.current_user);
@@ -75,15 +70,15 @@ public class Session.Indicator : Wingpanel.Indicator {
                     main_grid.add (manager.guest (false));
                 }
 
-                main_grid.add (separator1);
+                main_grid.add (new Wingpanel.Widgets.Separator ());
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
-                main_grid.add (separator2);
+                main_grid.add (new Wingpanel.Widgets.Separator ());
             }
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
-            main_grid.set_margin_top (6);
+            main_grid.margin_top = 6;
 
             connections ();
         }

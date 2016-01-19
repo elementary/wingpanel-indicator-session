@@ -20,7 +20,7 @@
 public class Session.Widgets.Userbox : Gtk.Grid {
     private const string LOGGED_IN = _("Logged in");
     private const string LOGGED_OFF = _("Logged out");
-    private const int ICON_SIZE = 42;
+    private const int ICON_SIZE = 48;
 
     public Session.Services.User user { public get; private set; }
 
@@ -44,7 +44,6 @@ public class Session.Widgets.Userbox : Gtk.Grid {
     private void build_ui (bool load_icon = true) {
         fullname_label = new Gtk.Label ("");
         fullname_label.use_markup = true;
-        fullname_label.get_style_context ().add_class ("h3");
         fullname_label.valign = Gtk.Align.END;
         fullname_label.halign = Gtk.Align.START;
 
@@ -57,14 +56,14 @@ public class Session.Widgets.Userbox : Gtk.Grid {
             avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
         }
 
+        avatar.margin_top = 3;
+        avatar.margin_end = 6;
+        avatar.margin_bottom = 3;
+        avatar.margin_start = 6;
+
         this.attach (avatar, 0, 0, 3, 3);
         this.attach (fullname_label, 3, 0, 2, 1);
         this.attach (status_label, 3, 1, 2, 1);
-
-        this.set_margin_top (0);
-        this.set_margin_bottom (0);
-        this.set_margin_start (0);
-        this.set_margin_end (0);
     }
 
     public void update (string? fullname, string icon) {
