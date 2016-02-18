@@ -67,7 +67,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 main_grid.add (manager.user_grid);
 
                 if (manager.has_guest) {
-                    main_grid.add (manager.guest (false));
+                    manager.user_grid.add (manager.guest (false));
                 }
 
                 main_grid.add (new Wingpanel.Widgets.Separator ());

@@ -17,12 +17,13 @@
  * Boston, MA 02111-1307, USA.
  */
 
-public class Session.Widgets.Userbox : Gtk.Grid {
+public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     private const string LOGGED_IN = _("Logged in");
     private const string LOGGED_OFF = _("Logged out");
     private const int ICON_SIZE = 48;
 
     public Session.Services.User user { public get; private set; }
+    public bool is_guest = false;
 
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
@@ -35,13 +36,16 @@ public class Session.Widgets.Userbox : Gtk.Grid {
         user.update_properties ();
     }
 
-    public Userbox.from_data (string fullname, bool logged_in) {
+    public Userbox.from_data (string fullname, bool logged_in, bool is_guest = false) {
+        this.is_guest = is_guest;
         build_ui (false);
         fullname_label.label = "<b>" + fullname + "</b>";
         update_state (logged_in);
     }
 
     private void build_ui (bool load_icon = true) {
+        var grid = new Gtk.Grid ();
+
         fullname_label = new Gtk.Label ("");
         fullname_label.use_markup = true;
         fullname_label.valign = Gtk.Align.END;
@@ -61,9 +65,12 @@ public class Session.Widgets.Userbox : Gtk.Grid {
         avatar.margin_bottom = 3;
         avatar.margin_start = 6;
 
-        this.attach (avatar, 0, 0, 3, 3);
-        this.attach (fullname_label, 3, 0, 2, 1);
-        this.attach (status_label, 3, 1, 2, 1);
+        grid.attach (avatar, 0, 0, 3, 3);
+        grid.attach (fullname_label, 3, 0, 2, 1);
+        grid.attach (status_label, 3, 1, 2, 1);
+        this.add (grid);
+
+        this.get_style_context ().add_class (Gtk.STYLE_CLASS_BUTTON);
     }
 
     public void update (string? fullname, string icon) {
