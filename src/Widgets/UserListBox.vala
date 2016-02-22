@@ -23,6 +23,7 @@
     private bool has_guest;
 
     public UserListBox () {
+        has_guest = false;
         session_path = Environment.get_variable ("XDG_SESSION_PATH");
 
         try {
