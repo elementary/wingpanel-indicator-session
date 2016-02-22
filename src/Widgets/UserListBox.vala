@@ -20,6 +20,7 @@
  public class Session.Widgets.UserListBox : Gtk.ListBox {
     private SeatInterface? seat = null;
     private string session_path;
+    private bool has_guest;
 
     public UserListBox () {
         session_path = Environment.get_variable ("XDG_SESSION_PATH");
@@ -33,6 +34,13 @@
         this.set_activate_on_single_click (true);
     }
 
+    public void add_guest (Userbox user) {
+        if (!has_guest) {
+            this.add (user);
+            has_guest = true;
+        }
+    }
+
     public override void row_activated (Gtk.ListBoxRow row) {
         var userbox = (Userbox)row;
         if (userbox == null 
@@ -43,7 +51,7 @@
 
         try {
             if (userbox.is_guest) {
-                seat.switch_to_guest (session_path);
+                seat.switch_to_guest ("");
             } else {
                 seat.switch_to_user (userbox.user.user_name, session_path);
             }            
