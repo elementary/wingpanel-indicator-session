@@ -92,6 +92,7 @@ public class Session.Widgets.Userbox : Gtk.Grid {
             update_state (user.get_state ());
         });
 
-        user.bind_property ("locked", this, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+        user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+        user.bind_property ("locked", this, "no_show_all", BindingFlags.SYNC_CREATE);
     }
 }
