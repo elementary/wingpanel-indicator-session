@@ -69,8 +69,6 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         grid.attach (fullname_label, 3, 0, 2, 1);
         grid.attach (status_label, 3, 1, 2, 1);
         this.add (grid);
-
-        this.get_style_context ().add_class (Gtk.STYLE_CLASS_BUTTON);
     }
 
     public void update (string? fullname, string icon) {
