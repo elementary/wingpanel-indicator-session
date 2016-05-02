@@ -22,7 +22,7 @@ public class Session.Services.UserManager : Object {
     private AccountsInterface accounts_interface;
     private PropertiesInterface state_properties;
 
-    public Gtk.Grid user_grid;
+    public Session.Widgets.UserListBox user_grid;
     public Session.Widgets.Userbox current_user;
     
     public bool has_guest {public get; private set; default = false;}
@@ -32,12 +32,11 @@ public class Session.Services.UserManager : Object {
     }
 
     private void init () {
-        user_grid = new Gtk.Grid ();
-        user_grid.set_orientation (Gtk.Orientation.VERTICAL);
+        user_grid = new Session.Widgets.UserListBox ();
 
         try {
             accounts_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
-            state_properties = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", "/org/freedesktop/DisplayManager/Seat0", DBusProxyFlags.NONE);
+            state_properties = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", Environment.get_variable ("XDG_SEAT_PATH"), DBusProxyFlags.NONE);
             has_guest = state_properties.get ("org.freedesktop.DisplayManager.Seat", "HasGuestAccount").get_boolean ();
 
             connect_signals ();
@@ -94,7 +93,7 @@ public class Session.Services.UserManager : Object {
     }
 
     public Session.Widgets.Userbox guest (bool logged_in) {
-        var userbox = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in);
+        var userbox = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in, true);
         userbox.visible = true;
 
         return userbox;

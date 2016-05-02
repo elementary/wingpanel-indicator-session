@@ -15,6 +15,7 @@ include (ValaPrecompile)
 vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Indicator.vala
   Widgets/UserBox.vala
+  Widgets/UserListBox.vala
   Widgets/EndSessionDialog.vala
   Services/User.vala
   Services/UserManager.vala
