@@ -44,6 +44,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     private void build_ui (bool load_icon = true) {
+        get_style_context ().add_class ("menuitem");
+
         var grid = new Gtk.Grid ();
 
         fullname_label = new Gtk.Label ("");
@@ -59,11 +61,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         } else {
             avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
         }
-
-        avatar.margin_top = 3;
         avatar.margin_end = 6;
-        avatar.margin_bottom = 3;
-        avatar.margin_start = 6;
 
         grid.attach (avatar, 0, 0, 3, 3);
         grid.attach (fullname_label, 3, 0, 2, 1);
