@@ -61,7 +61,6 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         } else {
             avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
         }
-
         avatar.margin_end = 6;
 
         grid.attach (avatar, 0, 0, 3, 3);
