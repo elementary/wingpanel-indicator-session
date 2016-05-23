@@ -21,13 +21,18 @@ public class Session.Services.UserManager : Object {
     private signal void delete_user (ObjectPath user_path);
     private AccountsInterface accounts_interface;
     private PropertiesInterface state_properties;
+    private Wingpanel.Widgets.Separator users_separator;
 
     public Session.Widgets.UserListBox user_grid;
     public Session.Widgets.Userbox current_user;
     
     public bool has_guest {public get; private set; default = false;}
 
-    public UserManager () {
+    public UserManager (Wingpanel.Widgets.Separator users_separator) {
+        this.users_separator = users_separator;
+        this.users_separator.set_no_show_all (true);
+        this.users_separator.visible = false;
+
         init ();
     }
 
@@ -89,12 +94,16 @@ public class Session.Services.UserManager : Object {
             }
         });
 
+        users_separator.visible = true;
+
         return userbox;
     }
 
     public Session.Widgets.Userbox guest (bool logged_in) {
         var userbox = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in, true);
         userbox.visible = true;
+
+        users_separator.visible = true;
 
         return userbox;
     }
