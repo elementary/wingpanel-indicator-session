@@ -100,18 +100,20 @@ public class Session.Indicator : Wingpanel.Indicator {
             suspend.set_sensitive (false);
         }
 
-        try {
-            lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
-        } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
-            lock_screen.set_sensitive (false);
-        }
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            try {
+                lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
+            } catch (IOError e) {
+                stderr.printf ("%s\n", e.message);
+                lock_screen.set_sensitive (false);
+            }
 
-        try {
-            seat_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.DisplayManager", "/org/freedesktop/DisplayManager/Seat0");
-        } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
-            lock_screen.set_sensitive (false);
+            try {
+                seat_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.DisplayManager", "/org/freedesktop/DisplayManager/Seat0");
+            } catch (IOError e) {
+                stderr.printf ("%s\n", e.message);
+                lock_screen.set_sensitive (false);
+            }
         }
     }
 
