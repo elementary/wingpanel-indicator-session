@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2015-10-30 22:03+0000\n"
+"PO-Revision-Date: 2016-07-24 14:40+0000\n"
 "Last-Translator: Jernej Virag <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-20 06:10+0000\n"
+"X-Launchpad-Export-Date: 2016-07-25 05:37+0000\n"
 "X-Generator: Launchpad (build 18147)\n"
 
 #: ../src/Indicator.vala:45
@@ -22,11 +22,11 @@ msgstr "Indikator seje"
 
 #: ../src/Indicator.vala:81
 msgid "Log Out…"
-msgstr "Odjava ..."
+msgstr "Odjava..."
 
 #: ../src/Indicator.vala:82
 msgid "Lock"
-msgstr "Zaklep"
+msgstr "Zakleni..."
 
 #: ../src/Indicator.vala:83
 msgid "Shutdown…"
@@ -34,7 +34,7 @@ msgstr "Izklop..."
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
-msgstr "Naredi prehod v stanje pripravljenosti"
+msgstr "V pripravljenost..."
 
 #: ../src/Indicator.vala:196
 msgid "Guest"
