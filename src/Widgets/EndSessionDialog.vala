@@ -28,7 +28,7 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
-    private SessionInterface session_interface;
+    private LogoutInterface logout_interface;
     private SystemInterface system_interface;
 
     public EndSessionDialogType dialog_type { get; construct; }
@@ -40,7 +40,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     construct {
         try {
             if (dialog_type == Session.Widgets.EndSessionDialogType.LOGOUT) {
-                session_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+                logout_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1/user/self");
             } else {
                 system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
             }
@@ -130,7 +130,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
                 }
             } else {
                 try {
-                    session_interface.logout (1);
+                    logout_interface.terminate ();
                 } catch (IOError e) {
                     stderr.printf ("%s\n", e.message);
                 }
