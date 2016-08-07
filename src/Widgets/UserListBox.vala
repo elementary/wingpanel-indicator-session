@@ -70,9 +70,9 @@
         var userbox1 = (Userbox)row1;
         var userbox2 = (Userbox)row2;
 
-        if (userbox1.get_user_state () == Services.UserManager.STATE_ACTIVE) {
+        if (userbox1.get_user_state () == UserState.ACTIVE) {
             return -1;
-        } else if (userbox2.get_user_state () == Services.UserManager.STATE_ACTIVE) {
+        } else if (userbox2.get_user_state () == UserState.ACTIVE) {
             return 1;
         }
 

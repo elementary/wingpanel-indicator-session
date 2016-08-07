@@ -17,12 +17,25 @@
  * Boston, MA 02111-1307, USA.
  */
 
+public enum UserState {
+    ACTIVE,
+    ONLINE,
+    OFFLINE;
+
+    public static UserState to_enum (string state) {
+        switch (state) {
+            case "active":
+                return UserState.ACTIVE;
+            case "online":
+                return UserState.ONLINE;
+        }
+
+        return UserState.OFFLINE;
+    }
+}
+
 public class Session.Services.UserManager : Object {
     public signal void close ();
-
-    public const string STATE_ACTIVE = "active";
-    public const string STATE_ONLINE = "online";
-    public const string STATE_OFFLINE = "offline";
 
     private const string LOGIN_IFACE = "org.freedesktop.login1";
     private const string LOGIN_PATH = "/org/freedesktop/login1";
@@ -47,49 +60,49 @@ public class Session.Services.UserManager : Object {
         }        
     }
 
-    public static string get_user_state (uint32 uuid) {
+    public static UserState get_user_state (uint32 uuid) {
         if (login_proxy == null) {
-            return STATE_OFFLINE;
+            return UserState.OFFLINE;
         }
 
         try {
             ObjectPath? path = login_proxy.get_user (uuid);
             if (path == null) {
-                return STATE_OFFLINE;
+                return UserState.OFFLINE;
             }
 
             UserInterface? user = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, path, DBusProxyFlags.NONE);
             if (user == null) {
-                return STATE_OFFLINE;
+                return UserState.OFFLINE;
             }
 
-            return user.state;
+            return UserState.to_enum (user.state);
         } catch (IOError e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
-        return STATE_OFFLINE;
+        return UserState.OFFLINE;
     }
 
-    public static string get_guest_state () {
+    public static UserState get_guest_state () {
         if (login_proxy == null) {
-            return STATE_OFFLINE;
+            return UserState.OFFLINE;
         }
 
         try {
             UserInfo[] users = login_proxy.list_users ();
             foreach (UserInfo user in users) {
-                string state = get_user_state (user.uid);
+                var state = get_user_state (user.uid);
                 if (user.user_name.has_prefix ("guest-")
-                    && state == STATE_ACTIVE) {
-                    return STATE_ACTIVE;
+                    && state == UserState.ACTIVE) {
+                    return UserState.ACTIVE;
                 }
             }
         } catch (IOError e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
-        return STATE_OFFLINE;
+        return UserState.OFFLINE;
     }
 
     public UserManager (Wingpanel.Widgets.Separator users_separator) {

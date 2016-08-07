@@ -73,7 +73,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     // For some reason Act.User.is_logged_in () does not work
-    public string get_user_state () {
+    public UserState get_user_state () {
         if (is_guest) {
             return Services.UserManager.get_guest_state ();
         }
@@ -82,8 +82,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     public bool is_logged_in () {
-        string state = get_user_state ();
-        return state == Services.UserManager.STATE_ONLINE || state == Services.UserManager.STATE_ACTIVE;
+        var state = get_user_state ();
+        return state == UserState.ONLINE || state == UserState.ACTIVE;
     }
 
     public void set_can_activate (bool can_activate) {
@@ -108,8 +108,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     public void update_state () {
-        string state = get_user_state ();
-        set_can_activate (state != "active");
+        var state = get_user_state ();
+        set_can_activate (state != UserState.ACTIVE);
         if (is_logged_in ()) {
             status_label.label = LOGGED_IN;
         } else {
