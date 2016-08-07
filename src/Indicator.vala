@@ -67,11 +67,10 @@ public class Session.Indicator : Wingpanel.Indicator {
                 users_separator = new Wingpanel.Widgets.Separator ();
                 manager = new Session.Services.UserManager (users_separator);
 
-                main_grid.add (manager.current_user);
                 main_grid.add (manager.user_grid);
 
                 if (manager.has_guest) {
-                    manager.user_grid.add_guest (manager.guest (false));
+                    manager.add_guest (false);
                 }
 
                 main_grid.add (users_separator);
@@ -118,6 +117,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public void connections () {
+        manager.close.connect (() => close ());
+
         lock_screen.clicked.connect (() => {
             close ();
             try {
@@ -151,7 +152,9 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
     }
 
-    public override void opened () {}
+    public override void opened () {
+        manager.update_all ();
+    }
 
     public override void closed () {}
 }

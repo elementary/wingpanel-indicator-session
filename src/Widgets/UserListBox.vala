@@ -18,6 +18,8 @@
  */
 
  public class Session.Widgets.UserListBox : Gtk.ListBox {
+    public signal void close ();
+
     private SeatInterface? seat = null;
     private string session_path;
     private bool has_guest;
@@ -32,6 +34,7 @@
             stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
         }
 
+        this.set_sort_func (sort_func);
         this.set_activate_on_single_click (true);
     }
 
@@ -50,14 +53,35 @@
             return;
         }
 
+        close ();
         try {
             if (userbox.is_guest) {
                 seat.switch_to_guest ("");
             } else {
-                seat.switch_to_user (userbox.user.user_name, session_path);
-            }            
+                seat.switch_to_user (userbox.user.get_user_name (), session_path);
+            }
         } catch (IOError e) {
             stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
         }
     }
- }
+
+    // We could use here Act.User.collate () but we want to show the logged user first
+    public int sort_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
+        var userbox1 = (Userbox)row1;
+        var userbox2 = (Userbox)row2;
+
+        if (userbox1.get_user_state () == Services.UserManager.STATE_ACTIVE) {
+            return -1;
+        } else if (userbox2.get_user_state () == Services.UserManager.STATE_ACTIVE) {
+            return 1;
+        }
+
+        if (userbox1.is_guest && !userbox2.is_guest) {
+            return 1;
+        } else if (!userbox1.is_guest && userbox2.is_guest) {
+            return -1;
+        }
+
+        return 0;
+    }
+}

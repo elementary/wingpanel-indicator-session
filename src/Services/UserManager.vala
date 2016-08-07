@@ -18,15 +18,79 @@
  */
 
 public class Session.Services.UserManager : Object {
+    public signal void close ();
+
+    public const string STATE_ACTIVE = "active";
+    public const string STATE_ONLINE = "online";
+    public const string STATE_OFFLINE = "offline";
+
+    private const string LOGIN_IFACE = "org.freedesktop.login1";
+    private const string LOGIN_PATH = "/org/freedesktop/login1";
+
     private signal void delete_user (ObjectPath user_path);
-    private AccountsInterface accounts_interface;
-    private PropertiesInterface state_properties;
+    private Act.UserManager manager;
+    private List<Widgets.Userbox> userbox_list;
+    private SeatInterface dm_proxy;
     private Wingpanel.Widgets.Separator users_separator;
 
     public Session.Widgets.UserListBox user_grid;
-    public Session.Widgets.Userbox current_user;
     
-    public bool has_guest {public get; private set; default = false;}
+    public bool has_guest { public get; private set; default = false; }
+
+    private static SystemInterface? login_proxy;
+
+    static construct {
+        try {
+            login_proxy = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, LOGIN_PATH, DBusProxyFlags.NONE);
+        } catch (IOError e) {
+            stderr.printf ("UserManager error: %s\n", e.message);
+        }        
+    }
+
+    public static string get_user_state (uint32 uuid) {
+        if (login_proxy == null) {
+            return STATE_OFFLINE;
+        }
+
+        try {
+            ObjectPath? path = login_proxy.get_user (uuid);
+            if (path == null) {
+                return STATE_OFFLINE;
+            }
+
+            UserInterface? user = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, path, DBusProxyFlags.NONE);
+            if (user == null) {
+                return STATE_OFFLINE;
+            }
+
+            return user.state;
+        } catch (IOError e) {
+            stderr.printf ("Error: %s\n", e.message);
+        }
+
+        return STATE_OFFLINE;
+    }
+
+    public static string get_guest_state () {
+        if (login_proxy == null) {
+            return STATE_OFFLINE;
+        }
+
+        try {
+            UserInfo[] users = login_proxy.list_users ();
+            foreach (UserInfo user in users) {
+                string state = get_user_state (user.uid);
+                if (user.user_name.has_prefix ("guest-")
+                    && state == STATE_ACTIVE) {
+                    return STATE_ACTIVE;
+                }
+            }
+        } catch (IOError e) {
+            stderr.printf ("Error: %s\n", e.message);
+        }
+
+        return STATE_OFFLINE;
+    }
 
     public UserManager (Wingpanel.Widgets.Separator users_separator) {
         this.users_separator = users_separator;
@@ -37,74 +101,93 @@ public class Session.Services.UserManager : Object {
     }
 
     private void init () {
+        userbox_list = new List<Widgets.Userbox> ();
         user_grid = new Session.Widgets.UserListBox ();
+        user_grid.close.connect (() => {
+            close ();
+        });
+
+        manager = Act.UserManager.get_default ();
+        connect_signals ();
+        init_users ();
 
         try {
-            accounts_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.Accounts", "/org/freedesktop/Accounts", DBusProxyFlags.NONE);
-            state_properties = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", Environment.get_variable ("XDG_SEAT_PATH"), DBusProxyFlags.NONE);
-            has_guest = state_properties.get ("org.freedesktop.DisplayManager.Seat", "HasGuestAccount").get_boolean ();
-
-            connect_signals ();
-            init_users ();
+            dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", Environment.get_variable ("XDG_SEAT_PATH"), DBusProxyFlags.NONE);
+            has_guest = dm_proxy.has_guest_account;
         } catch (IOError e) {
             stderr.printf ("UserManager error: %s\n", e.message);
         }
     }
 
     private void connect_signals () {
-        accounts_interface.user_added.connect ((user_path) => {
-            var user = new_user (user_path);
+        manager.user_added.connect (add_user);
+        manager.user_removed.connect (remove_user);
+        manager.user_is_logged_in_changed.connect (update_user);
 
-            if (user != null) {
-                user_grid.add (user);
+        manager.notify["is-loaded"].connect (() => {
+            if (manager.is_loaded) {
+                init_users ();
             }
-        });
-
-        accounts_interface.user_deleted.connect ((user_path) => {
-            delete_user (user_path);
-        });
+        });  
     }
 
     private void init_users () {
-        string current_user = GLib.Environment.get_user_name ();
-
-        try {
-            var users = accounts_interface.list_cached_users ();
-            foreach (string user_address in users) {
-                var userbox = new_user (user_address);
-
-                if (userbox.user.user_name == current_user) {
-                    this.current_user = userbox;
-                } else {
-                    user_grid.add (userbox);
-                }
-            }
-        } catch (IOError e) {
-            stderr.printf ("ERROR: %s\n", e.message);
+        foreach (Act.User user in manager.list_users ()) {
+            add_user (user);
         }
     }
 
-    private Session.Widgets.Userbox new_user (string user_address) {
-        var user = new Session.Services.User (user_address);
+    private void add_user (Act.User user) {
         var userbox = new Session.Widgets.Userbox (user);
+        userbox_list.append (userbox);
 
-        delete_user.connect ((user_path) => {
-            if (userbox.user.user_path == user_path) {
-                user_grid.remove (userbox);
-            }
-        });
+        user_grid.add (userbox);
 
         users_separator.visible = true;
-
-        return userbox;
     }
 
-    public Session.Widgets.Userbox guest (bool logged_in) {
+    private Widgets.Userbox? get_userbox_from_user (Act.User user) {
+        foreach (Widgets.Userbox userbox in userbox_list) {
+            if (userbox.user.get_user_name () == user.get_user_name ()) {
+                return userbox;
+            }
+        } 
+
+        return null;       
+    }
+
+    private void remove_user (Act.User user) {
+        var userbox = get_userbox_from_user (user);
+        if (userbox == null) {
+            return;
+        }
+
+        userbox_list.remove (userbox);
+        user_grid.remove (userbox);
+    }
+
+    private void update_user (Act.User user) {
+        var userbox = get_userbox_from_user (user);
+        if (userbox == null) {
+            return;
+        }
+
+        userbox.update_state ();
+    }
+
+    public void update_all () {
+        foreach (var userbox in userbox_list) {
+            userbox.update_state ();
+        }
+    }
+
+    public void add_guest (bool logged_in) {
         var userbox = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in, true);
+        userbox_list.append (userbox);
         userbox.visible = true;
 
-        users_separator.visible = true;
+        user_grid.add_guest (userbox);
 
-        return userbox;
+        users_separator.visible = true;
     }
 }

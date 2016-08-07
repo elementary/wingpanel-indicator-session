@@ -22,28 +22,30 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     private const string LOGGED_OFF = _("Logged out");
     private const int ICON_SIZE = 48;
 
-    public Session.Services.User user { public get; private set; }
+    public Act.User? user { public get; private set; }
     public bool is_guest = false;
 
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
     private Gtk.Label status_label;
 
-    public Userbox (Session.Services.User user) {
+    public Userbox (Act.User user) {
         this.user = user;
         build_ui ();
         connect_signals ();
-        user.update_properties ();
+        update ();
+        update_state ();
     }
 
     public Userbox.from_data (string fullname, bool logged_in, bool is_guest = false) {
         this.is_guest = is_guest;
-        build_ui (false);
+        this.user = null;
+        build_ui ();
         fullname_label.label = "<b>" + fullname + "</b>";
-        update_state (logged_in);
+        update_state ();
     }
 
-    private void build_ui (bool load_icon = true) {
+    private void build_ui () {
         get_style_context ().add_class ("menuitem");
 
         var grid = new Gtk.Grid ();
@@ -56,11 +58,12 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         status_label = new Gtk.Label (LOGGED_OFF);
         status_label.halign = Gtk.Align.START;
 
-        if (load_icon) {
-            avatar = new Granite.Widgets.Avatar.from_file (user.icon_file, ICON_SIZE);
-        } else {
+        if (is_guest) {
             avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
+        } else {
+            avatar = new Granite.Widgets.Avatar.from_file (user.get_icon_file (), ICON_SIZE);
         }
+
         avatar.margin_end = 6;
 
         grid.attach (avatar, 0, 0, 3, 3);
@@ -69,11 +72,34 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         this.add (grid);
     }
 
-    public void update (string? fullname, string icon) {
-        this.fullname_label.set_label ("<b>" + fullname + "</b>");
+    // For some reason Act.User.is_logged_in () does not work
+    public string get_user_state () {
+        if (is_guest) {
+            return Services.UserManager.get_guest_state ();
+        }
+
+        return Services.UserManager.get_user_state (user.get_uid ());
+    }
+
+    public bool is_logged_in () {
+        string state = get_user_state ();
+        return state == Services.UserManager.STATE_ONLINE || state == Services.UserManager.STATE_ACTIVE;
+    }
+
+    public void set_can_activate (bool can_activate) {
+        activatable = can_activate;
+        selectable = can_activate;
+    }
+
+    private void update () {
+        if (is_guest) {
+            return;
+        }
+
+        this.fullname_label.label = "<b>" + user.get_real_name () + "</b>";
 
         try {
-            var pixbuf = new Gdk.Pixbuf.from_file (icon);
+            var pixbuf = new Gdk.Pixbuf.from_file (user.get_icon_file ());
             pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);
             avatar.pixbuf = pixbuf;
         } catch (Error e) {
@@ -81,21 +107,25 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         }
     }
 
-    public void update_state (bool logged_in) {
-        if (logged_in) {
+    public void update_state () {
+        string state = get_user_state ();
+        set_can_activate (state != "active");
+        if (is_logged_in ()) {
             status_label.label = LOGGED_IN;
         } else {
             status_label.label = LOGGED_OFF;
         }
+
+        changed ();
     }
 
     private void connect_signals () {
-        user.properties_updated.connect (() => {
-            update (user.real_name, user.icon_file);
-            update_state (user.get_state ());
+        user.changed.connect (() => {
+            update ();
+            update_state ();
         });
 
         user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
-        user.bind_property ("locked", this, "no_show_all", BindingFlags.SYNC_CREATE);
+        user.bind_property ("locked", this, "no-show-all", BindingFlags.SYNC_CREATE);
     }
 }
