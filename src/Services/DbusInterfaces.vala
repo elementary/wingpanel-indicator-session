@@ -31,11 +31,11 @@ interface LockInterface : Object {
     public abstract void lock () throws IOError;
 }
 
-[DBus (name = "org.gnome.SessionManager")]
-interface SessionInterface : Object {
-    public signal void session_running ();
-    public abstract void logout (uint mode) throws IOError;
+[DBus (name = "org.freedesktop.login1.User")]
+interface LogoutInterface : Object {
+    public abstract void terminate () throws IOError;
 }
+
 [DBus (name = "org.freedesktop.login1.Manager")]
 interface SystemInterface : Object {
     public abstract void suspend (bool interactive) throws IOError;
