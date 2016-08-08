@@ -87,8 +87,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     public void set_can_activate (bool can_activate) {
-        activatable = can_activate;
         selectable = can_activate;
+        activatable = can_activate;
     }
 
     private void update () {
@@ -128,4 +128,16 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
         user.bind_property ("locked", this, "no-show-all", BindingFlags.SYNC_CREATE);
     }
+
+    public override bool draw (Cairo.Context ctx) {
+        var style_context = get_style_context ();
+        if (get_selectable ()) {
+            style_context.restore ();
+        } else {
+            style_context.set_state (Gtk.StateFlags.NORMAL);
+            style_context.save ();
+        }
+
+        return base.draw (ctx);
+    }    
 }

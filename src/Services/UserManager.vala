@@ -116,9 +116,7 @@ public class Session.Services.UserManager : Object {
     private void init () {
         userbox_list = new List<Widgets.Userbox> ();
         user_grid = new Session.Widgets.UserListBox ();
-        user_grid.close.connect (() => {
-            close ();
-        });
+        user_grid.close.connect (() => close ());
 
         manager = Act.UserManager.get_default ();
         connect_signals ();
