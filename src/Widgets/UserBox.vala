@@ -130,12 +130,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     public override bool draw (Cairo.Context ctx) {
-        var style_context = get_style_context ();
-        if (get_selectable ()) {
-            style_context.restore ();
-        } else {
-            style_context.set_state (Gtk.StateFlags.NORMAL);
-            style_context.save ();
+        if (!get_selectable ()) {
+            get_style_context ().set_state (Gtk.StateFlags.NORMAL);
         }
 
         return base.draw (ctx);
