@@ -17,12 +17,9 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* To generate new UserBoxes for each user, and when a new one is added */
-[DBus (name = "org.freedesktop.Accounts")]
-interface AccountsInterface : Object {
-    public abstract string[] list_cached_users () throws IOError;
-    public signal void user_added (ObjectPath user_path);
-    public signal void user_deleted (ObjectPath user_path);
+struct UserInfo {
+    uint32 uid;
+    string user_name;
 }
 
 /* Power and system control */
@@ -42,26 +39,18 @@ interface SystemInterface : Object {
     public abstract void reboot (bool interactive) throws IOError;
     public abstract void power_off (bool interactive) throws IOError;
 
-    public abstract string? get_user (uint32 uuid) throws IOError;
+    public abstract UserInfo[] list_users () throws IOError;
+    public abstract ObjectPath? get_user (uint32 uuid) throws IOError;
+}
+
+[DBus (name = "org.freedesktop.login1.User")]
+interface UserInterface : Object {
+    public abstract string state { owned get; }
 }
 
 [DBus (name = "org.freedesktop.DisplayManager.Seat")]
 interface SeatInterface : Object {
-    //public abstract void SwitchToGreeter () throws IOError;
+    public abstract bool has_guest_account { get; }
     public abstract void switch_to_guest (string session_name) throws IOError;
     public abstract void switch_to_user (string username, string session_name) throws IOError;
-}
-
-/* for User.vala, to get the user properties */
-[DBus (name = "org.freedesktop.Accounts.User")]
-interface UserInterface : Object {
-    public signal void changed ();
-}
-
-[DBus (name = "org.freedesktop.DBus.Properties")]
-interface PropertiesInterface : Object {
-    public abstract Variant get (string interface, string propname) throws IOError;
-
-    /* public abstract void Set (string interface, string propname, Variant value) throws IOError; */
-    public signal void properties_changed ();
 }

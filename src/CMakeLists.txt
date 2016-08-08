@@ -17,7 +17,6 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Widgets/UserBox.vala
   Widgets/UserListBox.vala
   Widgets/EndSessionDialog.vala
-  Services/User.vala
   Services/UserManager.vala
   Services/DbusInterfaces.vala
   ${CMAKE_CURRENT_BINARY_DIR}/config.vala
