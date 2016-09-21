@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2016-03-03 05:52+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2016-09-20 16:18+0000\n"
+"Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-22 05:53+0000\n"
-"X-Generator: Launchpad (build 18176)\n"
+"X-Launchpad-Export-Date: 2016-09-21 06:45+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 
 #: ../src/Indicator.vala:45
 msgid "Session"
@@ -18,7 +18,7 @@ msgstr "Sessió"
 
 #: ../src/Indicator.vala:46
 msgid "The session indicator"
-msgstr ""
+msgstr "L'indicador de sessions"
 
 #: ../src/Indicator.vala:81
 msgid "Log Out…"
@@ -30,31 +30,31 @@ msgstr "Bloca"
 
 #: ../src/Indicator.vala:83
 msgid "Shutdown…"
-msgstr ""
+msgstr "Atura..."
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
-msgstr ""
+msgstr "Suspèn"
 
 #: ../src/Indicator.vala:196
 msgid "Guest"
-msgstr ""
+msgstr "Convidat/da"
 
 #: ../src/Widgets/UserBox.vala:19
 msgid "Logged in"
-msgstr ""
+msgstr "Sessió iniciada"
 
 #: ../src/Widgets/UserBox.vala:20
 msgid "Logged out"
-msgstr ""
+msgstr "Fora de la sessió"
 
 #: ../src/Widgets/EndSessionDialog.vala:53
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "Esteu segur que voleu sortir de la sessió?"
 
 #: ../src/Widgets/EndSessionDialog.vala:54
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Això tancarà totes les aplicacions obertes."
 
 #: ../src/Widgets/EndSessionDialog.vala:55
 msgid "Log Out"
@@ -62,20 +62,20 @@ msgstr "Surt"
 
 #: ../src/Widgets/EndSessionDialog.vala:60
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "Esteu segur que voleu aturar l'ordinador?"
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "Això tancarà totes les aplicacions obertes i apagarà l'equip."
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "Shut Down"
-msgstr ""
+msgstr "Atura"
 
 #: ../src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
-msgstr ""
+msgstr "Reinicia"
 
 #: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
