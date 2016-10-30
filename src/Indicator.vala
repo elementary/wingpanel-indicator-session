@@ -67,7 +67,11 @@ public class Session.Indicator : Wingpanel.Indicator {
                 users_separator = new Wingpanel.Widgets.Separator ();
                 manager = new Session.Services.UserManager (users_separator);
 
-                main_grid.add (manager.user_grid);
+                var scrolled_box = new Wingpanel.Widgets.AutomaticScrollBox (null, null);
+                scrolled_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+                scrolled_box.add (manager.user_grid);
+
+                main_grid.add (scrolled_box);
 
                 if (manager.has_guest) {
                     manager.add_guest (false);
