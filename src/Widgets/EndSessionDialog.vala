@@ -84,6 +84,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         set_position (Gtk.WindowPosition.CENTER_ALWAYS);
         set_keep_above (true);
         stick ();
+        set_resizable (false);
 
         var heading = new Gtk.Label ("<span weight='bold' size='larger'>" + heading_text + "</span>");
         heading.get_style_context ().add_class ("larger");
