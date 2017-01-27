@@ -3,79 +3,81 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2015-08-20 21:20+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2017-01-26 15:05+0000\n"
+"Last-Translator: George Silviu Enea <george.enea@windowslive.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-21 05:38+0000\n"
-"X-Generator: Launchpad (build 18298)\n"
+"X-Launchpad-Export-Date: 2017-01-27 06:18+0000\n"
+"X-Generator: Launchpad (build 18315)\n"
 
 #: ../src/Indicator.vala:45
 msgid "Session"
-msgstr ""
+msgstr "Sesiune"
 
 #: ../src/Indicator.vala:46
 msgid "The session indicator"
-msgstr ""
+msgstr "Indicator sesiune"
 
 #: ../src/Indicator.vala:81
 msgid "Log Out…"
-msgstr ""
+msgstr "Deconectare..."
 
 #: ../src/Indicator.vala:82
 msgid "Lock"
-msgstr ""
+msgstr "Blocare"
 
 #: ../src/Indicator.vala:83
 msgid "Shutdown…"
-msgstr ""
+msgstr "Inchidere..."
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendare"
 
 #: ../src/Indicator.vala:196
 msgid "Guest"
-msgstr ""
+msgstr "Oaspete"
 
 #: ../src/Widgets/UserBox.vala:19
 msgid "Logged in"
-msgstr ""
+msgstr "Autentificat"
 
 #: ../src/Widgets/UserBox.vala:20
 msgid "Logged out"
-msgstr ""
+msgstr "Deconectat"
 
 #: ../src/Widgets/EndSessionDialog.vala:53
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "Ești sigur că vrei să te deconectezi?"
 
 #: ../src/Widgets/EndSessionDialog.vala:54
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Această acţiune va închide toate aplicaţiile deschise."
 
 #: ../src/Widgets/EndSessionDialog.vala:55
 msgid "Log Out"
-msgstr ""
+msgstr "Deconectare"
 
 #: ../src/Widgets/EndSessionDialog.vala:60
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "Ești sigur că vrei să oprești?"
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "This will close all open applications and turn off this device."
 msgstr ""
+"Această acţiune va închide toate aplicaţiile deschise şi va închide acest "
+"dispozitiv."
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "Shut Down"
-msgstr ""
+msgstr "Oprire"
 
 #: ../src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
-msgstr ""
+msgstr "Repornire"
 
 #: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
