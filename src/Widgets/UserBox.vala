@@ -100,7 +100,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
         try {
             var pixbuf = new Gdk.Pixbuf.from_file (user.get_icon_file ());
-            pixbuf = pixbuf.scale_simple (ICON_SIZE, ICON_SIZE, Gdk.InterpType.BILINEAR);
+            var size = get_style_context ().get_scale () * ICON_SIZE;
+            pixbuf = pixbuf.scale_simple (size, size, Gdk.InterpType.BILINEAR);
             avatar.pixbuf = pixbuf;
         } catch (Error e) {
             avatar.show_default (ICON_SIZE);
