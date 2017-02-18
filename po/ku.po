@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2017-02-11 21:12+0000\n"
-"Last-Translator: Rokar <Unknown>\n"
+"PO-Revision-Date: 2017-02-18 01:14+0000\n"
+"Last-Translator: Rokar ✌ <Unknown>\n"
 "Language-Team: Kurdish <ku@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-12 06:25+0000\n"
+"X-Launchpad-Export-Date: 2017-02-18 05:55+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/Indicator.vala:45
@@ -59,7 +59,7 @@ msgstr "Te rastî dixwaze tu jê derkeve?"
 
 #: ../src/Widgets/EndSessionDialog.vala:54
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Ev daxwaz gisti bername vekiri jê begirtin."
 
 #: ../src/Widgets/EndSessionDialog.vala:55
 msgid "Log Out"
