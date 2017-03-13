@@ -1,7 +1,7 @@
 # Wingpanel Session Indicator
 [![l10n](https://l10n.elementary.io/widgets/desktop/wingpanel-indicator-session/svg-badge.svg)](https://l10n.elementary.io/projects/desktop/wingpanel-indicator-session)
 
-## Building, Testing, and Installation
+## Building and Installation
 
 It's recommended to create a clean build environment
 
