@@ -42,7 +42,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         Object (code_name: Wingpanel.Indicator.SESSION,
                 display_name: _("Session"),
                 description: _("The session indicator"));
-
         this.server_type = server_type;
     }
 
