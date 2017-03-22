@@ -50,7 +50,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     close ();
-                    show_shutdown_dialog (e.time);
+                    show_shutdown_dialog ();
                     return Gdk.EVENT_STOP;
                 }
 
@@ -170,16 +170,15 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override void closed () {}
 
-    private void show_shutdown_dialog (uint32 timestamp = 0) {
-        if (shutdown_dialog != null) {
-            shutdown_dialog.present ();
-            return;
+    private void show_shutdown_dialog () {
+        if (shutdown_dialog == null) {
+            shutdown_dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
+            shutdown_dialog.destroy.connect (() => { shutdown_dialog = null; });
+            shutdown_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+            shutdown_dialog.show_all ();
         }
 
-        shutdown_dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
-        shutdown_dialog.destroy.connect (() => { shutdown_dialog = null; });
-        shutdown_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
-        shutdown_dialog.show_all ();
+        shutdown_dialog.present ();
     }
 }
 
