@@ -66,17 +66,24 @@ public class Session.Services.UserManager : Object {
         }
 
         try {
-            ObjectPath? path = login_proxy.get_user (uuid);
-            if (path == null) {
+            UserInfo[] users = login_proxy.list_users ();
+            if (users == null) {
                 return UserState.OFFLINE;
             }
 
-            UserInterface? user = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, path, DBusProxyFlags.NONE);
-            if (user == null) {
-                return UserState.OFFLINE;
+            foreach (UserInfo user in users) {
+                if (user.uid == uuid) {
+                    if (user.user_object == null) {
+                        return UserState.OFFLINE;
+                    }
+                    UserInterface? user_interface = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, user.user_object, DBusProxyFlags.NONE);
+                    if (user_interface == null) {
+                        return UserState.OFFLINE;
+                    }
+                    return UserState.to_enum (user_interface.state);
+                }
             }
 
-            return UserState.to_enum (user.state);
         } catch (IOError e) {
             stderr.printf ("Error: %s\n", e.message);
         }
