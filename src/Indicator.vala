@@ -35,6 +35,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Session.Services.UserManager manager;
 
     private Gtk.Grid main_grid;
+    private Session.Widgets.EndSessionDialog? shutdown_dialog = null;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         Object (code_name: Wingpanel.Indicator.SESSION,
@@ -46,6 +47,15 @@ public class Session.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
+            indicator_icon.button_press_event.connect ((e) => {
+                if (e.button == Gdk.BUTTON_MIDDLE) {
+                    close ();
+                    show_shutdown_dialog ();
+                    return Gdk.EVENT_STOP;
+                }
+
+                return Gdk.EVENT_PROPAGATE;
+            });
         }
 
         return indicator_icon;
@@ -141,9 +151,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         shutdown.clicked.connect (() => {
             close ();
-            var dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
-            dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
-            dialog.show_all ();
+            show_shutdown_dialog ();
         });
 
         suspend.clicked.connect (() => {
@@ -161,6 +169,17 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {}
+
+    private void show_shutdown_dialog () {
+        if (shutdown_dialog == null) {
+            shutdown_dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
+            shutdown_dialog.destroy.connect (() => { shutdown_dialog = null; });
+            shutdown_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+            shutdown_dialog.show_all ();
+        }
+
+        shutdown_dialog.present ();
+    }
 }
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
