@@ -31,6 +31,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.Button log_out;
     private Wingpanel.Widgets.Button suspend;
     private Wingpanel.Widgets.Button shutdown;
+    private Wingpanel.Widgets.Button? settings = null;
+    private GLib.AppInfo? settings_appinfo;
 
     private Session.Services.UserManager manager;
 
@@ -88,6 +90,14 @@ public class Session.Indicator : Wingpanel.Indicator {
                 }
 
                 main_grid.add (users_separator);
+
+                settings_appinfo = GLib.AppInfo.get_default_for_uri_scheme ("settings");
+                if (settings_appinfo != null) {
+                    settings = new Wingpanel.Widgets.Button (settings_appinfo.get_display_name ());
+                    main_grid.add (settings);
+                    main_grid.add (new Wingpanel.Widgets.Separator ());
+                }
+
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
                 main_grid.add (new Wingpanel.Widgets.Separator ());
@@ -162,6 +172,17 @@ public class Session.Indicator : Wingpanel.Indicator {
                 stderr.printf ("%s\n", e.message);
             }
         });
+
+        if (settings != null && settings_appinfo != null) {
+            settings.clicked.connect (() => {
+                close ();
+                try {
+                    settings_appinfo.launch (null, null);
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            });
+        }
     }
 
     public override void opened () {
