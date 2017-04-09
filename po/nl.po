@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2017-04-08 10:59+0000\n"
-"Last-Translator: Jonathan Moerman <jonathanmoerman@gmail.com>\n"
+"PO-Revision-Date: 2017-04-09 16:44+0000\n"
+"Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <http://weblate.elementary.io/projects/desktop"
 "/wingpanel-indicator-session/nl/>\n"
 "Language: nl\n"
@@ -37,7 +37,7 @@ msgstr "Afsluiten…"
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
-msgstr "Pauzestand"
+msgstr "Slaapstand"
 
 #: ../src/Indicator.vala:196
 msgid "Guest"
@@ -45,7 +45,7 @@ msgstr "Gast"
 
 #: ../src/Widgets/UserBox.vala:19
 msgid "Logged in"
-msgstr "Ingelogd"
+msgstr "Aangemeld"
 
 #: ../src/Widgets/UserBox.vala:20
 msgid "Logged out"
@@ -69,7 +69,7 @@ msgstr "Weet u zeker dat u wilt afsluiten?"
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "This will close all open applications and turn off this device."
-msgstr "Dit zal alle open applicaties sluiten en schakelt het apparaat uit."
+msgstr "Dit zal alle geopende toepassingen sluiten en het toestel uitschakelen."
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "Shut Down"
