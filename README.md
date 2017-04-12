@@ -1,5 +1,5 @@
 # Wingpanel Session Indicator
-[![l10n](https://l10n.elementary.io/widgets/desktop/wingpanel-indicator-session/svg-badge.svg)](https://l10n.elementary.io/projects/desktop/wingpanel-indicator-session)
+[![l10n](https://l10n.elementary.io/widgets/wingpanel/wingpanel-indicator-session/svg-badge.svg)](https://l10n.elementary.io/projects/wingpanel/wingpanel-indicator-session)
 
 ## Building and Installation
 
