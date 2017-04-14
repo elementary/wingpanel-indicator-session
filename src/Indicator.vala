@@ -70,7 +70,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             log_out = new Wingpanel.Widgets.Button (_("Log Out…"));
             lock_screen = new Wingpanel.Widgets.Button (_("Lock"));
-            shutdown = new Wingpanel.Widgets.Button (_("Shutdown…"));
+            shutdown = new Wingpanel.Widgets.Button (_("Shut Down…"));
             suspend = new Wingpanel.Widgets.Button (_("Suspend"));
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {

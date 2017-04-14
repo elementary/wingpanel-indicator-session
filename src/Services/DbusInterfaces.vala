@@ -20,6 +20,7 @@
 struct UserInfo {
     uint32 uid;
     string user_name;
+    ObjectPath? user_object;
 }
 
 /* Power and system control */
