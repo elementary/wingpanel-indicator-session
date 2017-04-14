@@ -3,14 +3,18 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-11 18:07+0200\n"
-"PO-Revision-Date: 2016-06-17 05:12+0000\n"
+"PO-Revision-Date: 2017-04-14 02:05+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Chinese (Simplified) "
+"<https://l10n.elementary.io/projects/wingpanel/wingpanel-indicator-"
+"session/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/Indicator.vala:45
 msgid "Session"
@@ -22,7 +26,7 @@ msgstr "会话指示器"
 
 #: ../src/Indicator.vala:81
 msgid "Log Out…"
-msgstr "注销..."
+msgstr "注销…"
 
 #: ../src/Indicator.vala:82
 msgid "Lock"
@@ -30,7 +34,7 @@ msgstr "锁定"
 
 #: ../src/Indicator.vala:83
 msgid "Shutdown…"
-msgstr "关机..."
+msgstr "关机…"
 
 #: ../src/Indicator.vala:84
 msgid "Suspend"
