@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-11 19:26-0700\n"
+"POT-Creation-Date: 2017-04-17 01:24+0200\n"
 "PO-Revision-Date: 2017-04-10 21:30+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -81,6 +81,6 @@ msgstr "Išjungti…"
 msgid "Suspend"
 msgstr "Pristabdyti"
 
-#: ../src/Services/UserManager.vala:196
+#: ../src/Services/UserManager.vala:203
 msgid "Guest"
 msgstr "Svečias"

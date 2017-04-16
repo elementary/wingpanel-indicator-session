@@ -6,83 +6,85 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-10-11 18:07+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-17 01:24+0200\n"
 "PO-Revision-Date: 2016-06-17 21:10+0000\n"
 "Last-Translator: yavinfour <anjelo.passionist@gmail.com>\n"
 "Language-Team: Tagalog <tl@li.org>\n"
+"Language: tl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: ../src/Indicator.vala:45
-msgid "Session"
-msgstr ""
-
-#: ../src/Indicator.vala:46
-msgid "The session indicator"
-msgstr ""
-
-#: ../src/Indicator.vala:81
-msgid "Log Out…"
-msgstr "Mag-log Out..."
-
-#: ../src/Indicator.vala:82
-msgid "Lock"
-msgstr "Lock"
-
-#: ../src/Indicator.vala:83
-msgid "Shutdown…"
-msgstr "Mag-shutdown..."
-
-#: ../src/Indicator.vala:84
-msgid "Suspend"
-msgstr "Isuspinde"
-
-#: ../src/Indicator.vala:196
-msgid "Guest"
-msgstr ""
-
-#: ../src/Widgets/UserBox.vala:19
-msgid "Logged in"
-msgstr "Naka-log in"
-
-#: ../src/Widgets/UserBox.vala:20
-msgid "Logged out"
-msgstr "Naka-log out"
-
-#: ../src/Widgets/EndSessionDialog.vala:53
+#: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
 msgstr "Sigurado ka bang gusto mong mag-Log Out?"
 
-#: ../src/Widgets/EndSessionDialog.vala:54
+#: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
 msgstr "Isasara nito ang lahat ng mga nakabukas na application."
 
-#: ../src/Widgets/EndSessionDialog.vala:55
+#: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
 msgstr "Mag-log Out"
 
-#: ../src/Widgets/EndSessionDialog.vala:60
+#: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
 msgstr "Sigurado ka bang gusto mong mag-Shut Down?"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
+#: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Isasara nito ang lahat ng mga nakabukas na application at papatayin ang "
 "aparato."
 
-#: ../src/Widgets/EndSessionDialog.vala:62
+#: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
 msgstr "Shut Down"
 
-#: ../src/Widgets/EndSessionDialog.vala:96
+#: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Restart"
 msgstr "Restart"
 
-#: ../src/Widgets/EndSessionDialog.vala:108
+#: ../src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
 msgstr "I-kansela"
+
+#: ../src/Widgets/UserBox.vala:21
+msgid "Logged in"
+msgstr "Naka-log in"
+
+#: ../src/Widgets/UserBox.vala:22
+msgid "Logged out"
+msgstr "Naka-log out"
+
+#: ../src/Indicator.vala:42
+msgid "Session"
+msgstr ""
+
+#: ../src/Indicator.vala:43
+msgid "The session indicator"
+msgstr ""
+
+#: ../src/Indicator.vala:71
+msgid "Log Out…"
+msgstr "Mag-log Out..."
+
+#: ../src/Indicator.vala:72
+msgid "Lock"
+msgstr "Lock"
+
+#: ../src/Indicator.vala:73
+#, fuzzy
+msgid "Shut Down…"
+msgstr "Mag-shutdown..."
+
+#: ../src/Indicator.vala:74
+msgid "Suspend"
+msgstr "Isuspinde"
+
+#: ../src/Services/UserManager.vala:203
+msgid "Guest"
+msgstr ""

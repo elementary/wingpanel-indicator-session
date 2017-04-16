@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-11 19:26-0700\n"
+"POT-Creation-Date: 2017-04-17 01:24+0200\n"
 "PO-Revision-Date: 2017-03-16 23:37+0000\n"
 "Last-Translator: Leonardo <leonardo@elementary.io>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.elementary.io/projects/"
@@ -81,6 +81,6 @@ msgstr "Desligar…"
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../src/Services/UserManager.vala:196
+#: ../src/Services/UserManager.vala:203
 msgid "Guest"
 msgstr "Visitante"

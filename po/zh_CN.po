@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-11 19:26-0700\n"
+"POT-Creation-Date: 2017-04-17 01:24+0200\n"
 "PO-Revision-Date: 2017-04-14 02:05+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -80,6 +80,6 @@ msgstr "关机…"
 msgid "Suspend"
 msgstr "挂起"
 
-#: ../src/Services/UserManager.vala:196
+#: ../src/Services/UserManager.vala:203
 msgid "Guest"
 msgstr "访客会话"
