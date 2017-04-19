@@ -65,7 +65,7 @@ msgstr "L'indicateur de session"
 
 #: ../src/Indicator.vala:71
 msgid "Log Out…"
-msgstr "Fermer la session..."
+msgstr "Fermer la session…"
 
 #: ../src/Indicator.vala:72
 msgid "Lock"
