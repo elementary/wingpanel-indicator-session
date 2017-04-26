@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
-msgstr "Ви впевнені, що хочите завершити сеанс?"
+msgstr "Ви впевнені, що хочете завершити сеанс?"
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
