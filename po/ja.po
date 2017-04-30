@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2017-04-22 11:32+0000\n"
+"PO-Revision-Date: 2017-04-30 01:25+0000\n"
 "Last-Translator: Ryo Nakano <nscnskichiro0911@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel"
 "/wingpanel-indicator-session/ja/>\n"
@@ -33,8 +33,7 @@ msgstr "シャットダウンしてよろしいですか？"
 
 #: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
-msgstr ""
-"続行するとすべてのアプリケーションを閉じ、コンピュータの電源を切ります。"
+msgstr "続行するとすべてのアプリケーションを閉じ、このデバイスの電源を切ります。"
 
 #: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
