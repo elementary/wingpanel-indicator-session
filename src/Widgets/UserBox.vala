@@ -22,54 +22,60 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     private const string LOGGED_OFF = _("Logged out");
     private const int ICON_SIZE = 48;
 
-    public Act.User? user { public get; private set; }
-    public bool is_guest = false;
+    public Act.User? user { get; set; }
+    public bool is_guest { get; set; default = false; }
+    public string fullname { get; set; }
 
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
     private Gtk.Label status_label;
 
     public Userbox (Act.User user) {
-        this.user = user;
+        Object (user: user);
         build_ui ();
-        connect_signals ();
-        update ();
-        update_state ();
     }
 
     public Userbox.from_data (string fullname, bool logged_in, bool is_guest = false) {
-        this.is_guest = is_guest;
-        this.user = null;
+        Object (fullname: fullname,
+                is_guest: is_guest,
+                user: null);
         build_ui ();
-        fullname_label.label = "<b>" + fullname + "</b>";
-        update_state ();
     }
 
     private void build_ui () {
-        get_style_context ().add_class ("menuitem");
-
-        var grid = new Gtk.Grid ();
-
-        fullname_label = new Gtk.Label ("");
+        fullname_label = new Gtk.Label ("<b>%s</b>".printf (fullname));
         fullname_label.use_markup = true;
         fullname_label.valign = Gtk.Align.END;
         fullname_label.halign = Gtk.Align.START;
 
         status_label = new Gtk.Label (LOGGED_OFF);
+        status_label.valign = Gtk.Align.START;
         status_label.halign = Gtk.Align.START;
 
-        if (is_guest) {
+        if (user == null) {
             avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
         } else {
             avatar = new Granite.Widgets.Avatar.from_file (user.get_icon_file (), ICON_SIZE);
+            user.changed.connect (() => {
+                update ();
+                update_state ();
+            });
+
+            user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+            user.bind_property ("locked", this, "no-show-all", BindingFlags.SYNC_CREATE);
+
+            update ();
         }
 
-        avatar.margin_end = 6;
-
+        var grid = new Gtk.Grid ();
         grid.attach (avatar, 0, 0, 3, 3);
         grid.attach (fullname_label, 3, 0, 2, 1);
         grid.attach (status_label, 3, 1, 2, 1);
-        this.add (grid);
+
+        get_style_context ().add_class ("menuitem");
+        add (grid);
+
+        update_state ();
     }
 
     // For some reason Act.User.is_logged_in () does not work
@@ -96,7 +102,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
             return;
         }
 
-        this.fullname_label.label = "<b>" + user.get_real_name () + "</b>";
+        fullname_label.label = "<b>%s</b>".printf (user.get_real_name ());
 
         try {
             var pixbuf = new Gdk.Pixbuf.from_file (user.get_icon_file ());
@@ -118,16 +124,6 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         }
 
         changed ();
-    }
-
-    private void connect_signals () {
-        user.changed.connect (() => {
-            update ();
-            update_state ();
-        });
-
-        user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
-        user.bind_property ("locked", this, "no-show-all", BindingFlags.SYNC_CREATE);
     }
 
     public override bool draw (Cairo.Context ctx) {
