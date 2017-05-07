@@ -78,6 +78,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 manager = new Session.Services.UserManager (users_separator);
 
                 var scrolled_box = new Wingpanel.Widgets.AutomaticScrollBox (null, null);
+                scrolled_box.max_height = 300;
                 scrolled_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
                 scrolled_box.add (manager.user_grid);
 
