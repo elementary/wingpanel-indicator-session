@@ -166,7 +166,12 @@ public class Session.Services.UserManager : Object {
 
     private Widgets.Userbox? get_userbox_from_user (Act.User user) {
         foreach (Widgets.Userbox userbox in userbox_list) {
-            if (userbox.user.get_user_name () == user.get_user_name ()) {
+            var _user = userbox.user;
+            if (_user == null) {
+                continue;
+            }
+
+            if (_user.get_user_name () == user.get_user_name ()) {
                 return userbox;
             }
         } 
