@@ -58,7 +58,10 @@
             if (userbox.is_guest) {
                 seat.switch_to_guest ("");
             } else {
-                seat.switch_to_user (userbox.user.get_user_name (), session_path);
+                var user = userbox.user;
+                if (user != null) {
+                    seat.switch_to_user (user.get_user_name (), session_path);
+                }
             }
         } catch (IOError e) {
             stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
