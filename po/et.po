@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2017-05-23 09:33+0000\n"
+"PO-Revision-Date: 2017-05-23 09:39+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.elementary.io/projects/wingpanel"
 "/wingpanel-indicator-session/et/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
-msgstr "Oled sa kindel, et soovid välja logida?"
+msgstr "Oled kindel, et soovid kontost välja logida?"
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
@@ -29,11 +29,11 @@ msgstr "Logi välja"
 
 #: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
-msgstr "Oled sa kindel, et soovid välja lülitada?"
+msgstr "Oled kindel, et soovid masina välja lülitada?"
 
 #: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
-msgstr "Kõik rakendused suletakse ja seade lülitatakse välja."
+msgstr "Kõik rakendused suletakse ja masin lülitatakse välja."
 
 #: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
