@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2017-05-23 21:38+0000\n"
+"PO-Revision-Date: 2017-07-01 22:11+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/wingpanel"
 "/wingpanel-indicator-session/da/>\n"
@@ -45,7 +45,7 @@ msgstr "Genstart"
 
 #: ../src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
-msgstr "Annullér"
+msgstr "Annuller"
 
 #: ../src/Widgets/UserBox.vala:21
 msgid "Logged in"
