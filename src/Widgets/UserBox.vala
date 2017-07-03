@@ -22,9 +22,9 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     private const string LOGGED_OFF = _("Logged out");
     private const int ICON_SIZE = 48;
 
-    public Act.User? user { get; set; }
+    public Act.User? user { get; construct; }
     public bool is_guest { get; set; default = false; }
-    public string fullname { get; set; }
+    public string fullname { get; construct set; }
 
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
@@ -32,17 +32,15 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
     public Userbox (Act.User user) {
         Object (user: user);
-        build_ui ();
     }
 
     public Userbox.from_data (string fullname, bool logged_in, bool is_guest = false) {
         Object (fullname: fullname,
                 is_guest: is_guest,
                 user: null);
-        build_ui ();
     }
 
-    private void build_ui () {
+    construct {
         fullname_label = new Gtk.Label ("<b>%s</b>".printf (fullname));
         fullname_label.use_markup = true;
         fullname_label.valign = Gtk.Align.END;
