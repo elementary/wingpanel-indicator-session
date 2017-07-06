@@ -1,82 +1,84 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2015-08-20 21:20+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-07-06 14:57+0700\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"Language-Team: \n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin Log Keluar?"
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Ini akan menutup semua aplikasi yang terbuka."
 
 #: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
-msgstr ""
+msgstr "Log Keluar"
 
 #: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin Matikan Komputer?"
 
 #: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
 msgstr ""
+"Ini akan menutup semua aplikasi yang terbuka dan mematikan perangkat ini."
 
 #: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
-msgstr ""
+msgstr "Matikan"
 
 #: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Restart"
-msgstr ""
+msgstr "Nyalakan Ulang"
 
 #: ../src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: ../src/Widgets/UserBox.vala:21
 msgid "Logged in"
-msgstr ""
+msgstr "Sukses log masuk"
 
 #: ../src/Widgets/UserBox.vala:22
 msgid "Logged out"
-msgstr ""
+msgstr "Sukses log keluar"
 
 #: ../src/Indicator.vala:42
 msgid "Session"
-msgstr ""
+msgstr "Sesi"
 
 #: ../src/Indicator.vala:43
 msgid "The session indicator"
-msgstr ""
+msgstr "Indikator sesi"
 
 #: ../src/Indicator.vala:71
 msgid "Log Out…"
-msgstr ""
+msgstr "Log Keluar…"
 
 #: ../src/Indicator.vala:72
 msgid "Lock"
-msgstr ""
+msgstr "Kunci"
 
 #: ../src/Indicator.vala:73
 msgid "Shut Down…"
-msgstr ""
+msgstr "Matikan…"
 
 #: ../src/Indicator.vala:74
 msgid "Suspend"
-msgstr ""
+msgstr "Suspen"
 
 #: ../src/Services/UserManager.vala:203
 msgid "Guest"
-msgstr ""
+msgstr "Tamu"
