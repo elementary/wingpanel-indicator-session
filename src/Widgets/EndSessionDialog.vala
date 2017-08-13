@@ -34,7 +34,15 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     public EndSessionDialogType dialog_type { get; construct; }
 
     public EndSessionDialog (Session.Widgets.EndSessionDialogType type) {
-        Object (dialog_type: type, title: "", deletable: false, skip_taskbar_hint: true, skip_pager_hint: true, type_hint: Gdk.WindowTypeHint.DIALOG);
+        Object (
+            dialog_type: type,
+            title: "",
+            deletable: false,
+            resizable: false,
+            skip_taskbar_hint: true,
+            skip_pager_hint: true,
+            type_hint: Gdk.WindowTypeHint.DIALOG
+        );
     }
 
     construct {
@@ -50,11 +58,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 
         string icon_name, heading_text, button_text, content_text;
 
-        /*
-         * the restart type is currently used by the indicator for what is
-         * labelled shutdown because of unity's implementation of it
-         * apparently. So we got to adjust to that until they fix this.
-         */
         switch (dialog_type) {
             case EndSessionDialogType.LOGOUT:
                 icon_name = "system-log-out";
@@ -69,13 +72,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
                 content_text = _("This will close all open applications and turn off this device.");
                 button_text = _("Shut Down");
                 break;
-
-            /*case EndSessionDialogType.RESTART:
-             *   icon_name = "system-reboot";
-             *   heading_text = _("Are you sure you want to Restart?");
-             *   content_text = _("This will close all open applications.");
-             *   button_text = _("Restart");
-             *   break;*/
             default:
                 warn_if_reached ();
                 break;
@@ -84,20 +80,24 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         set_position (Gtk.WindowPosition.CENTER_ALWAYS);
         set_keep_above (true);
         stick ();
-        set_resizable (false);
 
-        var heading = new Gtk.Label ("<span weight='bold' size='larger'>" + heading_text + "</span>");
-        heading.get_style_context ().add_class ("larger");
-        heading.use_markup = true;
-        heading.halign = Gtk.Align.START;
+        var image = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DIALOG);
+        image.valign = Gtk.Align.START;
+
+        var heading = new Gtk.Label (heading_text);
+        heading.get_style_context ().add_class ("primary");
+        heading.xalign = 0;
+
+        var secondary_label = new Gtk.Label (content_text);
+        secondary_label.xalign = 0;
 
         var grid = new Gtk.Grid ();
         grid.column_spacing = 12;
-        grid.row_spacing = 12;
+        grid.row_spacing = 6;
         grid.margin_left = grid.margin_right = grid.margin_bottom = 12;
-        grid.attach (new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DIALOG), 0, 0, 1, 2);
+        grid.attach (image, 0, 0, 1, 2);
         grid.attach (heading, 1, 0, 1, 1);
-        grid.attach (new Gtk.Label (content_text), 1, 1, 1, 1);
+        grid.attach (secondary_label, 1, 1, 1, 1);
 
         /*
          * the indicator does not have a separate item for restart, that's
@@ -144,7 +144,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         get_content_area ().add (grid);
 
         var action_area = get_action_area ();
-        action_area.margin_right = 6;
-        action_area.margin_bottom = 6;
+        action_area.margin = 6;
     }
 }
