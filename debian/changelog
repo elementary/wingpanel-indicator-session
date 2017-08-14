@@ -1,3 +1,9 @@
+wingpanel-indicator-session (2.0.3) xenial; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Sun, 13 Aug 2017 20:14:09 -0500
+
 wingpanel-indicator-session (2.0.2) xenial; urgency=medium
 
   * New upstream release.
