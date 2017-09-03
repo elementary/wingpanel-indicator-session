@@ -156,6 +156,11 @@ public class Session.Services.UserManager : Object {
     }
 
     private void add_user (Act.User user) {
+        // Don't add any of the system reserved users
+        if (user.get_uid () < 1000 || user.get_uid () == 65534) {
+            return;
+        }
+
         var userbox = new Session.Widgets.Userbox (user);
         userbox_list.append (userbox);
 
