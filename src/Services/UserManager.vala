@@ -160,7 +160,8 @@ public class Session.Services.UserManager : Object {
 
     private void add_user (Act.User user) {
         // Don't add any of the system reserved users
-        if (user.get_uid () < RESERVED_UID_RANGE_END || user.get_uid () == NOBODY_USER_UID) {
+        var uid = user.get_uid ();
+        if (uid < RESERVED_UID_RANGE_END || uid == NOBODY_USER_UID) {
             return;
         }
 
