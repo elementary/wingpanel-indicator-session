@@ -35,6 +35,9 @@ public enum UserState {
 }
 
 public class Session.Services.UserManager : Object {
+    private const uint NOBODY_USER_UID = 65534;
+    private const uint RESERVED_UID_RANGE_END = 1000;
+
     public signal void close ();
 
     private const string LOGIN_IFACE = "org.freedesktop.login1";
@@ -156,6 +159,12 @@ public class Session.Services.UserManager : Object {
     }
 
     private void add_user (Act.User user) {
+        // Don't add any of the system reserved users
+        var uid = user.get_uid ();
+        if (uid < RESERVED_UID_RANGE_END || uid == NOBODY_USER_UID) {
+            return;
+        }
+
         var userbox = new Session.Widgets.Userbox (user);
         userbox_list.append (userbox);
 
