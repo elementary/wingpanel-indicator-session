@@ -27,7 +27,7 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 set (DEPS_PACKAGES gtk+-3.0;gio-2.0;accountsservice;wingpanel-2.0;granite)
 
-option (ENABLE_SHOW_APPS "Show running apps in the end session dialog and close them" OFF)
+option (ENABLE_SHOW_APPS "Show running apps in the end session dialog and close them" ON)
 if (ENABLE_SHOW_APPS)
     message ("-- Enabled showing apps in the end session dialog")
     set (DEPS_X libbamf3;libwnck-3.0)
