@@ -47,19 +47,13 @@ public class ShutdownAction : Object {
         var windows = filter_normal_windows (screen.get_windows ());
         request_close_windows (windows);
 
-        int seconds_passed = 1;
-        source_id = Timeout.add_seconds (1, () => {
-            if (seconds_passed == KILL_TIMEOUT_SECONDS) {
-                var _windows = filter_normal_windows (screen.get_windows ());
-                force_close_windows (_windows);
+        source_id = Timeout.add_seconds (KILL_TIMEOUT_SECONDS, () => {
+            var _windows = filter_normal_windows (screen.get_windows ());
+            force_close_windows (_windows);
 
-                Idle.add (run.callback);
-                source_id = 0U;
-                return false;
-            }
-            
-            seconds_passed++;
-            return true;
+            source_id = 0U;
+            Idle.add (run.callback);
+            return false;
         });
 
         yield;
