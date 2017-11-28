@@ -22,7 +22,7 @@ include (GNUInstallDirs)
 set (DATADIR "${CMAKE_INSTALL_FULL_LIBDIR}/wingpanel")
 set (PKGDATADIR "${DATADIR}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}-indicator")
-set (VERSION "2.0.3")
+set (VERSION "2.0.4")
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 set (DEPS_PACKAGES gio-2.0;gtk+-3.0;wingpanel-2.0;granite;AccountsService-1.0)
