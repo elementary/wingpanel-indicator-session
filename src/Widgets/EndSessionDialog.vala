@@ -28,8 +28,13 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
-    private LogoutInterface logout_interface;
-    private SystemInterface system_interface;
+    private Gtk.Grid grid;
+    private OpenedAppsBox app_icons_box;
+
+    private Gtk.Button confirm;
+    private Gtk.Button? confirm_restart = null;
+
+    private ShutdownAction? current_action = null;
 
     public EndSessionDialogType dialog_type { get; construct; }
 
@@ -46,16 +51,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     }
 
     construct {
-        try {
-            if (dialog_type == Session.Widgets.EndSessionDialogType.LOGOUT) {
-                logout_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1/user/self");
-            } else {
-                system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
-            }
-        } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
-        }
-
         string icon_name, heading_text, button_text, content_text;
 
         switch (dialog_type) {
@@ -91,13 +86,17 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         var secondary_label = new Gtk.Label (content_text);
         secondary_label.xalign = 0;
 
-        var grid = new Gtk.Grid ();
+        app_icons_box = new OpenedAppsBox ();
+        app_icons_box.halign = Gtk.Align.START;
+        
+        grid = new Gtk.Grid ();
         grid.column_spacing = 12;
         grid.row_spacing = 6;
         grid.margin_left = grid.margin_right = grid.margin_bottom = 12;
         grid.attach (image, 0, 0, 1, 2);
         grid.attach (heading, 1, 0, 1, 1);
         grid.attach (secondary_label, 1, 1, 1, 1);
+        grid.attach (app_icons_box, 1, 2, 1, 1);
 
         /*
          * the indicator does not have a separate item for restart, that's
@@ -105,37 +104,35 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
          * (which is sent for shutdown as described above)
          */
         if (dialog_type == EndSessionDialogType.RESTART) {
-            var confirm_restart = add_button (_("Restart"), Gtk.ResponseType.OK) as Gtk.Button;
+            confirm_restart = add_button (_("Restart"), Gtk.ResponseType.OK) as Gtk.Button;
             confirm_restart.clicked.connect (() => {
-                try {
-                    system_interface.reboot (false);
-                } catch (IOError e) {
-                    stderr.printf ("%s\n", e.message);
-                }
-
-                destroy ();
+                confirm_restart.sensitive = false;
+                confirm.sensitive = false;
+                create_run_action (EndSessionDialogType.RESTART);
             });
         }
 
         var cancel = add_button (_("Cancel"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-        cancel.clicked.connect (() => { destroy (); });
+        cancel.clicked.connect (() => { 
+            if (current_action != null) {
+                current_action.stop ();
+            }
 
-        var confirm = add_button (button_text, Gtk.ResponseType.OK) as Gtk.Button;
+            destroy ();
+        });
+
+        confirm = add_button (button_text, Gtk.ResponseType.OK) as Gtk.Button;
         confirm.get_style_context ().add_class ("destructive-action");
         confirm.clicked.connect (() => {
+            if (confirm_restart != null) {
+                confirm_restart.sensitive = false;
+            }
+
+            confirm.sensitive = false;
             if (dialog_type == EndSessionDialogType.RESTART || dialog_type == EndSessionDialogType.SHUTDOWN) {
-                try {
-                    system_interface.power_off (false);
-                } catch (IOError e) {
-                    stderr.printf ("%s\n", e.message);
-                }
+                create_run_action (EndSessionDialogType.SHUTDOWN);
             } else {
-                try {
-                    logout_interface.terminate ();
-                } catch (IOError e) {
-                    stderr.printf ("%s\n", e.message);
-                }
-                destroy ();
+                create_run_action (EndSessionDialogType.LOGOUT);
             }
         });
 
@@ -145,5 +142,25 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 
         var action_area = get_action_area ();
         action_area.margin = 6;
+    }
+
+    private void create_run_action (EndSessionDialogType action_type) {
+        current_action = new ShutdownAction ();
+        current_action.terminate_finished.connect (() => on_terminate_finished (action_type));
+        current_action.run.begin ();
+    }
+
+    private void on_terminate_finished (EndSessionDialogType action_type) {
+        switch (action_type) {
+            case EndSessionDialogType.LOGOUT:
+                ShutdownAction.logout ();
+                break;
+            case EndSessionDialogType.SHUTDOWN:
+                ShutdownAction.shutdown ();
+                break;
+            case EndSessionDialogType.RESTART:
+                ShutdownAction.reboot ();
+                break;
+        }
     }
 }

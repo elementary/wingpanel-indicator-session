@@ -1,10 +1,12 @@
 find_package (PkgConfig)
 
 # Add all your dependencies to the list below
-pkg_check_modules (DEPS REQUIRED gthread-2.0 gtk+-3.0 gio-2.0 accountsservice wingpanel-2.0 granite)
+pkg_check_modules (DEPS REQUIRED gthread-2.0 gtk+-3.0 gio-2.0 accountsservice wingpanel-2.0 granite libbamf3 libwnck-3.0)
 
 add_definitions (${DEPS_CFLAGS})
 link_directories (${DEPS_LIBRARY_DIRS})
+
+add_definitions (-DWNCK_I_KNOW_THIS_IS_UNSTABLE)
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
@@ -17,17 +19,23 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Widgets/UserBox.vala
   Widgets/UserListBox.vala
   Widgets/EndSessionDialog.vala
+  Widgets/ShutdownAppsDialog.vala
+  Widgets/OpenedAppsBox.vala
   Services/UserManager.vala
   Services/DbusInterfaces.vala
+  Services/ShutdownAction.vala
   ${CMAKE_CURRENT_BINARY_DIR}/config.vala
 PACKAGES
   gio-2.0
   gtk+-3.0
   wingpanel-2.0
   granite
+  libbamf3
+  libwnck-3.0
   AccountsService-1.0
 OPTIONS
   --thread
+  --pkg=posix
 )
 
 add_library (${CMAKE_PROJECT_NAME} MODULE ${VALA_C})
