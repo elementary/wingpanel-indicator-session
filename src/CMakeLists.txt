@@ -19,7 +19,6 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Widgets/UserBox.vala
   Widgets/UserListBox.vala
   Widgets/EndSessionDialog.vala
-  Widgets/ShutdownAppsDialog.vala
   Widgets/OpenedAppsBox.vala
   Services/UserManager.vala
   Services/DbusInterfaces.vala
