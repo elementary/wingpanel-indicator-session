@@ -28,7 +28,6 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
-    private Gtk.Grid grid;
     private OpenedAppsBox app_icons_box;
 
     private Gtk.Button confirm;
@@ -89,7 +88,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         app_icons_box = new OpenedAppsBox ();
         app_icons_box.halign = Gtk.Align.START;
         
-        grid = new Gtk.Grid ();
+        var grid = new Gtk.Grid ();
         grid.column_spacing = 12;
         grid.row_spacing = 6;
         grid.margin_left = grid.margin_right = grid.margin_bottom = 12;
