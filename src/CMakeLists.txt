@@ -27,6 +27,7 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
 PACKAGES
   ${DEPS_PACKAGES}
 OPTIONS
+  ${SHOW_APPS_OPTIONS}
   --thread
   --pkg=posix
 )
