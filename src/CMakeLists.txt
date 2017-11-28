@@ -25,13 +25,7 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Services/ShutdownAction.vala
   ${CMAKE_CURRENT_BINARY_DIR}/config.vala
 PACKAGES
-  gio-2.0
-  gtk+-3.0
-  wingpanel-2.0
-  granite
-  libbamf3
-  libwnck-3.0
-  AccountsService-1.0
+  ${DEPS_PACKAGES}
 OPTIONS
   --thread
   --pkg=posix

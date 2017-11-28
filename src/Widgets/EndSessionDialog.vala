@@ -28,7 +28,9 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
+#if HAVE_BAMF_WNCK
     private OpenedAppsBox app_icons_box;
+#endif
 
     private Gtk.Button confirm;
     private Gtk.Button? confirm_restart = null;
@@ -85,8 +87,10 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         var secondary_label = new Gtk.Label (content_text);
         secondary_label.xalign = 0;
 
+#if HAVE_BAMF_WNCK
         app_icons_box = new OpenedAppsBox ();
         app_icons_box.halign = Gtk.Align.START;
+#endif
         
         var grid = new Gtk.Grid ();
         grid.column_spacing = 12;
@@ -95,7 +99,9 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         grid.attach (image, 0, 0, 1, 2);
         grid.attach (heading, 1, 0, 1, 1);
         grid.attach (secondary_label, 1, 1, 1, 1);
+#if HAVE_BAMF_WNCK        
         grid.attach (app_icons_box, 1, 2, 1, 1);
+#endif
 
         /*
          * the indicator does not have a separate item for restart, that's
@@ -113,9 +119,11 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
 
         var cancel = add_button (_("Cancel"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         cancel.clicked.connect (() => { 
+#if HAVE_BAMF_WNCK
             if (current_action != null) {
                 current_action.stop ();
             }
+#endif
 
             destroy ();
         });

@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301 USA
  */
 
+#if HAVE_BAMF_WNCK
 public class OpenedAppsBox : Gtk.Box {
     private class ApplicationIcon : Gtk.Image {
         public Bamf.Application app { get; construct; }
@@ -177,3 +178,4 @@ public class OpenedAppsBox : Gtk.Box {
         return a.path == b.path;
     }
 }
+#endif

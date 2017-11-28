@@ -20,6 +20,7 @@
 public class ShutdownAction : Object {
     public signal void terminate_finished ();
 
+#if HAVE_BAMF_WNCK
     private const int KILL_TIMEOUT_SECONDS = 6;
 
     private uint source_id = 0U;
@@ -30,8 +31,10 @@ public class ShutdownAction : Object {
     construct {
         screen = Wnck.Screen.get_default ();
     }
+#endif
 
     public async void run () {
+#if HAVE_BAMF_WNCK
         if (screen == null) {
             return;
         }
@@ -59,9 +62,11 @@ public class ShutdownAction : Object {
         yield;
 
         stop ();
+#endif
         terminate_finished ();
     }
 
+#if HAVE_BAMF_WNCK
     public void stop () {
         if (source_id != 0U) {
             Source.remove (source_id);
@@ -73,6 +78,7 @@ public class ShutdownAction : Object {
             window_closed_id = 0UL;
         }
     }
+#endif
 
     public static void logout () {
         try {
@@ -101,6 +107,7 @@ public class ShutdownAction : Object {
         }
     }
 
+#if HAVE_BAMF_WNCK
     private static Gee.ArrayList<Wnck.Window> filter_normal_windows (List<Wnck.Window> windows) {
         var filtered = new Gee.ArrayList<Wnck.Window> ();
         windows.@foreach ((window) => {
@@ -123,4 +130,5 @@ public class ShutdownAction : Object {
             Posix.kill ((Posix.pid_t)window.get_pid (), Posix.SIGKILL);
         }
     }
+#endif
 }
