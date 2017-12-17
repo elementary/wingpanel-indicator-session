@@ -3,80 +3,82 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2015-08-20 21:20+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-12-17 19:11+0000\n"
+"Last-Translator: Вагиф Кязым <vaqif134@gmail.com>\n"
+"Language-Team: Azerbaijani <https://weblate.elementary.io/projects/wingpanel"
+"/wingpanel-indicator-session/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "Siz həqiqətən sistemdən çıxmaq istəyirsiniz?"
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Çıxış bütün tətbiqlərinizi bağlayacaq."
 
 #: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
-msgstr ""
+msgstr "Sistemdən çıx"
 
 #: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "Siz həqiqətən kompüteri söndürmək istəyirsiniz?"
 
 #: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "Bu bütün tətbiqlərinizi bağlayaraq kompüterinizi söndürəcək."
 
 #: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
-msgstr ""
+msgstr "Söndür"
 
 #: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Restart"
-msgstr ""
+msgstr "Yenidən başlat"
 
 #: ../src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
-msgstr ""
+msgstr "İmtina et"
 
 #: ../src/Widgets/UserBox.vala:21
 msgid "Logged in"
-msgstr ""
+msgstr "Daxil oldu"
 
 #: ../src/Widgets/UserBox.vala:22
 msgid "Logged out"
-msgstr ""
+msgstr "Daxil olmadı"
 
 #: ../src/Indicator.vala:42
 msgid "Session"
-msgstr ""
+msgstr "Sessiya"
 
 #: ../src/Indicator.vala:43
 msgid "The session indicator"
-msgstr ""
+msgstr "Sessiya indikatoru"
 
 #: ../src/Indicator.vala:71
 msgid "Log Out…"
-msgstr ""
+msgstr "Sistemdən çıx…"
 
 #: ../src/Indicator.vala:72
 msgid "Lock"
-msgstr ""
+msgstr "Kilidlə"
 
 #: ../src/Indicator.vala:73
 msgid "Shut Down…"
-msgstr ""
+msgstr "Söndür…"
 
 #: ../src/Indicator.vala:74
 msgid "Suspend"
-msgstr ""
+msgstr "Gözləmə rejimi"
 
 #: ../src/Services/UserManager.vala:203
 msgid "Guest"
-msgstr ""
+msgstr "Qonaq"
