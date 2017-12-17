@@ -3,10 +3,11 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-23 14:53-0700\n"
-"PO-Revision-Date: 2017-12-17 23:09+0000\n"
+"PO-Revision-Date: 2018-04-02 16:18+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
-"wingpanel/wingpanel-indicator-session/zh_TW/>\n"
+"Language-Team: Chinese (Traditional) "
+"<https://weblate.elementary.io/projects/wingpanel/wingpanel-indicator-"
+"session/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "作業階段指示器"
 
 #: src/Indicator.vala:74
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "使用者帳號設定值…"
 
 #: src/Indicator.vala:77
 msgid "Log Out…"
