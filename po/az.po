@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2017-12-17 19:11+0000\n"
+"PO-Revision-Date: 2017-12-17 23:09+0000\n"
 "Last-Translator: Вагиф Кязым <vaqif134@gmail.com>\n"
 "Language-Team: Azerbaijani <https://weblate.elementary.io/projects/wingpanel"
 "/wingpanel-indicator-session/az/>\n"
@@ -21,7 +21,7 @@ msgstr "Siz həqiqətən sistemdən çıxmaq istəyirsiniz?"
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
-msgstr "Çıxış bütün tətbiqlərinizi bağlayacaq."
+msgstr "Bu bütün tətbiqlərinizi bağlayacaq."
 
 #: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
