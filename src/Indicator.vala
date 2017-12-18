@@ -96,7 +96,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
-            main_grid.margin_top = 6;
 
             connections ();
         }
