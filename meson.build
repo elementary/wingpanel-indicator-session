@@ -3,8 +3,9 @@ project('session', 'vala', 'c')
 i18n = import('i18n')
 
 add_global_arguments('-DGETTEXT_PACKAGE="' + meson.project_name() + '-indicator"', language:'c')
-add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], 
-                      language: 'vala')
+add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
+
+wingpanel_dep = dependency('wingpanel-2.0')
 
 shared_module(
     meson.project_name(),
@@ -20,10 +21,10 @@ shared_module(
         dependency('gobject-2.0'),
         dependency('granite'),
         dependency('gtk+-3.0'),
-        dependency('wingpanel-2.0')
+        wingpanel_dep
     ],
     install: true,
-    install_dir : get_option('libdir') + '/wingpanel'
+    install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir')
 )
 
 subdir('po')
