@@ -1,8 +1,9 @@
 project('session', 'vala', 'c')
 
 i18n = import('i18n')
+gettext_name = meson.project_name() + '-indicator'
 
-add_global_arguments('-DGETTEXT_PACKAGE="' + meson.project_name() + '-indicator"', language:'c')
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
 
 wingpanel_dep = dependency('wingpanel-2.0')
