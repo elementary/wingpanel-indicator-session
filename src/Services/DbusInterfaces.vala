@@ -41,7 +41,6 @@ interface SystemInterface : Object {
     public abstract void power_off (bool interactive) throws IOError;
 
     public abstract UserInfo[] list_users () throws IOError;
-    public abstract ObjectPath? get_user (uint32 uuid) throws IOError;
 }
 
 [DBus (name = "org.freedesktop.login1.User")]
