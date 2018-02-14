@@ -27,11 +27,12 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
-    private Wingpanel.Widgets.Button user_settings;
-    private Wingpanel.Widgets.Button lock_screen;
-    private Wingpanel.Widgets.Button log_out;
-    private Wingpanel.Widgets.Button suspend;
-    private Wingpanel.Widgets.Button shutdown;
+
+    private Gtk.ModelButton user_settings;
+    private Gtk.ModelButton lock_screen;
+    private Gtk.ModelButton log_out;
+    private Gtk.ModelButton suspend;
+    private Gtk.ModelButton shutdown;
 
     private Session.Services.UserManager manager;
 
@@ -69,17 +70,27 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-            user_settings = new Wingpanel.Widgets.Button (_("User Accounts Settings…"));
-            log_out = new Wingpanel.Widgets.Button (_("Log Out…"));
-            lock_screen = new Wingpanel.Widgets.Button (_("Lock"));
-            shutdown = new Wingpanel.Widgets.Button (_("Shut Down…"));
-            suspend = new Wingpanel.Widgets.Button (_("Suspend"));
+            user_settings = new Gtk.ModelButton ();
+            user_settings.text = _("User Accounts Settings…");
+
+            log_out = new Gtk.ModelButton ();
+            log_out.text = _("Log Out…");
+
+            lock_screen = new Gtk.ModelButton ();
+            lock_screen.text = _("Lock");
+
+            shutdown = new Gtk.ModelButton ();
+            shutdown.text = _("Shut Down…");
+
+            suspend = new Gtk.ModelButton ();
+            suspend.text = _("Suspend");
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
                 users_separator = new Wingpanel.Widgets.Separator ();
                 manager = new Session.Services.UserManager (users_separator);
 
                 var scrolled_box = new Wingpanel.Widgets.AutomaticScrollBox (null, null);
+                scrolled_box.hexpand = true;
                 scrolled_box.max_height = 300;
                 scrolled_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
                 scrolled_box.add (manager.user_grid);
