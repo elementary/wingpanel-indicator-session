@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2018-03-18 03:40+0000\n"
+"PO-Revision-Date: 2018-03-20 00:14+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/wingpanel"
 "/wingpanel-indicator-session/hi/>\n"
@@ -17,11 +17,11 @@ msgstr ""
 
 #: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
-msgstr "क्या आप सत्रांत के लिए निश्चित हैं"
+msgstr "क्या आप सत्रांत के लिए निश्चित हैं?"
 
 #: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
-msgstr "यह सभी खुले हुए ऍप्लिकेशन को बंद कर देगा"
+msgstr "यह सभी खुले हुए अनुप्रयोगों को बंद कर देगा."
 
 #: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
@@ -29,11 +29,11 @@ msgstr "सत्रांत"
 
 #: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
-msgstr "क्या आप शटडाउन करने के लिए निश्चित हैं"
+msgstr "क्या आप शटडाउन करने के लिए निश्चित हैं?"
 
 #: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
-msgstr "यह सभी खुले हुए ऍप्लिकेशन को बंद कर यंत्र को भी बंद कर देगा"
+msgstr "यह सभी खुले हुए अनुप्रयोगों को बंद कर यंत्र को भी बंद कर देगा."
 
 #: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
