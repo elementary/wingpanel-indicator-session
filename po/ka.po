@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 01:24+0200\n"
+"POT-Creation-Date: 2018-03-23 14:53-0700\n"
 "PO-Revision-Date: 2015-11-17 00:19+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,71 +13,75 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
-msgid "Are you sure you want to Log Out?"
-msgstr "დარწმუნებული ხართ, რომ გამოსვლა გსურთ?"
-
-#: ../src/Widgets/EndSessionDialog.vala:62
-msgid "This will close all open applications."
-msgstr "ეს გამოიწვევს ყველა პროგრამის დახურვას"
-
-#: ../src/Widgets/EndSessionDialog.vala:63
-msgid "Log Out"
-msgstr "გამოსვლა"
-
-#: ../src/Widgets/EndSessionDialog.vala:68
-msgid "Are you sure you want to Shut Down?"
-msgstr "დარწმუნებული ხართ, რომ გამორთვა გსურთ?"
-
-#: ../src/Widgets/EndSessionDialog.vala:69
-msgid "This will close all open applications and turn off this device."
-msgstr "ეს დახურავს ყველა პროგრამას და გამორთავს თქვენს მოწყოილობას."
-
-#: ../src/Widgets/EndSessionDialog.vala:70
-msgid "Shut Down"
-msgstr "გამორთვა"
-
-#: ../src/Widgets/EndSessionDialog.vala:108
-msgid "Restart"
-msgstr "გადატვირთვა"
-
-#: ../src/Widgets/EndSessionDialog.vala:120
-msgid "Cancel"
-msgstr "გაუქმება"
-
-#: ../src/Widgets/UserBox.vala:21
-msgid "Logged in"
-msgstr "შესული"
-
-#: ../src/Widgets/UserBox.vala:22
-msgid "Logged out"
-msgstr "გამოსული"
-
-#: ../src/Indicator.vala:42
+#: src/Indicator.vala:44
 msgid "Session"
 msgstr "სესია"
 
-#: ../src/Indicator.vala:43
+#: src/Indicator.vala:45
 msgid "The session indicator"
 msgstr "სესის მაჩვენებელი"
 
-#: ../src/Indicator.vala:71
+#: src/Indicator.vala:74
+msgid "User Accounts Settings…"
+msgstr ""
+
+#: src/Indicator.vala:77
 msgid "Log Out…"
 msgstr "გასვლა..."
 
-#: ../src/Indicator.vala:72
+#: src/Indicator.vala:80
 msgid "Lock"
 msgstr "ჩაკეტვა"
 
-#: ../src/Indicator.vala:73
+#: src/Indicator.vala:83
 #, fuzzy
 msgid "Shut Down…"
 msgstr "გამორთვა..."
 
-#: ../src/Indicator.vala:74
+#: src/Indicator.vala:86
 msgid "Suspend"
 msgstr "შეჩერება"
 
-#: ../src/Services/UserManager.vala:203
+#: src/Widgets/EndSessionDialog.vala:64
+msgid "Are you sure you want to Log Out?"
+msgstr "დარწმუნებული ხართ, რომ გამოსვლა გსურთ?"
+
+#: src/Widgets/EndSessionDialog.vala:65
+msgid "This will close all open applications."
+msgstr "ეს გამოიწვევს ყველა პროგრამის დახურვას"
+
+#: src/Widgets/EndSessionDialog.vala:66
+msgid "Log Out"
+msgstr "გამოსვლა"
+
+#: src/Widgets/EndSessionDialog.vala:71
+msgid "Are you sure you want to Shut Down?"
+msgstr "დარწმუნებული ხართ, რომ გამორთვა გსურთ?"
+
+#: src/Widgets/EndSessionDialog.vala:72
+msgid "This will close all open applications and turn off this device."
+msgstr "ეს დახურავს ყველა პროგრამას და გამორთავს თქვენს მოწყოილობას."
+
+#: src/Widgets/EndSessionDialog.vala:73
+msgid "Shut Down"
+msgstr "გამორთვა"
+
+#: src/Widgets/EndSessionDialog.vala:108
+msgid "Restart"
+msgstr "გადატვირთვა"
+
+#: src/Widgets/EndSessionDialog.vala:120
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: src/Widgets/UserBox.vala:21
+msgid "Logged in"
+msgstr "შესული"
+
+#: src/Widgets/UserBox.vala:22
+msgid "Logged out"
+msgstr "გამოსული"
+
+#: src/Services/UserManager.vala:217
 msgid "Guest"
 msgstr "სტუმარი"
