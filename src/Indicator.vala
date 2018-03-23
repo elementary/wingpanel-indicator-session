@@ -27,6 +27,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
+
+    private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton log_out;
     private Gtk.ModelButton suspend;
@@ -68,6 +70,9 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
+            user_settings = new Gtk.ModelButton ();
+            user_settings.text = _("User Accounts Settings…");
+
             log_out = new Gtk.ModelButton ();
             log_out.text = _("Log Out…");
 
@@ -96,6 +101,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                     manager.add_guest (false);
                 }
 
+                main_grid.add (user_settings);
                 main_grid.add (users_separator);
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
@@ -140,6 +146,14 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public void connections () {
         manager.close.connect (() => close ());
+
+        user_settings.clicked.connect (() => {
+            try {
+                AppInfo.launch_default_for_uri ("settings://accounts", null);
+            } catch (Error e) {
+                warning ("Failed to open user accounts settings: %s", e.message);
+            }
+        });
 
         lock_screen.clicked.connect (() => {
             close ();
