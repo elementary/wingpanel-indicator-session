@@ -148,7 +148,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         manager.close.connect (() => close ());
 
         user_settings.clicked.connect (() => {
-            close ();
             try {
                 AppInfo.launch_default_for_uri ("settings://accounts", null);
             } catch (Error e) {
