@@ -2,12 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 01:24+0200\n"
+"POT-Creation-Date: 2018-03-23 14:53-0700\n"
 "PO-Revision-Date: 2018-03-08 14:31+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
-"Language-Team: English (Canada) "
-"<https://weblate.elementary.io/projects/wingpanel/wingpanel-indicator-"
-"session/en_CA/>\n"
+"Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
+"wingpanel/wingpanel-indicator-session/en_CA/>\n"
 "Language: en_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,70 +15,74 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
-msgid "Are you sure you want to Log Out?"
-msgstr "Are you sure you want to Log Out?"
-
-#: ../src/Widgets/EndSessionDialog.vala:62
-msgid "This will close all open applications."
-msgstr "This will close all open applications."
-
-#: ../src/Widgets/EndSessionDialog.vala:63
-msgid "Log Out"
-msgstr "Log Out"
-
-#: ../src/Widgets/EndSessionDialog.vala:68
-msgid "Are you sure you want to Shut Down?"
-msgstr "Are you sure you want to Shut Down?"
-
-#: ../src/Widgets/EndSessionDialog.vala:69
-msgid "This will close all open applications and turn off this device."
-msgstr "This will close all open applications and turn off this device."
-
-#: ../src/Widgets/EndSessionDialog.vala:70
-msgid "Shut Down"
-msgstr "Shut Down"
-
-#: ../src/Widgets/EndSessionDialog.vala:108
-msgid "Restart"
-msgstr "Restart"
-
-#: ../src/Widgets/EndSessionDialog.vala:120
-msgid "Cancel"
-msgstr "Cancel"
-
-#: ../src/Widgets/UserBox.vala:21
-msgid "Logged in"
-msgstr "Logged in"
-
-#: ../src/Widgets/UserBox.vala:22
-msgid "Logged out"
-msgstr "Logged out"
-
-#: ../src/Indicator.vala:42
+#: src/Indicator.vala:44
 msgid "Session"
 msgstr "Session"
 
-#: ../src/Indicator.vala:43
+#: src/Indicator.vala:45
 msgid "The session indicator"
 msgstr "The session indicator"
 
-#: ../src/Indicator.vala:71
+#: src/Indicator.vala:74
+msgid "User Accounts Settings…"
+msgstr ""
+
+#: src/Indicator.vala:77
 msgid "Log Out…"
 msgstr "Log Out…"
 
-#: ../src/Indicator.vala:72
+#: src/Indicator.vala:80
 msgid "Lock"
 msgstr "Lock"
 
-#: ../src/Indicator.vala:73
+#: src/Indicator.vala:83
 msgid "Shut Down…"
 msgstr "Shut Down…"
 
-#: ../src/Indicator.vala:74
+#: src/Indicator.vala:86
 msgid "Suspend"
 msgstr "Suspend"
 
-#: ../src/Services/UserManager.vala:203
+#: src/Widgets/EndSessionDialog.vala:64
+msgid "Are you sure you want to Log Out?"
+msgstr "Are you sure you want to Log Out?"
+
+#: src/Widgets/EndSessionDialog.vala:65
+msgid "This will close all open applications."
+msgstr "This will close all open applications."
+
+#: src/Widgets/EndSessionDialog.vala:66
+msgid "Log Out"
+msgstr "Log Out"
+
+#: src/Widgets/EndSessionDialog.vala:71
+msgid "Are you sure you want to Shut Down?"
+msgstr "Are you sure you want to Shut Down?"
+
+#: src/Widgets/EndSessionDialog.vala:72
+msgid "This will close all open applications and turn off this device."
+msgstr "This will close all open applications and turn off this device."
+
+#: src/Widgets/EndSessionDialog.vala:73
+msgid "Shut Down"
+msgstr "Shut Down"
+
+#: src/Widgets/EndSessionDialog.vala:108
+msgid "Restart"
+msgstr "Restart"
+
+#: src/Widgets/EndSessionDialog.vala:120
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/Widgets/UserBox.vala:21
+msgid "Logged in"
+msgstr "Logged in"
+
+#: src/Widgets/UserBox.vala:22
+msgid "Logged out"
+msgstr "Logged out"
+
+#: src/Services/UserManager.vala:217
 msgid "Guest"
 msgstr "Guest"
