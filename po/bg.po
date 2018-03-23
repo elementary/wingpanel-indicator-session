@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-23 14:47-0700\n"
+"POT-Creation-Date: 2017-04-17 01:24+0200\n"
 "PO-Revision-Date: 2016-08-06 16:19+0000\n"
 "Last-Translator: Stanislav <stunito0o0o0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,76 +13,72 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:44
-msgid "Session"
-msgstr "Сесия"
-
-#: src/Indicator.vala:45
-msgid "The session indicator"
-msgstr "Индикатор на сесията"
-
-#: src/Indicator.vala:74
-msgid "User Accounts Settings…"
-msgstr ""
-
-#: src/Indicator.vala:77
-msgid "Log Out…"
-msgstr "Излизане..."
-
-#: src/Indicator.vala:80
-msgid "Lock"
-msgstr "Заключване"
-
-#: src/Indicator.vala:83
-#, fuzzy
-msgid "Shut Down…"
-msgstr "Изключване..."
-
-#: src/Indicator.vala:86
-msgid "Suspend"
-msgstr "Заспиване"
-
-#: src/Widgets/EndSessionDialog.vala:64
+#: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
 msgstr "Сигурни ли сте , че искате да  излезете?"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
 msgstr "Това действие ще затвори всички отворени приложения."
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
 msgstr "Излизане"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
 msgstr "Сигурни ли сте, че искате да изключите компютъра?"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Това действие ще затвори всички отворени приложения и ще изключи компютъра."
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
 msgstr "Изключване"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Restart"
 msgstr "Рестартиране"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: ../src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
 msgstr "Отказ"
 
-#: src/Widgets/UserBox.vala:21
+#: ../src/Widgets/UserBox.vala:21
 msgid "Logged in"
 msgstr "Вписан"
 
-#: src/Widgets/UserBox.vala:22
+#: ../src/Widgets/UserBox.vala:22
 msgid "Logged out"
 msgstr "Не е вписан"
 
-#: src/Services/UserManager.vala:217
+#: ../src/Indicator.vala:42
+msgid "Session"
+msgstr "Сесия"
+
+#: ../src/Indicator.vala:43
+msgid "The session indicator"
+msgstr "Индикатор на сесията"
+
+#: ../src/Indicator.vala:71
+msgid "Log Out…"
+msgstr "Излизане..."
+
+#: ../src/Indicator.vala:72
+msgid "Lock"
+msgstr "Заключване"
+
+#: ../src/Indicator.vala:73
+#, fuzzy
+msgid "Shut Down…"
+msgstr "Изключване..."
+
+#: ../src/Indicator.vala:74
+msgid "Suspend"
+msgstr "Заспиване"
+
+#: ../src/Services/UserManager.vala:203
 msgid "Guest"
 msgstr "Гост"

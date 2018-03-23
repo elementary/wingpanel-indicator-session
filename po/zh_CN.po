@@ -2,11 +2,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-23 14:47-0700\n"
+"POT-Creation-Date: 2017-04-17 01:24+0200\n"
 "PO-Revision-Date: 2017-07-03 00:56+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
-"wingpanel/wingpanel-indicator-session/zh_CN/>\n"
+"Language-Team: Chinese (Simplified) "
+"<https://l10n.elementary.io/projects/wingpanel/wingpanel-indicator-"
+"session/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,74 +16,70 @@ msgstr ""
 "X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
-#: src/Indicator.vala:44
-msgid "Session"
-msgstr "会话"
-
-#: src/Indicator.vala:45
-msgid "The session indicator"
-msgstr "会话指示器"
-
-#: src/Indicator.vala:74
-msgid "User Accounts Settings…"
-msgstr ""
-
-#: src/Indicator.vala:77
-msgid "Log Out…"
-msgstr "注销…"
-
-#: src/Indicator.vala:80
-msgid "Lock"
-msgstr "锁定"
-
-#: src/Indicator.vala:83
-msgid "Shut Down…"
-msgstr "关机…"
-
-#: src/Indicator.vala:86
-msgid "Suspend"
-msgstr "挂起"
-
-#: src/Widgets/EndSessionDialog.vala:64
+#: ../src/Widgets/EndSessionDialog.vala:61
 msgid "Are you sure you want to Log Out?"
 msgstr "您确定要注销吗？"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: ../src/Widgets/EndSessionDialog.vala:62
 msgid "This will close all open applications."
 msgstr "这将会关闭所有已打开的应用。"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: ../src/Widgets/EndSessionDialog.vala:63
 msgid "Log Out"
 msgstr "注销"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: ../src/Widgets/EndSessionDialog.vala:68
 msgid "Are you sure you want to Shut Down?"
 msgstr "您确定要关机吗？"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: ../src/Widgets/EndSessionDialog.vala:69
 msgid "This will close all open applications and turn off this device."
 msgstr "这将会关闭所有已打开的应用并关闭设备。"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: ../src/Widgets/EndSessionDialog.vala:70
 msgid "Shut Down"
 msgstr "关机"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: ../src/Widgets/EndSessionDialog.vala:108
 msgid "Restart"
 msgstr "重启"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: ../src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
 msgstr "取消"
 
-#: src/Widgets/UserBox.vala:21
+#: ../src/Widgets/UserBox.vala:21
 msgid "Logged in"
 msgstr "已登录"
 
-#: src/Widgets/UserBox.vala:22
+#: ../src/Widgets/UserBox.vala:22
 msgid "Logged out"
 msgstr "已注销"
 
-#: src/Services/UserManager.vala:217
+#: ../src/Indicator.vala:42
+msgid "Session"
+msgstr "会话"
+
+#: ../src/Indicator.vala:43
+msgid "The session indicator"
+msgstr "会话指示器"
+
+#: ../src/Indicator.vala:71
+msgid "Log Out…"
+msgstr "注销…"
+
+#: ../src/Indicator.vala:72
+msgid "Lock"
+msgstr "锁定"
+
+#: ../src/Indicator.vala:73
+msgid "Shut Down…"
+msgstr "关机…"
+
+#: ../src/Indicator.vala:74
+msgid "Suspend"
+msgstr "挂起"
+
+#: ../src/Services/UserManager.vala:203
 msgid "Guest"
 msgstr "访客会话"
