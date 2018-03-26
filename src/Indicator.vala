@@ -156,7 +156,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
 
         lock_screen.clicked.connect (() => {
-            close ();
             try {
                 lock_interface.lock ();
             } catch (IOError e) {
@@ -165,19 +164,16 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
 
         log_out.clicked.connect (() => {
-            close ();
             var dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
             dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
             dialog.show_all ();
         });
 
         shutdown.clicked.connect (() => {
-            close ();
             show_shutdown_dialog ();
         });
 
         suspend.clicked.connect (() => {
-            close ();
             try {
                 suspend_interface.suspend (true);
             } catch (IOError e) {
