@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-23 14:53-0700\n"
-"PO-Revision-Date: 2018-01-29 00:05+0000\n"
+"PO-Revision-Date: 2018-03-25 00:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel/"
-"wingpanel-indicator-session/ja/>\n"
+"Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
+"/wingpanel-indicator-session/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,11 @@ msgstr "セッション"
 
 #: src/Indicator.vala:45
 msgid "The session indicator"
-msgstr "セッションの通知"
+msgstr "セッションインジケーター"
 
 #: src/Indicator.vala:74
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "ユーザーアカウントの設定…"
 
 #: src/Indicator.vala:77
 msgid "Log Out…"
@@ -79,11 +79,11 @@ msgstr "キャンセル"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
-msgstr "ログイン"
+msgstr "ログイン中"
 
 #: src/Widgets/UserBox.vala:22
 msgid "Logged out"
-msgstr "ログアウト"
+msgstr "ログアウト中"
 
 #: src/Services/UserManager.vala:217
 msgid "Guest"
