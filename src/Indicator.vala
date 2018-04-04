@@ -32,9 +32,10 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton log_out;
     private Gtk.ModelButton suspend;
-    private Gtk.ModelButton shutdown;
+    private Wingpanel.Widgets.Container shutdown;
 
     private Session.Services.UserManager manager;
+    private Session.Services.UpdateManager update_manager;
 
     private Gtk.Grid main_grid;
     private Session.Widgets.EndSessionDialog? shutdown_dialog = null;
@@ -44,6 +45,12 @@ public class Session.Indicator : Wingpanel.Indicator {
                 display_name: _("Session"),
                 description: _("The session indicator"));
         this.server_type = server_type;
+    }
+
+    construct {
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            update_manager = new Session.Services.UpdateManager ();
+        }
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -79,8 +86,27 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_screen = new Gtk.ModelButton ();
             lock_screen.text = _("Lock");
 
-            shutdown = new Gtk.ModelButton ();
-            shutdown.text = _("Shut Down…");
+            var shutdown_label = new Gtk.Label (_("Shut Down…"));
+            shutdown_label.xalign = 0;
+            shutdown_label.margin_start = shutdown_label.margin_end = 6;
+
+            var restart_required_label = new Gtk.Label ("<small>%s</small>".printf (_("Restart required to complete updates")));
+            restart_required_label.margin_start = restart_required_label.margin_end = 6;
+            restart_required_label.use_markup = true;
+            restart_required_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+            var restart_required_revealer = new Gtk.Revealer ();
+            restart_required_revealer.valign = Gtk.Align.CENTER;
+            restart_required_revealer.add (restart_required_label);
+            restart_required_revealer.bind_property ("reveal-child", update_manager, "restart_required", GLib.BindingFlags.SYNC_CREATE);
+
+            var shutdown_grid = new Gtk.Grid ();
+            shutdown_grid.orientation = Gtk.Orientation.VERTICAL;
+            shutdown_grid.add (shutdown_label);
+            shutdown_grid.add (restart_required_revealer);
+
+            shutdown = new Wingpanel.Widgets.Container ();
+            shutdown.content_widget.add (shutdown_grid);
 
             suspend = new Gtk.ModelButton ();
             suspend.text = _("Suspend");
@@ -170,6 +196,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
 
         shutdown.clicked.connect (() => {
+            close ();
             show_shutdown_dialog ();
         });
 

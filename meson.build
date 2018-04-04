@@ -15,6 +15,7 @@ shared_module(
     'src/Widgets/UserBox.vala',
     'src/Widgets/UserListBox.vala',
     'src/Services/DbusInterfaces.vala',
+    'src/Services/UpdateManager.vala',
     'src/Services/UserManager.vala',
     dependencies: [
         dependency('accountsservice'),
