@@ -85,7 +85,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         image.valign = Gtk.Align.START;
 
         var heading = new Gtk.Label (heading_text);
-        heading.get_style_context ().add_class ("primary");
+        heading.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
         heading.xalign = 0;
 
         var secondary_label = new Gtk.Label (content_text);
@@ -94,7 +94,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         var grid = new Gtk.Grid ();
         grid.column_spacing = 12;
         grid.row_spacing = 6;
-        grid.margin_left = grid.margin_right = grid.margin_bottom = 12;
+        grid.margin_start = grid.margin_end = grid.margin_bottom = 12;
         grid.attach (image, 0, 0, 1, 2);
         grid.attach (heading, 1, 0, 1, 1);
         grid.attach (secondary_label, 1, 1, 1, 1);
