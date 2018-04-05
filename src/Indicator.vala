@@ -35,6 +35,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
 
+    private GLib.File restart_file;
     private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton log_out;
@@ -169,7 +170,10 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private void check_file_existance () {
-        var restart_file = File.new_for_path ("/var/run/reboot-required");
+        if (restart_file == null) {
+            restart_file = File.new_for_path ("/var/run/reboot-required");
+        }
+
         if (restart_file.query_exists ()) {
             restart_required_revealer.reveal_child = true;
         } else {
