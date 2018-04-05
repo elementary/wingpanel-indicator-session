@@ -20,6 +20,13 @@
 public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
 
+    private const string RESTART_CSS = """
+        .compact-labels label {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+    """;
+
     private SystemInterface suspend_interface;
     private LockInterface lock_interface;
     private SeatInterface seat_interface;
@@ -32,10 +39,10 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton log_out;
     private Gtk.ModelButton suspend;
+    private Gtk.Revealer restart_required_revealer;
     private Wingpanel.Widgets.Container shutdown;
 
     private Session.Services.UserManager manager;
-    private Session.Services.UpdateManager update_manager;
 
     private Gtk.Grid main_grid;
     private Session.Widgets.EndSessionDialog? shutdown_dialog = null;
@@ -45,12 +52,6 @@ public class Session.Indicator : Wingpanel.Indicator {
                 display_name: _("Session"),
                 description: _("The session indicator"));
         this.server_type = server_type;
-    }
-
-    construct {
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-            update_manager = new Session.Services.UpdateManager ();
-        }
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -93,15 +94,16 @@ public class Session.Indicator : Wingpanel.Indicator {
             var restart_required_label = new Gtk.Label ("<small>%s</small>".printf (_("Restart required to complete updates")));
             restart_required_label.margin_start = restart_required_label.margin_end = 6;
             restart_required_label.use_markup = true;
-            restart_required_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            restart_required_label.get_style_context ().add_class ("attention");
 
-            var restart_required_revealer = new Gtk.Revealer ();
+            restart_required_revealer = new Gtk.Revealer ();
             restart_required_revealer.valign = Gtk.Align.CENTER;
             restart_required_revealer.add (restart_required_label);
-            restart_required_revealer.bind_property ("reveal-child", update_manager, "restart_required", GLib.BindingFlags.SYNC_CREATE);
 
             var shutdown_grid = new Gtk.Grid ();
+            shutdown_grid.margin_top = shutdown_grid.margin_bottom = 3;
             shutdown_grid.orientation = Gtk.Orientation.VERTICAL;
+            shutdown_grid.get_style_context ().add_class ("compact-labels");
             shutdown_grid.add (shutdown_label);
             shutdown_grid.add (restart_required_revealer);
 
@@ -132,17 +134,47 @@ public class Session.Indicator : Wingpanel.Indicator {
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
                 main_grid.add (new Wingpanel.Widgets.Separator ());
+
+                check_file_existance ();
+
+                var restart_folder = File.new_for_path ("/var/run");
+
+                try {
+                    var monitor = restart_folder.monitor_directory (FileMonitorFlags.NONE, null);
+                    monitor.changed.connect ((src, dest, event) => {
+                        check_file_existance ();
+                    });
+                } catch (IOError e) {
+                    critical (e.message);
+                }
             }
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
 
             connections ();
+
+            var provider = new Gtk.CssProvider ();
+            try {
+                provider.load_from_data (RESTART_CSS, RESTART_CSS.length);
+                Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
         this.visible = true;
 
         return main_grid;
+    }
+
+    private void check_file_existance () {
+        var restart_file = File.new_for_path ("/var/run/reboot-required");
+        if (restart_file.query_exists ()) {
+            restart_required_revealer.reveal_child = true;
+        } else {
+            restart_required_revealer.reveal_child = false;
+        }
     }
 
     private void init_interfaces () {
