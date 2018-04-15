@@ -44,6 +44,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 display_name: _("Session"),
                 description: _("The session indicator"));
         this.server_type = server_type;
+        this.visible = true;
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -114,8 +115,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             connections ();
         }
-
-        this.visible = true;
 
         return main_grid;
     }
