@@ -122,6 +122,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         }
 
         changed ();
+        show_all ();
     }
 
     public override bool draw (Cairo.Context ctx) {
