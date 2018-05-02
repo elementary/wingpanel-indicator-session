@@ -80,7 +80,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     public UserState get_user_state () {
         assert (is_guest || user != null);
 
-         if (is_guest) {
+        if (is_guest) {
             return Services.UserManager.get_guest_state ();
         } else {
             return Services.UserManager.get_user_state (user.get_uid ());
