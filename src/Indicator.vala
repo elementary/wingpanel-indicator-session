@@ -158,7 +158,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         lock_screen.clicked.connect (() => {
             try {
                 lock_interface.lock ();
-            } catch (IOError e) {
+            } catch (GLib.Error e) {
                 stderr.printf ("%s\n", e.message);
             }
         });
@@ -176,7 +176,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         suspend.clicked.connect (() => {
             try {
                 suspend_interface.suspend (true);
-            } catch (IOError e) {
+            } catch (GLib.Error e) {
                 stderr.printf ("%s\n", e.message);
             }
         });

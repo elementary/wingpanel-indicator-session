@@ -87,7 +87,7 @@ public class Session.Services.UserManager : Object {
                 }
             }
 
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
@@ -108,7 +108,7 @@ public class Session.Services.UserManager : Object {
                     return UserState.ACTIVE;
                 }
             }
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
