@@ -53,6 +53,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 display_name: _("Session"),
                 description: _("The session indicator"));
         this.server_type = server_type;
+        this.visible = true;
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -118,10 +119,11 @@ public class Session.Indicator : Wingpanel.Indicator {
                 users_separator = new Wingpanel.Widgets.Separator ();
                 manager = new Session.Services.UserManager (users_separator);
 
-                var scrolled_box = new Wingpanel.Widgets.AutomaticScrollBox (null, null);
+                var scrolled_box = new Gtk.ScrolledWindow (null, null);
                 scrolled_box.hexpand = true;
-                scrolled_box.max_height = 300;
-                scrolled_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+                scrolled_box.hscrollbar_policy = Gtk.PolicyType.NEVER;
+                scrolled_box.max_content_height = 300;
+                scrolled_box.propagate_natural_height = true;
                 scrolled_box.add (manager.user_grid);
 
                 main_grid.add (scrolled_box);
@@ -163,8 +165,6 @@ public class Session.Indicator : Wingpanel.Indicator {
                 critical (e.message);
             }
         }
-
-        this.visible = true;
 
         return main_grid;
     }
@@ -220,7 +220,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         lock_screen.clicked.connect (() => {
             try {
                 lock_interface.lock ();
-            } catch (IOError e) {
+            } catch (GLib.Error e) {
                 stderr.printf ("%s\n", e.message);
             }
         });
@@ -239,7 +239,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         suspend.clicked.connect (() => {
             try {
                 suspend_interface.suspend (true);
-            } catch (IOError e) {
+            } catch (GLib.Error e) {
                 stderr.printf ("%s\n", e.message);
             }
         });

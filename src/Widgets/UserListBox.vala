@@ -63,7 +63,7 @@
                     seat.switch_to_user (user.get_user_name (), session_path);
                 }
             }
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
         }
     }

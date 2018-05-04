@@ -50,7 +50,7 @@ public class Session.Services.UserManager : Object {
     private Wingpanel.Widgets.Separator users_separator;
 
     public Session.Widgets.UserListBox user_grid;
-    
+
     public bool has_guest { public get; private set; default = false; }
 
     private static SystemInterface? login_proxy;
@@ -60,7 +60,7 @@ public class Session.Services.UserManager : Object {
             login_proxy = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, LOGIN_PATH, DBusProxyFlags.NONE);
         } catch (IOError e) {
             stderr.printf ("UserManager error: %s\n", e.message);
-        }        
+        }
     }
 
     public static UserState get_user_state (uint32 uuid) {
@@ -87,7 +87,7 @@ public class Session.Services.UserManager : Object {
                 }
             }
 
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
@@ -108,7 +108,7 @@ public class Session.Services.UserManager : Object {
                     return UserState.ACTIVE;
                 }
             }
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             stderr.printf ("Error: %s\n", e.message);
         }
 
@@ -129,8 +129,8 @@ public class Session.Services.UserManager : Object {
         user_grid.close.connect (() => close ());
 
         manager = Act.UserManager.get_default ();
-        connect_signals ();
         init_users ();
+        connect_signals ();
 
         try {
             dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", Environment.get_variable ("XDG_SEAT_PATH"), DBusProxyFlags.NONE);
@@ -149,16 +149,20 @@ public class Session.Services.UserManager : Object {
             if (manager.is_loaded) {
                 init_users ();
             }
-        });  
+        });
     }
 
     private void init_users () {
+        if (!manager.is_loaded) {
+            return;
+        }
+
         foreach (Act.User user in manager.list_users ()) {
             add_user (user);
         }
     }
 
-    private void add_user (Act.User user) {
+    private void add_user (Act.User? user) {
         // Don't add any of the system reserved users
         var uid = user.get_uid ();
         if (uid < RESERVED_UID_RANGE_END || uid == NOBODY_USER_UID) {
@@ -167,9 +171,7 @@ public class Session.Services.UserManager : Object {
 
         var userbox = new Session.Widgets.Userbox (user);
         userbox_list.append (userbox);
-
         user_grid.add (userbox);
-
         users_separator.visible = true;
     }
 
@@ -183,9 +185,9 @@ public class Session.Services.UserManager : Object {
             if (_user.get_user_name () == user.get_user_name ()) {
                 return userbox;
             }
-        } 
+        }
 
-        return null;       
+        return null;
     }
 
     private void remove_user (Act.User user) {

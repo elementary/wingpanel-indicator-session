@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-23 14:53-0700\n"
-"PO-Revision-Date: 2017-05-17 21:03+0000\n"
+"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"PO-Revision-Date: 2018-04-24 20:16+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
-"wingpanel-indicator-session/cs/>\n"
+"Language-Team: Czech <https://weblate.elementary.io/projects/wingpanel"
+"/wingpanel-indicator-session/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-03-05 06:26+0000\n"
 
 #: src/Indicator.vala:44
@@ -25,7 +25,7 @@ msgstr "Indikátor sezení"
 
 #: src/Indicator.vala:74
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Nastavení uživatelských účtů…"
 
 #: src/Indicator.vala:77
 msgid "Log Out…"
