@@ -52,7 +52,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             } else {
                 system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
             }
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             stderr.printf ("%s\n", e.message);
         }
 
@@ -109,7 +109,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             confirm_restart.clicked.connect (() => {
                 try {
                     system_interface.reboot (false);
-                } catch (IOError e) {
+                } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
 
@@ -126,13 +126,13 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             if (dialog_type == EndSessionDialogType.RESTART || dialog_type == EndSessionDialogType.SHUTDOWN) {
                 try {
                     system_interface.power_off (false);
-                } catch (IOError e) {
+                } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
             } else {
                 try {
                     logout_interface.terminate ();
-                } catch (IOError e) {
+                } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
                 destroy ();
