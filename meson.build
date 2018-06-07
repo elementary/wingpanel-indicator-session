@@ -1,4 +1,8 @@
-project('session', 'vala', 'c')
+project(
+    'session',
+    'vala', 'c',
+    version: '2.1.0'
+)
 
 i18n = import('i18n')
 gettext_name = meson.project_name() + '-indicator'
