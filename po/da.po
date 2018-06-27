@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2018-03-24 21:40+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,23 +23,23 @@ msgstr "Session"
 msgid "The session indicator"
 msgstr "Sessionsindikatoren"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:75
 msgid "User Accounts Settings…"
 msgstr "Brugerkontoindstillinger …"
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "Log ud…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "Lås"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:84
 msgid "Shut Down…"
 msgstr "Luk Ned…"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "Slumre"
 
@@ -83,6 +83,6 @@ msgstr "Logget ind"
 msgid "Logged out"
 msgstr "Logget af"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Gæst"

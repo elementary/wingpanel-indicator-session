@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2016-12-07 15:39+0000\n"
 "Last-Translator: aberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <ak@li.org>\n"
@@ -26,24 +26,24 @@ msgstr "Session"
 msgid "The session indicator"
 msgstr "Session ahyɛnsodeɛ"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:75
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "Firi mu (Log Out)…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "Tum (Lock)"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:84
 #, fuzzy
 msgid "Shut Down…"
 msgstr "Dum…"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "Twe san"
 
@@ -87,6 +87,6 @@ msgstr "Kɔ mu"
 msgid "Logged out"
 msgstr "Woafiri mu"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Ɔhɔhoɔ"

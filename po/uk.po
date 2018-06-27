@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2017-04-26 15:32+0000\n"
 "Last-Translator: Володимир Білошицький <volbilnexus@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
@@ -24,23 +24,23 @@ msgstr "Сеанс"
 msgid "The session indicator"
 msgstr "Індикатор сесії"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:75
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "Завершити сеанс…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "Заблокувати"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:84
 msgid "Shut Down…"
 msgstr "Вимкнути…"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "Режим очікування"
 
@@ -84,6 +84,6 @@ msgstr "Вхід виконано"
 msgid "Logged out"
 msgstr "Сеанс завершено"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Гість"

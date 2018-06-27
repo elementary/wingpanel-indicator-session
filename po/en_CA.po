@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2018-04-05 14:20+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
@@ -23,23 +23,23 @@ msgstr "Session"
 msgid "The session indicator"
 msgstr "The session indicator"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:75
 msgid "User Accounts Settings…"
 msgstr "User Accounts Settings…"
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "Log Out…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "Lock"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:84
 msgid "Shut Down…"
 msgstr "Shut Down…"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "Suspend"
 
@@ -83,6 +83,6 @@ msgstr "Logged in"
 msgid "Logged out"
 msgstr "Logged out"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Guest"

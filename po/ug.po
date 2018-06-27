@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2016-12-27 14:58+0000\n"
 "Last-Translator: ablimet <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -26,24 +26,24 @@ msgstr "ئەڭگىمە"
 msgid "The session indicator"
 msgstr "ئەڭگىمە كۆرسەتكۈچى"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:75
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "تىزىمدىن چىقىش..."
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "قۇلۇپلاش"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:84
 #, fuzzy
 msgid "Shut Down…"
 msgstr "تاقاش...."
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "توڭلىتىش"
 
@@ -87,6 +87,6 @@ msgstr "كىرگەن"
 msgid "Logged out"
 msgstr "چىكىنگەن"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "مېھمان"

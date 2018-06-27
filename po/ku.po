@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2018-02-11 00:11+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/wingpanel/"
@@ -28,23 +28,23 @@ msgstr "Rûniştin"
 msgid "The session indicator"
 msgstr "nîşane kombûn"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:75
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "Derketin…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "Qufl Bike"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:84
 msgid "Shut Down…"
 msgstr "Vemirandin …"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "Rawestîne"
 
@@ -88,6 +88,6 @@ msgstr "têketin"
 msgid "Logged out"
 msgstr "derkeve"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Mêvan"
