@@ -81,6 +81,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_screen.text = _("Lock");
 
             shutdown = new Gtk.ModelButton ();
+            shutdown.hexpand = true;
             shutdown.text = _("Shut Down…");
 
             suspend = new Gtk.ModelButton ();
