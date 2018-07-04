@@ -185,6 +185,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override void opened () {
         manager.update_all ();
+        main_grid.show_all ();
     }
 
     public override void closed () {}
