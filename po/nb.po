@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 09:54-0700\n"
-"PO-Revision-Date: 2018-05-30 03:46+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2018-07-20 00:07+0000\n"
+"Last-Translator: Nils K <slx@nilsk.net>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-session/nb/>\n"
 "Language: nb\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:44
@@ -45,7 +45,7 @@ msgstr "Hvilemodus"
 
 #: src/Widgets/EndSessionDialog.vala:64
 msgid "Are you sure you want to Log Out?"
-msgstr "Bekreft utlogging."
+msgstr "Er du sikker på at du vil logge ut?"
 
 #: src/Widgets/EndSessionDialog.vala:65
 msgid "This will close all open applications."
@@ -57,7 +57,7 @@ msgstr "Logg ut"
 
 #: src/Widgets/EndSessionDialog.vala:71
 msgid "Are you sure you want to Shut Down?"
-msgstr "Bekreft avstengning."
+msgstr "Er du sikker på at du vil slå av?"
 
 #: src/Widgets/EndSessionDialog.vala:72
 msgid "This will close all open applications and turn off this device."
