@@ -28,8 +28,8 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
-    private LogoutInterface logout_interface;
-    private SystemInterface system_interface;
+    private static LogoutInterface logout_interface;
+    private static SystemInterface system_interface;
 
     public EndSessionDialogType dialog_type { get; construct; }
 
@@ -46,10 +46,12 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     }
 
     construct {
+        var server = EndSessionDialogServer.get_default ();
+
         try {
-            if (dialog_type == Session.Widgets.EndSessionDialogType.LOGOUT) {
+            if (dialog_type == Session.Widgets.EndSessionDialogType.LOGOUT && logout_interface == null) {
                 logout_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1/user/self");
-            } else {
+            } else if (system_interface == null) {
                 system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
             }
         } catch (GLib.Error e) {
@@ -108,35 +110,45 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             var confirm_restart = add_button (_("Restart"), Gtk.ResponseType.OK) as Gtk.Button;
             confirm_restart.clicked.connect (() => {
                 try {
+                    server.confirmed_reboot ();
                     system_interface.reboot (false);
                 } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
 
+                server.closed ();
                 destroy ();
             });
         }
 
         var cancel = add_button (_("Cancel"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-        cancel.clicked.connect (() => { destroy (); });
+        cancel.clicked.connect (() => { 
+            server.canceled ();
+            server.closed ();
+            destroy ();
+        });
 
         var confirm = add_button (button_text, Gtk.ResponseType.OK) as Gtk.Button;
         confirm.get_style_context ().add_class ("destructive-action");
         confirm.clicked.connect (() => {
             if (dialog_type == EndSessionDialogType.RESTART || dialog_type == EndSessionDialogType.SHUTDOWN) {
                 try {
+                    server.confirmed_shutdown ();
                     system_interface.power_off (false);
                 } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
             } else {
                 try {
+                    server.confirmed_logout ();
                     logout_interface.terminate ();
                 } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
-                destroy ();
             }
+
+            server.closed ();
+            destroy ();
         });
 
         set_default (confirm);

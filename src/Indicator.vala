@@ -37,7 +37,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Session.Services.UserManager manager;
 
     private Gtk.Grid main_grid;
-    private Session.Widgets.EndSessionDialog? shutdown_dialog = null;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         Object (code_name: Wingpanel.Indicator.SESSION,
@@ -45,6 +44,9 @@ public class Session.Indicator : Wingpanel.Indicator {
                 description: _("The session indicator"));
         this.server_type = server_type;
         this.visible = true;
+
+        EndSessionDialogServer.init ();
+        EndSessionDialogServer.get_default ().show_dialog.connect (show_dialog);
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -53,7 +55,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     close ();
-                    show_shutdown_dialog ();
+                    show_dialog (Widgets.EndSessionDialogType.RESTART);
                     return Gdk.EVENT_STOP;
                 }
 
@@ -164,15 +166,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
         });
 
-        log_out.clicked.connect (() => {
-            var dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.LOGOUT);
-            dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
-            dialog.show_all ();
-        });
-
-        shutdown.clicked.connect (() => {
-            show_shutdown_dialog ();
-        });
+        log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
+        shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
 
         suspend.clicked.connect (() => {
             try {
@@ -190,15 +185,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override void closed () {}
 
-    private void show_shutdown_dialog () {
-        if (shutdown_dialog == null) {
-            shutdown_dialog = new Session.Widgets.EndSessionDialog (Session.Widgets.EndSessionDialogType.RESTART);
-            shutdown_dialog.destroy.connect (() => { shutdown_dialog = null; });
-            shutdown_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
-            shutdown_dialog.show_all ();
-        }
-
-        shutdown_dialog.present ();
+    private void show_dialog (uint type) {
+        var dialog = new Widgets.EndSessionDialog ((Widgets.EndSessionDialogType)type);
+        dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+        dialog.show_all ();
     }
 }
 
