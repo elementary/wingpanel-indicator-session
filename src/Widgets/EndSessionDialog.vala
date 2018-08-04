@@ -28,8 +28,8 @@ public enum Session.Widgets.EndSessionDialogType {
 }
 
 public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
-    private static LogoutInterface logout_interface;
-    private static SystemInterface system_interface;
+    private static LogoutInterface? logout_interface;
+    private static SystemInterface? system_interface;
 
     public EndSessionDialogType dialog_type { get; construct; }
 
