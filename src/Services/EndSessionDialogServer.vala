@@ -17,16 +17,16 @@
  * Boston, MA 02110-1301 USA
  */
 
-[DBus (name = "io.elementary.wingpanel.session.enddialog")]
+[DBus (name = "io.elementary.wingpanel.session.EndSessionDialog")]
 public class Session.EndSessionDialogServer : Object {
     private static EndSessionDialogServer? instance;
 
     [DBus (visible = false)]
     public static void init () {
-        Bus.own_name (BusType.SESSION, "io.elementary.wingpanel.session.enddialog", BusNameOwnerFlags.NONE,
+        Bus.own_name (BusType.SESSION, "io.elementary.wingpanel.session.EndSessionDialog", BusNameOwnerFlags.NONE,
             (connection) => {
                 try {
-                    connection.register_object ("/io/elementary/wingpanel/session/enddialog", get_default ());
+                    connection.register_object ("/io/elementary/wingpanel/session/EndSessionDialog", get_default ());
                 } catch (Error e) { 
                     warning (e.message); 
                 }
