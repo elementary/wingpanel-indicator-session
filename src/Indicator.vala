@@ -35,6 +35,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton shutdown;
 
     private Session.Services.UserManager manager;
+    private Widgets.EndSessionDialog? current_dialog = null;
 
     private Gtk.Grid main_grid;
 
@@ -47,7 +48,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             EndSessionDialogServer.init ();
-            EndSessionDialogServer.get_default ().show_dialog.connect (show_dialog);
+            EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
         }
     }
 
@@ -187,10 +188,17 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override void closed () {}
 
-    private void show_dialog (uint type) {
-        var dialog = new Widgets.EndSessionDialog ((Widgets.EndSessionDialogType)type);
-        dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
-        dialog.show_all ();
+    private void show_dialog (Widgets.EndSessionDialogType type) {
+        if (current_dialog != null) {
+            if (current_dialog.dialog_type != type) {
+                current_dialog.destroy ();
+            }
+        } else {
+            current_dialog = new Widgets.EndSessionDialog (type);
+            current_dialog.destroy.connect (() => current_dialog = null);
+            current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+            current_dialog.show_all ();
+        }
     }
 }
 
