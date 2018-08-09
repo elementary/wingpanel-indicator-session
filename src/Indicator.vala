@@ -46,10 +46,8 @@ public class Session.Indicator : Wingpanel.Indicator {
         this.server_type = server_type;
         this.visible = true;
 
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-            EndSessionDialogServer.init ();
-            EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
-        }
+        EndSessionDialogServer.init ();
+        EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
     }
 
     public override Gtk.Widget get_display_widget () {
