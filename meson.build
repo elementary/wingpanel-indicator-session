@@ -20,6 +20,7 @@ shared_module(
     'src/Widgets/UserListBox.vala',
     'src/Services/DbusInterfaces.vala',
     'src/Services/UserManager.vala',
+    'src/Services/EndSessionDialogServer.vala',
     dependencies: [
         dependency('accountsservice'),
         dependency('glib-2.0'),
