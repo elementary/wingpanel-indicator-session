@@ -26,9 +26,9 @@ public class ShutdownAction : Object {
     private uint source_id = 0U;
     private ulong window_closed_id = 0UL;
 
-    private Wnck.Screen screen;
+    private static Wnck.Screen screen;
 
-    construct {
+    static construct {
         screen = Wnck.Screen.get_default ();
     }
 #endif

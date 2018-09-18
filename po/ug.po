@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 01:24+0200\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2016-12-27 14:58+0000\n"
 "Last-Translator: ablimet <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -18,71 +18,75 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
-msgid "Are you sure you want to Log Out?"
-msgstr "راسىتتىنلا چىكىنەمسىز؟"
-
-#: ../src/Widgets/EndSessionDialog.vala:62
-msgid "This will close all open applications."
-msgstr "بۇ مەشغۇلات بارلىق ئىچىلغان ئەپلەرنى تاقايدۇ."
-
-#: ../src/Widgets/EndSessionDialog.vala:63
-msgid "Log Out"
-msgstr "چىكىنىش"
-
-#: ../src/Widgets/EndSessionDialog.vala:68
-msgid "Are you sure you want to Shut Down?"
-msgstr "راسىتتىنلا تاقامسىز؟"
-
-#: ../src/Widgets/EndSessionDialog.vala:69
-msgid "This will close all open applications and turn off this device."
-msgstr "بۇ مەشغۇلات بارلىق ئىچىلغان ئەپلەرنى تاقايدۇ ۋە ئۈسكۈنىنى ئۆچۈرىدۇ"
-
-#: ../src/Widgets/EndSessionDialog.vala:70
-msgid "Shut Down"
-msgstr "تاقاش"
-
-#: ../src/Widgets/EndSessionDialog.vala:108
-msgid "Restart"
-msgstr "قايتا قوزغىتىش"
-
-#: ../src/Widgets/EndSessionDialog.vala:120
-msgid "Cancel"
-msgstr "ئەمەلدىن قالدۇرۇش"
-
-#: ../src/Widgets/UserBox.vala:21
-msgid "Logged in"
-msgstr "كىرگەن"
-
-#: ../src/Widgets/UserBox.vala:22
-msgid "Logged out"
-msgstr "چىكىنگەن"
-
-#: ../src/Indicator.vala:42
+#: src/Indicator.vala:44
 msgid "Session"
 msgstr "ئەڭگىمە"
 
-#: ../src/Indicator.vala:43
+#: src/Indicator.vala:45
 msgid "The session indicator"
 msgstr "ئەڭگىمە كۆرسەتكۈچى"
 
-#: ../src/Indicator.vala:71
+#: src/Indicator.vala:75
+msgid "User Accounts Settings…"
+msgstr ""
+
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "تىزىمدىن چىقىش..."
 
-#: ../src/Indicator.vala:72
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "قۇلۇپلاش"
 
-#: ../src/Indicator.vala:73
+#: src/Indicator.vala:84
 #, fuzzy
 msgid "Shut Down…"
 msgstr "تاقاش...."
 
-#: ../src/Indicator.vala:74
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "توڭلىتىش"
 
-#: ../src/Services/UserManager.vala:203
+#: src/Widgets/EndSessionDialog.vala:64
+msgid "Are you sure you want to Log Out?"
+msgstr "راسىتتىنلا چىكىنەمسىز؟"
+
+#: src/Widgets/EndSessionDialog.vala:65
+msgid "This will close all open applications."
+msgstr "بۇ مەشغۇلات بارلىق ئىچىلغان ئەپلەرنى تاقايدۇ."
+
+#: src/Widgets/EndSessionDialog.vala:66
+msgid "Log Out"
+msgstr "چىكىنىش"
+
+#: src/Widgets/EndSessionDialog.vala:71
+msgid "Are you sure you want to Shut Down?"
+msgstr "راسىتتىنلا تاقامسىز؟"
+
+#: src/Widgets/EndSessionDialog.vala:72
+msgid "This will close all open applications and turn off this device."
+msgstr "بۇ مەشغۇلات بارلىق ئىچىلغان ئەپلەرنى تاقايدۇ ۋە ئۈسكۈنىنى ئۆچۈرىدۇ"
+
+#: src/Widgets/EndSessionDialog.vala:73
+msgid "Shut Down"
+msgstr "تاقاش"
+
+#: src/Widgets/EndSessionDialog.vala:108
+msgid "Restart"
+msgstr "قايتا قوزغىتىش"
+
+#: src/Widgets/EndSessionDialog.vala:120
+msgid "Cancel"
+msgstr "ئەمەلدىن قالدۇرۇش"
+
+#: src/Widgets/UserBox.vala:21
+msgid "Logged in"
+msgstr "كىرگەن"
+
+#: src/Widgets/UserBox.vala:22
+msgid "Logged out"
+msgstr "چىكىنگەن"
+
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "مېھمان"

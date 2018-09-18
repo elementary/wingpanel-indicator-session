@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 01:24+0200\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
 "PO-Revision-Date: 2015-08-20 21:20+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,70 +13,74 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
-msgid "Are you sure you want to Log Out?"
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:62
-msgid "This will close all open applications."
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:63
-msgid "Log Out"
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:68
-msgid "Are you sure you want to Shut Down?"
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:69
-msgid "This will close all open applications and turn off this device."
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:70
-msgid "Shut Down"
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:108
-msgid "Restart"
-msgstr ""
-
-#: ../src/Widgets/EndSessionDialog.vala:120
-msgid "Cancel"
-msgstr ""
-
-#: ../src/Widgets/UserBox.vala:21
-msgid "Logged in"
-msgstr ""
-
-#: ../src/Widgets/UserBox.vala:22
-msgid "Logged out"
-msgstr ""
-
-#: ../src/Indicator.vala:42
+#: src/Indicator.vala:44
 msgid "Session"
 msgstr ""
 
-#: ../src/Indicator.vala:43
+#: src/Indicator.vala:45
 msgid "The session indicator"
 msgstr ""
 
-#: ../src/Indicator.vala:71
+#: src/Indicator.vala:75
+msgid "User Accounts Settings…"
+msgstr ""
+
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr ""
 
-#: ../src/Indicator.vala:72
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr ""
 
-#: ../src/Indicator.vala:73
+#: src/Indicator.vala:84
 msgid "Shut Down…"
 msgstr ""
 
-#: ../src/Indicator.vala:74
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr ""
 
-#: ../src/Services/UserManager.vala:203
+#: src/Widgets/EndSessionDialog.vala:64
+msgid "Are you sure you want to Log Out?"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:65
+msgid "This will close all open applications."
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:66
+msgid "Log Out"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:71
+msgid "Are you sure you want to Shut Down?"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:72
+msgid "This will close all open applications and turn off this device."
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:73
+msgid "Shut Down"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:108
+msgid "Restart"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:120
+msgid "Cancel"
+msgstr ""
+
+#: src/Widgets/UserBox.vala:21
+msgid "Logged in"
+msgstr ""
+
+#: src/Widgets/UserBox.vala:22
+msgid "Logged out"
+msgstr ""
+
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr ""

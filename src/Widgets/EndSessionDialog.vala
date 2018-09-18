@@ -36,6 +36,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     private Gtk.Button? confirm_restart = null;
 
     private ShutdownAction? current_action = null;
+    private static LogoutInterface? logout_interface;
+    private static SystemInterface? system_interface;
 
     public EndSessionDialogType dialog_type { get; construct; }
 
@@ -52,6 +54,18 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     }
 
     construct {
+        var server = EndSessionDialogServer.get_default ();
+
+        try {
+            if (dialog_type == Session.Widgets.EndSessionDialogType.LOGOUT && logout_interface == null) {
+                logout_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1/user/self");
+            } else if (system_interface == null) {
+                system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            }
+        } catch (GLib.Error e) {
+            stderr.printf ("%s\n", e.message);
+        }
+
         string icon_name, heading_text, button_text, content_text;
 
         switch (dialog_type) {
@@ -81,7 +95,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         image.valign = Gtk.Align.START;
 
         var heading = new Gtk.Label (heading_text);
-        heading.get_style_context ().add_class ("primary");
+        heading.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
         heading.xalign = 0;
 
         var secondary_label = new Gtk.Label (content_text);
@@ -95,11 +109,11 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         var grid = new Gtk.Grid ();
         grid.column_spacing = 12;
         grid.row_spacing = 6;
-        grid.margin_left = grid.margin_right = grid.margin_bottom = 12;
+        grid.margin_start = grid.margin_end = grid.margin_bottom = 12;
         grid.attach (image, 0, 0, 1, 2);
         grid.attach (heading, 1, 0, 1, 1);
         grid.attach (secondary_label, 1, 1, 1, 1);
-#if HAVE_BAMF_WNCK        
+#if HAVE_BAMF_WNCK
         grid.attach (app_icons_box, 1, 2, 1, 1);
 #endif
 
@@ -125,6 +139,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             }
 #endif
 
+            server.canceled ();
+            server.closed ();
             destroy ();
         });
 
@@ -141,6 +157,9 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
             } else {
                 create_run_action (EndSessionDialogType.LOGOUT);
             }
+
+            server.closed ();
+            destroy ();
         });
 
         set_default (confirm);
@@ -158,16 +177,24 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     }
 
     private void on_terminate_finished (EndSessionDialogType action_type) {
+        var server = EndSessionDialogServer.get_default ();
+
         switch (action_type) {
             case EndSessionDialogType.LOGOUT:
-                ShutdownAction.logout ();
+                server.confirmed_logout ();
+                //  ShutdownAction.logout ();
                 break;
             case EndSessionDialogType.SHUTDOWN:
-                ShutdownAction.shutdown ();
+                server.confirmed_shutdown ();
+                //  ShutdownAction.shutdown ();
                 break;
             case EndSessionDialogType.RESTART:
-                ShutdownAction.reboot ();
+                server.confirmed_reboot ();
+                //  ShutdownAction.reboot ();
                 break;
         }
+
+        server.closed ();
+        destroy ();
     }
 }

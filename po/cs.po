@@ -2,83 +2,87 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2017-05-17 21:03+0000\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
+"PO-Revision-Date: 2018-04-24 20:16+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel"
-"/wingpanel-indicator-session/cs/>\n"
+"Language-Team: Czech <https://weblate.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-session/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-03-05 06:26+0000\n"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
-msgid "Are you sure you want to Log Out?"
-msgstr "Opravdu se chcete odhlásit?"
-
-#: ../src/Widgets/EndSessionDialog.vala:62
-msgid "This will close all open applications."
-msgstr "Tímto se ukončí všechny spuštěné aplikace."
-
-#: ../src/Widgets/EndSessionDialog.vala:63
-msgid "Log Out"
-msgstr "Odhlásit se"
-
-#: ../src/Widgets/EndSessionDialog.vala:68
-msgid "Are you sure you want to Shut Down?"
-msgstr "Opravdu vypnout?"
-
-#: ../src/Widgets/EndSessionDialog.vala:69
-msgid "This will close all open applications and turn off this device."
-msgstr "Tímto budou zavřeny všechny otevřené aplikace a zařízení bude vypnuto."
-
-#: ../src/Widgets/EndSessionDialog.vala:70
-msgid "Shut Down"
-msgstr "Vypnout"
-
-#: ../src/Widgets/EndSessionDialog.vala:108
-msgid "Restart"
-msgstr "Restartovat"
-
-#: ../src/Widgets/EndSessionDialog.vala:120
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: ../src/Widgets/UserBox.vala:21
-msgid "Logged in"
-msgstr "Přihlášen"
-
-#: ../src/Widgets/UserBox.vala:22
-msgid "Logged out"
-msgstr "Odhlášen"
-
-#: ../src/Indicator.vala:42
+#: src/Indicator.vala:44
 msgid "Session"
 msgstr "Sezení"
 
-#: ../src/Indicator.vala:43
+#: src/Indicator.vala:45
 msgid "The session indicator"
 msgstr "Indikátor sezení"
 
-#: ../src/Indicator.vala:71
+#: src/Indicator.vala:75
+msgid "User Accounts Settings…"
+msgstr "Nastavení uživatelských účtů…"
+
+#: src/Indicator.vala:78
 msgid "Log Out…"
 msgstr "Odhlásit…"
 
-#: ../src/Indicator.vala:72
+#: src/Indicator.vala:81
 msgid "Lock"
 msgstr "Uzamknout"
 
-#: ../src/Indicator.vala:73
+#: src/Indicator.vala:84
 msgid "Shut Down…"
 msgstr "Vypnout…"
 
-#: ../src/Indicator.vala:74
+#: src/Indicator.vala:87
 msgid "Suspend"
 msgstr "Uspat"
 
-#: ../src/Services/UserManager.vala:203
+#: src/Widgets/EndSessionDialog.vala:64
+msgid "Are you sure you want to Log Out?"
+msgstr "Opravdu se chcete odhlásit?"
+
+#: src/Widgets/EndSessionDialog.vala:65
+msgid "This will close all open applications."
+msgstr "Tímto se ukončí všechny spuštěné aplikace."
+
+#: src/Widgets/EndSessionDialog.vala:66
+msgid "Log Out"
+msgstr "Odhlásit se"
+
+#: src/Widgets/EndSessionDialog.vala:71
+msgid "Are you sure you want to Shut Down?"
+msgstr "Opravdu vypnout?"
+
+#: src/Widgets/EndSessionDialog.vala:72
+msgid "This will close all open applications and turn off this device."
+msgstr "Tímto budou zavřeny všechny otevřené aplikace a zařízení bude vypnuto."
+
+#: src/Widgets/EndSessionDialog.vala:73
+msgid "Shut Down"
+msgstr "Vypnout"
+
+#: src/Widgets/EndSessionDialog.vala:108
+msgid "Restart"
+msgstr "Restartovat"
+
+#: src/Widgets/EndSessionDialog.vala:120
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: src/Widgets/UserBox.vala:21
+msgid "Logged in"
+msgstr "Přihlášen"
+
+#: src/Widgets/UserBox.vala:22
+msgid "Logged out"
+msgstr "Odhlášen"
+
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Host"

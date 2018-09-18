@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2017 elementary LLC. (http://launchpad.net/wingpanel)
+ * Copyright (c) 2018 elementary LLC. (http://launchpad.net/wingpanel)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301 USA
  */
 
-public class OpenedAppsBox : Gtk.Box {
+public class Session.Widgets.OpenedAppsBox : Gtk.Box {
     private class ApplicationIcon : Gtk.Image {
         public Bamf.Application app { get; construct; }
 

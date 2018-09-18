@@ -1,4 +1,8 @@
-project('session', 'vala', 'c')
+project(
+    'session',
+    'vala', 'c',
+    version: '2.1.0'
+)
 
 i18n = import('i18n')
 gettext_name = meson.project_name() + '-indicator'
@@ -8,8 +12,17 @@ add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi
 
 wingpanel_dep = dependency('wingpanel-2.0')
 
-shared_module(
-    meson.project_name(),
+deps = [
+    dependency('accountsservice'),
+    dependency('glib-2.0'),
+    dependency('gobject-2.0'),
+    dependency('granite'),
+    dependency('gtk+-3.0'),
+    meson.get_compiler('vala').find_library('posix'),
+    wingpanel_dep
+]
+
+sources = [
     'src/Indicator.vala',
     'src/Widgets/EndSessionDialog.vala',
     'src/Widgets/UserBox.vala',
@@ -17,14 +30,21 @@ shared_module(
     'src/Services/DbusInterfaces.vala',
     'src/Services/UserManager.vala',
     'src/Services/ShutdownAction.vala',
-    dependencies: [
-        dependency('accountsservice'),
-        dependency('glib-2.0'),
-        dependency('gobject-2.0'),
-        dependency('granite'),
-        dependency('gtk+-3.0'),
-        wingpanel_dep
-    ],
+    'src/Services/EndSessionDialogServer.vala',
+]
+
+if get_option('enable-show-apps')
+    deps += dependency('libwnck-3.0')
+    deps += dependency('libbamf3')
+    sources += 'src/Widgets/OpenedAppsBox.vala'
+    add_global_arguments('--define=HAVE_BAMF_WNCK', language: 'vala')
+    add_global_arguments('-DWNCK_I_KNOW_THIS_IS_UNSTABLE', language: 'c')
+endif
+
+shared_module(
+    meson.project_name(),
+    sources,
+    dependencies: deps,
     install: true,
     install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir')
 )

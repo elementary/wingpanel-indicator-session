@@ -1,0 +1,1 @@
+option('enable-show-apps', type : 'boolean', value : 'true', description : 'Show running apps in the end session dialog and close them')

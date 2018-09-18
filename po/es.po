@@ -2,84 +2,88 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 01:24+0200\n"
-"PO-Revision-Date: 2017-04-24 07:44+0000\n"
-"Last-Translator: Oscar A. Mata T. <oscar.mata@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel"
-"/wingpanel-indicator-session/es/>\n"
+"POT-Creation-Date: 2018-06-27 09:54-0700\n"
+"PO-Revision-Date: 2018-03-27 00:04+0000\n"
+"Last-Translator: Alain M. <alain23@protonmail.com>\n"
+"Language-Team: Spanish <https://weblate.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-session/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: ../src/Widgets/EndSessionDialog.vala:61
+#: src/Indicator.vala:44
+msgid "Session"
+msgstr "Sesión"
+
+#: src/Indicator.vala:45
+msgid "The session indicator"
+msgstr "El indicador de sesiones"
+
+#: src/Indicator.vala:75
+msgid "User Accounts Settings…"
+msgstr "Configuración de cuentas de usuarios…"
+
+#: src/Indicator.vala:78
+msgid "Log Out…"
+msgstr "Salir…"
+
+#: src/Indicator.vala:81
+msgid "Lock"
+msgstr "Bloquear"
+
+#: src/Indicator.vala:84
+msgid "Shut Down…"
+msgstr "Apagar…"
+
+#: src/Indicator.vala:87
+msgid "Suspend"
+msgstr "Suspender"
+
+#: src/Widgets/EndSessionDialog.vala:64
 msgid "Are you sure you want to Log Out?"
 msgstr "¿Confirma que quiere salir de la cuenta?"
 
-#: ../src/Widgets/EndSessionDialog.vala:62
+#: src/Widgets/EndSessionDialog.vala:65
 msgid "This will close all open applications."
 msgstr "Esto cerrará todas las aplicaciones abiertas."
 
-#: ../src/Widgets/EndSessionDialog.vala:63
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Log Out"
-msgstr "Salir"
+msgstr "Cerrar Sesión"
 
-#: ../src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:71
 msgid "Are you sure you want to Shut Down?"
 msgstr "¿Confirma que quiere apagar el equipo?"
 
-#: ../src/Widgets/EndSessionDialog.vala:69
+#: src/Widgets/EndSessionDialog.vala:72
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Esto cerrará todas las aplicaciones abiertas y apagará este dispositivo."
 
-#: ../src/Widgets/EndSessionDialog.vala:70
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:108
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ../src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:120
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/Widgets/UserBox.vala:21
+#: src/Widgets/UserBox.vala:21
 msgid "Logged in"
 msgstr "Sesión iniciada"
 
-#: ../src/Widgets/UserBox.vala:22
+#: src/Widgets/UserBox.vala:22
 msgid "Logged out"
 msgstr "Sesión finalizada"
 
-#: ../src/Indicator.vala:42
-msgid "Session"
-msgstr "Sesión"
-
-#: ../src/Indicator.vala:43
-msgid "The session indicator"
-msgstr "El indicador de sesiones"
-
-#: ../src/Indicator.vala:71
-msgid "Log Out…"
-msgstr "Salir…"
-
-#: ../src/Indicator.vala:72
-msgid "Lock"
-msgstr "Bloquear"
-
-#: ../src/Indicator.vala:73
-msgid "Shut Down…"
-msgstr "Apagar…"
-
-#: ../src/Indicator.vala:74
-msgid "Suspend"
-msgstr "Suspender"
-
-#: ../src/Services/UserManager.vala:203
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Invitado"
