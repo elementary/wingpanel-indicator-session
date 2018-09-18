@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301 USA
  */
 
-public class ShutdownAction : Object {
+public class Session.Services.ShutdownAction : Object {
     public signal void terminate_finished ();
 
 #if HAVE_BAMF_WNCK

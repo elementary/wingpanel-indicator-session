@@ -35,7 +35,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     private Gtk.Button confirm;
     private Gtk.Button? confirm_restart = null;
 
-    private ShutdownAction? current_action = null;
+    private Services.ShutdownAction? current_action = null;
     private static LogoutInterface? logout_interface;
     private static SystemInterface? system_interface;
 
@@ -171,7 +171,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
     }
 
     private void create_run_action (EndSessionDialogType action_type) {
-        current_action = new ShutdownAction ();
+        current_action = new Services.ShutdownAction ();
         current_action.terminate_finished.connect (() => on_terminate_finished (action_type));
         current_action.run.begin ();
     }
@@ -182,15 +182,15 @@ public class Session.Widgets.EndSessionDialog : Gtk.Dialog {
         switch (action_type) {
             case EndSessionDialogType.LOGOUT:
                 server.confirmed_logout ();
-                //  ShutdownAction.logout ();
+                Services.ShutdownAction.logout ();
                 break;
             case EndSessionDialogType.SHUTDOWN:
                 server.confirmed_shutdown ();
-                //  ShutdownAction.shutdown ();
+                Services.ShutdownAction.shutdown ();
                 break;
             case EndSessionDialogType.RESTART:
                 server.confirmed_reboot ();
-                //  ShutdownAction.reboot ();
+                Services.ShutdownAction.reboot ();
                 break;
         }
 
