@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 09:54-0700\n"
-"PO-Revision-Date: 2018-08-19 00:10+0000\n"
-"Last-Translator: Julian Raschke <julian@raschke.de>\n"
+"PO-Revision-Date: 2018-09-21 00:08+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/de/>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr "Sitzung"
 
 #: src/Indicator.vala:45
 msgid "The session indicator"
-msgstr "Der Session-Indikator"
+msgstr "Der Sitzung-Indikator"
 
 #: src/Indicator.vala:75
 msgid "User Accounts Settings…"
