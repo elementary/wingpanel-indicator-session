@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 09:54-0700\n"
-"PO-Revision-Date: 2018-04-29 14:59+0000\n"
-"Last-Translator: Ciaran Ainsworth <cda@whistlingkappa.com>\n"
+"PO-Revision-Date: 2018-10-09 00:02+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/wingpanel/wingpanel-indicator-session/en_GB/>\n"
 "Language: en_GB\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:44
@@ -57,7 +57,7 @@ msgstr "Log Out"
 
 #: src/Widgets/EndSessionDialog.vala:71
 msgid "Are you sure you want to Shut Down?"
-msgstr "Are you  sure you want to Shut Down?"
+msgstr "Are you sure you want to Shut Down?"
 
 #: src/Widgets/EndSessionDialog.vala:72
 msgid "This will close all open applications and turn off this device."
