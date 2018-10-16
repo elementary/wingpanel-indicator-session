@@ -1,3 +1,9 @@
+wingpanel-indicator-session (2.2.1) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Tue, 16 Oct 2018 03:13:01 -0500
+
 wingpanel-indicator-session (2.2.0) bionic; urgency=medium
 
   * New upstream release.
