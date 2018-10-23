@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 09:54-0700\n"
-"PO-Revision-Date: 2018-08-19 00:10+0000\n"
-"Last-Translator: Julian Raschke <julian@raschke.de>\n"
+"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"PO-Revision-Date: 2018-09-21 00:08+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/de/>\n"
 "Language: de\n"
@@ -21,59 +21,59 @@ msgstr "Sitzung"
 
 #: src/Indicator.vala:45
 msgid "The session indicator"
-msgstr "Der Session-Indikator"
+msgstr "Der Sitzung-Indikator"
 
-#: src/Indicator.vala:75
+#: src/Indicator.vala:78
 msgid "User Accounts Settings…"
 msgstr "Account-Einstellungen…"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:81
 msgid "Log Out…"
 msgstr "Abmelden…"
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:84
 msgid "Lock"
 msgstr "Sperren"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:88
 msgid "Shut Down…"
 msgstr "Herunterfahren…"
 
-#: src/Indicator.vala:87
+#: src/Indicator.vala:91
 msgid "Suspend"
 msgstr "Bereitschaft"
 
-#: src/Widgets/EndSessionDialog.vala:64
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
 msgstr "Sind Sie sicher, dass Sie sich abmelden wollen?"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
 msgstr "Dadurch werden alle geöffneten Anwendungen geschlossen."
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Log Out"
 msgstr "Abmelden"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
 msgstr "Sind Sie sicher, dass Sie den Rechner herunterfahren wollen?"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Dadurch werden alle geöffneten Anwendungen geschlossen und der Rechner wird "
 "ausgeschaltet."
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:75
 msgid "Shut Down"
 msgstr "Herunterfahren"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:110
 msgid "Restart"
 msgstr "Neu starten"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:124
 msgid "Cancel"
 msgstr "Abbrechen"
 

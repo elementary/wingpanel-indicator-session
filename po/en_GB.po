@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 09:54-0700\n"
-"PO-Revision-Date: 2018-04-29 14:59+0000\n"
-"Last-Translator: Ciaran Ainsworth <cda@whistlingkappa.com>\n"
+"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"PO-Revision-Date: 2018-10-09 00:02+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/wingpanel/wingpanel-indicator-session/en_GB/>\n"
 "Language: en_GB\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:44
@@ -23,55 +23,55 @@ msgstr "Session"
 msgid "The session indicator"
 msgstr "The session indicator"
 
-#: src/Indicator.vala:75
+#: src/Indicator.vala:78
 msgid "User Accounts Settings…"
 msgstr "User Accounts Settings…"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:81
 msgid "Log Out…"
 msgstr "Log Out…"
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:84
 msgid "Lock"
 msgstr "Lock"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:88
 msgid "Shut Down…"
 msgstr "Shut Down…"
 
-#: src/Indicator.vala:87
+#: src/Indicator.vala:91
 msgid "Suspend"
 msgstr "Suspend"
 
-#: src/Widgets/EndSessionDialog.vala:64
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
 msgstr "Are you sure you want to Log Out?"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
 msgstr "This will close all open applications."
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Log Out"
 msgstr "Log Out"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
-msgstr "Are you  sure you want to Shut Down?"
+msgstr "Are you sure you want to Shut Down?"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
 msgstr "This will close all open applications and turn off this device."
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:75
 msgid "Shut Down"
 msgstr "Shut Down"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:110
 msgid "Restart"
 msgstr "Restart"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:124
 msgid "Cancel"
 msgstr "Cancel"
 

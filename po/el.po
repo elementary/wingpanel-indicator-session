@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 09:54-0700\n"
+"POT-Creation-Date: 2018-10-13 14:56-0700\n"
 "PO-Revision-Date: 2017-08-31 23:12+0000\n"
 "Last-Translator: Grammatopoulos Athanasios-Vasi <darkthanos.gr@gmail.com>\n"
 "Language-Team: Greek <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,57 +23,57 @@ msgstr "Συνεδρία"
 msgid "The session indicator"
 msgstr "Ο δείκτης συνεδρίας"
 
-#: src/Indicator.vala:75
+#: src/Indicator.vala:78
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:81
 msgid "Log Out…"
 msgstr "Αποσύνδεση…"
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:84
 msgid "Lock"
 msgstr "Κλείδωμα"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:88
 msgid "Shut Down…"
 msgstr "Τερματισμός…"
 
-#: src/Indicator.vala:87
+#: src/Indicator.vala:91
 msgid "Suspend"
 msgstr "Aναστολή"
 
-#: src/Widgets/EndSessionDialog.vala:64
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
 msgstr "Είστε σίγουροι ότι θέλετε να κάνετε αποσύνδεση;"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
 msgstr "Αυτή η ενέργεια θα κλείσει όλες τις ανοιχτές εφαρμογές."
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Log Out"
 msgstr "Αποσύνδεση"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
 msgstr "Είστε σίγουροι ότι θέλετε να κάνετε τερματισμό;"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Αυτή η ενέργεια θα κλείσει όλες τις ανοιχτές εφαρμογές και θα "
 "απενεργοποιήσει τη συσκευή σας."
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:75
 msgid "Shut Down"
 msgstr "Τερματισμός"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:110
 msgid "Restart"
 msgstr "Επανεκκίνηση"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:124
 msgid "Cancel"
 msgstr "Ακύρωση"
 

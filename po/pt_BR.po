@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 09:54-0700\n"
+"POT-Creation-Date: 2018-10-13 14:56-0700\n"
 "PO-Revision-Date: 2018-08-30 00:09+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
@@ -23,56 +23,56 @@ msgstr "Sessão"
 msgid "The session indicator"
 msgstr "O Indicador de sessão"
 
-#: src/Indicator.vala:75
+#: src/Indicator.vala:78
 msgid "User Accounts Settings…"
 msgstr "Configuração de Contas de Usuários…"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:81
 msgid "Log Out…"
 msgstr "Encerrar sessão…"
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:84
 msgid "Lock"
 msgstr "Bloquear"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:88
 msgid "Shut Down…"
 msgstr "Desligar…"
 
-#: src/Indicator.vala:87
+#: src/Indicator.vala:91
 msgid "Suspend"
 msgstr "Suspender"
 
-#: src/Widgets/EndSessionDialog.vala:64
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
 msgstr "Você tem certeza de que deseja sair?"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
 msgstr "Isso fechará todos os aplicativos abertos."
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Log Out"
 msgstr "Sair"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
 msgstr "Você tem certeza de que deseja desligar?"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Isso fechará todos os aplicativos abertos e desligará este dispositivo."
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:75
 msgid "Shut Down"
 msgstr "Desligar"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:110
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:124
 msgid "Cancel"
 msgstr "Cancelar"
 
