@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-13 14:56-0700\n"
-"PO-Revision-Date: 2017-09-08 16:19+0000\n"
-"Last-Translator: Thiago Galvani <thiagopaiva99@gmail.com>\n"
+"PO-Revision-Date: 2018-10-24 13:49+0000\n"
+"Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/gl/>\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:44
@@ -25,7 +25,7 @@ msgstr "O indicador de sesión"
 
 #: src/Indicator.vala:78
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Axustes de Contas de Usuario…"
 
 #: src/Indicator.vala:81
 msgid "Log Out…"
