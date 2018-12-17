@@ -40,13 +40,14 @@ public class Session.Services.UserManager : Object {
 
     public signal void close ();
 
+    private const string DM_DBUS_ID = "org.freedesktop.DisplayManager";
     private const string LOGIN_IFACE = "org.freedesktop.login1";
     private const string LOGIN_PATH = "/org/freedesktop/login1";
 
     private signal void delete_user (ObjectPath user_path);
     private Act.UserManager manager;
     private List<Widgets.Userbox> userbox_list;
-    private SeatInterface dm_proxy;
+    private SeatInterface? dm_proxy = null;
     private Wingpanel.Widgets.Separator users_separator;
 
     public Session.Widgets.UserListBox user_grid;
@@ -132,11 +133,15 @@ public class Session.Services.UserManager : Object {
         init_users ();
         connect_signals ();
 
-        try {
-            dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", Environment.get_variable ("XDG_SEAT_PATH"), DBusProxyFlags.NONE);
-            has_guest = dm_proxy.has_guest_account;
-        } catch (IOError e) {
-            stderr.printf ("UserManager error: %s\n", e.message);
+        var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
+
+        if (seat_path != null) {
+            try {
+                dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
+                has_guest = dm_proxy.has_guest_account;
+            } catch (IOError e) {
+                stderr.printf ("UserManager error: %s\n", e.message);
+            }
         }
     }
 
