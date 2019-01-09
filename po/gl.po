@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-13 14:56-0700\n"
-"PO-Revision-Date: 2018-10-25 16:51+0000\n"
+"PO-Revision-Date: 2018-12-22 00:09+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/gl/>\n"
@@ -41,11 +41,11 @@ msgstr "Apagar…"
 
 #: src/Indicator.vala:91
 msgid "Suspend"
-msgstr "Suspender..."
+msgstr "Suspender"
 
 #: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
-msgstr "¿Estás seguro de que queres pechar sesión?"
+msgstr "Estás seguro de que queres pechar sesión?"
 
 #: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
@@ -57,7 +57,7 @@ msgstr "Saír"
 
 #: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
-msgstr "¿Estás seguro de que queres apagar?"
+msgstr "Estás seguro de que queres apagar?"
 
 #: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
@@ -85,4 +85,4 @@ msgstr "Non Logado"
 
 #: src/Services/UserManager.vala:219
 msgid "Guest"
-msgstr "Invitado"
+msgstr "Convidado"
