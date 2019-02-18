@@ -73,17 +73,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
                 return Gdk.EVENT_PROPAGATE;
             });
-
-            if (keybinding_settings != null) {
-                keybinding_settings.changed.connect ((key) => {
-                    if (key == "screensaver") {
-                        update_lock_accel ();
-                    }
-                    if (key == "logout") {
-                        update_logout_accel ();
-                    }
-                });
-            }
         }
 
         return indicator_icon;
@@ -99,13 +88,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             user_settings = new Gtk.ModelButton ();
             user_settings.text = _("User Accounts Settings…");
 
-            log_out_grid = new ModelButtonGrid (_("Log Out…"));
+            log_out_grid = new ModelButtonGrid (_("Log Out…"), "logout");
 
             var log_out = new Gtk.ModelButton ();
             log_out.get_child ().destroy ();
             log_out.add (log_out_grid);
 
-            lock_screen_grid = new ModelButtonGrid (_("Lock"));
+            lock_screen_grid = new ModelButtonGrid (_("Lock"), "screensaver");
 
             lock_screen = new Gtk.ModelButton ();
             lock_screen.get_child ().destroy ();
@@ -144,9 +133,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
-
-            update_lock_accel ();
-            update_logout_accel ();
 
             connections ();
 
@@ -233,30 +219,17 @@ public class Session.Indicator : Wingpanel.Indicator {
         current_dialog.show_all ();
     }
 
-    private void update_lock_accel () {
-        string accel = null;
-        if (keybinding_settings != null) {
-            accel = Granite.accel_to_string (keybinding_settings.get_string ("screensaver"));
-        }
-
-        lock_screen_grid.accel_text = accel;
-    }
-
-    private void update_logout_accel () {
-        string accel = null;
-        if (keybinding_settings != null) {
-            accel = Granite.accel_to_string (keybinding_settings.get_string ("logout"));
-        }
-
-        log_out_grid.accel_text = accel;
-    }
-
     private class ModelButtonGrid : Gtk.Grid {
-        public string accel_text { get; set; }
+        public string accel_key { get; construct; }
         public string text { get; construct; }
 
-        public ModelButtonGrid (string text) {
-            Object (text: text);
+        private Gtk.Label accel;
+
+        public ModelButtonGrid (string text, string accel_key) {
+            Object (
+                accel_key: accel_key,
+                text: text
+            );
         }
 
         construct {
@@ -264,14 +237,26 @@ public class Session.Indicator : Wingpanel.Indicator {
             label.hexpand = true;
             label.xalign = 0;
 
-            var accel = new Gtk.Label (null);
+            accel = new Gtk.Label (null);
             accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
 
             column_spacing = 6;
             add (label);
             add (accel);
 
-            bind_property ("accel-text", accel, "label");
+            if (keybinding_settings != null) {
+                update_accel ();
+
+                keybinding_settings.changed.connect ((key) => {
+                    if (key == accel_key) {
+                        update_accel ();
+                    }
+                });
+            }
+        }
+
+        private void update_accel () {
+            accel.label = Granite.accel_to_string (keybinding_settings.get_string (accel_key));
         }
     }
 }
