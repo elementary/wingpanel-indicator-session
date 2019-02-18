@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
+"POT-Creation-Date: 2018-10-13 14:56-0700\n"
 "PO-Revision-Date: 2018-04-02 16:18+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -23,55 +23,55 @@ msgstr "作業階段"
 msgid "The session indicator"
 msgstr "作業階段指示器"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:78
 msgid "User Accounts Settings…"
 msgstr "使用者帳號設定值…"
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:81
 msgid "Log Out…"
 msgstr "登出…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:84
 msgid "Lock"
 msgstr "鎖定"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:88
 msgid "Shut Down…"
 msgstr "關機…"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:91
 msgid "Suspend"
 msgstr "暫停"
 
-#: src/Widgets/EndSessionDialog.vala:64
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
 msgstr "您確定要登出？"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
 msgstr "這會關閉所有開啟的應用程式。"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Log Out"
 msgstr "登出"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
 msgstr "您確定要關機？"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
 msgstr "這會關閉所有開啟的應用程式並關閉此裝置。"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:75
 msgid "Shut Down"
 msgstr "關機"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:110
 msgid "Restart"
 msgstr "重新啟動"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:124
 msgid "Cancel"
 msgstr "取消"
 
@@ -83,6 +83,6 @@ msgstr "已登入"
 msgid "Logged out"
 msgstr "已登出"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "訪客"

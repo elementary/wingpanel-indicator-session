@@ -1,4 +1,8 @@
-project('session', 'vala', 'c')
+project(
+    'session',
+    'vala', 'c',
+    version: '2.2.2'
+)
 
 i18n = import('i18n')
 gettext_name = meson.project_name() + '-indicator'
@@ -16,6 +20,7 @@ shared_module(
     'src/Widgets/UserListBox.vala',
     'src/Services/DbusInterfaces.vala',
     'src/Services/UserManager.vala',
+    'src/Services/EndSessionDialogServer.vala',
     dependencies: [
         dependency('accountsservice'),
         dependency('glib-2.0'),

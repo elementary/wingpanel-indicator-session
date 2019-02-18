@@ -24,14 +24,19 @@
     private string session_path;
     private bool has_guest;
 
+    private const string DM_DBUS_ID = "org.freedesktop.DisplayManager";
+
     public UserListBox () {
         has_guest = false;
         session_path = Environment.get_variable ("XDG_SESSION_PATH");
 
-        try {
-            seat = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.DisplayManager", Environment.get_variable ("XDG_SEAT_PATH"), DBusProxyFlags.NONE);
-        } catch (IOError e) {
-            stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
+        var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
+        if (seat_path != null) {
+            try {
+                seat = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
+            } catch (IOError e) {
+                stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
+            }
         }
 
         this.set_sort_func (sort_func);
@@ -47,7 +52,7 @@
 
     public override void row_activated (Gtk.ListBoxRow row) {
         var userbox = (Userbox)row;
-        if (userbox == null 
+        if (userbox == null
             || seat == null
             || session_path == "") {
             return;

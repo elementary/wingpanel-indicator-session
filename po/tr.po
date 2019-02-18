@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:19-0700\n"
-"PO-Revision-Date: 2017-05-04 09:26+0000\n"
+"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"PO-Revision-Date: 2018-05-25 16:47+0000\n"
 "Last-Translator: Seyit Ali Doğan <seyit822@yandex.com>\n"
-"Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
+"Language-Team: Turkish <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:44
@@ -23,55 +23,55 @@ msgstr "Oturum"
 msgid "The session indicator"
 msgstr "Oturum göstergesi"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:78
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Kullanıcı Hesapları Ayarları…"
 
-#: src/Indicator.vala:77
+#: src/Indicator.vala:81
 msgid "Log Out…"
 msgstr "Oturumu Kapat…"
 
-#: src/Indicator.vala:80
+#: src/Indicator.vala:84
 msgid "Lock"
 msgstr "Kilitle"
 
-#: src/Indicator.vala:83
+#: src/Indicator.vala:88
 msgid "Shut Down…"
 msgstr "Kapat…"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:91
 msgid "Suspend"
 msgstr "Askıya Al"
 
-#: src/Widgets/EndSessionDialog.vala:64
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Log Out?"
 msgstr "Oturumu kapatmak istediğinizden emin misiniz?"
 
-#: src/Widgets/EndSessionDialog.vala:65
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications."
 msgstr "Bu tüm açık uygulamaları kapatacak."
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Log Out"
 msgstr "Oturumu Kapat"
 
-#: src/Widgets/EndSessionDialog.vala:71
+#: src/Widgets/EndSessionDialog.vala:73
 msgid "Are you sure you want to Shut Down?"
 msgstr "Bilgisayarı kapatmak istediğinizden emin misiniz?"
 
-#: src/Widgets/EndSessionDialog.vala:72
+#: src/Widgets/EndSessionDialog.vala:74
 msgid "This will close all open applications and turn off this device."
 msgstr "Bu işlem tüm açık uygulamaları ve cihazınızı kapatacak."
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:75
 msgid "Shut Down"
 msgstr "Bilgisayarı Kapat"
 
-#: src/Widgets/EndSessionDialog.vala:108
+#: src/Widgets/EndSessionDialog.vala:110
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: src/Widgets/EndSessionDialog.vala:120
+#: src/Widgets/EndSessionDialog.vala:124
 msgid "Cancel"
 msgstr "İptal"
 
@@ -83,6 +83,6 @@ msgstr "Giriş yapıldı"
 msgid "Logged out"
 msgstr "Çıkış Yapıldı"
 
-#: src/Services/UserManager.vala:217
+#: src/Services/UserManager.vala:219
 msgid "Guest"
 msgstr "Misafir"
