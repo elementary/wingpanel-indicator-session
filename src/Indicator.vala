@@ -19,6 +19,7 @@
 
 public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
+    private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
     private SystemInterface suspend_interface;
     private LockInterface lock_interface;
@@ -28,9 +29,11 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
 
+    private Gtk.Label lock_screen_accel;
+    private Gtk.Label log_out_accel;
+
     private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
-    private Gtk.ModelButton log_out;
     private Gtk.ModelButton suspend;
     private Gtk.ModelButton shutdown;
 
@@ -38,6 +41,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Widgets.EndSessionDialog? current_dialog = null;
 
     private Gtk.Grid main_grid;
+
+    private static GLib.Settings? keybinding_settings;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         Object (code_name: Wingpanel.Indicator.SESSION,
@@ -48,6 +53,12 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
+    }
+
+    static construct {
+        if (SettingsSchemaSource.get_default ().lookup (KEYBINDING_SCHEMA, true) != null) {
+            keybinding_settings = new GLib.Settings (KEYBINDING_SCHEMA);
+        }
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -62,6 +73,17 @@ public class Session.Indicator : Wingpanel.Indicator {
 
                 return Gdk.EVENT_PROPAGATE;
             });
+
+            if (keybinding_settings != null) {
+                keybinding_settings.changed.connect ((key) => {
+                    if (key == "screensaver") {
+                        update_lock_accel ();
+                    }
+                    if (key == "logout") {
+                        update_logout_accel ();
+                    }
+                });
+            }
         }
 
         return indicator_icon;
@@ -77,11 +99,37 @@ public class Session.Indicator : Wingpanel.Indicator {
             user_settings = new Gtk.ModelButton ();
             user_settings.text = _("User Accounts Settings…");
 
-            log_out = new Gtk.ModelButton ();
-            log_out.text = _("Log Out…");
+            var log_out_label = new Gtk.Label (_("Log Out…"));
+            log_out_label.hexpand = true;
+            log_out_label.xalign = 0;
+
+            log_out_accel = new Gtk.Label (null);
+            log_out_accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
+
+            var log_out_grid = new Gtk.Grid ();
+            log_out_grid.column_spacing = 6;
+            log_out_grid.add (log_out_label);
+            log_out_grid.add (log_out_accel);
+
+            var log_out = new Gtk.ModelButton ();
+            log_out.get_child ().destroy ();
+            log_out.add (log_out_grid);
+
+            var lock_screen_label = new Gtk.Label (_("Lock"));
+            lock_screen_label.hexpand = true;
+            lock_screen_label.xalign = 0;
+
+            lock_screen_accel = new Gtk.Label (null);
+            lock_screen_accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
+
+            var lock_screen_grid = new Gtk.Grid ();
+            lock_screen_grid.column_spacing = 6;
+            lock_screen_grid.add (lock_screen_label);
+            lock_screen_grid.add (lock_screen_accel);
 
             lock_screen = new Gtk.ModelButton ();
-            lock_screen.text = _("Lock");
+            lock_screen.get_child ().destroy ();
+            lock_screen.add (lock_screen_grid);
 
             shutdown = new Gtk.ModelButton ();
             shutdown.hexpand = true;
@@ -117,7 +165,20 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid.add (suspend);
             main_grid.add (shutdown);
 
+            update_lock_accel ();
+            update_logout_accel ();
+
             connections ();
+
+            log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
+
+            lock_screen.clicked.connect (() => {
+                try {
+                    lock_interface.lock ();
+                } catch (GLib.Error e) {
+                    stderr.printf ("%s\n", e.message);
+                }
+            });
         }
 
         return main_grid;
@@ -159,15 +220,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
         });
 
-        lock_screen.clicked.connect (() => {
-            try {
-                lock_interface.lock ();
-            } catch (GLib.Error e) {
-                stderr.printf ("%s\n", e.message);
-            }
-        });
-
-        log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
         shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
 
         suspend.clicked.connect (() => {
@@ -199,6 +251,26 @@ public class Session.Indicator : Wingpanel.Indicator {
         current_dialog.destroy.connect (() => current_dialog = null);
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
+    }
+
+    private void update_lock_accel () {
+        string accel = null;
+
+        if (keybinding_settings != null) {
+            accel = Granite.accel_to_string (keybinding_settings.get_string ("screensaver"));
+        }
+
+        lock_screen_accel.label = accel;
+    }
+
+    private void update_logout_accel () {
+        string accel = null;
+
+        if (keybinding_settings != null) {
+            accel = Granite.accel_to_string (keybinding_settings.get_string ("logout"));
+        }
+
+        log_out_accel.label = accel;
     }
 }
 
