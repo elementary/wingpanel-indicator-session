@@ -255,7 +255,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private void update_lock_accel () {
         string accel = null;
-
         if (keybinding_settings != null) {
             accel = Granite.accel_to_string (keybinding_settings.get_string ("screensaver"));
         }
@@ -265,7 +264,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private void update_logout_accel () {
         string accel = null;
-
         if (keybinding_settings != null) {
             accel = Granite.accel_to_string (keybinding_settings.get_string ("logout"));
         }
