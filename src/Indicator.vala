@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2017 elementary LLC. (http://launchpad.net/wingpanel)
+ * Copyright (c) 2011-2019 elementary, Inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -29,8 +29,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
 
-    private Gtk.Label lock_screen_accel;
-    private Gtk.Label log_out_accel;
+    private ModelButtonGrid lock_screen_grid;
+    private ModelButtonGrid log_out_grid;
 
     private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
@@ -99,33 +99,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             user_settings = new Gtk.ModelButton ();
             user_settings.text = _("User Accounts Settings…");
 
-            var log_out_label = new Gtk.Label (_("Log Out…"));
-            log_out_label.hexpand = true;
-            log_out_label.xalign = 0;
-
-            log_out_accel = new Gtk.Label (null);
-            log_out_accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
-
-            var log_out_grid = new Gtk.Grid ();
-            log_out_grid.column_spacing = 6;
-            log_out_grid.add (log_out_label);
-            log_out_grid.add (log_out_accel);
+            log_out_grid = new ModelButtonGrid (_("Log Out…"));
 
             var log_out = new Gtk.ModelButton ();
             log_out.get_child ().destroy ();
             log_out.add (log_out_grid);
 
-            var lock_screen_label = new Gtk.Label (_("Lock"));
-            lock_screen_label.hexpand = true;
-            lock_screen_label.xalign = 0;
-
-            lock_screen_accel = new Gtk.Label (null);
-            lock_screen_accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
-
-            var lock_screen_grid = new Gtk.Grid ();
-            lock_screen_grid.column_spacing = 6;
-            lock_screen_grid.add (lock_screen_label);
-            lock_screen_grid.add (lock_screen_accel);
+            lock_screen_grid = new ModelButtonGrid (_("Lock"));
 
             lock_screen = new Gtk.ModelButton ();
             lock_screen.get_child ().destroy ();
@@ -259,7 +239,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             accel = Granite.accel_to_string (keybinding_settings.get_string ("screensaver"));
         }
 
-        lock_screen_accel.label = accel;
+        lock_screen_grid.accel_text = accel;
     }
 
     private void update_logout_accel () {
@@ -268,7 +248,31 @@ public class Session.Indicator : Wingpanel.Indicator {
             accel = Granite.accel_to_string (keybinding_settings.get_string ("logout"));
         }
 
-        log_out_accel.label = accel;
+        log_out_grid.accel_text = accel;
+    }
+
+    private class ModelButtonGrid : Gtk.Grid {
+        public string accel_text { get; set; }
+        public string text { get; construct; }
+
+        public ModelButtonGrid (string text) {
+            Object (text: text);
+        }
+
+        construct {
+            var label = new Gtk.Label (text);
+            label.hexpand = true;
+            label.xalign = 0;
+
+            var accel = new Gtk.Label (null);
+            accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
+
+            column_spacing = 6;
+            add (label);
+            add (accel);
+
+            bind_property ("accel-text", accel, "label");
+        }
     }
 }
 
