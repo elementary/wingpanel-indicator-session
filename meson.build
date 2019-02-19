@@ -25,7 +25,7 @@ shared_module(
         dependency('accountsservice'),
         dependency('glib-2.0'),
         dependency('gobject-2.0'),
-        dependency('granite'),
+        dependency('granite', version: '>=5.2.0'),
         dependency('gtk+-3.0'),
         wingpanel_dep
     ],
