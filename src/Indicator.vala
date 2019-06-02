@@ -139,6 +139,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
 
             lock_screen.clicked.connect (() => {
+                close ();
+
                 try {
                     lock_interface.lock ();
                 } catch (GLib.Error e) {
@@ -191,6 +193,8 @@ public class Session.Indicator : Wingpanel.Indicator {
         shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
 
         suspend.clicked.connect (() => {
+            close ();
+
             try {
                 suspend_interface.suspend (true);
             } catch (GLib.Error e) {
