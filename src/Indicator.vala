@@ -139,6 +139,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
 
             lock_screen.clicked.connect (() => {
+                close ();
+
                 try {
                     lock_interface.lock ();
                 } catch (GLib.Error e) {
@@ -179,6 +181,8 @@ public class Session.Indicator : Wingpanel.Indicator {
         manager.close.connect (() => close ());
 
         user_settings.clicked.connect (() => {
+            close ();
+
             try {
                 AppInfo.launch_default_for_uri ("settings://accounts", null);
             } catch (Error e) {
@@ -189,6 +193,8 @@ public class Session.Indicator : Wingpanel.Indicator {
         shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
 
         suspend.clicked.connect (() => {
+            close ();
+
             try {
                 suspend_interface.suspend (true);
             } catch (GLib.Error e) {
@@ -205,6 +211,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     public override void closed () {}
 
     private void show_dialog (Widgets.EndSessionDialogType type) {
+        close ();
+
         if (current_dialog != null) {
             if (current_dialog.dialog_type != type) {
                 current_dialog.destroy ();
