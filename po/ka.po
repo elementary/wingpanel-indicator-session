@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"POT-Creation-Date: 2019-06-26 22:47+0200\n"
 "PO-Revision-Date: 2015-11-17 00:19+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,32 +13,32 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:44
+#: src/Indicator.vala:49
 msgid "Session"
 msgstr "სესია"
 
-#: src/Indicator.vala:45
+#: src/Indicator.vala:50
 msgid "The session indicator"
 msgstr "სესის მაჩვენებელი"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:89
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:91
 msgid "Log Out…"
 msgstr "გასვლა..."
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:97
 msgid "Lock"
 msgstr "ჩაკეტვა"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:105
 #, fuzzy
 msgid "Shut Down…"
 msgstr "გამორთვა..."
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:108
 msgid "Suspend"
 msgstr "შეჩერება"
 
@@ -82,6 +82,6 @@ msgstr "შესული"
 msgid "Logged out"
 msgstr "გამოსული"
 
-#: src/Services/UserManager.vala:219
+#: src/Services/UserManager.vala:224
 msgid "Guest"
 msgstr "სტუმარი"
