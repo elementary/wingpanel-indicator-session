@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:47+0200\n"
+"POT-Creation-Date: 2019-07-02 14:10-0700\n"
 "PO-Revision-Date: 2018-06-13 15:40+0000\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/wingpanel/"
@@ -43,38 +43,38 @@ msgstr "Matikan…"
 msgid "Suspend"
 msgstr "Suspen"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
 msgstr "Apakah Anda yakin ingin Log Keluar?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
 msgstr "Ini akan menutup semua aplikasi yang terbuka."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
 msgstr "Log Keluar"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
 msgstr "Apakah Anda yakin ingin Matikan Komputer?"
 
-#: src/Widgets/EndSessionDialog.vala:74
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Ini akan menutup semua aplikasi yang terbuka dan mematikan perangkat ini."
 
-#: src/Widgets/EndSessionDialog.vala:75
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
 msgstr "Matikan"
 
-#: src/Widgets/EndSessionDialog.vala:110
-msgid "Restart"
-msgstr "Nyalakan Ulang"
-
-#: src/Widgets/EndSessionDialog.vala:124
+#: src/Widgets/EndSessionDialog.vala:89
 msgid "Cancel"
 msgstr "Batal"
+
+#: src/Widgets/EndSessionDialog.vala:105
+msgid "Restart"
+msgstr "Nyalakan Ulang"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
