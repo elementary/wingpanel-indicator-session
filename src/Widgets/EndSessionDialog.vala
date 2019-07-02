@@ -143,7 +143,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
         type_hint = Gdk.WindowTypeHint.DIALOG;
         get_style_context ().add_class ("rounded");
         set_keep_above (true);
-        set_position (Gtk.WindowPosition.CENTER_ALWAYS);
+        set_position (Gtk.WindowPosition.CENTER);
         set_titlebar (titlebar);
         stick ();
         add (grid);
