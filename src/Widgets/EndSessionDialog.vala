@@ -91,8 +91,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
         var confirm = new Gtk.Button.with_label (button_text);
         confirm.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        set_default (confirm);
-
         var action_area = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
         action_area.layout_style = Gtk.ButtonBoxStyle.END;
         action_area.margin_top = 16;
@@ -147,6 +145,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
         set_titlebar (titlebar);
         stick ();
         add (grid);
+
+        cancel.grab_focus ();
 
         cancel.clicked.connect (() => { 
             server.canceled ();
