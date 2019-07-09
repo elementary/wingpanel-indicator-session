@@ -85,13 +85,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             user_settings = new Gtk.ModelButton ();
             user_settings.text = _("User Accounts Settings…");
 
-            var log_out_grid = new Granite.AccelLabel (_("Log Out…"), keybinding_settings.get_string ("logout"));
+            var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
 
             var log_out = new Gtk.ModelButton ();
             log_out.get_child ().destroy ();
             log_out.add (log_out_grid);
 
-            var lock_screen_grid = new Granite.AccelLabel (_("Lock"), keybinding_settings.get_string ("screensaver"));
+            var lock_screen_grid = new Granite.AccelLabel (_("Lock"));
 
             lock_screen = new Gtk.ModelButton ();
             lock_screen.get_child ().destroy ();
@@ -130,6 +130,11 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
+
+            if (keybinding_settings != null) {
+                keybinding_settings.bind ("logout", log_out_grid, "accel-string", GLib.SettingsBindFlags.GET);
+                keybinding_settings.bind ("screensaver", lock_screen_grid, "accel-string", GLib.SettingsBindFlags.GET);
+            }
 
             connections ();
 
