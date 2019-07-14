@@ -66,7 +66,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
-                    close ();
                     show_dialog (Widgets.EndSessionDialogType.RESTART);
                     return Gdk.EVENT_STOP;
                 }
@@ -220,11 +219,15 @@ public class Session.Indicator : Wingpanel.Indicator {
                 return;
             }
         }
-        
-        current_dialog = new Widgets.EndSessionDialog (type);
-        current_dialog.destroy.connect (() => current_dialog = null);
-        current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
-        current_dialog.show_all ();
+
+        Timeout.add (200, () => {
+            current_dialog = new Widgets.EndSessionDialog (type);
+            current_dialog.destroy.connect (() => current_dialog = null);
+            current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
+            current_dialog.show_all ();
+
+            return false;
+        });
     }
 
     private class ModelButtonGrid : Gtk.Grid {
