@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/elementary/desktop/wingpanel/session/">
+    <file alias="SystemButtons.css" compressed="true">SystemButtons.css</file>
+    <file alias="system-suspend-symbolic.svg" compressed="true">system-suspend-symbolic.svg</file>
+  </gresource>
+</gresources>

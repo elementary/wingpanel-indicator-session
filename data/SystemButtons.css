@@ -1,0 +1,7 @@
+.circle-image image {
+	border-radius: 50%;
+	background-color: @SILVER_300;
+	border: 1px solid @SILVER_500;
+	padding: 6px;
+	color: @SILVER_700;
+}

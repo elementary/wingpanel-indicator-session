@@ -34,8 +34,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
-    private Gtk.ModelButton suspend;
-    private Gtk.ModelButton shutdown;
+    private Gtk.Button suspend;
+    private Gtk.Button shutdown;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
@@ -43,6 +43,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.Grid main_grid;
 
     private static GLib.Settings? keybinding_settings;
+    private static Gtk.CssProvider css_provider;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         Object (code_name: Wingpanel.Indicator.SESSION,
@@ -59,6 +60,11 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (SettingsSchemaSource.get_default ().lookup (KEYBINDING_SCHEMA, true) != null) {
             keybinding_settings = new GLib.Settings (KEYBINDING_SCHEMA);
         }
+
+        css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("/io/elementary/desktop/wingpanel/session/SystemButtons.css");
+        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+        default_theme.add_resource_path ("/io/elementary/desktop/wingpanel/session");
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -100,12 +106,57 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_screen.get_child ().destroy ();
             lock_screen.add (lock_screen_grid);
 
-            shutdown = new Gtk.ModelButton ();
-            shutdown.hexpand = true;
-            shutdown.text = _("Shut Down…");
+            shutdown = new Gtk.Button ();
+            var shutdown_label = new Gtk.Label (_("<small>Shut Down…</small>"));
+            shutdown_label.use_markup = true;
+            var shutdown_image = new Gtk.Image.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            shutdown_image.halign = Gtk.Align.CENTER;
+            shutdown_image.margin = 2;
+            var shutdown_image_style_context = shutdown_image.get_style_context ();
+            shutdown_image_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            var shutdown_grid = new Gtk.Grid ();
+            var shutdown_grid_style_context = shutdown_grid.get_style_context ();
+            shutdown_grid_style_context.add_class ("circle-image");
+            shutdown_grid_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            shutdown_grid.orientation = Gtk.Orientation.VERTICAL;
+            shutdown_grid.add (shutdown_image);
+            shutdown_grid.add (shutdown_label);
+            shutdown.add (shutdown_grid);
+            shutdown.set_image_position (Gtk.PositionType.TOP);
 
-            suspend = new Gtk.ModelButton ();
-            suspend.text = _("Suspend");
+            var shutdown_style_context = shutdown.get_style_context ();
+            shutdown_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+            shutdown_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            suspend = new Gtk.Button ();
+            var suspend_label = new Gtk.Label (_("<small>Suspend</small>"));
+            suspend_label.use_markup = true;
+            var suspend_image = new Gtk.Image.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            suspend_image.halign = Gtk.Align.CENTER;
+            suspend_image.margin = 2;
+            var suspend_image_style_context = suspend_image.get_style_context ();
+            suspend_image_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            var suspend_grid = new Gtk.Grid ();
+            var suspend_grid_style_context = suspend_grid.get_style_context ();
+            suspend_grid_style_context.add_class ("circle-image");
+            suspend_grid_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            suspend_grid.orientation = Gtk.Orientation.VERTICAL;
+            suspend_grid.add (suspend_image);
+            suspend_grid.add (suspend_label);
+            suspend.add (suspend_grid);
+            suspend.set_image_position (Gtk.PositionType.TOP);
+
+            var suspend_style_context = suspend.get_style_context ();
+            suspend_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+            suspend_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            var suspend_shutdown_box = new Gtk.Grid ();
+            suspend_shutdown_box.hexpand = true;
+            suspend_shutdown_box.column_spacing = 24;
+            suspend_shutdown_box.halign = Gtk.Align.CENTER;
+            suspend_shutdown_box.margin = 6;
+            suspend_shutdown_box.add (suspend);
+            suspend_shutdown_box.add (shutdown);
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
                 users_separator = new Wingpanel.Widgets.Separator ();
@@ -131,8 +182,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 main_grid.add (new Wingpanel.Widgets.Separator ());
             }
 
-            main_grid.add (suspend);
-            main_grid.add (shutdown);
+            main_grid.add (suspend_shutdown_box);
 
             connections ();
 
@@ -220,7 +270,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 return;
             }
         }
-        
+
         current_dialog = new Widgets.EndSessionDialog (type);
         current_dialog.destroy.connect (() => current_dialog = null);
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);

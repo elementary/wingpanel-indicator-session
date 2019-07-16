@@ -12,8 +12,16 @@ add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi
 
 wingpanel_dep = dependency('wingpanel-2.0')
 
+gnome = import('gnome')
+gresource = gnome.compile_resources(
+    'gresource',
+    join_paths('data', 'session.gresource.xml'),
+    source_dir: 'data'
+)
+
 shared_module(
     meson.project_name(),
+    gresource,
     'src/Indicator.vala',
     'src/Widgets/EndSessionDialog.vala',
     'src/Widgets/UserBox.vala',
