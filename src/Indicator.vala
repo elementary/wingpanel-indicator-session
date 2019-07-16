@@ -130,6 +130,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             var shutdown_style_context = shutdown.get_style_context ();
             shutdown_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+            shutdown_style_context.add_class ("power-selection");
             shutdown_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             suspend = new Gtk.Button ();
@@ -156,6 +157,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             var suspend_style_context = suspend.get_style_context ();
             suspend_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+            suspend_style_context.add_class ("power-selection");
             suspend_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             var suspend_shutdown_box = new Gtk.Grid ();

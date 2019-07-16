@@ -1,7 +1,18 @@
 .circle-image image {
 	border-radius: 50%;
-	background-color: shade(@SILVER_100, 0.9);
-	border: 1px solid @SILVER_500;
+	background-color: shade(@base_color, 0.88);
+	border: 1px solid @border_color;
 	padding: 8px;
-	color: @SILVER_700;
+	color: alpha (@text_color, 0.5);
+}
+
+.power-selection {
+	padding: 4px;
+	border: 1px solid transparent;
+}
+
+.power-selection:hover,
+.power-selection:active {
+	border: 1px solid @border_color;
+	background-color: alpha (@text_color, 0.15);
 }
