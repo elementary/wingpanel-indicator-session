@@ -108,7 +108,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             shutdown = new Gtk.Button ();
             shutdown.halign = Gtk.Align.CENTER;
-            string shutdown_text = _("Shut Down…")
+            string shutdown_text = _("Shut Down…");
             var shutdown_label = new Gtk.Label (("<small>%s</small>").printf(shutdown_text));
             shutdown_label.use_markup = true;
             shutdown_label.width_chars = 10;
@@ -134,7 +134,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             suspend = new Gtk.Button ();
             suspend.halign = Gtk.Align.CENTER;
-            string suspend_text = _("Suspend")
+            string suspend_text = _("Suspend");
             var suspend_label = new Gtk.Label (("<small>%s</small>").printf(suspend_text));
             suspend_label.use_markup = true;
             suspend_label.width_chars = 10;
