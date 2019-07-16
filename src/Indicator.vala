@@ -107,6 +107,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_screen.add (lock_screen_grid);
 
             shutdown = new Gtk.Button ();
+            shutdown.halign = Gtk.Align.CENTER;
             var shutdown_label = new Gtk.Label (_("<small>Shut Down…</small>"));
             shutdown_label.use_markup = true;
             shutdown_label.width_chars = 10;
@@ -131,6 +132,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             shutdown_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             suspend = new Gtk.Button ();
+            suspend.halign = Gtk.Align.CENTER;
             var suspend_label = new Gtk.Label (_("<small>Suspend</small>"));
             suspend_label.use_markup = true;
             suspend_label.width_chars = 10;
@@ -157,7 +159,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             var suspend_shutdown_box = new Gtk.Grid ();
             suspend_shutdown_box.hexpand = true;
             suspend_shutdown_box.column_homogeneous = true;
-            suspend_shutdown_box.halign = Gtk.Align.CENTER;
             suspend_shutdown_box.add (suspend);
             suspend_shutdown_box.add (shutdown);
 
