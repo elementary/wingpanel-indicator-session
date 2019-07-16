@@ -152,7 +152,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             var suspend_shutdown_box = new Gtk.Grid ();
             suspend_shutdown_box.hexpand = true;
-            suspend_shutdown_box.column_spacing = 24;
+            suspend_shutdown_box.column_spacing = 48;
             suspend_shutdown_box.halign = Gtk.Align.CENTER;
             suspend_shutdown_box.margin = 6;
             suspend_shutdown_box.add (suspend);
