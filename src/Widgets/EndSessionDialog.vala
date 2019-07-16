@@ -149,17 +149,20 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
 
         cancel.grab_focus ();
 
-        cancel.clicked.connect (() => { 
+        var cancel_action = new SimpleAction ("cancel", null);
+        cancel_action.activate.connect (() => {
             server.canceled ();
             server.closed ();
             destroy ();
         });
 
+        cancel.clicked.connect (() => {
+            cancel_action.activate (null);
+        });
+
         key_press_event.connect ((event) => {
             if (Gdk.keyval_name (event.keyval) == "Escape") {
-                server.canceled ();
-                server.closed ();
-                destroy ();
+                cancel_action.activate (null);
             }
 
             return false;
