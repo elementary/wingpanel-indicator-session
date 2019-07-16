@@ -108,7 +108,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             shutdown = new Gtk.Button ();
             shutdown.halign = Gtk.Align.CENTER;
-            var shutdown_label = new Gtk.Label (_("<small>Shut Down…</small>"));
+            string shutdown_text = _("Shut Down…")
+            var shutdown_label = new Gtk.Label (("<small>%s</small>").printf(shutdown_text));
             shutdown_label.use_markup = true;
             shutdown_label.width_chars = 10;
             var shutdown_image = new Gtk.Image.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -133,7 +134,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             suspend = new Gtk.Button ();
             suspend.halign = Gtk.Align.CENTER;
-            var suspend_label = new Gtk.Label (_("<small>Suspend</small>"));
+            string suspend_text = _("Suspend")
+            var suspend_label = new Gtk.Label (("<small>%s</small>").printf(suspend_text));
             suspend_label.use_markup = true;
             suspend_label.width_chars = 10;
             var suspend_image = new Gtk.Image.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
