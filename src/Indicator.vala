@@ -124,10 +124,10 @@ public class Session.Indicator : Wingpanel.Indicator {
                     manager.add_guest (false);
                 }
 
-                main_grid.add (user_settings);
-                main_grid.add (users_separator);
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
+                main_grid.add (users_separator);
+                main_grid.add (user_settings);
                 main_grid.add (new Wingpanel.Widgets.Separator ());
             }
 
@@ -220,7 +220,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 return;
             }
         }
-        
+
         current_dialog = new Widgets.EndSessionDialog (type);
         current_dialog.destroy.connect (() => current_dialog = null);
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
