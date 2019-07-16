@@ -109,9 +109,11 @@ public class Session.Indicator : Wingpanel.Indicator {
             shutdown = new Gtk.Button ();
             var shutdown_label = new Gtk.Label (_("<small>Shut Down…</small>"));
             shutdown_label.use_markup = true;
+            shutdown_label.width_chars = 10;
             var shutdown_image = new Gtk.Image.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             shutdown_image.halign = Gtk.Align.CENTER;
-            shutdown_image.margin = 2;
+            shutdown_image.margin = 5;
+            shutdown_image.margin_top = 0;
             var shutdown_image_style_context = shutdown_image.get_style_context ();
             shutdown_image_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             var shutdown_grid = new Gtk.Grid ();
@@ -131,9 +133,11 @@ public class Session.Indicator : Wingpanel.Indicator {
             suspend = new Gtk.Button ();
             var suspend_label = new Gtk.Label (_("<small>Suspend</small>"));
             suspend_label.use_markup = true;
+            suspend_label.width_chars = 10;
             var suspend_image = new Gtk.Image.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             suspend_image.halign = Gtk.Align.CENTER;
-            suspend_image.margin = 2;
+            suspend_image.margin = 5;
+            suspend_image.margin_top = 0;
             var suspend_image_style_context = suspend_image.get_style_context ();
             suspend_image_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             var suspend_grid = new Gtk.Grid ();
@@ -152,9 +156,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             var suspend_shutdown_box = new Gtk.Grid ();
             suspend_shutdown_box.hexpand = true;
-            suspend_shutdown_box.column_spacing = 48;
+            suspend_shutdown_box.column_homogeneous = true;
             suspend_shutdown_box.halign = Gtk.Align.CENTER;
-            suspend_shutdown_box.margin = 6;
             suspend_shutdown_box.add (suspend);
             suspend_shutdown_box.add (shutdown);
 
