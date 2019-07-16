@@ -156,8 +156,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
         });
 
         key_press_event.connect ((event) => {
-            // Close dialogs when Escape key is pressed
-            if (event.keyval == 65307) {
+            if (Gdk.keyval_name (event.keyval) == "Escape") {
                 server.canceled ();
                 server.closed ();
                 destroy ();
