@@ -1,7 +1,7 @@
 project(
     'session',
     'vala', 'c',
-    version: '2.2.2'
+    version: '2.2.4'
 )
 
 i18n = import('i18n')
@@ -25,7 +25,7 @@ shared_module(
         dependency('accountsservice'),
         dependency('glib-2.0'),
         dependency('gobject-2.0'),
-        dependency('granite'),
+        dependency('granite', version: '>=5.2.0'),
         dependency('gtk+-3.0'),
         wingpanel_dep
     ],

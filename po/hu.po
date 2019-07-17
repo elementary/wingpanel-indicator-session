@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"POT-Creation-Date: 2019-07-02 14:10-0700\n"
 "PO-Revision-Date: 2018-06-15 00:13+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,65 +15,65 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:44
+#: src/Indicator.vala:49
 msgid "Session"
 msgstr "Munkamenet"
 
-#: src/Indicator.vala:45
+#: src/Indicator.vala:50
 msgid "The session indicator"
 msgstr "Munkamenet indikátor"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:89
 msgid "User Accounts Settings…"
 msgstr "Felhasználói fiókok beállításai…"
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:91
 msgid "Log Out…"
 msgstr "Kijelentkezés…"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:97
 msgid "Lock"
 msgstr "Zárolás"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:105
 msgid "Shut Down…"
 msgstr "Leállítás…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:108
 msgid "Suspend"
 msgstr "Felfüggesztés"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
 msgstr "Biztos, hogy ki akar jelentkezni?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
 msgstr "Az összes alkalmazás leállításra kerül."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
 msgstr "Kijelentkezés"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
 msgstr "Biztos, hogy ki akarja kapcsolni az eszközt?"
 
-#: src/Widgets/EndSessionDialog.vala:74
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
 msgstr "Bezárja az összes nyitott alkalmazást, és kikapcsolja az eszközt."
 
-#: src/Widgets/EndSessionDialog.vala:75
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
 msgstr "Leállítás"
 
-#: src/Widgets/EndSessionDialog.vala:110
-msgid "Restart"
-msgstr "Újraindítás"
-
-#: src/Widgets/EndSessionDialog.vala:124
+#: src/Widgets/EndSessionDialog.vala:89
 msgid "Cancel"
 msgstr "Mégsem"
+
+#: src/Widgets/EndSessionDialog.vala:105
+msgid "Restart"
+msgstr "Újraindítás"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
@@ -83,6 +83,6 @@ msgstr "Bejelentkezve"
 msgid "Logged out"
 msgstr "Kijelentkezve"
 
-#: src/Services/UserManager.vala:219
+#: src/Services/UserManager.vala:224
 msgid "Guest"
 msgstr "Vendég"

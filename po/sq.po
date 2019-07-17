@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"POT-Creation-Date: 2019-07-02 14:10-0700\n"
 "PO-Revision-Date: 2016-08-30 09:30+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,67 +13,67 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:44
+#: src/Indicator.vala:49
 msgid "Session"
 msgstr "Seanca"
 
-#: src/Indicator.vala:45
+#: src/Indicator.vala:50
 msgid "The session indicator"
 msgstr "Treguesi i seancës"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:89
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:91
 msgid "Log Out…"
 msgstr "Mbyll seancën…"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:97
 msgid "Lock"
 msgstr "Blloko"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:105
 #, fuzzy
 msgid "Shut Down…"
 msgstr "Fik…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:108
 msgid "Suspend"
 msgstr "Pezullo"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
 msgstr "A je i sigurt që dëshiron të dalësh?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
 msgstr "Kjo do të mbyllë të gjitha programet e hapura."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
 msgstr "Dil"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
 msgstr "A je i sigurt që dëshiron ta fikësh?"
 
-#: src/Widgets/EndSessionDialog.vala:74
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Kjo do të mbyllë të gjitha programet e hapura dhe do të fikë kompjuterin."
 
-#: src/Widgets/EndSessionDialog.vala:75
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
 msgstr "Fik"
 
-#: src/Widgets/EndSessionDialog.vala:110
-msgid "Restart"
-msgstr "Rinis"
-
-#: src/Widgets/EndSessionDialog.vala:124
+#: src/Widgets/EndSessionDialog.vala:89
 msgid "Cancel"
 msgstr "Anulo"
+
+#: src/Widgets/EndSessionDialog.vala:105
+msgid "Restart"
+msgstr "Rinis"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
@@ -83,6 +83,6 @@ msgstr "I lidhur"
 msgid "Logged out"
 msgstr ""
 
-#: src/Services/UserManager.vala:219
+#: src/Services/UserManager.vala:224
 msgid "Guest"
 msgstr "Mysafir"
