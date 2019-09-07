@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-02 14:10-0700\n"
-"PO-Revision-Date: 2019-07-02 21:07+0000\n"
+"PO-Revision-Date: 2019-08-30 21:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/eo/>\n"
@@ -12,60 +12,60 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:49
 msgid "Session"
-msgstr ""
+msgstr "Seanco"
 
 #: src/Indicator.vala:50
 msgid "The session indicator"
-msgstr ""
+msgstr "La seanca indikilo"
 
 #: src/Indicator.vala:89
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Uzantokontaj agordoj…"
 
 #: src/Indicator.vala:91
 msgid "Log Out…"
-msgstr ""
+msgstr "Elsaluti…"
 
 #: src/Indicator.vala:97
 msgid "Lock"
-msgstr ""
+msgstr "Ŝlosi"
 
 #: src/Indicator.vala:105
 msgid "Shut Down…"
-msgstr ""
+msgstr "Malŝalti…"
 
 #: src/Indicator.vala:108
 msgid "Suspend"
-msgstr ""
+msgstr "Paŭzigi"
 
 #: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "Ĉu vi certas pri elsaluto?"
 
 #: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Tio fermos ĉiujn malfermitajn aplikaĵojn."
 
 #: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
-msgstr ""
+msgstr "Elsaluti"
 
 #: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "Ĉu vi certas pri malŝalto?"
 
 #: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "Tio fermos ĉiujn malfermitajn aplikaĵojn kaj malŝaltos la aparaton."
 
 #: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
-msgstr ""
+msgstr "Malŝalti"
 
 #: src/Widgets/EndSessionDialog.vala:89
 msgid "Cancel"
@@ -77,12 +77,12 @@ msgstr "Restartigi"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
-msgstr ""
+msgstr "Ensalutita"
 
 #: src/Widgets/UserBox.vala:22
 msgid "Logged out"
-msgstr ""
+msgstr "Elsalutita"
 
 #: src/Services/UserManager.vala:224
 msgid "Guest"
-msgstr ""
+msgstr "Gasto"

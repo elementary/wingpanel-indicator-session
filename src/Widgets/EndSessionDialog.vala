@@ -161,7 +161,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
 
         cancel.grab_focus ();
 
-        cancel.clicked.connect (() => { 
+        var cancel_action = new SimpleAction ("cancel", null);
+        cancel_action.activate.connect (() => {
 #if HAVE_BAMF_WNCK
             if (current_action != null) {
                 current_action.stop ();
@@ -173,8 +174,18 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
             destroy ();
         });
 
-        confirm = new Gtk.Button.with_label (button_text);
-        confirm.get_style_context ().add_class ("destructive-action");
+        cancel.clicked.connect (() => {
+            cancel_action.activate (null);
+        });
+
+        key_press_event.connect ((event) => {
+            if (Gdk.keyval_name (event.keyval) == "Escape") {
+                cancel_action.activate (null);
+            }
+
+            return false;
+        });
+
         confirm.clicked.connect (() => {
             if (confirm_restart != null) {
                 confirm_restart.sensitive = false;
