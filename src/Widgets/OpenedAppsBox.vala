@@ -22,8 +22,8 @@ public class Session.Widgets.OpenedAppsBox : Gtk.Box {
         public Bamf.Application app { get; construct; }
 
         construct {
-            icon_size = Gtk.IconSize.DIALOG;
-            pixel_size = 48;
+            icon_size = Gtk.IconSize.DND;
+            pixel_size = 32;
 
             update (app.get_icon ());
             app.icon_changed.connect (update);
@@ -57,8 +57,7 @@ public class Session.Widgets.OpenedAppsBox : Gtk.Box {
         apps_count_label.margin_start = 3;
 
         var style_context = apps_count_label.get_style_context ();
-        style_context.add_class ("h2");
-        style_context.add_class ("h4");
+        style_context.add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
 
         pack_end (apps_count_label, false, false);
 

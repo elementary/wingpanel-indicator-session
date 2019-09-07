@@ -1,7 +1,7 @@
 project(
     'session',
     'vala', 'c',
-    version: '2.2.2'
+    version: '2.2.4'
 )
 
 i18n = import('i18n')

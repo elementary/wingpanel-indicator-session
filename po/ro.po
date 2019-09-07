@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"POT-Creation-Date: 2019-07-02 14:10-0700\n"
 "PO-Revision-Date: 2017-04-27 14:26+0000\n"
 "Last-Translator: marius.a <marius.albina@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,67 +16,67 @@ msgstr ""
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:44
+#: src/Indicator.vala:49
 msgid "Session"
 msgstr "Sesiune"
 
-#: src/Indicator.vala:45
+#: src/Indicator.vala:50
 msgid "The session indicator"
 msgstr "Indicator sesiune"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:89
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:91
 msgid "Log Out…"
 msgstr "Deconectare…"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:97
 msgid "Lock"
 msgstr "Blocare"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:105
 msgid "Shut Down…"
 msgstr "Închidere…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:108
 msgid "Suspend"
 msgstr "Suspendare"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
 msgstr "Ești sigur că vrei să te deconectezi?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
 msgstr "Această acţiune va închide toate aplicaţiile deschise."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
 msgstr "Deconectare"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
 msgstr "Ești sigur că vrei să oprești?"
 
-#: src/Widgets/EndSessionDialog.vala:74
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Această acţiune va închide toate aplicaţiile deschise şi va închide acest "
 "dispozitiv."
 
-#: src/Widgets/EndSessionDialog.vala:75
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
 msgstr "Oprire"
 
-#: src/Widgets/EndSessionDialog.vala:110
-msgid "Restart"
-msgstr "Repornire"
-
-#: src/Widgets/EndSessionDialog.vala:124
+#: src/Widgets/EndSessionDialog.vala:89
 msgid "Cancel"
 msgstr "Anulare"
+
+#: src/Widgets/EndSessionDialog.vala:105
+msgid "Restart"
+msgstr "Repornire"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
@@ -86,6 +86,6 @@ msgstr "Autentificat"
 msgid "Logged out"
 msgstr "Deconectat"
 
-#: src/Services/UserManager.vala:219
+#: src/Services/UserManager.vala:224
 msgid "Guest"
 msgstr "Oaspete"

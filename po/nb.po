@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:56-0700\n"
+"POT-Creation-Date: 2019-07-02 14:10-0700\n"
 "PO-Revision-Date: 2019-01-11 00:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
@@ -15,65 +15,65 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:44
+#: src/Indicator.vala:49
 msgid "Session"
 msgstr "Økt"
 
-#: src/Indicator.vala:45
+#: src/Indicator.vala:50
 msgid "The session indicator"
 msgstr "Indikator for økten"
 
-#: src/Indicator.vala:78
+#: src/Indicator.vala:89
 msgid "User Accounts Settings…"
 msgstr "Brukerkontoinnstillinger…"
 
-#: src/Indicator.vala:81
+#: src/Indicator.vala:91
 msgid "Log Out…"
 msgstr "Logg ut…"
 
-#: src/Indicator.vala:84
+#: src/Indicator.vala:97
 msgid "Lock"
 msgstr "Lås"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:105
 msgid "Shut Down…"
 msgstr "Slå av…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:108
 msgid "Suspend"
 msgstr "Hvilemodus"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
 msgstr "Er du sikker på at du vil logge ut?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
 msgstr "Dette vil lukke alle åpne programmer."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
 msgstr "Logg ut"
 
-#: src/Widgets/EndSessionDialog.vala:73
+#: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
 msgstr "Er du sikker på at du vil slå av?"
 
-#: src/Widgets/EndSessionDialog.vala:74
+#: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
 msgstr "Dette vil lukke alle åpne programmer og slå av denne enheten."
 
-#: src/Widgets/EndSessionDialog.vala:75
+#: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
 msgstr "Slå av"
 
-#: src/Widgets/EndSessionDialog.vala:110
-msgid "Restart"
-msgstr "Start på nytt"
-
-#: src/Widgets/EndSessionDialog.vala:124
+#: src/Widgets/EndSessionDialog.vala:89
 msgid "Cancel"
 msgstr "Avbryt"
+
+#: src/Widgets/EndSessionDialog.vala:105
+msgid "Restart"
+msgstr "Start på nytt"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
@@ -83,6 +83,6 @@ msgstr "Logget inn"
 msgid "Logged out"
 msgstr "Logget ut"
 
-#: src/Services/UserManager.vala:219
+#: src/Services/UserManager.vala:224
 msgid "Guest"
 msgstr "Gjest"
