@@ -147,8 +147,6 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
         stick ();
         add (grid);
 
-        cancel.grab_focus ();
-
         var cancel_action = new SimpleAction ("cancel", null);
         cancel_action.activate.connect (() => {
             server.canceled ();
@@ -167,6 +165,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
 
             return false;
         });
+
+        confirm.grab_focus ();
 
         confirm.clicked.connect (() => {
             if (dialog_type == EndSessionDialogType.RESTART || dialog_type == EndSessionDialogType.SHUTDOWN) {
