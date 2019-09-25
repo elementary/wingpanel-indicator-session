@@ -220,7 +220,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 return;
             }
         }
-        
+
         current_dialog = new Widgets.EndSessionDialog (type);
         current_dialog.destroy.connect (() => current_dialog = null);
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
