@@ -262,7 +262,10 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override void opened () {
-        manager.update_all ();
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            manager.update_all ();
+        }
+
         main_grid.show_all ();
     }
 
