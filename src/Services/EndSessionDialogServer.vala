@@ -27,8 +27,8 @@ public class Session.EndSessionDialogServer : Object {
             (connection) => {
                 try {
                     connection.register_object ("/io/elementary/wingpanel/session/EndSessionDialog", get_default ());
-                } catch (Error e) { 
-                    warning (e.message); 
+                } catch (Error e) {
+                    warning (e.message);
                 }
             },
             () => {},
@@ -53,9 +53,8 @@ public class Session.EndSessionDialogServer : Object {
     public signal void closed ();
 
     private EndSessionDialogServer () {
-        
-    }
 
+    }
 
     public void open (uint type, uint timestamp, uint open_length, ObjectPath[] inhibiters) throws Error {
         if (type > (int)Widgets.EndSessionDialogType.RESTART) {
