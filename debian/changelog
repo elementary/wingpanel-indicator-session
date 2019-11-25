@@ -1,3 +1,19 @@
+wingpanel-indicator-session (2.2.6) bionic; urgency=medium
+
+  * Release 2.2.6 (#96)
+  * Add Appdata (#95)
+  * Add Release to Actions
+  * Add Gettext Updates to Actions
+  * Don't trigger updating users list in Greeter (#94)
+  * run installation in CI (#93)
+  * Add Lint to CI (#92)
+  * fix whitespace issues
+  * Delete CODE_OF_CONDUCT.md
+  * Use GitHub CI (#90)
+  * build: fix install path for wingpanel indicator (#87)
+
+ -- elementary LLC <builds@elementary.io>  Mon, 25 Nov 2019 16:47:29 +0000
+
 wingpanel-indicator-session (2.2.5) bionic; urgency=medium
 
   * New upstream release.
