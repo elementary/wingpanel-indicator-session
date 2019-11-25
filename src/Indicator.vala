@@ -21,6 +21,13 @@ public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
     private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
+    private const string RESTART_CSS = """
+        .compact-labels label {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+    """;
+
     private SystemInterface suspend_interface;
     private LockInterface lock_interface;
     private SeatInterface seat_interface;
@@ -29,13 +36,14 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
 
-    private ModelButtonGrid lock_screen_grid;
-    private ModelButtonGrid log_out_grid;
-
+    private GLib.File restart_file;
     private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
-    private Gtk.ModelButton shutdown;
+    private Gtk.Revealer restart_required_revealer;
+    private ModelButtonGrid lock_screen_grid;
+    private ModelButtonGrid log_out_grid;
+    private Wingpanel.Widgets.Container shutdown;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
@@ -100,9 +108,28 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_screen.get_child ().destroy ();
             lock_screen.add (lock_screen_grid);
 
-            shutdown = new Gtk.ModelButton ();
-            shutdown.hexpand = true;
-            shutdown.text = _("Shut Down…");
+            var shutdown_label = new Gtk.Label (_("Shut Down…"));
+            shutdown_label.xalign = 0;
+            shutdown_label.margin_start = shutdown_label.margin_end = 6;
+
+            var restart_required_label = new Gtk.Label ("<small>%s</small>".printf (_("Restart required to complete updates")));
+            restart_required_label.margin_start = restart_required_label.margin_end = 6;
+            restart_required_label.use_markup = true;
+            restart_required_label.get_style_context ().add_class ("attention");
+
+            restart_required_revealer = new Gtk.Revealer ();
+            restart_required_revealer.valign = Gtk.Align.CENTER;
+            restart_required_revealer.add (restart_required_label);
+
+            var shutdown_grid = new Gtk.Grid ();
+            shutdown_grid.margin_top = shutdown_grid.margin_bottom = 3;
+            shutdown_grid.orientation = Gtk.Orientation.VERTICAL;
+            shutdown_grid.get_style_context ().add_class ("compact-labels");
+            shutdown_grid.add (shutdown_label);
+            shutdown_grid.add (restart_required_revealer);
+
+            shutdown = new Wingpanel.Widgets.Container ();
+            shutdown.content_widget.add (shutdown_grid);
 
             suspend = new Gtk.ModelButton ();
             suspend.text = _("Suspend");
@@ -129,12 +156,33 @@ public class Session.Indicator : Wingpanel.Indicator {
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
                 main_grid.add (new Wingpanel.Widgets.Separator ());
+
+                check_file_existance ();
+
+                var restart_folder = File.new_for_path ("/var/run");
+
+                try {
+                    var monitor = restart_folder.monitor_directory (FileMonitorFlags.NONE, null);
+                    monitor.changed.connect ((src, dest, event) => {
+                        check_file_existance ();
+                    });
+                } catch (IOError e) {
+                    critical (e.message);
+                }
             }
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
 
             connections ();
+
+            var provider = new Gtk.CssProvider ();
+            try {
+                provider.load_from_data (RESTART_CSS, RESTART_CSS.length);
+                Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            } catch (Error e) {
+                critical (e.message);
+            }
 
             log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
 
@@ -150,6 +198,18 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
 
         return main_grid;
+    }
+
+    private void check_file_existance () {
+        if (restart_file == null) {
+            restart_file = File.new_for_path ("/var/run/reboot-required");
+        }
+
+        if (restart_file.query_exists ()) {
+            restart_required_revealer.reveal_child = true;
+        } else {
+            restart_required_revealer.reveal_child = false;
+        }
     }
 
     private void init_interfaces () {
@@ -190,7 +250,10 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
         });
 
-        shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
+        shutdown.clicked.connect (() => {
+            close ();
+            shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
+        });
 
         suspend.clicked.connect (() => {
             close ();
