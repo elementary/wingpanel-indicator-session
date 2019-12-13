@@ -206,7 +206,10 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override void opened () {
-        manager.update_all ();
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            manager.update_all ();
+        }
+
         main_grid.show_all ();
     }
 
@@ -222,7 +225,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 return;
             }
         }
-        
+
         current_dialog = new Widgets.EndSessionDialog (type);
         current_dialog.destroy.connect (() => current_dialog = null);
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);

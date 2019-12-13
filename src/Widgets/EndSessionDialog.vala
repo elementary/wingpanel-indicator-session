@@ -77,6 +77,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
 
         var primary_label = new Gtk.Label (heading_text);
         primary_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        primary_label.hexpand = true;
         primary_label.max_width_chars = 50;
         primary_label.wrap = true;
         primary_label.xalign = 0;
@@ -148,10 +149,23 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
 
         cancel.grab_focus ();
 
-        cancel.clicked.connect (() => { 
+        var cancel_action = new SimpleAction ("cancel", null);
+        cancel_action.activate.connect (() => {
             server.canceled ();
             server.closed ();
             destroy ();
+        });
+
+        cancel.clicked.connect (() => {
+            cancel_action.activate (null);
+        });
+
+        key_press_event.connect ((event) => {
+            if (Gdk.keyval_name (event.keyval) == "Escape") {
+                cancel_action.activate (null);
+            }
+
+            return false;
         });
 
         confirm.clicked.connect (() => {
