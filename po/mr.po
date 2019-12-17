@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 14:10-0700\n"
+"POT-Creation-Date: 2019-12-17 21:02+0000\n"
 "PO-Revision-Date: 2018-10-27 18:11+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,31 +15,31 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:49
+#: src/Indicator.vala:46
 msgid "Session"
 msgstr "सत्र"
 
-#: src/Indicator.vala:50
+#: src/Indicator.vala:47
 msgid "The session indicator"
 msgstr "सत्र सूचक"
 
-#: src/Indicator.vala:89
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr "वापरकर्ता खाती सेटिंग्ज …"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr "बाहेर पडणे…"
 
-#: src/Indicator.vala:97
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr "लॉक करा"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 msgid "Shut Down…"
 msgstr "बंद करा …"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr "स्थगित करा"
 
@@ -67,11 +67,11 @@ msgstr "हे सर्व उघडे अनुप्रयोग बंद �
 msgid "Shut Down"
 msgstr "बंद करा"
 
-#: src/Widgets/EndSessionDialog.vala:89
+#: src/Widgets/EndSessionDialog.vala:90
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: src/Widgets/EndSessionDialog.vala:105
+#: src/Widgets/EndSessionDialog.vala:106
 msgid "Restart"
 msgstr "पुन्हा सुरू करा"
 

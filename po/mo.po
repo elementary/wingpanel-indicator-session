@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 14:10-0700\n"
+"POT-Creation-Date: 2019-12-17 21:02+0000\n"
 "PO-Revision-Date: 2018-05-31 08:17+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/wingpanel/"
@@ -19,31 +19,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Indicator.vala:49
+#: src/Indicator.vala:46
 msgid "Session"
 msgstr "Sesiune"
 
-#: src/Indicator.vala:50
+#: src/Indicator.vala:47
 msgid "The session indicator"
 msgstr "Indicatorul sesiunii"
 
-#: src/Indicator.vala:89
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr "Setările conturilor de utilizator …"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr "Deconectare…"
 
-#: src/Indicator.vala:97
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr "Blocare"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 msgid "Shut Down…"
 msgstr "Închide…"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr "Suspenda"
 
@@ -73,11 +73,11 @@ msgstr ""
 msgid "Shut Down"
 msgstr "Închide"
 
-#: src/Widgets/EndSessionDialog.vala:89
+#: src/Widgets/EndSessionDialog.vala:90
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/Widgets/EndSessionDialog.vala:105
+#: src/Widgets/EndSessionDialog.vala:106
 msgid "Restart"
 msgstr "Repornire"
 

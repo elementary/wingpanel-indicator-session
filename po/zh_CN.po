@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 14:10-0700\n"
+"POT-Creation-Date: 2019-12-17 21:02+0000\n"
 "PO-Revision-Date: 2019-04-06 16:52+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -15,31 +15,31 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
-#: src/Indicator.vala:49
+#: src/Indicator.vala:46
 msgid "Session"
 msgstr "会话"
 
-#: src/Indicator.vala:50
+#: src/Indicator.vala:47
 msgid "The session indicator"
 msgstr "会话指示器"
 
-#: src/Indicator.vala:89
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr "账户设置…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr "注销…"
 
-#: src/Indicator.vala:97
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr "锁定"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 msgid "Shut Down…"
 msgstr "关机…"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr "挂起"
 
@@ -67,11 +67,11 @@ msgstr "这将会关闭所有已打开的应用并关闭设备。"
 msgid "Shut Down"
 msgstr "关机"
 
-#: src/Widgets/EndSessionDialog.vala:89
+#: src/Widgets/EndSessionDialog.vala:90
 msgid "Cancel"
 msgstr "取消"
 
-#: src/Widgets/EndSessionDialog.vala:105
+#: src/Widgets/EndSessionDialog.vala:106
 msgid "Restart"
 msgstr "重启"
 

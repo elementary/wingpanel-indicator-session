@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 14:10-0700\n"
+"POT-Creation-Date: 2019-12-17 21:02+0000\n"
 "PO-Revision-Date: 2016-01-10 09:59+0000\n"
 "Last-Translator: Lukáš Papík <stereo839@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,32 +13,32 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:49
+#: src/Indicator.vala:46
 msgid "Session"
 msgstr "Relácia"
 
-#: src/Indicator.vala:50
+#: src/Indicator.vala:47
 msgid "The session indicator"
 msgstr "Indikátor relácie"
 
-#: src/Indicator.vala:89
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr "Odhlásiť sa…"
 
-#: src/Indicator.vala:97
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr "Zamknúť"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 #, fuzzy
 msgid "Shut Down…"
 msgstr "Vypnúť"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr "Uspať"
 
@@ -66,11 +66,11 @@ msgstr "Toto vypne všetky otvorené aplikácie a vypne zariadenie."
 msgid "Shut Down"
 msgstr "Vypnúť"
 
-#: src/Widgets/EndSessionDialog.vala:89
+#: src/Widgets/EndSessionDialog.vala:90
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/Widgets/EndSessionDialog.vala:105
+#: src/Widgets/EndSessionDialog.vala:106
 msgid "Restart"
 msgstr "Reštartovať"
 
