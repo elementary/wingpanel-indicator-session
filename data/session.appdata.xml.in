@@ -6,6 +6,15 @@
   <name>Session Indicator</name>
   <summary>Switch users, lock, log out, suspend, or shut down</summary>
   <releases>
+    <release version="2.2.7" date="2019-12-16" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated styling for keyboard shortcuts</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.2.6" date="2019-11-25" urgency="medium">
       <description>
         <p>Updated translations</p>
