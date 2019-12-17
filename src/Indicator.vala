@@ -29,9 +29,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
     private Wingpanel.Widgets.Separator users_separator;
 
-    private ModelButtonGrid lock_screen_grid;
-    private ModelButtonGrid log_out_grid;
-
     private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
@@ -88,13 +85,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             user_settings = new Gtk.ModelButton ();
             user_settings.text = _("User Accounts Settings…");
 
-            log_out_grid = new ModelButtonGrid (_("Log Out…"), "logout");
+            var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
 
             var log_out = new Gtk.ModelButton ();
             log_out.get_child ().destroy ();
             log_out.add (log_out_grid);
 
-            lock_screen_grid = new ModelButtonGrid (_("Lock"), "screensaver");
+            var lock_screen_grid = new Granite.AccelLabel (_("Lock"));
 
             lock_screen = new Gtk.ModelButton ();
             lock_screen.get_child ().destroy ();
@@ -133,6 +130,11 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             main_grid.add (suspend);
             main_grid.add (shutdown);
+
+            if (keybinding_settings != null) {
+                keybinding_settings.bind ("logout", log_out_grid, "accel-string", GLib.SettingsBindFlags.GET);
+                keybinding_settings.bind ("screensaver", lock_screen_grid, "accel-string", GLib.SettingsBindFlags.GET);
+            }
 
             connections ();
 
@@ -228,47 +230,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         current_dialog.destroy.connect (() => current_dialog = null);
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
-    }
-
-    private class ModelButtonGrid : Gtk.Grid {
-        public string accel_key { get; construct; }
-        public string text { get; construct; }
-
-        private Gtk.Label accel;
-
-        public ModelButtonGrid (string text, string accel_key) {
-            Object (
-                accel_key: accel_key,
-                text: text
-            );
-        }
-
-        construct {
-            var label = new Gtk.Label (text);
-            label.hexpand = true;
-            label.xalign = 0;
-
-            accel = new Gtk.Label (null);
-            accel.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
-
-            column_spacing = 6;
-            add (label);
-            add (accel);
-
-            if (keybinding_settings != null) {
-                update_accel ();
-
-                keybinding_settings.changed.connect ((key) => {
-                    if (key == accel_key) {
-                        update_accel ();
-                    }
-                });
-            }
-        }
-
-        private void update_accel () {
-            accel.label = Granite.accel_to_string (keybinding_settings.get_string (accel_key));
-        }
     }
 }
 
