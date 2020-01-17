@@ -1,3 +1,14 @@
+wingpanel-indicator-session (2.2.7) bionic; urgency=medium
+
+  * Release 2.2.7 (#101)
+  * Update screenshot
+  * Update translation files
+  * Update translation template
+  * AppData: bump version to 2.2.7 and add description (#98)
+  * Indicator: Use Granite.AccelLabel (#79)
+
+ -- elementary LLC <builds@elementary.io>  Fri, 17 Jan 2020 22:38:15 +0000
+
 wingpanel-indicator-session (2.2.6) bionic; urgency=medium
 
   * Release 2.2.6 (#96)
