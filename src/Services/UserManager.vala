@@ -199,7 +199,6 @@ public class Session.Services.UserManager : Object {
     }
 
     public void update_all () {
-
         foreach (var userbox in users) {
             userbox.update_state ();
         }
