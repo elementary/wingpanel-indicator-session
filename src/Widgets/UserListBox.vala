@@ -28,6 +28,7 @@
 
     public UserListBox () {
         has_guest = false;
+        selection_mode = Gtk.SelectionMode.NONE;
         session_path = Environment.get_variable ("XDG_SESSION_PATH");
 
         var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
