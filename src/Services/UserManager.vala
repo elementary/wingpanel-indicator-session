@@ -60,7 +60,7 @@ public class Session.Services.UserManager : Object {
         try {
             login_proxy = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, LOGIN_PATH, DBusProxyFlags.NONE);
         } catch (IOError e) {
-            stderr.printf ("UserManager error: %s\n", e.message);
+            critical ("Failed to create login1 dbus proxy: %s", e.message);
         }
     }
 
@@ -89,7 +89,7 @@ public class Session.Services.UserManager : Object {
             }
 
         } catch (GLib.Error e) {
-            stderr.printf ("Error: %s\n", e.message);
+            critical ("Failed to get user state: %s", e.message);
         }
 
         return UserState.OFFLINE;
@@ -110,7 +110,7 @@ public class Session.Services.UserManager : Object {
                 }
             }
         } catch (GLib.Error e) {
-            stderr.printf ("Error: %s\n", e.message);
+            critical ("Failed to get Guest state: %s", e.message);
         }
 
         return UserState.OFFLINE;
@@ -131,7 +131,14 @@ public class Session.Services.UserManager : Object {
 
         manager = Act.UserManager.get_default ();
         init_users ();
-        connect_signals ();
+
+        manager.user_added.connect (add_user);
+        manager.user_removed.connect (remove_user);
+        manager.user_is_logged_in_changed.connect (update_user);
+
+        manager.notify["is-loaded"].connect (() => {
+            init_users ();
+        });
 
         var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
 
@@ -140,21 +147,9 @@ public class Session.Services.UserManager : Object {
                 dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
                 has_guest = dm_proxy.has_guest_account;
             } catch (IOError e) {
-                stderr.printf ("UserManager error: %s\n", e.message);
+                critical ("UserManager error: %s", e.message);
             }
         }
-    }
-
-    private void connect_signals () {
-        manager.user_added.connect (add_user);
-        manager.user_removed.connect (remove_user);
-        manager.user_is_logged_in_changed.connect (update_user);
-
-        manager.notify["is-loaded"].connect (() => {
-            if (manager.is_loaded) {
-                init_users ();
-            }
-        });
     }
 
     private void init_users () {
