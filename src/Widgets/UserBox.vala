@@ -18,8 +18,6 @@
  */
 
 public class Session.Widgets.Userbox : Gtk.ListBoxRow {
-    private const string LOGGED_IN = _("Logged in");
-    private const string LOGGED_OFF = _("Logged out");
     private const int ICON_SIZE = 48;
 
     public Act.User? user { get; construct; }
@@ -46,7 +44,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         fullname_label.valign = Gtk.Align.END;
         fullname_label.halign = Gtk.Align.START;
 
-        status_label = new Gtk.Label (LOGGED_OFF);
+        status_label = new Gtk.Label (null);
         status_label.valign = Gtk.Align.START;
         status_label.halign = Gtk.Align.START;
 
@@ -111,9 +109,9 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         activatable = state != UserState.ACTIVE;
 
         if (state == UserState.ONLINE || state == UserState.ACTIVE) {
-            status_label.label = LOGGED_IN;
+            status_label.label = _("Logged in");
         } else {
-            status_label.label = LOGGED_OFF;
+            status_label.label = _("Logged out");
         }
 
         changed ();
