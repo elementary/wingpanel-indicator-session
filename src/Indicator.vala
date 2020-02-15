@@ -27,17 +27,14 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
-    private Wingpanel.Widgets.Separator users_separator;
 
-    private Gtk.ModelButton user_settings;
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
-    private Gtk.ModelButton shutdown;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
 
-    private Gtk.Grid main_grid;
+    private Gtk.Grid? main_grid;
 
     private static GLib.Settings? keybinding_settings;
 
@@ -82,7 +79,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-            user_settings = new Gtk.ModelButton ();
+            var user_settings = new Gtk.ModelButton ();
             user_settings.text = _("User Accounts Settings…");
 
             var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
@@ -97,7 +94,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_screen.get_child ().destroy ();
             lock_screen.add (lock_screen_grid);
 
-            shutdown = new Gtk.ModelButton ();
+            var shutdown = new Gtk.ModelButton ();
             shutdown.hexpand = true;
             shutdown.text = _("Shut Down…");
 
@@ -105,7 +102,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             suspend.text = _("Suspend");
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                users_separator = new Wingpanel.Widgets.Separator ();
+                var users_separator = new Wingpanel.Widgets.Separator ();
                 manager = new Session.Services.UserManager (users_separator);
 
                 var scrolled_box = new Gtk.ScrolledWindow (null, null);
@@ -136,7 +133,29 @@ public class Session.Indicator : Wingpanel.Indicator {
                 keybinding_settings.bind ("screensaver", lock_screen_grid, "accel-string", GLib.SettingsBindFlags.GET);
             }
 
-            connections ();
+            manager.close.connect (() => close ());
+
+            user_settings.clicked.connect (() => {
+                close ();
+
+                try {
+                    AppInfo.launch_default_for_uri ("settings://accounts", null);
+                } catch (Error e) {
+                    warning ("Failed to open user accounts settings: %s", e.message);
+                }
+            });
+
+            shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
+
+            suspend.clicked.connect (() => {
+                close ();
+
+                try {
+                    suspend_interface.suspend (true);
+                } catch (GLib.Error e) {
+                    stderr.printf ("%s\n", e.message);
+                }
+            });
 
             log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
 
@@ -179,32 +198,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
     }
 
-    public void connections () {
-        manager.close.connect (() => close ());
-
-        user_settings.clicked.connect (() => {
-            close ();
-
-            try {
-                AppInfo.launch_default_for_uri ("settings://accounts", null);
-            } catch (Error e) {
-                warning ("Failed to open user accounts settings: %s", e.message);
-            }
-        });
-
-        shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
-
-        suspend.clicked.connect (() => {
-            close ();
-
-            try {
-                suspend_interface.suspend (true);
-            } catch (GLib.Error e) {
-                stderr.printf ("%s\n", e.message);
-            }
-        });
-    }
-
     public override void opened () {
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             manager.update_all ();
@@ -234,7 +227,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 }
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
-    debug ("Activating Sample Indicator");
+    debug ("Activating Session Indicator");
     var indicator = new Session.Indicator (server_type);
 
     return indicator;
