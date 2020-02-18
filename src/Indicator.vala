@@ -153,7 +153,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 try {
                     suspend_interface.suspend (true);
                 } catch (GLib.Error e) {
-                    stderr.printf ("%s\n", e.message);
+                    warning ("Unable to suspend: %s\n", e.message);
                 }
             });
 
