@@ -48,7 +48,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
                 system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
             }
         } catch (GLib.Error e) {
-            stderr.printf ("%s\n", e.message);
+            critical ("Unable to connect to login1: %s", e.message);
         }
 
         string icon_name, heading_text, button_text, content_text;
@@ -109,7 +109,7 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
                     server.confirmed_reboot ();
                     system_interface.reboot (false);
                 } catch (GLib.Error e) {
-                    stderr.printf ("%s\n", e.message);
+                    warning ("Unable to reboot: %s", e.message);
                 }
 
                 server.closed ();
@@ -174,14 +174,14 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
                     server.confirmed_shutdown ();
                     system_interface.power_off (false);
                 } catch (GLib.Error e) {
-                    stderr.printf ("%s\n", e.message);
+                    warning ("Unable to shutdown: %s", e.message);
                 }
             } else {
                 try {
                     server.confirmed_logout ();
                     logout_interface.terminate ();
                 } catch (GLib.Error e) {
-                    stderr.printf ("%s\n", e.message);
+                    warning ("Unable to logout: %s", e.message);
                 }
             }
 
