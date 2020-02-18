@@ -35,7 +35,7 @@
             try {
                 seat = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
             } catch (IOError e) {
-                stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
+                critical ("DisplayManager.Seat error: %s\n", e.message);
             }
         }
 
@@ -69,7 +69,7 @@
                 }
             }
         } catch (GLib.Error e) {
-            stderr.printf ("DisplayManager.Seat error: %s\n", e.message);
+            warning ("DisplayManager.Seat error: %s\n", e.message);
         }
     }
 
