@@ -153,7 +153,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 try {
                     suspend_interface.suspend (true);
                 } catch (GLib.Error e) {
-                    warning ("Unable to suspend: %s\n", e.message);
+                    warning ("Unable to suspend: %s", e.message);
                 }
             });
 
@@ -165,7 +165,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 try {
                     lock_interface.lock ();
                 } catch (GLib.Error e) {
-                    stderr.printf ("%s\n", e.message);
+                    warning ("Unable to lock: %s", e.message);
                 }
             });
         }
@@ -177,7 +177,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         try {
             suspend_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
         } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
+            warning ("Unable to connect to suspend interface: %s", e.message);
             suspend.set_sensitive (false);
         }
 
@@ -185,14 +185,14 @@ public class Session.Indicator : Wingpanel.Indicator {
             try {
                 lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
             } catch (IOError e) {
-                stderr.printf ("%s\n", e.message);
+                warning ("Unable to connect to lock interface: %s", e.message);
                 lock_screen.set_sensitive (false);
             }
 
             try {
                 seat_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.DisplayManager", "/org/freedesktop/DisplayManager/Seat0");
             } catch (IOError e) {
-                stderr.printf ("%s\n", e.message);
+                warning ("Unable to connect to seat interface: %s", e.message);
                 lock_screen.set_sensitive (false);
             }
         }
