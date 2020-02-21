@@ -2,84 +2,86 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-17 21:02+0000\n"
-"PO-Revision-Date: 2019-06-26 18:53+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-02-22 19:08+0000\n"
+"Last-Translator: gkkulik <g.kulik@o2.pl>\n"
+"Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-session/szl/>\n"
 "Language: szl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: src/Indicator.vala:46
 msgid "Session"
-msgstr ""
+msgstr "Sesyjo"
 
 #: src/Indicator.vala:47
 msgid "The session indicator"
-msgstr ""
+msgstr "Skaźnik sesyje"
 
 #: src/Indicator.vala:86
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Sztelōnki kōnta ôd używocza…"
 
 #: src/Indicator.vala:88
 msgid "Log Out…"
-msgstr ""
+msgstr "Ôdloguj…"
 
 #: src/Indicator.vala:94
 msgid "Lock"
-msgstr ""
+msgstr "Zablokuj"
 
 #: src/Indicator.vala:102
 msgid "Shut Down…"
-msgstr ""
+msgstr "Zawrzij…"
 
 #: src/Indicator.vala:105
 msgid "Suspend"
-msgstr ""
+msgstr "Strzim"
 
 #: src/Widgets/EndSessionDialog.vala:59
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "Na zicher chcesz sie ôdlogować?"
 
 #: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
-msgstr ""
+msgstr "Wszyjske ôtwarte programy bydōm zawarte."
 
 #: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
-msgstr ""
+msgstr "Ôdloguj sie"
 
 #: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "Na zicher chcesz zawrzić?"
 
 #: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "Wszyjske ôtwarte programy bydōm zawarte, a maszina zastawiōno."
 
 #: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
-msgstr ""
+msgstr "Zawrzij"
 
 #: src/Widgets/EndSessionDialog.vala:90
 msgid "Cancel"
-msgstr ""
+msgstr "Pociep"
 
 #: src/Widgets/EndSessionDialog.vala:106
 msgid "Restart"
-msgstr ""
+msgstr "Zresztartuj"
 
 #: src/Widgets/UserBox.vala:21
 msgid "Logged in"
-msgstr ""
+msgstr "Wlogowano"
 
 #: src/Widgets/UserBox.vala:22
 msgid "Logged out"
-msgstr ""
+msgstr "Ôdlogowano"
 
 #: src/Services/UserManager.vala:224
 msgid "Guest"
-msgstr ""
+msgstr "Gość"
