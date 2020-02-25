@@ -85,16 +85,6 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         }
     }
 
-    public bool is_logged_in () {
-        var state = get_user_state ();
-        return state == UserState.ONLINE || state == UserState.ACTIVE;
-    }
-
-    public void set_can_activate (bool can_activate) {
-        selectable = can_activate;
-        activatable = can_activate;
-    }
-
     private void update () {
         if (is_guest) {
             return;
@@ -114,8 +104,11 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
     public void update_state () {
         var state = get_user_state ();
-        set_can_activate (state != UserState.ACTIVE);
-        if (is_logged_in ()) {
+
+        selectable = state != UserState.ACTIVE;
+        activatable = state != UserState.ACTIVE;
+
+        if (state == UserState.ONLINE || state == UserState.ACTIVE) {
             status_label.label = _("Logged in");
         } else {
             status_label.label = _("Logged out");
