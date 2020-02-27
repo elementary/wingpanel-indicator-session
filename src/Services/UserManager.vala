@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2017 elementary LLC. (http://launchpad.net/wingpanel)
+ * Copyright (c) 2011-2020 elementary, Inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -35,24 +35,22 @@ public enum UserState {
 }
 
 public class Session.Services.UserManager : Object {
+    public signal void close ();
+
+    public bool has_guest { get; private set; default = false; }
+    public Session.Widgets.UserListBox user_grid { get; private set; }
+    public Wingpanel.Widgets.Separator users_separator { get; construct; }
+
     private const uint NOBODY_USER_UID = 65534;
     private const uint RESERVED_UID_RANGE_END = 1000;
-
-    public signal void close ();
 
     private const string DM_DBUS_ID = "org.freedesktop.DisplayManager";
     private const string LOGIN_IFACE = "org.freedesktop.login1";
     private const string LOGIN_PATH = "/org/freedesktop/login1";
 
-    private signal void delete_user (ObjectPath user_path);
     private Act.UserManager manager;
     private List<Widgets.Userbox> userbox_list;
     private SeatInterface? dm_proxy = null;
-    private Wingpanel.Widgets.Separator users_separator;
-
-    public Session.Widgets.UserListBox user_grid;
-
-    public bool has_guest { public get; private set; default = false; }
 
     private static SystemInterface? login_proxy;
 
@@ -117,15 +115,15 @@ public class Session.Services.UserManager : Object {
     }
 
     public UserManager (Wingpanel.Widgets.Separator users_separator) {
-        this.users_separator = users_separator;
-        this.users_separator.set_no_show_all (true);
-        this.users_separator.visible = false;
-
-        init ();
+        Object (users_separator: users_separator);
     }
 
-    private void init () {
+    construct {
         userbox_list = new List<Widgets.Userbox> ();
+
+        users_separator.no_show_all = true;
+        users_separator.visible = false;
+
         user_grid = new Session.Widgets.UserListBox ();
         user_grid.close.connect (() => close ());
 
@@ -172,6 +170,7 @@ public class Session.Services.UserManager : Object {
         var userbox = new Session.Widgets.Userbox (user);
         userbox_list.append (userbox);
         user_grid.add (userbox);
+
         users_separator.visible = true;
     }
 
