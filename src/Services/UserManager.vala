@@ -37,7 +37,6 @@ public enum UserState {
 public class Session.Services.UserManager : Object {
     public signal void close ();
 
-    public bool has_guest { get; private set; default = false; }
     public Session.Widgets.UserListBox user_grid { get; private set; }
     public Wingpanel.Widgets.Separator users_separator { get; construct; }
 
@@ -143,7 +142,9 @@ public class Session.Services.UserManager : Object {
         if (seat_path != null) {
             try {
                 dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
-                has_guest = dm_proxy.has_guest_account;
+                if (dm_proxy.has_guest_account) {
+                    add_guest ();
+                }
             } catch (IOError e) {
                 critical ("UserManager error: %s", e.message);
             }
@@ -214,7 +215,7 @@ public class Session.Services.UserManager : Object {
         }
     }
 
-    public void add_guest () {
+    private void add_guest () {
         var userbox = new Session.Widgets.Userbox.from_guest ();
         userbox_list.append (userbox);
         userbox.visible = true;
