@@ -32,10 +32,12 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         Object (user: user);
     }
 
-    public Userbox.from_data (string fullname, bool logged_in, bool is_guest = false) {
-        Object (fullname: fullname,
-                is_guest: is_guest,
-                user: null);
+    public Userbox.from_guest () {
+        Object (
+            fullname: _("Guest"),
+            is_guest: true,
+            user: null
+        );
     }
 
     construct {

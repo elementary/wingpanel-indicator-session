@@ -214,8 +214,8 @@ public class Session.Services.UserManager : Object {
         }
     }
 
-    public void add_guest (bool logged_in) {
-        var userbox = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in, true);
+    public void add_guest () {
+        var userbox = new Session.Widgets.Userbox.from_guest ();
         userbox_list.append (userbox);
         userbox.visible = true;
 
