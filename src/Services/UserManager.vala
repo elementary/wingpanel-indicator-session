@@ -41,7 +41,6 @@ public class Session.Services.UserManager : Object {
     public Session.Widgets.UserListBox user_grid { get; private set; }
     public Wingpanel.Widgets.Separator users_separator { get; construct; }
 
-    private const uint GUEST_USER_UID = 999;
     private const uint NOBODY_USER_UID = 65534;
     private const uint RESERVED_UID_RANGE_END = 1000;
 
@@ -50,7 +49,7 @@ public class Session.Services.UserManager : Object {
     private const string LOGIN_PATH = "/org/freedesktop/login1";
 
     private Act.UserManager manager;
-    private Gee.HashMap<uint, Widgets.Userbox>? users;
+    private List<Widgets.Userbox> userbox_list;
     private SeatInterface? dm_proxy = null;
 
     private static SystemInterface? login_proxy;
@@ -120,6 +119,8 @@ public class Session.Services.UserManager : Object {
     }
 
     construct {
+        userbox_list = new List<Widgets.Userbox> ();
+
         users_separator.no_show_all = true;
         users_separator.visible = false;
 
@@ -160,35 +161,46 @@ public class Session.Services.UserManager : Object {
     }
 
     private void add_user (Act.User? user) {
-        if (users == null) {
-            users = new Gee.HashMap<uint, Widgets.Userbox> ();
-        }
-
         // Don't add any of the system reserved users
         var uid = user.get_uid ();
-        if (uid < RESERVED_UID_RANGE_END || uid == NOBODY_USER_UID || users.has_key (uid)) {
+        if (uid < RESERVED_UID_RANGE_END || uid == NOBODY_USER_UID) {
             return;
         }
 
-        users[uid] = new Session.Widgets.Userbox (user);
-        user_grid.add (users[uid]);
+        var userbox = new Session.Widgets.Userbox (user);
+        userbox_list.append (userbox);
+        user_grid.add (userbox);
 
         users_separator.visible = true;
     }
 
+    private Widgets.Userbox? get_userbox_from_user (Act.User user) {
+        foreach (Widgets.Userbox userbox in userbox_list) {
+            var _user = userbox.user;
+            if (_user == null) {
+                continue;
+            }
+
+            if (_user.get_user_name () == user.get_user_name ()) {
+                return userbox;
+            }
+        }
+
+        return null;
+    }
+
     private void remove_user (Act.User user) {
-        var uid = user.get_uid ();
-        var userbox = users[uid];
+        var userbox = get_userbox_from_user (user);
         if (userbox == null) {
             return;
         }
 
-        users.unset (uid);
+        userbox_list.remove (userbox);
         user_grid.remove (userbox);
     }
 
     private void update_user (Act.User user) {
-        var userbox = users[user.get_uid ()];
+        var userbox = get_userbox_from_user (user);
         if (userbox == null) {
             return;
         }
@@ -197,24 +209,17 @@ public class Session.Services.UserManager : Object {
     }
 
     public void update_all () {
-        foreach (var userbox in users) {
+        foreach (var userbox in userbox_list) {
             userbox.update_state ();
         }
     }
 
     public void add_guest (bool logged_in) {
-        if (users == null) {
-            users = new Gee.HashMap<uint, Widgets.Userbox> ();
-        }
+        var userbox = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in, true);
+        userbox_list.append (userbox);
+        userbox.visible = true;
 
-        if (users[GUEST_USER_UID] != null) {
-            return;
-        }
-
-        users[GUEST_USER_UID] = new Session.Widgets.Userbox.from_data (_("Guest"), logged_in, true);
-        users[GUEST_USER_UID].show ();
-
-        user_grid.add_guest (users[GUEST_USER_UID]);
+        user_grid.add_guest (userbox);
 
         users_separator.visible = true;
     }
