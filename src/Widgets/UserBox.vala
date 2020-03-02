@@ -23,6 +23,12 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     public Act.User? user { get; construct; default = null; }
     public string fullname { get; construct set; }
 
+    public bool is_guest {
+        get {
+            return user == null;
+        }
+    }
+
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
     private Gtk.Label status_label;
@@ -73,7 +79,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
     // For some reason Act.User.is_logged_in () does not work
     public UserState get_user_state () {
-        if (user == null) {
+        if (is_guest) {
             return Services.UserManager.get_guest_state ();
         } else {
             return Services.UserManager.get_user_state (user.get_uid ());

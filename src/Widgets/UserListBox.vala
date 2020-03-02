@@ -60,7 +60,7 @@
 
         close ();
         try {
-            if (userbox.user == null) {
+            if (userbox.is_guest) {
                 seat.switch_to_guest ("");
             } else {
                 var user = userbox.user;
@@ -84,9 +84,9 @@
             return 1;
         }
 
-        if (userbox1.user == null && userbox2.user != null) {
+        if (userbox1.is_guest && !userbox2.is_guest) {
             return 1;
-        } else if (userbox1.user != null && userbox2.user == null) {
+        } else if (!userbox1.is_guest && userbox2.is_guest) {
             return -1;
         }
 
