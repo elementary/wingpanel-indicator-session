@@ -216,7 +216,7 @@ public class Session.Services.UserManager : Object {
     }
 
     private void add_guest () {
-        var userbox = new Session.Widgets.Userbox.from_guest ();
+        var userbox = new Session.Widgets.Userbox.guest ();
         userbox_list.append (userbox);
         userbox.visible = true;
 

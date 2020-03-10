@@ -37,7 +37,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         Object (user: user);
     }
 
-    public Userbox.from_guest () {
+    public Userbox.guest () {
         Object (fullname: _("Guest"));
     }
 
