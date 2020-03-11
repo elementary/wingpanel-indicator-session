@@ -220,7 +220,7 @@ public class Session.Services.UserManager : Object {
         userbox_list.append (userbox);
         userbox.visible = true;
 
-        user_grid.add_guest (userbox);
+        user_grid.add (userbox);
 
         users_separator.visible = true;
     }
