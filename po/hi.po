@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 21:02+0000\n"
+"POT-Creation-Date: 2020-03-11 09:35+0000\n"
 "PO-Revision-Date: 2018-04-25 16:39+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,31 +15,31 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:43
 msgid "Session"
 msgstr "सत्र"
 
-#: src/Indicator.vala:47
+#: src/Indicator.vala:44
 msgid "The session indicator"
 msgstr "सत्र सूचक"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:83
 msgid "User Accounts Settings…"
 msgstr "उपयोगकर्ता खाता सेटिंग्स …"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:85
 msgid "Log Out…"
 msgstr "सत्रांत करें…"
 
-#: src/Indicator.vala:94
+#: src/Indicator.vala:91
 msgid "Lock"
 msgstr "लॉक करें"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:99
 msgid "Shut Down…"
 msgstr "शटडाउन…"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 msgid "Suspend"
 msgstr "स्थगित करें"
 
@@ -75,14 +75,14 @@ msgstr "रद्द करें"
 msgid "Restart"
 msgstr "पुन: प्रारंभ करें"
 
-#: src/Widgets/UserBox.vala:21
+#: src/Widgets/UserBox.vala:41
+msgid "Guest"
+msgstr "अतिथि"
+
+#: src/Widgets/UserBox.vala:113
 msgid "Logged in"
 msgstr "सत्र आरम्भ"
 
-#: src/Widgets/UserBox.vala:22
+#: src/Widgets/UserBox.vala:115
 msgid "Logged out"
 msgstr "सत्रांत हो चुका"
-
-#: src/Services/UserManager.vala:224
-msgid "Guest"
-msgstr "अतिथि"

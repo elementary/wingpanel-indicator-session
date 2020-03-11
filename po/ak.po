@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 21:02+0000\n"
+"POT-Creation-Date: 2020-03-11 09:35+0000\n"
 "PO-Revision-Date: 2016-12-07 15:39+0000\n"
 "Last-Translator: aberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <ak@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:43
 msgid "Session"
 msgstr "Session"
 
-#: src/Indicator.vala:47
+#: src/Indicator.vala:44
 msgid "The session indicator"
 msgstr "Session ahyɛnsodeɛ"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:83
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:85
 msgid "Log Out…"
 msgstr "Firi mu (Log Out)…"
 
-#: src/Indicator.vala:94
+#: src/Indicator.vala:91
 msgid "Lock"
 msgstr "Tum (Lock)"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:99
 #, fuzzy
 msgid "Shut Down…"
 msgstr "Dum…"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 msgid "Suspend"
 msgstr "Twe san"
 
@@ -79,14 +79,14 @@ msgstr "Gyae"
 msgid "Restart"
 msgstr "Dum Sɔ"
 
-#: src/Widgets/UserBox.vala:21
+#: src/Widgets/UserBox.vala:41
+msgid "Guest"
+msgstr "Ɔhɔhoɔ"
+
+#: src/Widgets/UserBox.vala:113
 msgid "Logged in"
 msgstr "Kɔ mu"
 
-#: src/Widgets/UserBox.vala:22
+#: src/Widgets/UserBox.vala:115
 msgid "Logged out"
 msgstr "Woafiri mu"
-
-#: src/Services/UserManager.vala:224
-msgid "Guest"
-msgstr "Ɔhɔhoɔ"

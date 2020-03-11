@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 21:02+0000\n"
+"POT-Creation-Date: 2020-03-11 09:35+0000\n"
 "PO-Revision-Date: 2020-02-22 19:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -14,31 +14,31 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:43
 msgid "Session"
 msgstr "Sesyjo"
 
-#: src/Indicator.vala:47
+#: src/Indicator.vala:44
 msgid "The session indicator"
 msgstr "Skaźnik sesyje"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:83
 msgid "User Accounts Settings…"
 msgstr "Sztelōnki kōnta ôd używocza…"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:85
 msgid "Log Out…"
 msgstr "Ôdloguj…"
 
-#: src/Indicator.vala:94
+#: src/Indicator.vala:91
 msgid "Lock"
 msgstr "Zablokuj"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:99
 msgid "Shut Down…"
 msgstr "Zawrzij…"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:102
 msgid "Suspend"
 msgstr "Strzim"
 
@@ -74,14 +74,14 @@ msgstr "Pociep"
 msgid "Restart"
 msgstr "Zresztartuj"
 
-#: src/Widgets/UserBox.vala:21
+#: src/Widgets/UserBox.vala:41
+msgid "Guest"
+msgstr "Gość"
+
+#: src/Widgets/UserBox.vala:113
 msgid "Logged in"
 msgstr "Wlogowano"
 
-#: src/Widgets/UserBox.vala:22
+#: src/Widgets/UserBox.vala:115
 msgid "Logged out"
 msgstr "Ôdlogowano"
-
-#: src/Services/UserManager.vala:224
-msgid "Guest"
-msgstr "Gość"
