@@ -20,9 +20,14 @@
 public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     private const int ICON_SIZE = 48;
 
-    public Act.User? user { get; construct; }
-    public bool is_guest { get; construct; default = false; }
+    public Act.User? user { get; construct; default = null; }
     public string fullname { get; construct set; }
+
+    public bool is_guest {
+        get {
+            return user == null;
+        }
+    }
 
     private Granite.Widgets.Avatar avatar;
     private Gtk.Label fullname_label;
@@ -32,10 +37,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         Object (user: user);
     }
 
-    public Userbox.from_data (string fullname, bool logged_in, bool is_guest = false) {
-        Object (fullname: fullname,
-                is_guest: is_guest,
-                user: null);
+    public Userbox.guest () {
+        Object (fullname: _("Guest"));
     }
 
     construct {
@@ -76,8 +79,6 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
     // For some reason Act.User.is_logged_in () does not work
     public UserState get_user_state () {
-        assert (is_guest || user != null);
-
         if (is_guest) {
             return Services.UserManager.get_guest_state ();
         } else {
@@ -86,7 +87,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     private void update () {
-        if (is_guest) {
+        if (user == null) {
             return;
         }
 

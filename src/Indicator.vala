@@ -113,11 +113,6 @@ public class Session.Indicator : Wingpanel.Indicator {
                 scrolled_box.add (manager.user_grid);
 
                 main_grid.add (scrolled_box);
-
-                if (manager.has_guest) {
-                    manager.add_guest (false);
-                }
-
                 main_grid.add (user_settings);
                 main_grid.add (users_separator);
                 main_grid.add (lock_screen);
