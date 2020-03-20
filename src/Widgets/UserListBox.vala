@@ -22,12 +22,10 @@
 
     private SeatInterface? seat = null;
     private string session_path;
-    private bool has_guest;
 
     private const string DM_DBUS_ID = "org.freedesktop.DisplayManager";
 
     public UserListBox () {
-        has_guest = false;
         session_path = Environment.get_variable ("XDG_SESSION_PATH");
 
         var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
@@ -41,13 +39,6 @@
 
         this.set_sort_func (sort_func);
         this.set_activate_on_single_click (true);
-    }
-
-    public void add_guest (Userbox user) {
-        if (!has_guest) {
-            this.add (user);
-            has_guest = true;
-        }
     }
 
     public override void row_activated (Gtk.ListBoxRow row) {

@@ -209,7 +209,7 @@ public class Session.Services.UserManager : Object {
         user_boxes[GUEST_USER_UID] = new Session.Widgets.Userbox.guest ();
         user_boxes[GUEST_USER_UID].show ();
 
-        user_grid.add_guest (user_boxes[GUEST_USER_UID]);
+        user_grid.add (user_boxes[GUEST_USER_UID]);
 
         users_separator.visible = true;
     }
