@@ -1,3 +1,23 @@
+wingpanel-indicator-session (2.2.8) bionic; urgency=medium
+
+  * Release 2.2.8 (#114)
+  * Update translation files
+  * Update translation template
+  * Update session.appdata.xml.in
+  * UserManager: Use a hashmap to store userboxes (#113)
+  * UserListBox: Remove unnecessary add method (#112)
+  * Update translation files
+  * Update translation template
+  * UserBox: from_data → from_guest (#111)
+  * UserManager: GObject and cleanup (#105)
+  * UserBox: Combine single-use methods (#108)
+  * Replace stderr prints with glib logging (#110)
+  * Indicator: Reduce variable scope (#109)
+  * UserBox: Don't use constant for translatable string (#106)
+  * UserManager: More helpful error messages (#104)
+
+ -- elementary LLC <builds@elementary.io>  Wed, 01 Apr 2020 23:52:24 +0000
+
 wingpanel-indicator-session (2.2.7) bionic; urgency=medium
 
   * Release 2.2.7 (#101)
