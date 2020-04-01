@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 21:02+0000\n"
+"POT-Creation-Date: 2020-04-01 18:49+0000\n"
 "PO-Revision-Date: 2019-12-25 15:17+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,18 +27,23 @@ msgstr ""
 msgid "Switch users, lock, log out, suspend, or shut down"
 msgstr ""
 
-#: data/session.appdata.xml.in:11
+#: data/session.appdata.xml.in:11 data/session.appdata.xml.in:20
 msgid "Minor updates:"
 msgstr ""
 
 #: data/session.appdata.xml.in:13
-msgid "Updated styling for keyboard shortcuts"
+msgid "Performance improvements"
 msgstr ""
 
-#: data/session.appdata.xml.in:14 data/session.appdata.xml.in:20
+#: data/session.appdata.xml.in:14 data/session.appdata.xml.in:23
+#: data/session.appdata.xml.in:29
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
 
-#: data/session.appdata.xml.in:29
+#: data/session.appdata.xml.in:22
+msgid "Updated styling for keyboard shortcuts"
+msgstr ""
+
+#: data/session.appdata.xml.in:38
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
