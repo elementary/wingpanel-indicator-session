@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 18:49+0000\n"
-"PO-Revision-Date: 2019-12-27 11:19+0000\n"
+"PO-Revision-Date: 2020-04-06 15:10+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/mr/>\n"
@@ -33,7 +33,7 @@ msgstr "किरकोळ अद्यतने:"
 
 #: data/session.appdata.xml.in:13
 msgid "Performance improvements"
-msgstr ""
+msgstr "कामगिरी सुधारणा"
 
 #: data/session.appdata.xml.in:14 data/session.appdata.xml.in:23
 #: data/session.appdata.xml.in:29
