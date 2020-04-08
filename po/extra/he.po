@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 18:49+0000\n"
-"PO-Revision-Date: 2020-03-26 17:48+0000\n"
+"PO-Revision-Date: 2020-04-09 14:10+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/he/>\n"
@@ -33,7 +33,7 @@ msgstr "עדכונים מזעריים:"
 
 #: data/session.appdata.xml.in:13
 msgid "Performance improvements"
-msgstr ""
+msgstr "שיפורי ביצועים"
 
 #: data/session.appdata.xml.in:14 data/session.appdata.xml.in:23
 #: data/session.appdata.xml.in:29
