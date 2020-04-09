@@ -139,6 +139,7 @@ public class Session.Services.UserManager : Object {
         });
 
         var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
+        var session_path = Environment.get_variable ("XDG_SESSION_PATH");
 
         if (seat_path != null) {
             try {
@@ -149,6 +150,24 @@ public class Session.Services.UserManager : Object {
             } catch (IOError e) {
                 critical ("UserManager error: %s", e.message);
             }
+        }
+
+        if (dm_proxy != null) {
+            user_grid.switch_to_guest.connect (() => {
+                try {
+                    dm_proxy.switch_to_guest ("");
+                } catch (Error e) {
+                    warning ("Error switching to guest account: %s", e.message);
+                }
+            });
+
+            user_grid.switch_to_user.connect ((username) => {
+                try {
+                    dm_proxy.switch_to_user (username, session_path);
+                } catch (Error e) {
+                    warning ("Error switching to user '%s': %s", username, e.message);
+                }
+            });
         }
     }
 
