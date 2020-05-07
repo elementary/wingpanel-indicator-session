@@ -3,25 +3,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-11 09:35+0000\n"
-"PO-Revision-Date: 2018-04-24 20:16+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2020-05-08 13:10+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-03-05 06:26+0000\n"
 
 #: src/Indicator.vala:43
 msgid "Session"
-msgstr "Sezení"
+msgstr "Relace"
 
 #: src/Indicator.vala:44
 msgid "The session indicator"
-msgstr "Indikátor sezení"
+msgstr "Indikátor relace"
 
 #: src/Indicator.vala:83
 msgid "User Accounts Settings…"
@@ -57,11 +57,11 @@ msgstr "Odhlásit se"
 
 #: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
-msgstr "Opravdu vypnout?"
+msgstr "Opravdu chcete počítač vypnout?"
 
 #: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
-msgstr "Tímto budou zavřeny všechny otevřené aplikace a zařízení bude vypnuto."
+msgstr "Tímto budou zavřeny všechny otevřené aplikace a počítač bude vypnut."
 
 #: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
