@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-11 09:35+0000\n"
-"PO-Revision-Date: 2018-05-12 00:14+0000\n"
-"Last-Translator: Pedro Ferreira <pmaf.ferreira@gmail.com>\n"
-"Language-Team: Portuguese <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2020-05-11 18:10+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:43
@@ -25,7 +25,7 @@ msgstr "O indicador de sessão"
 
 #: src/Indicator.vala:83
 msgid "User Accounts Settings…"
-msgstr "Configuração de contas de utilizador…"
+msgstr "Definições de contas de utilizador…"
 
 #: src/Indicator.vala:85
 msgid "Log Out…"
@@ -37,7 +37,7 @@ msgstr "Bloquear"
 
 #: src/Indicator.vala:99
 msgid "Shut Down…"
-msgstr "Desligar…"
+msgstr "Encerrar…"
 
 #: src/Indicator.vala:102
 msgid "Suspend"
@@ -57,11 +57,11 @@ msgstr "Terminar sessão"
 
 #: src/Widgets/EndSessionDialog.vala:66
 msgid "Are you sure you want to Shut Down?"
-msgstr "Tem a certeza que pretende desligar?"
+msgstr "Tem a certeza que deseja encerrar?"
 
 #: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
-msgstr "Todas as aplicações serão fechadas e o dispositivo será desligado."
+msgstr "Todas as aplicações serão fechadas e o dispositivo será encerrado."
 
 #: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
@@ -81,7 +81,7 @@ msgstr "Convidado"
 
 #: src/Widgets/UserBox.vala:113
 msgid "Logged in"
-msgstr "Com Sessão Ativa"
+msgstr "Com Sessão ativa"
 
 #: src/Widgets/UserBox.vala:115
 msgid "Logged out"
