@@ -50,8 +50,8 @@ public class Session.Services.UserManager : Object {
 
     private Act.UserManager manager;
     private Gee.HashMap<uint, Widgets.Userbox>? user_boxes;
-    private SeatInterface? dm_proxy = null;
 
+    private static SeatInterface? dm_proxy = null;
     private static SystemInterface? login_proxy;
 
     static construct {
@@ -59,6 +59,15 @@ public class Session.Services.UserManager : Object {
             login_proxy = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, LOGIN_PATH, DBusProxyFlags.NONE);
         } catch (IOError e) {
             critical ("Failed to create login1 dbus proxy: %s", e.message);
+        }
+
+        var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
+        if (seat_path != null) {
+            try {
+                dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
+            } catch (IOError e) {
+                critical ("UserManager error: %s", e.message);
+            }
         }
     }
 
@@ -114,6 +123,12 @@ public class Session.Services.UserManager : Object {
         return UserState.OFFLINE;
     }
 
+    public static void lock () throws GLib.Error {
+        if (dm_proxy != null) {
+            dm_proxy.lock ();
+        }
+    }
+
     public UserManager (Wingpanel.Widgets.Separator users_separator) {
         Object (users_separator: users_separator);
     }
@@ -138,21 +153,14 @@ public class Session.Services.UserManager : Object {
             init_users ();
         });
 
-        var seat_path = Environment.get_variable ("XDG_SEAT_PATH");
+
         var session_path = Environment.get_variable ("XDG_SESSION_PATH");
 
-        if (seat_path != null) {
-            try {
-                dm_proxy = Bus.get_proxy_sync (BusType.SYSTEM, DM_DBUS_ID, seat_path, DBusProxyFlags.NONE);
-                if (dm_proxy.has_guest_account) {
-                    add_guest ();
-                }
-            } catch (IOError e) {
-                critical ("UserManager error: %s", e.message);
-            }
-        }
-
         if (dm_proxy != null) {
+            if (dm_proxy.has_guest_account) {
+                add_guest ();
+            }
+
             user_grid.switch_to_guest.connect (() => {
                 try {
                     dm_proxy.switch_to_guest ("");
