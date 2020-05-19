@@ -23,6 +23,12 @@ struct UserInfo {
     ObjectPath? user_object;
 }
 
+/* Power and system control */
+[DBus (name = "org.freedesktop.ScreenSaver")]
+interface LockInterface : Object {
+    public abstract void lock () throws GLib.Error;
+}
+
 [DBus (name = "org.freedesktop.login1.User")]
 interface LogoutInterface : Object {
     public abstract void terminate () throws GLib.Error;
@@ -47,5 +53,4 @@ interface SeatInterface : Object {
     public abstract bool has_guest_account { get; }
     public abstract void switch_to_guest (string session_name) throws GLib.Error;
     public abstract void switch_to_user (string username, string session_name) throws GLib.Error;
-    public abstract void lock () throws GLib.Error;
 }

@@ -22,6 +22,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
     private SystemInterface suspend_interface;
+    private LockInterface lock_interface;
 
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
@@ -156,7 +157,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 close ();
 
                 try {
-                    Session.Services.UserManager.lock ();
+                    lock_interface.lock ();
                 } catch (GLib.Error e) {
                     warning ("Unable to lock: %s", e.message);
                 }
@@ -174,8 +175,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             suspend.set_sensitive (false);
         }
 
-        if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION) {
-            lock_screen.set_sensitive (false);
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            try {
+                lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
+            } catch (IOError e) {
+                warning ("Unable to connect to lock interface: %s", e.message);
+                lock_screen.set_sensitive (false);
+            }
         }
     }
 
