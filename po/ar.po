@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-11 09:35+0000\n"
-"PO-Revision-Date: 2018-12-21 06:32+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
-"Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2020-05-21 23:55+0000\n"
+"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:43
@@ -50,7 +50,7 @@ msgstr "هل انت متأكد أنك تريد تسجيل الخروج؟"
 
 #: src/Widgets/EndSessionDialog.vala:60
 msgid "This will close all open applications."
-msgstr "هذا سوف يغلط كل التطبيقات الفعالة."
+msgstr "سيؤدي هذا إلى إغلاق جميع التطبيقات المفتوحة."
 
 #: src/Widgets/EndSessionDialog.vala:61
 msgid "Log Out"
@@ -62,7 +62,7 @@ msgstr "هل أنت متأكد أنك تريد إيقاف التشغيل؟"
 
 #: src/Widgets/EndSessionDialog.vala:67
 msgid "This will close all open applications and turn off this device."
-msgstr "هذا سوف يغلط كل التطبيقات الفعالة ويقف تشغيل هذا الجهاز."
+msgstr "سيؤدي هذا إلى إغلاق جميع التطبيقات المفتوحة وإيقاف هذا الجهاز."
 
 #: src/Widgets/EndSessionDialog.vala:68
 msgid "Shut Down"
