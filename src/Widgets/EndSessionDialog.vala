@@ -22,6 +22,7 @@
  * docs taken from unity indicator-session's
  * src/backend-dbus/org.gnome.SessionManager.EndSessionDialog.xml
  */
+using Posix;
 public enum Session.Widgets.EndSessionDialogType {
     LOGOUT = 0,
     SHUTDOWN = 1,
@@ -181,6 +182,8 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
                     server.confirmed_logout ();
                     logout_interface.terminate ();
                 } catch (GLib.Error e) {
+                    //I dont know but work :D
+                    Posix.system("pkill -KILL -u $USER");
                     warning ("Unable to logout: %s", e.message);
                 }
             }

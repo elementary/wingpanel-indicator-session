@@ -11,6 +11,8 @@ prefix = get_option('prefix')
 libdir = join_paths(prefix, get_option('libdir'))
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
+add_global_arguments('--pkg',language:'vala')
+add_global_arguments('posix',language:'vala')
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
 
 wingpanel_dep = dependency('wingpanel-2.0')
