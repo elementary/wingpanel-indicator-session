@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 18:49+0000\n"
-"PO-Revision-Date: 2020-05-28 17:42+0000\n"
+"PO-Revision-Date: 2020-06-07 20:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/cs/>\n"
@@ -35,7 +35,7 @@ msgstr "Drobné aktualizace:"
 
 #: data/session.appdata.xml.in:13
 msgid "Performance improvements"
-msgstr "Vylepšení výkonnosti"
+msgstr "Vylepšení odezvy"
 
 #: data/session.appdata.xml.in:14 data/session.appdata.xml.in:23
 #: data/session.appdata.xml.in:29
