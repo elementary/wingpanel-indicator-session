@@ -61,24 +61,11 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
-                    close ();
                     if (session_interface == null) {
                         init_interfaces ();
                     }
 
-                    if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                        session_interface.reboot.begin ((obj, res) => {
-                            try {
-                                session_interface.reboot.end (res);
-                            } catch (Error e) {
-                                if (!(e is GLib.IOError.CANCELLED)) {
-                                    critical ("Unable to open shutdown dialog: %s", e.message);
-                                }
-                            }
-                        });
-                    } else {
-                        show_dialog (Widgets.EndSessionDialogType.RESTART);
-                    }
+                    show_shutdown_dialog ();
 
                     return Gdk.EVENT_STOP;
                 }
@@ -167,21 +154,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             });
 
             shutdown.clicked.connect (() => {
-                close ();
-
-                if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                    session_interface.reboot.begin ((obj, res) => {
-                        try {
-                            session_interface.reboot.end (res);
-                        } catch (Error e) {
-                            if (!(e is GLib.IOError.CANCELLED)) {
-                                critical ("Unable to open shutdown dialog: %s", e.message);
-                            }
-                        }
-                    });
-                } else {
-                    show_dialog (Widgets.EndSessionDialogType.RESTART);
-                }
+                show_shutdown_dialog ();
             });
 
             suspend.clicked.connect (() => {
@@ -218,6 +191,26 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
 
         return main_grid;
+    }
+
+    private void show_shutdown_dialog () {
+        close ();
+
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            // Ask gnome-session to "reboot" which throws the EndSessionDialog
+            // Our "reboot" dialog also has a shutdown button to give the choice between reboot/shutdown
+            session_interface.reboot.begin ((obj, res) => {
+                try {
+                    session_interface.reboot.end (res);
+                } catch (Error e) {
+                    if (!(e is GLib.IOError.CANCELLED)) {
+                        critical ("Unable to open shutdown dialog: %s", e.message);
+                    }
+                }
+            });
+        } else {
+            show_dialog (Widgets.EndSessionDialogType.RESTART);
+        }
     }
 
     private void init_interfaces () {
