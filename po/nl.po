@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-11 09:35+0000\n"
-"PO-Revision-Date: 2020-01-03 21:07+0000\n"
+"PO-Revision-Date: 2020-06-19 21:11+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/nl/>\n"
@@ -25,7 +25,7 @@ msgstr "De sessie indicator"
 
 #: src/Indicator.vala:83
 msgid "User Accounts Settings…"
-msgstr "Gebruikers instellingen…"
+msgstr "Gebruikersinstellingen…"
 
 #: src/Indicator.vala:85
 msgid "Log Out…"
