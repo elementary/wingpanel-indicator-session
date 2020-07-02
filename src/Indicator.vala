@@ -123,15 +123,15 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid.add (shutdown);
 
             if (keybinding_settings != null) {
-                log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
-                lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
+                log_out_grid.accel_string = keybinding_settings.get_string ("logout");
+                lock_screen_grid.accel_string = keybinding_settings.get_string ("screensaver");
 
                 keybinding_settings.changed["logout"].connect (() => {
-                    log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
+                    log_out_grid.accel_string = keybinding_settings.get_string ("logout");
                 });
 
                 keybinding_settings.changed["screensaver"].connect (() => {
-                    lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
+                    lock_screen_grid.accel_string = keybinding_settings.get_string ("screensaver");
                 });
             }
 
