@@ -129,16 +129,31 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_grid.add (shutdown);
 
             if (keybinding_settings != null) {
-                log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
-                lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
+                // This key type has changed in recent versions of GNOME Settings Daemon
+                unowned VariantType key_type = keybinding_settings.get_value ("logout").get_type ();
+                if (key_type.equal (VariantType.STRING)) {
+                    log_out_grid.accel_string = keybinding_settings.get_string ("logout");
+                    lock_screen_grid.accel_string = keybinding_settings.get_string ("screensaver");
 
-                keybinding_settings.changed["logout"].connect (() => {
+                    keybinding_settings.changed["logout"].connect (() => {
+                        log_out_grid.accel_string = keybinding_settings.get_string ("logout");
+                    });
+
+                    keybinding_settings.changed["screensaver"].connect (() => {
+                        lock_screen_grid.accel_string = keybinding_settings.get_string ("screensaver");
+                    });
+                } else if (key_type.equal (VariantType.STRING_ARRAY)) {
                     log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
-                });
-
-                keybinding_settings.changed["screensaver"].connect (() => {
                     lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
-                });
+
+                    keybinding_settings.changed["logout"].connect (() => {
+                        log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
+                    });
+
+                    keybinding_settings.changed["screensaver"].connect (() => {
+                        lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
+                    });
+                }
             }
 
             manager.close.connect (() => close ());
