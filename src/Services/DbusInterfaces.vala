@@ -23,15 +23,17 @@ struct UserInfo {
     ObjectPath? user_object;
 }
 
+[DBus (name = "org.gnome.SessionManager")]
+interface SessionInterface : Object {
+    public abstract async void logout (uint type) throws GLib.Error;
+    public abstract async void reboot () throws GLib.Error;
+    public abstract async void shutdown () throws GLib.Error;
+}
+
 /* Power and system control */
 [DBus (name = "org.freedesktop.ScreenSaver")]
 interface LockInterface : Object {
     public abstract void lock () throws GLib.Error;
-}
-
-[DBus (name = "org.freedesktop.login1.User")]
-interface LogoutInterface : Object {
-    public abstract void terminate () throws GLib.Error;
 }
 
 [DBus (name = "org.freedesktop.login1.Manager")]

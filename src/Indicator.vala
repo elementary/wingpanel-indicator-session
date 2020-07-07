@@ -23,6 +23,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private SystemInterface suspend_interface;
     private LockInterface lock_interface;
+    private SessionInterface session_interface;
+    private SystemInterface system_interface;
 
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Wingpanel.Widgets.OverlayIcon indicator_icon;
@@ -59,8 +61,12 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
-                    close ();
-                    show_dialog (Widgets.EndSessionDialogType.RESTART);
+                    if (session_interface == null) {
+                        init_interfaces ();
+                    }
+
+                    show_shutdown_dialog ();
+
                     return Gdk.EVENT_STOP;
                 }
 
@@ -162,7 +168,9 @@ public class Session.Indicator : Wingpanel.Indicator {
                 }
             });
 
-            shutdown.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.RESTART));
+            shutdown.clicked.connect (() => {
+                show_shutdown_dialog ();
+            });
 
             suspend.clicked.connect (() => {
                 close ();
@@ -174,7 +182,17 @@ public class Session.Indicator : Wingpanel.Indicator {
                 }
             });
 
-            log_out.clicked.connect (() => show_dialog (Widgets.EndSessionDialogType.LOGOUT));
+            log_out.clicked.connect (() => {
+                session_interface.logout.begin (0, (obj, res) => {
+                    try {
+                        session_interface.logout.end (res);
+                    } catch (Error e) {
+                        if (!(e is GLib.IOError.CANCELLED)) {
+                            warning ("Unable to open logout dialog: %s", e.message);
+                        }
+                    }
+                });
+            });
 
             lock_screen.clicked.connect (() => {
                 close ();
@@ -188,6 +206,26 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
 
         return main_grid;
+    }
+
+    private void show_shutdown_dialog () {
+        close ();
+
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            // Ask gnome-session to "reboot" which throws the EndSessionDialog
+            // Our "reboot" dialog also has a shutdown button to give the choice between reboot/shutdown
+            session_interface.reboot.begin ((obj, res) => {
+                try {
+                    session_interface.reboot.end (res);
+                } catch (Error e) {
+                    if (!(e is GLib.IOError.CANCELLED)) {
+                        critical ("Unable to open shutdown dialog: %s", e.message);
+                    }
+                }
+            });
+        } else {
+            show_dialog (Widgets.EndSessionDialogType.RESTART);
+        }
     }
 
     private void init_interfaces () {
@@ -204,6 +242,18 @@ public class Session.Indicator : Wingpanel.Indicator {
             } catch (IOError e) {
                 warning ("Unable to connect to lock interface: %s", e.message);
                 lock_screen.set_sensitive (false);
+            }
+
+            try {
+                session_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+            } catch (IOError e) {
+                critical ("Unable to connect to GNOME session interface: %s", e.message);
+            }
+        } else {
+            try {
+                system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            } catch (IOError e) {
+                critical ("Unable to connect to the login interface: %s", e.message);
             }
         }
     }
@@ -229,8 +279,46 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
         }
 
+        unowned EndSessionDialogServer server = EndSessionDialogServer.get_default ();
+
         current_dialog = new Widgets.EndSessionDialog (type);
-        current_dialog.destroy.connect (() => current_dialog = null);
+        current_dialog.destroy.connect (() => {
+            server.closed ();
+            current_dialog = null;
+        });
+
+        current_dialog.cancelled.connect (() => {
+            server.canceled ();
+        });
+
+        current_dialog.logout.connect (() => {
+            server.confirmed_logout ();
+        });
+
+        current_dialog.shutdown.connect (() => {
+            if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+                server.confirmed_shutdown ();
+            } else {
+                try {
+                    system_interface.power_off (false);
+                } catch (Error e) {
+                    warning ("Unable to shutdown: %s", e.message);
+                }
+            }
+        });
+
+        current_dialog.reboot.connect (() => {
+            if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+                server.confirmed_reboot ();
+            } else {
+                try {
+                    system_interface.reboot (false);
+                } catch (Error e) {
+                    warning ("Unable to reboot: %s", e.message);
+                }
+            }
+        });
+
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
     }
