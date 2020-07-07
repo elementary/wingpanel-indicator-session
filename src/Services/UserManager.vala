@@ -215,8 +215,8 @@ public class Session.Services.UserManager : Object {
     }
 
     public void update_all () {
-        foreach (var userbox in user_boxes) {
-            ((Session.Widgets.Userbox) userbox).update_state ();
+        foreach (var userbox in user_boxes.values) {
+            userbox.update_state ();
         }
     }
 
