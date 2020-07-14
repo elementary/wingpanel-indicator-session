@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-11 09:35+0000\n"
+"POT-Creation-Date: 2020-07-14 15:49+0000\n"
 "PO-Revision-Date: 2020-06-19 21:11+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,64 +15,56 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:43
-msgid "Session"
-msgstr "Sessie"
-
-#: src/Indicator.vala:44
-msgid "The session indicator"
-msgstr "De sessie indicator"
-
-#: src/Indicator.vala:83
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr "Gebruikersinstellingen…"
 
-#: src/Indicator.vala:85
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr "Afmelden…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr "Vergrendel"
 
-#: src/Indicator.vala:99
+#: src/Indicator.vala:102
 msgid "Shut Down…"
 msgstr "Afsluiten…"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr "Slaapstand"
 
-#: src/Widgets/EndSessionDialog.vala:59
+#: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
 msgstr "Weet u zeker dat u wilt afmelden?"
 
-#: src/Widgets/EndSessionDialog.vala:60
+#: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
 msgstr "Alle geopende toepassingen zullen worden gesloten."
 
-#: src/Widgets/EndSessionDialog.vala:61
+#: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
 msgstr "Afmelden"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
 msgstr "Weet u zeker dat u wilt afsluiten?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Dit zal alle geopende toepassingen sluiten en het toestel uitschakelen."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
 msgstr "Uitschakelen"
 
-#: src/Widgets/EndSessionDialog.vala:90
+#: src/Widgets/EndSessionDialog.vala:80
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: src/Widgets/EndSessionDialog.vala:106
+#: src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
 msgstr "Opnieuw opstarten"
 
@@ -87,3 +79,9 @@ msgstr "Aangemeld"
 #: src/Widgets/UserBox.vala:115
 msgid "Logged out"
 msgstr "Afgemeld"
+
+#~ msgid "Session"
+#~ msgstr "Sessie"
+
+#~ msgid "The session indicator"
+#~ msgstr "De sessie indicator"

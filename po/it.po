@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-11 09:35+0000\n"
+"POT-Creation-Date: 2020-07-14 15:49+0000\n"
 "PO-Revision-Date: 2018-12-11 15:10+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,65 +15,57 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:43
-msgid "Session"
-msgstr "Sessione"
-
-#: src/Indicator.vala:44
-msgid "The session indicator"
-msgstr "L'indicatore di sessione"
-
-#: src/Indicator.vala:83
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr "Impostazioni degli account utente…"
 
-#: src/Indicator.vala:85
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr "Termina sessione…"
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr "Blocca"
 
-#: src/Indicator.vala:99
+#: src/Indicator.vala:102
 msgid "Shut Down…"
 msgstr "Arresta…"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr "Sospendi"
 
-#: src/Widgets/EndSessionDialog.vala:59
+#: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
 msgstr "Vuoi davvero uscire?"
 
-#: src/Widgets/EndSessionDialog.vala:60
+#: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
 msgstr "Ciò comporterà la chiusura di tutte le applicazioni aperte."
 
-#: src/Widgets/EndSessionDialog.vala:61
+#: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
 msgstr "Termina sessione"
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
 msgstr "Vuoi davvero spegnere?"
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 "Ciò comporterà la chiusura di tutte le applicazioni aperte e lo spegnimento "
 "del dispositivo."
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
 msgstr "Arresta"
 
-#: src/Widgets/EndSessionDialog.vala:90
+#: src/Widgets/EndSessionDialog.vala:80
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/Widgets/EndSessionDialog.vala:106
+#: src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
 msgstr "Riavvia"
 
@@ -88,3 +80,9 @@ msgstr "Accesso eseguito"
 #: src/Widgets/UserBox.vala:115
 msgid "Logged out"
 msgstr "Disconnesso"
+
+#~ msgid "Session"
+#~ msgstr "Sessione"
+
+#~ msgid "The session indicator"
+#~ msgstr "L'indicatore di sessione"
