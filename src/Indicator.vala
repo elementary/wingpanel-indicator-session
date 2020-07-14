@@ -40,9 +40,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private static GLib.Settings? keybinding_settings;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
-        Object (code_name: Wingpanel.Indicator.SESSION,
-                display_name: _("Session"),
-                description: _("The session indicator"));
+        Object (code_name: Wingpanel.Indicator.SESSION);
         this.server_type = server_type;
         this.visible = true;
 
