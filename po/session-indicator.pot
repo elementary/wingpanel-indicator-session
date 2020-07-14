@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-01 18:49+0000\n"
+"POT-Creation-Date: 2020-07-14 15:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Indicator.vala:43
-msgid "Session"
-msgstr ""
-
-#: src/Indicator.vala:44
-msgid "The session indicator"
-msgstr ""
-
-#: src/Indicator.vala:83
+#: src/Indicator.vala:86
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:85
+#: src/Indicator.vala:88
 msgid "Log Out…"
 msgstr ""
 
-#: src/Indicator.vala:91
+#: src/Indicator.vala:94
 msgid "Lock"
 msgstr ""
 
-#: src/Indicator.vala:99
+#: src/Indicator.vala:102
 msgid "Shut Down…"
 msgstr ""
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:105
 msgid "Suspend"
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:59
+#: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:60
+#: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:61
+#: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:66
+#: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:67
+#: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:68
+#: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:90
+#: src/Widgets/EndSessionDialog.vala:80
 msgid "Cancel"
 msgstr ""
 
-#: src/Widgets/EndSessionDialog.vala:106
+#: src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
 msgstr ""
 
