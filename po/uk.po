@@ -3,22 +3,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:49+0000\n"
-"PO-Revision-Date: 2017-04-26 15:32+0000\n"
-"Last-Translator: Володимир Білошицький <volbilnexus@gmail.com>\n"
+"PO-Revision-Date: 2020-09-12 18:14+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:86
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Налаштування облікових записів користувачів…"
 
 #: src/Indicator.vala:88
 msgid "Log Out…"
@@ -42,7 +42,7 @@ msgstr "Ви впевнені, що хочете завершити сеанс?"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
-msgstr "Це закриє всі запущені додатки."
+msgstr "Це закриє всі відкриті застосунки."
 
 #: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
@@ -54,7 +54,7 @@ msgstr "Ви впевнені, що хочите вимкнути комп'ют�
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr "Це закриє усі запущені додатки та вимкне цей пристрій."
+msgstr "Усі відкриті застосунки буде закрито, а цей пристрій — вимкнено."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
@@ -66,7 +66,7 @@ msgstr "Скасувати"
 
 #: src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
-msgstr "Перезавантажити"
+msgstr "Перезапустити"
 
 #: src/Widgets/UserBox.vala:41
 msgid "Guest"
