@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:49+0000\n"
-"PO-Revision-Date: 2020-09-12 18:14+0000\n"
+"PO-Revision-Date: 2020-09-12 23:11+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: src/Indicator.vala:86
 msgid "User Accounts Settings…"
-msgstr "Налаштування облікових записів користувачів…"
+msgstr "Параметри облікових записів користувачів…"
 
 #: src/Indicator.vala:88
 msgid "Log Out…"
