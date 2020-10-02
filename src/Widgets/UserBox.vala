@@ -117,7 +117,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         }
 
         fullname_label.label = "<b>%s</b>".printf (user.real_name);
-        avatar.queue_draw ();
+        avatar.set_image_load_func (avatar_image_load_func);
     }
 
     public void update_state () {
