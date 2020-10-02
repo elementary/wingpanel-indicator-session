@@ -29,7 +29,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         }
     }
 
-    private Granite.Widgets.Avatar avatar;
+    private Hdy.Avatar avatar;
     private Gtk.Label fullname_label;
     private Gtk.Label status_label;
 
@@ -52,9 +52,21 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         status_label.halign = Gtk.Align.START;
 
         if (user == null) {
-            avatar = new Granite.Widgets.Avatar.with_default_icon (ICON_SIZE);
+            avatar = new Hdy.Avatar (ICON_SIZE, null, false);
+            // We want to use the user's accent, not a random color
+            unowned Gtk.StyleContext avatar_context = avatar.get_style_context ();
+            avatar_context.remove_class ("color1");
+            avatar_context.remove_class ("color2");
+            avatar_context.remove_class ("color3");
+            avatar_context.remove_class ("color4");
+            avatar_context.remove_class ("color5");
+            avatar_context.remove_class ("color6");
+            avatar_context.remove_class ("color7");
+            avatar_context.remove_class ("color8");
         } else {
-            avatar = new Granite.Widgets.Avatar.from_file (user.get_icon_file (), ICON_SIZE);
+            avatar = new Hdy.Avatar (ICON_SIZE, fullname, true);
+            avatar.set_image_load_func (avatar_image_load_func);
+
             user.changed.connect (() => {
                 update ();
                 update_state ();
@@ -62,11 +74,14 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
             user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
             user.bind_property ("locked", this, "no-show-all", BindingFlags.SYNC_CREATE);
+            user.bind_property ("real-name", avatar, "text", BindingFlags.SYNC_CREATE);
 
             update ();
         }
 
-        var grid = new Gtk.Grid ();
+        var grid = new Gtk.Grid () {
+            column_spacing = 12
+        };
         grid.attach (avatar, 0, 0, 3, 3);
         grid.attach (fullname_label, 3, 0, 2, 1);
         grid.attach (status_label, 3, 1, 2, 1);
@@ -75,6 +90,16 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         add (grid);
 
         update_state ();
+    }
+
+    private Gdk.Pixbuf? avatar_image_load_func (int size) {
+        try {
+            var pixbuf = new Gdk.Pixbuf.from_file (user.get_icon_file ());
+            return pixbuf.scale_simple (size, size, Gdk.InterpType.BILINEAR);
+        } catch (Error e) {
+            debug (e.message);
+            return null;
+        }
     }
 
     // For some reason Act.User.is_logged_in () does not work
@@ -91,16 +116,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
             return;
         }
 
-        fullname_label.label = "<b>%s</b>".printf (user.get_real_name ());
-
-        try {
-            var pixbuf = new Gdk.Pixbuf.from_file (user.get_icon_file ());
-            var size = get_style_context ().get_scale () * ICON_SIZE;
-            pixbuf = pixbuf.scale_simple (size, size, Gdk.InterpType.BILINEAR);
-            avatar.pixbuf = pixbuf;
-        } catch (Error e) {
-            avatar.show_default (ICON_SIZE);
-        }
+        fullname_label.label = "<b>%s</b>".printf (user.real_name);
+        avatar.queue_draw ();
     }
 
     public void update_state () {
