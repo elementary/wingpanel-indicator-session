@@ -63,6 +63,12 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
             avatar_context.remove_class ("color6");
             avatar_context.remove_class ("color7");
             avatar_context.remove_class ("color8");
+            avatar_context.remove_class ("color9");
+            avatar_context.remove_class ("color10");
+            avatar_context.remove_class ("color11");
+            avatar_context.remove_class ("color12");
+            avatar_context.remove_class ("color13");
+            avatar_context.remove_class ("color14");
         } else {
             avatar = new Hdy.Avatar (ICON_SIZE, fullname, true);
             avatar.set_image_load_func (avatar_image_load_func);
