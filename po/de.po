@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:49+0000\n"
-"PO-Revision-Date: 2019-09-02 13:22+0000\n"
+"PO-Revision-Date: 2020-10-27 10:15+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/de/>\n"
@@ -12,16 +12,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:86
 msgid "User Accounts Settings…"
-msgstr "Account-Einstellungen…"
+msgstr "Kontoeinstellungen …"
 
 #: src/Indicator.vala:88
 msgid "Log Out…"
-msgstr "Abmelden…"
+msgstr "Abmelden …"
 
 #: src/Indicator.vala:94
 msgid "Lock"
@@ -29,7 +29,7 @@ msgstr "Sperren"
 
 #: src/Indicator.vala:102
 msgid "Shut Down…"
-msgstr "Herunterfahren…"
+msgstr "Ausschalten …"
 
 #: src/Indicator.vala:105
 msgid "Suspend"
