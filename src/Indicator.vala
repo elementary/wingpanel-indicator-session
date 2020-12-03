@@ -236,7 +236,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             try {
-                lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver");
+                lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
             } catch (IOError e) {
                 warning ("Unable to connect to lock interface: %s", e.message);
                 lock_screen.set_sensitive (false);

@@ -31,7 +31,7 @@ interface SessionInterface : Object {
 }
 
 /* Power and system control */
-[DBus (name = "org.freedesktop.ScreenSaver")]
+[DBus (name = "org.gnome.ScreenSaver")]
 interface LockInterface : Object {
     public abstract void lock () throws GLib.Error;
 }
