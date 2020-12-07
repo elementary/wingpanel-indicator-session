@@ -57,6 +57,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
+
+            update_tooltip ();
+
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
@@ -319,6 +322,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
+    }
+
+    private void update_tooltip () {
+        indicator_icon.tooltip_markup = Granite.markup_accel_tooltip ({}, "Test");
     }
 }
 
