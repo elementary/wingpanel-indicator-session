@@ -325,8 +325,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        string description = "";
-        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
 
         manager = new Session.Services.UserManager (new Wingpanel.Widgets.Separator ());
 
@@ -334,11 +332,15 @@ public class Session.Indicator : Wingpanel.Indicator {
         int number_of_other_active_users = manager.get_number_of_active_users () - 1;
         string active_real_name = manager.get_active_real_name ();
 
+        /* Note: description and accel_label do not need to be initiatilised
+        since the tooltip doesn't show if active_real_name == "" anyway. */
         if (active_real_name != "") {
+            string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
+
             if (number_of_other_active_users == 0) {
-                description = _("Logged in as %s".printf (active_real_name));
+                string description = _("Logged in as %s".printf (active_real_name));
             } else {
-                description = _("Logged in as %s, %i other %s logged in".printf (
+                string description = _("Logged in as %s, %i other %s logged in".printf (
                     active_real_name,
                     number_of_other_active_users,
                     ngettext ("user", "users", number_of_other_active_users)
