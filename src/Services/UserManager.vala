@@ -234,8 +234,6 @@ public class Session.Services.UserManager : Object {
     }
 
     public int get_number_of_active_users () {
-        debug ("This method was called");
-
         int number_of_active_users = 0;
 
         if (login_proxy == null) {
