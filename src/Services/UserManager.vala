@@ -171,7 +171,7 @@ public class Session.Services.UserManager : Object {
         }
     }
 
-    private void init_users () {
+    public void init_users () {
         if (!manager.is_loaded) {
             return;
         }
@@ -231,5 +231,25 @@ public class Session.Services.UserManager : Object {
         user_grid.add (user_boxes[GUEST_USER_UID]);
 
         users_separator.visible = true;
+    }
+
+    public int get_number_of_active_users () {
+        debug ("This method was called");
+
+        int number_of_active_users = 0;
+
+        if (login_proxy == null) {
+            return number_of_active_users;
+        }
+
+        try {
+            UserInfo[] users = login_proxy.list_users ();
+            number_of_active_users = users.length;
+
+        } catch (GLib.Error e) {
+            critical ("Failed to get Guest state: %s", e.message);
+        }
+
+        return number_of_active_users;
     }
 }
