@@ -325,6 +325,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
+        string description = "";
+        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
+
         manager = new Session.Services.UserManager (new Wingpanel.Widgets.Separator ());
 
         // Subtract 1 since current user session is one active user.
@@ -333,14 +336,15 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         if (active_real_name != "") {
             if (number_of_other_active_users == 0) {
-                indicator_icon.tooltip_markup = _("Logged in as %s".printf (active_real_name));
+                description = _("Logged in as %s".printf (active_real_name));
             } else {
-                indicator_icon.tooltip_markup = _("Logged in as %s, %i other %s logged in".printf (
+                description = _("Logged in as %s, %i other %s logged in".printf (
                     active_real_name,
                     number_of_other_active_users,
                     ngettext ("user", "users", number_of_other_active_users)
                 ));
             }
+            indicator_icon.tooltip_markup = "%s\n%s".printf (description, accel_label);
         }
 
     }
