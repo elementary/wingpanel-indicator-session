@@ -329,7 +329,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         // Subtract 1 since current user session is one active user.
         int number_of_other_active_users = manager.get_number_of_active_users () - 1;
-        string active_real_name = "Loong Yeat";
+        string active_real_name = manager.get_active_real_name ();
 
         if (active_real_name != "") {
             if (number_of_other_active_users == 0) {
