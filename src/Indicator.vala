@@ -327,9 +327,22 @@ public class Session.Indicator : Wingpanel.Indicator {
     private void update_tooltip () {
         manager = new Session.Services.UserManager (new Wingpanel.Widgets.Separator ());
 
-        int number_of_active_users = manager.get_number_of_active_users ();
+        // Subtract 1 since current user session is one active user.
+        int number_of_other_active_users = manager.get_number_of_active_users () - 1;
+        string active_real_name = "Loong Yeat";
 
-        indicator_icon.tooltip_markup = _("Logged in as %s, %i other users logged in".printf ("Loong Yeat", number_of_active_users));
+        if (active_real_name != "") {
+            if (number_of_other_active_users == 0) {
+                indicator_icon.tooltip_markup = _("Logged in as %s".printf (active_real_name));
+            } else {
+                indicator_icon.tooltip_markup = _("Logged in as %s, %i other %s logged in".printf (
+                    active_real_name,
+                    number_of_other_active_users,
+                    ngettext ("user", "users", number_of_other_active_users)
+                ));
+            }
+        }
+
     }
 }
 
