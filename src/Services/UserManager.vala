@@ -250,4 +250,47 @@ public class Session.Services.UserManager : Object {
 
         return number_of_active_users;
     }
+
+    /* Note that this should return uint32
+    but I needed a way of checking for errors
+    so I went with int32 and used -1 for error. */
+    private int32 get_active_uuid () {
+        int32 active_uuid = -1;
+
+        if (login_proxy == null) {
+            return active_uuid;
+        }
+
+        try {
+            UserInfo[] users = login_proxy.list_users ();
+            foreach (UserInfo user in users) {
+                var state = get_user_state (user.uid);
+                if (state == UserState.ACTIVE) {
+                    return (int32) user.uid;
+                }
+            }
+
+        } catch (GLib.Error e) {
+            critical ("Failed to get number of active users: %s", e.message);
+        }
+
+        return active_uuid;
+    }
+
+    public string get_active_real_name () {
+        string active_real_name = "";
+        bool found = false;
+        int32 active_uuid = get_active_uuid ();
+
+        if (active_uuid != -1) {
+            foreach (Act.User user in manager.list_users ()) {
+                if (!found && user.uid == active_uuid) {
+                    found = true;
+                    return user.real_name;
+                }
+            }
+        }
+
+        return active_real_name;
+    }
 }
