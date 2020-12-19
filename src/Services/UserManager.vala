@@ -245,7 +245,7 @@ public class Session.Services.UserManager : Object {
             number_of_active_users = users.length;
 
         } catch (GLib.Error e) {
-            critical ("Failed to get Guest state: %s", e.message);
+            critical ("Failed to get number of active users: %s", e.message);
         }
 
         return number_of_active_users;
