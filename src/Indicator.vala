@@ -325,7 +325,11 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        indicator_icon.tooltip_markup = Granite.markup_accel_tooltip ({}, "Test");
+        manager = new Session.Services.UserManager (new Wingpanel.Widgets.Separator ());
+
+        int number_of_active_users = manager.get_number_of_active_users ();
+
+        indicator_icon.tooltip_markup = _("Logged in as %s, %i other users logged in".printf ("Loong Yeat", number_of_active_users));
     }
 }
 
