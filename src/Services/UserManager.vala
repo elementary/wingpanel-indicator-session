@@ -171,7 +171,7 @@ public class Session.Services.UserManager : Object {
         }
     }
 
-    public void init_users () {
+    private void init_users () {
         if (!manager.is_loaded) {
             return;
         }
