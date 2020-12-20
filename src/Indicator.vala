@@ -325,8 +325,13 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        string real_name = "Loong Yeat";
-        int other_users = 2;
+        manager = new Session.Services.UserManager (new Wingpanel.Widgets.Separator ());
+
+        string real_name = manager.get_active_real_name ();
+        int other_users = manager.get_number_of_active_users () - 1;
+
+        debug ("Real name: %s".printf (real_name));
+        debug ("Number of other users: %i".printf (other_users));
 
         string description = _("Logged in as %s".printf (real_name));
         string users_logged_in = "";
