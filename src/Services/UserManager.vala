@@ -219,6 +219,7 @@ public class Session.Services.UserManager : Object {
         }
 
         userbox.update_state ();
+        update_tooltip ();
     }
 
     public void update_all () {
