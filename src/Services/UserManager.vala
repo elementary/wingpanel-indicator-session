@@ -134,6 +134,10 @@ public class Session.Services.UserManager : Object {
         manager.user_added.connect (add_user);
         manager.user_removed.connect (remove_user);
         manager.user_is_logged_in_changed.connect (update_user);
+        manager.user_changed.connect (() => {
+            debug ("User changed");
+            update_tooltip ();
+        });
 
         manager.notify["is-loaded"].connect (() => {
             init_users ();
@@ -219,7 +223,6 @@ public class Session.Services.UserManager : Object {
         }
 
         userbox.update_state ();
-        update_tooltip ();
     }
 
     public void update_all () {
