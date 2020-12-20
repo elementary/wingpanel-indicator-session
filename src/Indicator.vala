@@ -57,6 +57,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
+
+            update_tooltip ();
+
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
@@ -319,6 +322,25 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
+    }
+
+    private void update_tooltip () {
+        string real_name = "Loong Yeat";
+        int other_users = 2;
+
+        string description = _("Logged in as %s".printf (real_name));
+        string users_logged_in = "";
+
+        if (other_users > 0) {
+            users_logged_in = _(", %i other %s logged in".printf (
+                other_users,
+                ngettext ("user", "users", other_users)
+            ));
+        }
+
+        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
+
+        indicator_icon.tooltip_markup = "%s%s\n%s".printf (description, users_logged_in, accel_label);
     }
 }
 
