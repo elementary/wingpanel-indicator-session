@@ -232,4 +232,28 @@ public class Session.Services.UserManager : Object {
 
         users_separator.visible = true;
     }
+
+    public string get_active_real_name () {
+        foreach (Act.User user in manager.list_users ()) {
+            if (get_user_state (user.uid) == UserState.ACTIVE) {
+                return user.real_name;
+            }
+        }
+
+        return "Unknown";
+    }
+
+    public int get_number_of_active_users () {
+        int number_of_active_users = 0;
+
+        foreach (Act.User user in manager.list_users ()) {
+            var state = get_user_state (user.uid);
+
+            if (state == UserState.ONLINE || state == UserState.ACTIVE) {
+                number_of_active_users++;
+            }
+        }
+
+        return number_of_active_users;
+    }
 }
