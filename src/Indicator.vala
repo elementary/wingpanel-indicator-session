@@ -158,6 +158,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
 
             manager.close.connect (() => close ());
+            manager.update_tooltip.connect (() => update_tooltip ());
 
             user_settings.clicked.connect (() => {
                 close ();

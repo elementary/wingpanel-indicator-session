@@ -36,6 +36,7 @@ public enum UserState {
 
 public class Session.Services.UserManager : Object {
     public signal void close ();
+    public signal void update_tooltip ();
 
     public Session.Widgets.UserListBox user_grid { get; private set; }
     public Wingpanel.Widgets.Separator users_separator { get; construct; }
@@ -179,6 +180,8 @@ public class Session.Services.UserManager : Object {
         foreach (Act.User user in manager.list_users ()) {
             add_user (user);
         }
+
+        update_tooltip ();
     }
 
     private void add_user (Act.User? user) {
@@ -192,6 +195,8 @@ public class Session.Services.UserManager : Object {
         user_grid.add (user_boxes[uid]);
 
         users_separator.visible = true;
+
+        update_tooltip ();
     }
 
     private void remove_user (Act.User user) {
@@ -203,6 +208,8 @@ public class Session.Services.UserManager : Object {
 
         user_boxes.unset (uid);
         user_grid.remove (userbox);
+
+        update_tooltip ();
     }
 
     private void update_user (Act.User user) {
