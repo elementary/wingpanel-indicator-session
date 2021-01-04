@@ -28,7 +28,7 @@ public enum Session.Widgets.EndSessionDialogType {
     RESTART = 2
 }
 
-public class Session.Widgets.EndSessionDialog : Gtk.Window {
+public class Session.Widgets.EndSessionDialog : Hdy.Window {
     public signal void reboot ();
     public signal void shutdown ();
     public signal void logout ();
@@ -105,28 +105,22 @@ public class Session.Widgets.EndSessionDialog : Gtk.Window {
         action_area.add (cancel);
         action_area.add (confirm);
 
-        var grid = new Gtk.Grid ();
-        grid.column_spacing = 12;
-        grid.margin = 12;
-        grid.margin_top = 6;
+        var grid = new Gtk.Grid () {
+            column_spacing = 12,
+            margin = 12
+        };
         grid.attach (image, 0, 0, 1, 2);
         grid.attach (primary_label, 1, 0);
         grid.attach (secondary_label, 1, 1);
         grid.attach (action_area, 0, 2, 2);
-
-        var titlebar = new Gtk.HeaderBar ();
-        titlebar.custom_title = new Gtk.Grid ();
-        titlebar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         deletable = false;
         resizable = false;
         skip_taskbar_hint = true;
         skip_pager_hint = true;
         type_hint = Gdk.WindowTypeHint.DIALOG;
-        get_style_context ().add_class ("rounded");
         set_keep_above (true);
         set_position (Gtk.WindowPosition.CENTER);
-        set_titlebar (titlebar);
         stick ();
         add (grid);
 
