@@ -21,7 +21,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
     private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
-    private SystemInterface suspend_interface;
     private LockInterface lock_interface;
     private SessionInterface session_interface;
     private SystemInterface system_interface;
@@ -60,10 +59,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
-                        init_interfaces ();
+                        init_interfaces.begin ((obj, res) => {
+                            init_interfaces.end (res);
+                            show_shutdown_dialog ();
+                        });
+                    } else {
+                        show_shutdown_dialog ();
                     }
-
-                    show_shutdown_dialog ();
 
                     return Gdk.EVENT_STOP;
                 }
@@ -77,7 +79,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_grid == null) {
-            init_interfaces ();
+            init_interfaces.begin ();
 
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
@@ -174,7 +176,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 close ();
 
                 try {
-                    suspend_interface.suspend (true);
+                    system_interface.suspend (true);
                 } catch (GLib.Error e) {
                     warning ("Unable to suspend: %s", e.message);
                 }
@@ -226,32 +228,26 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
     }
 
-    private void init_interfaces () {
+    private async void init_interfaces () {
         try {
-            suspend_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            system_interface = yield Bus.get_proxy (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
         } catch (IOError e) {
-            warning ("Unable to connect to suspend interface: %s", e.message);
+            critical ("Unable to connect to the login interface: %s", e.message);
             suspend.set_sensitive (false);
         }
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             try {
-                lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+                lock_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
             } catch (IOError e) {
                 warning ("Unable to connect to lock interface: %s", e.message);
                 lock_screen.set_sensitive (false);
             }
 
             try {
-                session_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+                session_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
             } catch (IOError e) {
                 critical ("Unable to connect to GNOME session interface: %s", e.message);
-            }
-        } else {
-            try {
-                system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
-            } catch (IOError e) {
-                critical ("Unable to connect to the login interface: %s", e.message);
             }
         }
     }

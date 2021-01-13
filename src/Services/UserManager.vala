@@ -55,14 +55,18 @@ public class Session.Services.UserManager : Object {
     private static SystemInterface? login_proxy;
 
     static construct {
+        init_login_proxy.begin ();
+    }
+
+    private static async void init_login_proxy () {
         try {
-            login_proxy = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, LOGIN_PATH, DBusProxyFlags.NONE);
+            login_proxy = yield Bus.get_proxy (BusType.SYSTEM, LOGIN_IFACE, LOGIN_PATH, DBusProxyFlags.NONE);
         } catch (IOError e) {
             critical ("Failed to create login1 dbus proxy: %s", e.message);
         }
     }
 
-    public static UserState get_user_state (uint32 uuid) {
+    public static async UserState get_user_state (uint32 uuid) {
         if (login_proxy == null) {
             return UserState.OFFLINE;
         }
@@ -78,7 +82,7 @@ public class Session.Services.UserManager : Object {
                     if (user.user_object == null) {
                         return UserState.OFFLINE;
                     }
-                    UserInterface? user_interface = Bus.get_proxy_sync (BusType.SYSTEM, LOGIN_IFACE, user.user_object, DBusProxyFlags.NONE);
+                    UserInterface? user_interface = yield Bus.get_proxy (BusType.SYSTEM, LOGIN_IFACE, user.user_object, DBusProxyFlags.NONE);
                     if (user_interface == null) {
                         return UserState.OFFLINE;
                     }
@@ -93,7 +97,7 @@ public class Session.Services.UserManager : Object {
         return UserState.OFFLINE;
     }
 
-    public static UserState get_guest_state () {
+    public static async UserState get_guest_state () {
         if (login_proxy == null) {
             return UserState.OFFLINE;
         }
@@ -101,7 +105,7 @@ public class Session.Services.UserManager : Object {
         try {
             UserInfo[] users = login_proxy.list_users ();
             foreach (UserInfo user in users) {
-                var state = get_user_state (user.uid);
+                var state = yield get_user_state (user.uid);
                 if (user.user_name.has_prefix ("guest-")
                     && state == UserState.ACTIVE) {
                     return UserState.ACTIVE;
@@ -211,12 +215,12 @@ public class Session.Services.UserManager : Object {
             return;
         }
 
-        userbox.update_state ();
+        userbox.update_state.begin ();
     }
 
     public void update_all () {
         foreach (var userbox in user_boxes.values) {
-            userbox.update_state ();
+            userbox.update_state.begin ();
         }
     }
 

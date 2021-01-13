@@ -22,6 +22,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
     public Act.User? user { get; construct; default = null; }
     public string fullname { get; construct set; }
+    public UserState state { get; private set; }
 
     public bool is_guest {
         get {
@@ -75,7 +76,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
 
             user.changed.connect (() => {
                 update ();
-                update_state ();
+                update_state.begin ();
             });
 
             user.bind_property ("locked", this, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
@@ -95,7 +96,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         get_style_context ().add_class ("menuitem");
         add (grid);
 
-        update_state ();
+        update_state.begin ();
     }
 
     private Gdk.Pixbuf? avatar_image_load_func (int size) {
@@ -109,11 +110,11 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     // For some reason Act.User.is_logged_in () does not work
-    public UserState get_user_state () {
+    public async UserState get_user_state () {
         if (is_guest) {
-            return Services.UserManager.get_guest_state ();
+            return yield Services.UserManager.get_guest_state ();
         } else {
-            return Services.UserManager.get_user_state (user.get_uid ());
+            return yield Services.UserManager.get_user_state (user.get_uid ());
         }
     }
 
@@ -126,8 +127,8 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         avatar.set_image_load_func (avatar_image_load_func);
     }
 
-    public void update_state () {
-        var state = get_user_state ();
+    public async void update_state () {
+        state = yield get_user_state ();
 
         selectable = state != UserState.ACTIVE;
         activatable = state != UserState.ACTIVE;

@@ -49,9 +49,9 @@
         var userbox1 = (Userbox)row1;
         var userbox2 = (Userbox)row2;
 
-        if (userbox1.get_user_state () == UserState.ACTIVE) {
+        if (userbox1.state == UserState.ACTIVE) {
             return -1;
-        } else if (userbox2.get_user_state () == UserState.ACTIVE) {
+        } else if (userbox2.state == UserState.ACTIVE) {
             return 1;
         }
 
