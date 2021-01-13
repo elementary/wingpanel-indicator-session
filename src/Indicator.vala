@@ -30,6 +30,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
+    private Gtk.ModelButton shutdown;
+    private Gtk.ModelButton log_out;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
@@ -89,22 +91,31 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
 
-            var log_out = new Gtk.ModelButton ();
+            log_out = new Gtk.ModelButton () {
+                sensitive = false
+            };
+
             log_out.get_child ().destroy ();
             log_out.add (log_out_grid);
 
             var lock_screen_grid = new Granite.AccelLabel (_("Lock"));
 
-            lock_screen = new Gtk.ModelButton ();
+            lock_screen = new Gtk.ModelButton () {
+                sensitive = false
+            };
+
             lock_screen.get_child ().destroy ();
             lock_screen.add (lock_screen_grid);
 
-            var shutdown = new Gtk.ModelButton ();
-            shutdown.hexpand = true;
-            shutdown.text = _("Shut Down…");
+            shutdown = new Gtk.ModelButton () {
+                hexpand = true,
+                text = _("Shut Down…")
+            };
 
-            suspend = new Gtk.ModelButton ();
-            suspend.text = _("Suspend");
+            suspend = new Gtk.ModelButton () {
+                sensitive = false,
+                text = _("Suspend")
+            };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
                 var users_separator = new Wingpanel.Widgets.Separator ();
@@ -231,6 +242,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private async void init_interfaces () {
         try {
             system_interface = yield Bus.get_proxy (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            suspend.sensitive = true;
         } catch (IOError e) {
             critical ("Unable to connect to the login interface: %s", e.message);
             suspend.set_sensitive (false);
@@ -239,13 +251,15 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             try {
                 lock_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+                lock_screen.sensitive = true;
             } catch (IOError e) {
                 warning ("Unable to connect to lock interface: %s", e.message);
-                lock_screen.set_sensitive (false);
             }
 
             try {
                 session_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+                shutdown.sensitive = true;
+                log_out.sensitive = true;
             } catch (IOError e) {
                 critical ("Unable to connect to GNOME session interface: %s", e.message);
             }
