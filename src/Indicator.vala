@@ -21,7 +21,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
     private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
-    private SystemInterface suspend_interface;
     private LockInterface lock_interface;
     private SessionInterface session_interface;
     private SystemInterface system_interface;
@@ -31,6 +30,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
+    private Gtk.ModelButton shutdown;
+    private Gtk.ModelButton log_out;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
@@ -60,10 +61,13 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
-                        init_interfaces ();
+                        init_interfaces.begin ((obj, res) => {
+                            init_interfaces.end (res);
+                            show_shutdown_dialog ();
+                        });
+                    } else {
+                        show_shutdown_dialog ();
                     }
-
-                    show_shutdown_dialog ();
 
                     return Gdk.EVENT_STOP;
                 }
@@ -77,7 +81,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_grid == null) {
-            init_interfaces ();
+            init_interfaces.begin ();
 
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
@@ -87,22 +91,31 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
 
-            var log_out = new Gtk.ModelButton ();
+            log_out = new Gtk.ModelButton () {
+                sensitive = false
+            };
+
             log_out.get_child ().destroy ();
             log_out.add (log_out_grid);
 
             var lock_screen_grid = new Granite.AccelLabel (_("Lock"));
 
-            lock_screen = new Gtk.ModelButton ();
+            lock_screen = new Gtk.ModelButton () {
+                sensitive = false
+            };
+
             lock_screen.get_child ().destroy ();
             lock_screen.add (lock_screen_grid);
 
-            var shutdown = new Gtk.ModelButton ();
-            shutdown.hexpand = true;
-            shutdown.text = _("Shut Down…");
+            shutdown = new Gtk.ModelButton () {
+                hexpand = true,
+                text = _("Shut Down…")
+            };
 
-            suspend = new Gtk.ModelButton ();
-            suspend.text = _("Suspend");
+            suspend = new Gtk.ModelButton () {
+                sensitive = false,
+                text = _("Suspend")
+            };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
                 var users_separator = new Wingpanel.Widgets.Separator ();
@@ -174,7 +187,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 close ();
 
                 try {
-                    suspend_interface.suspend (true);
+                    system_interface.suspend (true);
                 } catch (GLib.Error e) {
                     warning ("Unable to suspend: %s", e.message);
                 }
@@ -226,32 +239,29 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
     }
 
-    private void init_interfaces () {
+    private async void init_interfaces () {
         try {
-            suspend_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            system_interface = yield Bus.get_proxy (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            suspend.sensitive = true;
         } catch (IOError e) {
-            warning ("Unable to connect to suspend interface: %s", e.message);
+            critical ("Unable to connect to the login interface: %s", e.message);
             suspend.set_sensitive (false);
         }
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             try {
-                lock_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+                lock_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+                lock_screen.sensitive = true;
             } catch (IOError e) {
                 warning ("Unable to connect to lock interface: %s", e.message);
-                lock_screen.set_sensitive (false);
             }
 
             try {
-                session_interface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+                session_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
+                shutdown.sensitive = true;
+                log_out.sensitive = true;
             } catch (IOError e) {
                 critical ("Unable to connect to GNOME session interface: %s", e.message);
-            }
-        } else {
-            try {
-                system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
-            } catch (IOError e) {
-                critical ("Unable to connect to the login interface: %s", e.message);
             }
         }
     }
