@@ -40,7 +40,12 @@ interface LockInterface : Object {
 interface SystemInterface : Object {
     public abstract void suspend (bool interactive) throws GLib.Error;
     public abstract void reboot (bool interactive) throws GLib.Error;
+    public abstract void hibernate (bool interactive) throws GLib.Error;
+    public abstract void hybrid_sleep (bool interactive) throws GLib.Error;
     public abstract void power_off (bool interactive) throws GLib.Error;
+
+    public abstract string can_hibernate () throws GLib.Error;
+    public abstract string can_hybrid_sleep () throws GLib.Error;
 
     public abstract UserInfo[] list_users () throws GLib.Error;
 }

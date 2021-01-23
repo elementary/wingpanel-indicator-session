@@ -31,6 +31,8 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
     private Gtk.ModelButton shutdown;
+    private Gtk.ModelButton hibernate;
+    private Gtk.ModelButton hybrid_sleep;
     private Gtk.ModelButton log_out;
 
     private Session.Services.UserManager manager;
@@ -113,8 +115,15 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             suspend = new Gtk.ModelButton () {
-                sensitive = false,
                 text = _("Suspend")
+            };
+
+            hibernate = new Gtk.ModelButton () {
+                text = _("Hibernate")
+            };
+
+            hybrid_sleep = new Gtk.ModelButton () {
+                text = _("Hybrid Sleep")
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
@@ -137,6 +146,23 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
 
             main_grid.add (suspend);
+
+            try {
+                if (system_interface.can_hibernate () == "yes") {
+                    main_grid.add (hibernate);
+                }
+            } catch (GLib.Error e) {
+                warning ("CanHibernate Error: %s", e.message);
+            }
+
+            try {
+                if (system_interface.can_hybrid_sleep () == "yes") {
+                    main_grid.add (hybrid_sleep);
+                }
+            } catch (GLib.Error e) {
+                warning ("CanHybridSleep Error: %s", e.message);
+            }
+
             main_grid.add (shutdown);
 
             if (keybinding_settings != null) {
@@ -214,6 +240,14 @@ public class Session.Indicator : Wingpanel.Indicator {
                     warning ("Unable to lock: %s", e.message);
                 }
             });
+
+            hibernate.clicked.connect (() => {
+                show_dialog (Widgets.EndSessionDialogType.HIBERNATE);
+            });
+
+            hybrid_sleep.clicked.connect (() => {
+                show_dialog (Widgets.EndSessionDialogType.HYBRID_SLEEP);
+            });
         }
 
         return main_grid;
@@ -241,11 +275,15 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private async void init_interfaces () {
         try {
-            system_interface = yield Bus.get_proxy (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
+            system_interface = Bus.get_proxy_sync (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
             suspend.sensitive = true;
+            hibernate.sensitive = true;
+            hybrid_sleep.sensitive = true;
         } catch (IOError e) {
             critical ("Unable to connect to the login interface: %s", e.message);
             suspend.set_sensitive (false);
+            hibernate.set_sensitive (false);
+            hybrid_sleep.set_sensitive (false);
         }
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
@@ -324,6 +362,22 @@ public class Session.Indicator : Wingpanel.Indicator {
                 } catch (Error e) {
                     warning ("Unable to reboot: %s", e.message);
                 }
+            }
+        });
+
+        current_dialog.hibernate.connect (() => {
+            try {
+                system_interface.hibernate (false);
+            } catch (Error e) {
+                warning ("Unable to Hibernate: %s", e.message);
+            }
+        });
+
+        current_dialog.hybrid_sleep.connect (() => {
+            try {
+                system_interface.hybrid_sleep (false);
+            } catch (Error e) {
+                warning ("Unable to Hybrid Sleep: %s", e.message);
             }
         });
 

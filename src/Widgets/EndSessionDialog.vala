@@ -25,12 +25,16 @@
 public enum Session.Widgets.EndSessionDialogType {
     LOGOUT = 0,
     SHUTDOWN = 1,
-    RESTART = 2
+    RESTART = 2,
+    HIBERNATE = 3,
+    HYBRID_SLEEP = 4
 }
 
 public class Session.Widgets.EndSessionDialog : Hdy.Window {
     public signal void reboot ();
     public signal void shutdown ();
+    public signal void hibernate ();
+    public signal void hybrid_sleep ();
     public signal void logout ();
     public signal void cancelled ();
 
@@ -56,6 +60,18 @@ public class Session.Widgets.EndSessionDialog : Hdy.Window {
                 heading_text = _("Are you sure you want to Shut Down?");
                 content_text = _("This will close all open applications and turn off this device.");
                 button_text = _("Shut Down");
+                break;
+            case EndSessionDialogType.HIBERNATE:
+                icon_name = "system-suspend";
+                heading_text = _("Are you sure you want to Hibernate?");
+                content_text = _("This will save state of session and turn off this device.");
+                button_text = _("Hibernate");
+                break;
+            case EndSessionDialogType.HYBRID_SLEEP:
+                icon_name = "system-suspend";
+                heading_text = _("Are you sure you want to Hybrid Sleep?");
+                content_text = _("This will save state of session and suspend device. If device loses power when in suspend, session will be restored on next boot");
+                button_text = _("Hybrid Sleep");
                 break;
             default:
                 warn_if_reached ();
@@ -147,6 +163,10 @@ public class Session.Widgets.EndSessionDialog : Hdy.Window {
         confirm.clicked.connect (() => {
             if (dialog_type == EndSessionDialogType.RESTART || dialog_type == EndSessionDialogType.SHUTDOWN) {
                 shutdown ();
+            } else if (dialog_type == EndSessionDialogType.HIBERNATE) {
+                hibernate ();
+            } else if (dialog_type == EndSessionDialogType.HYBRID_SLEEP) {
+                hybrid_sleep ();
             } else {
                 logout ();
             }
