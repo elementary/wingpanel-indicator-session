@@ -65,7 +65,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
 
             manager.manager.notify["is-loaded"].connect (() => {
-                debug ("UserManager loaded");
                 update_tooltip.begin ();
             });
             manager.manager.user_added.connect (update_tooltip);
@@ -95,7 +94,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_grid == null) {
-            update_tooltip ();
             init_interfaces.begin ();
 
             main_grid = new Gtk.Grid ();
