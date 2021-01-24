@@ -70,7 +70,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             });
             manager.manager.user_added.connect (update_tooltip);
             manager.manager.user_changed.connect (update_tooltip);
-            manager.manager.user_is_logged_in_changed.connect (update_tooltip);
             manager.manager.user_removed.connect (update_tooltip);
 
             indicator_icon.button_press_event.connect ((e) => {
@@ -96,6 +95,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_grid == null) {
+            update_tooltip ();
             init_interfaces.begin ();
 
             main_grid = new Gtk.Grid ();
@@ -360,7 +360,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             active_real_name = active_user.get_real_name ();
         }
 
-        int n_online_users = yield manager.get_n_online_users ();
+        int n_online_users = yield manager.get_n_active_and_online_users ();
+        n_online_users--; // Remove active user count
 
         string description = _("Logged in as %s").printf (active_real_name);
         string other_users = (n_online_users > 0) ? _(", %i other users logged in").printf (n_online_users) : "";

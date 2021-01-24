@@ -237,23 +237,30 @@ public class Session.Services.UserManager : Object {
         users_separator.visible = true;
     }
 
-    public async int get_n_online_users () {
-        int n_online_users = 0;
+    // Can't use JUST online users, see comment below.
+    public async int get_n_active_and_online_users () {
+        int n_active_and_online_users = 0;
 
         if (!manager.is_loaded) {
             critical ("UserManager not yet loaded");
-            return n_online_users;
+            return n_active_and_online_users;
         }
 
         foreach (var user in manager.list_users ()) {
             var state = yield get_user_state (user.uid);
 
-            if (state == UserState.ONLINE) {
-                n_online_users++;
+            /* Because the user_changed signal gets emitted
+            BEFORE the next user is logged in/ACTIVE, we'll
+            need to check for both cases and deduct by 1
+            later (there can only be one ACTIVE user) unless
+            Act.UserManager has a signal that I can connect
+            that gets emitted AFTER login. */
+            if (state == UserState.ACTIVE || state == UserState.ONLINE) {
+                n_active_and_online_users++;
             }
         }
 
-        return n_online_users;
+        return n_active_and_online_users;
     }
 
     public async Act.User get_active_user () {
