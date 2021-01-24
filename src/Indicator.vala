@@ -33,6 +33,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton shutdown;
     private Gtk.ModelButton log_out;
 
+    private Wingpanel.Widgets.Separator users_separator;
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
 
@@ -47,6 +48,13 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
+
+        users_separator = new Wingpanel.Widgets.Separator ();
+        manager = new Session.Services.UserManager (users_separator);
+
+        manager.manager.user_added.connect (update_tooltip);
+        manager.manager.user_is_logged_in_changed.connect (update_tooltip);
+        manager.manager.user_removed.connect (update_tooltip);
     }
 
     static construct {
@@ -58,6 +66,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
+
+            update_tooltip ();
+
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
@@ -118,9 +129,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                var users_separator = new Wingpanel.Widgets.Separator ();
-                manager = new Session.Services.UserManager (users_separator);
-
                 var scrolled_box = new Gtk.ScrolledWindow (null, null);
                 scrolled_box.hexpand = true;
                 scrolled_box.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -329,6 +337,23 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
+    }
+
+    private async void update_tooltip () {
+        debug ("Updating tooltip");
+
+        string active_user = "ASD";
+        int n_online_users = yield manager.get_n_online_users ();
+
+        string description = _("Logged in as %s").printf (active_user);
+        string other_users = _(", %i other users logged in").printf (n_online_users);
+        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
+
+        indicator_icon.tooltip_markup = "%s%s\n%s".printf (
+            description,
+            other_users,
+            accel_label
+        );
     }
 }
 
