@@ -38,6 +38,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Widgets.EndSessionDialog? current_dialog = null;
 
     private Gtk.Grid? main_grid;
+    private Act.User active_user;
 
     private static GLib.Settings? keybinding_settings;
 
@@ -51,10 +52,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         users_separator = new Wingpanel.Widgets.Separator ();
         manager = new Session.Services.UserManager (users_separator);
-
-        manager.manager.user_added.connect (update_tooltip);
-        manager.manager.user_is_logged_in_changed.connect (update_tooltip);
-        manager.manager.user_removed.connect (update_tooltip);
     }
 
     static construct {
@@ -67,7 +64,14 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
 
-            update_tooltip ();
+            manager.manager.notify["is-loaded"].connect (() => {
+                debug ("UserManager loaded");
+                update_tooltip.begin ();
+            });
+            manager.manager.user_added.connect (update_tooltip);
+            manager.manager.user_changed.connect (update_tooltip);
+            manager.manager.user_is_logged_in_changed.connect (update_tooltip);
+            manager.manager.user_removed.connect (update_tooltip);
 
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
@@ -342,11 +346,24 @@ public class Session.Indicator : Wingpanel.Indicator {
     private async void update_tooltip () {
         debug ("Updating tooltip");
 
-        string active_user = "ASD";
+        if (active_user == null) {
+            debug ("active_user is null. Getting active user");
+            active_user = yield manager.get_active_user ();
+        }
+
+        string active_real_name;
+
+        if (active_user == null) {
+            critical ("Active user null. Cannot get real name");
+            active_real_name = _("Unknown");
+        } else {
+            active_real_name = active_user.get_real_name ();
+        }
+
         int n_online_users = yield manager.get_n_online_users ();
 
-        string description = _("Logged in as %s").printf (active_user);
-        string other_users = _(", %i other users logged in").printf (n_online_users);
+        string description = _("Logged in as %s").printf (active_real_name);
+        string other_users = (n_online_users > 0) ? _(", %i other users logged in").printf (n_online_users) : "";
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
 
         indicator_icon.tooltip_markup = "%s%s\n%s".printf (

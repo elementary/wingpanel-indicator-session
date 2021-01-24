@@ -255,4 +255,23 @@ public class Session.Services.UserManager : Object {
 
         return n_online_users;
     }
+
+    public async Act.User get_active_user () {
+        Act.User active_user = null;
+
+        if (!manager.is_loaded) {
+            critical ("UserManager not yet loaded");
+            return active_user;
+        }
+
+        foreach (var user in manager.list_users ()) {
+            var state = yield get_user_state (user.uid);
+
+            if (state == UserState.ACTIVE) {
+                return user;
+            }
+        }
+
+        return active_user;
+    }
 }
