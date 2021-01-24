@@ -36,6 +36,7 @@ public enum UserState {
 
 public class Session.Services.UserManager : Object {
     public signal void close ();
+    public signal void changed ();
 
     public Session.Widgets.UserListBox user_grid { get; private set; }
     public Wingpanel.Widgets.Separator users_separator { get; construct; }
@@ -48,7 +49,7 @@ public class Session.Services.UserManager : Object {
     private const string LOGIN_IFACE = "org.freedesktop.login1";
     private const string LOGIN_PATH = "/org/freedesktop/login1";
 
-    public Act.UserManager manager;
+    private Act.UserManager manager;
     private Gee.HashMap<uint, Widgets.Userbox>? user_boxes;
     private SeatInterface? dm_proxy = null;
 
@@ -196,6 +197,7 @@ public class Session.Services.UserManager : Object {
         user_grid.add (user_boxes[uid]);
 
         users_separator.visible = true;
+        changed ();
     }
 
     private void remove_user (Act.User user) {
@@ -207,6 +209,7 @@ public class Session.Services.UserManager : Object {
 
         user_boxes.unset (uid);
         user_grid.remove (userbox);
+        changed ();
     }
 
     private void update_user (Act.User user) {
@@ -216,6 +219,7 @@ public class Session.Services.UserManager : Object {
         }
 
         userbox.update_state.begin ();
+        changed ();
     }
 
     public void update_all () {

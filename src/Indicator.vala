@@ -64,12 +64,9 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
 
-            manager.manager.notify["is-loaded"].connect (() => {
+            manager.changed.connect (() => {
                 update_tooltip.begin ();
             });
-            manager.manager.user_added.connect (update_tooltip);
-            manager.manager.user_changed.connect (update_tooltip);
-            manager.manager.user_removed.connect (update_tooltip);
 
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
