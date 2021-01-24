@@ -48,7 +48,7 @@ public class Session.Services.UserManager : Object {
     private const string LOGIN_IFACE = "org.freedesktop.login1";
     private const string LOGIN_PATH = "/org/freedesktop/login1";
 
-    private Act.UserManager manager;
+    public Act.UserManager manager;
     private Gee.HashMap<uint, Widgets.Userbox>? user_boxes;
     private SeatInterface? dm_proxy = null;
 
@@ -235,5 +235,24 @@ public class Session.Services.UserManager : Object {
         user_grid.add (user_boxes[GUEST_USER_UID]);
 
         users_separator.visible = true;
+    }
+
+    public async int get_n_online_users () {
+        int n_online_users = 0;
+
+        if (!manager.is_loaded) {
+            critical ("UserManager not yet loaded");
+            return n_online_users;
+        }
+
+        foreach (var user in manager.list_users ()) {
+            var state = yield get_user_state (user.uid);
+
+            if (state == UserState.ONLINE) {
+                n_online_users++;
+            }
+        }
+
+        return n_online_users;
     }
 }
