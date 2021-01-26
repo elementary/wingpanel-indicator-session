@@ -345,6 +345,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
 
         string active_real_name;
+        string other_users;
 
         if (active_user == null) {
             critical ("Active user null. Cannot get real name");
@@ -357,7 +358,16 @@ public class Session.Indicator : Wingpanel.Indicator {
         n_online_users--; // Remove active user count
 
         string description = _("Logged in as %s").printf (active_real_name);
-        string other_users = (n_online_users > 0) ? _(", %i other users logged in").printf (n_online_users) : "";
+
+        if (n_online_users > 0) {
+            other_users = _(", %i other %s logged in").printf (
+                n_online_users,
+                ngettext (_("user"), _("users"), n_online_users)
+            );
+        } else {
+            other_users = "";
+        }
+
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
 
         indicator_icon.tooltip_markup = "%s%s\n%s".printf (
