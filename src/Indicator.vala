@@ -346,6 +346,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         string active_real_name;
         string other_users;
+        int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
 
         if (active_user == null) {
             critical ("Active user null. Cannot get real name");
@@ -353,9 +354,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         } else {
             active_real_name = active_user.get_real_name ();
         }
-
-        int n_online_users = yield manager.get_n_active_and_online_users ();
-        n_online_users--; // Remove active user count
 
         string description = _("Logged in as %s").printf (active_real_name);
 
