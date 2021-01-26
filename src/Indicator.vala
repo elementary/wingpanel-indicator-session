@@ -337,31 +337,38 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private async void update_tooltip () {
-        if (active_user == null) {
-            debug ("active_user is null. Getting active user");
-            active_user = yield manager.get_active_user ();
-        }
+        string description;
+        string other_users = "";
 
-        string active_real_name;
-        string other_users;
-        int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
 
-        if (active_user == null) {
-            critical ("Active user null. Cannot get real name");
-            active_real_name = _("Unknown");
+            if (active_user == null) {
+                debug ("active_user is null. Getting active user");
+                active_user = yield manager.get_active_user ();
+            }
+
+            string active_real_name;
+            int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
+
+            if (active_user == null) {
+                critical ("Active user null. Cannot get real name");
+                active_real_name = _("Unknown");
+            } else {
+                active_real_name = active_user.get_real_name ();
+            }
+
+            description = _("Logged in as %s").printf (active_real_name);
+
+            if (n_online_users > 0) {
+                other_users = _(", %i other %s logged in").printf (
+                    n_online_users,
+                    ngettext (_("user"), _("users"), n_online_users)
+                );
+            } else {
+                other_users = "";
+            }
         } else {
-            active_real_name = active_user.get_real_name ();
-        }
-
-        string description = _("Logged in as %s").printf (active_real_name);
-
-        if (n_online_users > 0) {
-            other_users = _(", %i other %s logged in").printf (
-                n_online_users,
-                ngettext (_("user"), _("users"), n_online_users)
-            );
-        } else {
-            other_users = "";
+            description = _("Not logged in");
         }
 
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
