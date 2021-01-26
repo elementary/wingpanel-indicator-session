@@ -33,7 +33,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton shutdown;
     private Gtk.ModelButton log_out;
 
-    private Wingpanel.Widgets.Separator users_separator;
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
 
@@ -50,8 +49,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
 
-        users_separator = new Wingpanel.Widgets.Separator ();
-        manager = new Session.Services.UserManager (users_separator);
+        manager = new Session.Services.UserManager ();
     }
 
     static construct {
@@ -137,7 +135,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
                 main_grid.add (scrolled_box);
                 main_grid.add (user_settings);
-                main_grid.add (users_separator);
+                main_grid.add (new Wingpanel.Widgets.Separator ());
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
                 main_grid.add (new Wingpanel.Widgets.Separator ());

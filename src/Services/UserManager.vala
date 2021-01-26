@@ -39,7 +39,6 @@ public class Session.Services.UserManager : Object {
     public signal void changed ();
 
     public Session.Widgets.UserListBox user_grid { get; private set; }
-    public Wingpanel.Widgets.Separator users_separator { get; construct; }
 
     private const uint GUEST_USER_UID = 999;
     private const uint NOBODY_USER_UID = 65534;
@@ -119,15 +118,8 @@ public class Session.Services.UserManager : Object {
         return UserState.OFFLINE;
     }
 
-    public UserManager (Wingpanel.Widgets.Separator users_separator) {
-        Object (users_separator: users_separator);
-    }
-
     construct {
         user_boxes = new Gee.HashMap<uint, Widgets.Userbox> ();
-
-        users_separator.no_show_all = true;
-        users_separator.visible = false;
 
         user_grid = new Session.Widgets.UserListBox ();
         user_grid.close.connect (() => close ());
@@ -196,7 +188,6 @@ public class Session.Services.UserManager : Object {
         user_boxes[uid] = new Session.Widgets.Userbox (user);
         user_grid.add (user_boxes[uid]);
 
-        users_separator.visible = true;
         changed ();
     }
 
@@ -237,8 +228,6 @@ public class Session.Services.UserManager : Object {
         user_boxes[GUEST_USER_UID].show ();
 
         user_grid.add (user_boxes[GUEST_USER_UID]);
-
-        users_separator.visible = true;
     }
 
     // Can't use JUST online users, see comment below.
