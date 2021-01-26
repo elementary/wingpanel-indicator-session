@@ -339,8 +339,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     private async void update_tooltip () {
-        debug ("Updating tooltip");
-
         if (active_user == null) {
             debug ("active_user is null. Getting active user");
             active_user = yield manager.get_active_user ();
