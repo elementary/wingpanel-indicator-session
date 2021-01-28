@@ -241,7 +241,7 @@ public class Session.Services.UserManager : Object {
 
         foreach (var user in manager.list_users ()) {
             // Skip system reserved users
-            if (user.uid < RESERVED_UID_RANGE_END || user.uid == NOBODY_USER_UID || user_boxes.has_key (user.uid)) {
+            if (user.uid < RESERVED_UID_RANGE_END || user.uid == NOBODY_USER_UID) {
                 continue;
             }
 
