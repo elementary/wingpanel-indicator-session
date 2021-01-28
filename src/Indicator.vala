@@ -338,7 +338,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     private async void update_tooltip () {
         string description;
-        string other_users = "";
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
 
@@ -350,6 +349,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             string active_real_name;
             int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
 
+            // If active user is still null, fallback to "Unknown"
             if (active_user == null) {
                 critical ("Active user null. Cannot get real name");
                 active_real_name = _("Unknown");
@@ -357,15 +357,15 @@ public class Session.Indicator : Wingpanel.Indicator {
                 active_real_name = active_user.get_real_name ();
             }
 
-            description = _("Logged in as %s").printf (active_real_name);
-
             if (n_online_users > 0) {
-                other_users = _(", %i other %s logged in").printf (
-                    n_online_users,
-                    ngettext (_("user"), _("users"), n_online_users)
+                description = ngettext (
+                    _("Logged in as %s, %i other user logged in"),
+                    _("Logged in as %s, %i other users logged in"),
+                    n_online_users
                 );
+                description = description.printf (active_real_name, n_online_users);
             } else {
-                other_users = "";
+                description = _("Logged in as %s").printf (active_real_name);
             }
         } else {
             description = _("Not logged in");
@@ -373,9 +373,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
 
-        indicator_icon.tooltip_markup = "%s%s\n%s".printf (
+        indicator_icon.tooltip_markup = "%s\n%s".printf (
             description,
-            other_users,
             accel_label
         );
     }
