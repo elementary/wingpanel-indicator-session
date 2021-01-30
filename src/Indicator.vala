@@ -351,7 +351,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             // If active user is still null, fallback to "Unknown"
             if (active_user == null) {
-                critical ("Active user null. Cannot get real name");
+                warning ("Active user null. Cannot get real name");
                 active_real_name = _("Unknown");
             } else {
                 active_real_name = active_user.get_real_name ();
