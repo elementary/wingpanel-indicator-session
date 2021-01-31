@@ -359,8 +359,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             if (n_online_users > 0) {
                 description = ngettext (
-                    _("Logged in as %s, %i other user logged in"),
-                    _("Logged in as %s, %i other users logged in"),
+                    "Logged in as %s, %i other user logged in",
+                    "Logged in as %s, %i other users logged in",
                     n_online_users
                 );
                 description = description.printf (active_real_name, n_online_users);
