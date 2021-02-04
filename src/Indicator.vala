@@ -37,7 +37,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Widgets.EndSessionDialog? current_dialog = null;
 
     private Gtk.Grid? main_grid;
-    private Act.User active_user;
+    private string active_user_real_name;
 
     private static GLib.Settings? keybinding_settings;
 
@@ -341,20 +341,17 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
 
-            if (active_user == null) {
+            if (active_user_real_name == null) {
                 debug ("active_user is null. Getting active user");
-                active_user = yield manager.get_active_user ();
+                active_user_real_name = Environment.get_real_name ();
             }
 
-            string active_real_name;
             int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
 
             // If active user is still null, fallback to "Unknown"
-            if (active_user == null) {
+            if (active_user_real_name == null) {
                 warning ("Active user null. Cannot get real name");
-                active_real_name = _("Unknown");
-            } else {
-                active_real_name = active_user.get_real_name ();
+                active_user_real_name = _("Unknown");
             }
 
             if (n_online_users > 0) {
@@ -363,9 +360,9 @@ public class Session.Indicator : Wingpanel.Indicator {
                     "Logged in as %s, %i other users logged in",
                     n_online_users
                 );
-                description = description.printf (active_real_name, n_online_users);
+                description = description.printf (active_user_real_name, n_online_users);
             } else {
-                description = _("Logged in as %s").printf (active_real_name);
+                description = _("Logged in as %s").printf (active_user_real_name);
             }
         } else {
             description = _("Not logged in");
