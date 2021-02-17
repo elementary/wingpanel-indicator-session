@@ -340,7 +340,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         string description;
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-
             if (active_user_real_name == null) {
                 debug ("active_user is null. Getting active user");
                 active_user_real_name = Environment.get_real_name ();
