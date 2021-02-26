@@ -341,17 +341,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             if (active_user_real_name == null) {
-                debug ("active_user is null. Getting active user");
                 active_user_real_name = Environment.get_real_name ();
             }
 
             int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
-
-            // If active user is still null, fallback to "Unknown"
-            if (active_user_real_name == null) {
-                warning ("Active user null. Cannot get real name");
-                active_user_real_name = _("Unknown");
-            }
 
             if (n_online_users > 0) {
                 description = ngettext (
