@@ -126,6 +126,16 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+                var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                    margin_top = 3,
+                    margin_bottom = 3
+                };
+
+                var logout_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                    margin_top = 3,
+                    margin_bottom = 3
+                };
+
                 var scrolled_box = new Gtk.ScrolledWindow (null, null);
                 scrolled_box.hexpand = true;
                 scrolled_box.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -135,10 +145,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 
                 main_grid.add (scrolled_box);
                 main_grid.add (user_settings);
-                main_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+                main_grid.add (users_separator);
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
-                main_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+                main_grid.add (logout_separator);
             }
 
             main_grid.add (suspend);
