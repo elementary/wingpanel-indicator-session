@@ -37,6 +37,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Widgets.EndSessionDialog? current_dialog = null;
 
     private Gtk.Grid? main_grid;
+    private string active_user_real_name;
 
     private static GLib.Settings? keybinding_settings;
 
@@ -47,6 +48,8 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
+
+        manager = new Session.Services.UserManager ();
     }
 
     static construct {
@@ -58,6 +61,11 @@ public class Session.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_icon == null) {
             indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
+
+            manager.changed.connect (() => {
+                update_tooltip.begin ();
+            });
+
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
@@ -118,8 +126,15 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                var users_separator = new Wingpanel.Widgets.Separator ();
-                manager = new Session.Services.UserManager (users_separator);
+                var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                    margin_top = 3,
+                    margin_bottom = 3
+                };
+
+                var logout_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                    margin_top = 3,
+                    margin_bottom = 3
+                };
 
                 var scrolled_box = new Gtk.ScrolledWindow (null, null);
                 scrolled_box.hexpand = true;
@@ -133,7 +148,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 main_grid.add (users_separator);
                 main_grid.add (lock_screen);
                 main_grid.add (log_out);
-                main_grid.add (new Wingpanel.Widgets.Separator ());
+                main_grid.add (logout_separator);
             }
 
             main_grid.add (suspend);
@@ -329,6 +344,38 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
+    }
+
+    private async void update_tooltip () {
+        string description;
+
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+            if (active_user_real_name == null) {
+                active_user_real_name = Environment.get_real_name ();
+            }
+
+            int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
+
+            if (n_online_users > 0) {
+                description = ngettext (
+                    "Logged in as '%s', %i other user logged in",
+                    "Logged in as '%s', %i other users logged in",
+                    n_online_users
+                );
+                description = description.printf (active_user_real_name, n_online_users);
+            } else {
+                description = _("Logged in as '%s'").printf (active_user_real_name);
+            }
+        } else {
+            description = _("Not logged in");
+        }
+
+        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
+
+        indicator_icon.tooltip_markup = "%s\n%s".printf (
+            description,
+            accel_label
+        );
     }
 }
 
