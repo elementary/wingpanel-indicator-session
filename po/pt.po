@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2020-05-11 18:10+0000\n"
+"PO-Revision-Date: 2021-03-11 14:26+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/pt/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:98
@@ -39,24 +39,21 @@ msgstr "Suspender"
 #, c-format
 msgid "Logged in as '%s', %i other user logged in"
 msgid_plural "Logged in as '%s', %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sessão iniciada como '%s', %i outro utilizador com sessão iniciada"
+msgstr[1] "Sessão iniciada como '%s', %i outros utilizadores com sessão iniciada"
 
 #: src/Indicator.vala:367
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as '%s'"
-msgstr "Com Sessão ativa"
+msgstr "Sessão iniciada como '%s"
 
 #: src/Indicator.vala:370
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "Com Sessão ativa"
+msgstr "Sem sessão iniciada"
 
 #: src/Indicator.vala:373
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "Clicar no botão do meio para solicitar o encerramento"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
@@ -96,7 +93,7 @@ msgstr "Convidado"
 
 #: src/Widgets/UserBox.vala:137
 msgid "Logged in"
-msgstr "Com Sessão ativa"
+msgstr "Com sessão iniciada"
 
 #: src/Widgets/UserBox.vala:139
 msgid "Logged out"
