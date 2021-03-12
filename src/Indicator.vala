@@ -357,7 +357,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
 
             if (n_online_users > 0) {
-                description = ngettext (
+                description = dngettext (
+                    GETTEXT_PACKAGE,
                     "Logged in as '%s', %i other user logged in",
                     "Logged in as '%s', %i other users logged in",
                     n_online_users
