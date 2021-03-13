@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2018-03-31 08:30+0000\n"
-"Last-Translator: Maxim Taranov <png2378@gmail.com>\n"
-"Language-Team: Russian <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-03-13 14:09+0000\n"
+"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:98
@@ -37,28 +37,25 @@ msgid "Suspend"
 msgstr "Ждущий режим"
 
 #: src/Indicator.vala:361
-#, c-format
+#, c-format, fuzzy
 msgid "Logged in as '%s', %i other user logged in"
 msgid_plural "Logged in as '%s', %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Вы вошли под именем «%s», и еще %i другой пользователь вошел"
+msgstr[1] "Вы вошли под именем «%s», и еще %i других пользователей вошли"
+msgstr[2] "Вы вошли под именем «%s», и еще %i других пользователей вошли"
 
 #: src/Indicator.vala:367
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as '%s'"
-msgstr "Вход выполнен"
+msgstr "Вы вошли под именем «%s»"
 
 #: src/Indicator.vala:370
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "Вход выполнен"
+msgstr "Вход не выполнен"
 
 #: src/Indicator.vala:373
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "Нажмите средней кнопкой мыши, чтобы запросить завершение работы"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
