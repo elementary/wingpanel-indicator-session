@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:49+0000\n"
-"PO-Revision-Date: 2020-10-27 10:15+0000\n"
+"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"PO-Revision-Date: 2021-03-12 05:27+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/de/>\n"
@@ -12,28 +12,48 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:98
 msgid "User Accounts Settings…"
 msgstr "Kontoeinstellungen …"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:100
 msgid "Log Out…"
 msgstr "Abmelden …"
 
-#: src/Indicator.vala:94
+#: src/Indicator.vala:109
 msgid "Lock"
 msgstr "Sperren"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:120
 msgid "Shut Down…"
 msgstr "Ausschalten …"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:125
 msgid "Suspend"
 msgstr "Bereitschaft"
+
+#: src/Indicator.vala:361
+#, c-format
+msgid "Logged in as '%s', %i other user logged in"
+msgid_plural "Logged in as '%s', %i other users logged in"
+msgstr[0] "Angemeldet als »%s«, %i weiterer Benutzer ist angemeldet"
+msgstr[1] "Angemeldet als »%s«, %i weitere Benutzer sind angemeldet"
+
+#: src/Indicator.vala:367
+#, c-format
+msgid "Logged in as '%s'"
+msgstr "Angemeldet als »%s«"
+
+#: src/Indicator.vala:370
+msgid "Not logged in"
+msgstr "Nicht angemeldet"
+
+#: src/Indicator.vala:373
+msgid "Middle-click to prompt to shut down"
+msgstr ""
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
@@ -69,15 +89,15 @@ msgstr "Abbrechen"
 msgid "Restart"
 msgstr "Neu starten"
 
-#: src/Widgets/UserBox.vala:41
+#: src/Widgets/UserBox.vala:42
 msgid "Guest"
 msgstr "Gast"
 
-#: src/Widgets/UserBox.vala:113
+#: src/Widgets/UserBox.vala:137
 msgid "Logged in"
 msgstr "Angemeldet"
 
-#: src/Widgets/UserBox.vala:115
+#: src/Widgets/UserBox.vala:139
 msgid "Logged out"
 msgstr "Abgemeldet"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:49+0000\n"
+"POT-Creation-Date: 2021-03-11 14:00+0000\n"
 "PO-Revision-Date: 2020-02-22 19:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -14,25 +14,49 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:98
 msgid "User Accounts Settings…"
 msgstr "Sztelōnki kōnta ôd używocza…"
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:100
 msgid "Log Out…"
 msgstr "Ôdloguj…"
 
-#: src/Indicator.vala:94
+#: src/Indicator.vala:109
 msgid "Lock"
 msgstr "Zablokuj"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:120
 msgid "Shut Down…"
 msgstr "Zawrzij…"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:125
 msgid "Suspend"
 msgstr "Strzim"
+
+#: src/Indicator.vala:361
+#, c-format
+msgid "Logged in as '%s', %i other user logged in"
+msgid_plural "Logged in as '%s', %i other users logged in"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/Indicator.vala:367
+#, fuzzy, c-format
+#| msgid "Logged in"
+msgid "Logged in as '%s'"
+msgstr "Wlogowano"
+
+#: src/Indicator.vala:370
+#, fuzzy
+#| msgid "Logged in"
+msgid "Not logged in"
+msgstr "Wlogowano"
+
+#: src/Indicator.vala:373
+msgid "Middle-click to prompt to shut down"
+msgstr ""
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
@@ -66,15 +90,15 @@ msgstr "Pociep"
 msgid "Restart"
 msgstr "Zresztartuj"
 
-#: src/Widgets/UserBox.vala:41
+#: src/Widgets/UserBox.vala:42
 msgid "Guest"
 msgstr "Gość"
 
-#: src/Widgets/UserBox.vala:113
+#: src/Widgets/UserBox.vala:137
 msgid "Logged in"
 msgstr "Wlogowano"
 
-#: src/Widgets/UserBox.vala:115
+#: src/Widgets/UserBox.vala:139
 msgid "Logged out"
 msgstr "Ôdlogowano"
 

@@ -36,9 +36,9 @@ public enum UserState {
 
 public class Session.Services.UserManager : Object {
     public signal void close ();
+    public signal void changed ();
 
     public Session.Widgets.UserListBox user_grid { get; private set; }
-    public Wingpanel.Widgets.Separator users_separator { get; construct; }
 
     private const uint GUEST_USER_UID = 999;
     private const uint NOBODY_USER_UID = 65534;
@@ -118,15 +118,8 @@ public class Session.Services.UserManager : Object {
         return UserState.OFFLINE;
     }
 
-    public UserManager (Wingpanel.Widgets.Separator users_separator) {
-        Object (users_separator: users_separator);
-    }
-
     construct {
         user_boxes = new Gee.HashMap<uint, Widgets.Userbox> ();
-
-        users_separator.no_show_all = true;
-        users_separator.visible = false;
 
         user_grid = new Session.Widgets.UserListBox ();
         user_grid.close.connect (() => close ());
@@ -195,7 +188,7 @@ public class Session.Services.UserManager : Object {
         user_boxes[uid] = new Session.Widgets.Userbox (user);
         user_grid.add (user_boxes[uid]);
 
-        users_separator.visible = true;
+        changed ();
     }
 
     private void remove_user (Act.User user) {
@@ -207,6 +200,7 @@ public class Session.Services.UserManager : Object {
 
         user_boxes.unset (uid);
         user_grid.remove (userbox);
+        changed ();
     }
 
     private void update_user (Act.User user) {
@@ -216,6 +210,7 @@ public class Session.Services.UserManager : Object {
         }
 
         userbox.update_state.begin ();
+        changed ();
     }
 
     public void update_all () {
@@ -233,7 +228,36 @@ public class Session.Services.UserManager : Object {
         user_boxes[GUEST_USER_UID].show ();
 
         user_grid.add (user_boxes[GUEST_USER_UID]);
+    }
 
-        users_separator.visible = true;
+    // Can't use JUST online users, see comment below.
+    public async int get_n_active_and_online_users () {
+        int n_active_and_online_users = 0;
+
+        if (!manager.is_loaded) {
+            critical ("UserManager not yet loaded");
+            return n_active_and_online_users;
+        }
+
+        foreach (var user in manager.list_users ()) {
+            // Skip system reserved users
+            if (user.uid < RESERVED_UID_RANGE_END || user.uid == NOBODY_USER_UID) {
+                continue;
+            }
+
+            var state = yield get_user_state (user.uid);
+
+            /* Because the user_changed signal gets emitted
+            BEFORE the next user is logged in/ACTIVE, we'll
+            need to check for both cases and deduct by 1
+            later (there can only be one ACTIVE user) unless
+            Act.UserManager has a signal that I can connect
+            that gets emitted AFTER login. */
+            if (state == UserState.ACTIVE || state == UserState.ONLINE) {
+                n_active_and_online_users++;
+            }
+        }
+
+        return n_active_and_online_users;
     }
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:49+0000\n"
+"POT-Creation-Date: 2021-03-11 14:00+0000\n"
 "PO-Revision-Date: 2017-12-27 16:33+0000\n"
 "Last-Translator: Hải Hồ <hochihai1997@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,25 +15,47 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:86
+#: src/Indicator.vala:98
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:88
+#: src/Indicator.vala:100
 msgid "Log Out…"
 msgstr "Đăng xuất…"
 
-#: src/Indicator.vala:94
+#: src/Indicator.vala:109
 msgid "Lock"
 msgstr "Khóa"
 
-#: src/Indicator.vala:102
+#: src/Indicator.vala:120
 msgid "Shut Down…"
 msgstr "Tắt máy…"
 
-#: src/Indicator.vala:105
+#: src/Indicator.vala:125
 msgid "Suspend"
 msgstr "Tạm ngưng"
+
+#: src/Indicator.vala:361
+#, c-format
+msgid "Logged in as '%s', %i other user logged in"
+msgid_plural "Logged in as '%s', %i other users logged in"
+msgstr[0] ""
+
+#: src/Indicator.vala:367
+#, fuzzy, c-format
+#| msgid "Logged in"
+msgid "Logged in as '%s'"
+msgstr "Đã đăng nhập"
+
+#: src/Indicator.vala:370
+#, fuzzy
+#| msgid "Logged in"
+msgid "Not logged in"
+msgstr "Đã đăng nhập"
+
+#: src/Indicator.vala:373
+msgid "Middle-click to prompt to shut down"
+msgstr ""
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
@@ -67,15 +89,15 @@ msgstr "Hủy bỏ"
 msgid "Restart"
 msgstr "Khởi động lại"
 
-#: src/Widgets/UserBox.vala:41
+#: src/Widgets/UserBox.vala:42
 msgid "Guest"
 msgstr "Khách"
 
-#: src/Widgets/UserBox.vala:113
+#: src/Widgets/UserBox.vala:137
 msgid "Logged in"
 msgstr "Đã đăng nhập"
 
-#: src/Widgets/UserBox.vala:115
+#: src/Widgets/UserBox.vala:139
 msgid "Logged out"
 msgstr "Đã đăng xuất"
 
