@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2021-03-12 05:27+0000\n"
+"PO-Revision-Date: 2021-03-16 11:48+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ja/>\n"
@@ -39,7 +39,7 @@ msgstr "サスペンド"
 #, c-format
 msgid "Logged in as '%s', %i other user logged in"
 msgid_plural "Logged in as '%s', %i other users logged in"
-msgstr[0] "'%s' としてログイン中です。ほかに %i 人のユーザーがログイン中です"
+msgstr[0] "'%s' としてログイン中です。ほかに%i人のユーザーがログイン中です"
 
 #: src/Indicator.vala:367
 #, c-format
