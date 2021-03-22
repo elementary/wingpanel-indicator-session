@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2021-03-13 11:57+0000\n"
+"PO-Revision-Date: 2021-03-23 01:18+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/tr/>\n"
@@ -53,7 +53,7 @@ msgstr "Oturum açılmadı"
 
 #: src/Indicator.vala:373
 msgid "Middle-click to prompt to shut down"
-msgstr "Orta tıklatma ile bilgisayarı kapat için sor"
+msgstr "Orta tıklatma ile bilgisayarı kapatma menüsünü göster"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
