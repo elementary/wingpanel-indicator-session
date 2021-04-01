@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2019-04-06 16:52+0000\n"
+"PO-Revision-Date: 2021-04-01 12:05+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-session/zh_Hans/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
 #: src/Indicator.vala:98
@@ -42,10 +42,9 @@ msgid_plural "Logged in as '%s', %i other users logged in"
 msgstr[0] ""
 
 #: src/Indicator.vala:367
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as '%s'"
-msgstr "已登录"
+msgstr "'%s' 已登录"
 
 #: src/Indicator.vala:370
 #, fuzzy
