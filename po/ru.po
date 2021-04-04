@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2021-03-13 14:09+0000\n"
+"PO-Revision-Date: 2021-04-05 00:38+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ru/>\n"
@@ -37,12 +37,12 @@ msgid "Suspend"
 msgstr "Ждущий режим"
 
 #: src/Indicator.vala:361
-#, c-format, fuzzy
+#, c-format
 msgid "Logged in as '%s', %i other user logged in"
 msgid_plural "Logged in as '%s', %i other users logged in"
-msgstr[0] "Вы вошли под именем «%s», и еще %i другой пользователь вошел"
-msgstr[1] "Вы вошли под именем «%s», и еще %i других пользователей вошли"
-msgstr[2] "Вы вошли под именем «%s», и еще %i других пользователей вошли"
+msgstr[0] "Вы вошли как «%s», и еще %i другой пользователь вошел"
+msgstr[1] "Вы вошли как «%s», и еще %i других пользователя вошли"
+msgstr[2] "Вы вошли как «%s», и еще %i других пользователей вошли"
 
 #: src/Indicator.vala:367
 #, c-format
