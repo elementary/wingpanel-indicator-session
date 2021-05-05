@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2021-03-11 18:53+0000\n"
+"PO-Revision-Date: 2021-05-05 23:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/uk/>\n"
@@ -71,7 +71,7 @@ msgstr "Завершити сеанс"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "Ви впевнені, що хочите вимкнути комп'ютер?"
+msgstr "Ви впевнені, що хочете вимкнути комп'ютер?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
