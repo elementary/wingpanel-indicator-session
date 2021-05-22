@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2021-04-01 12:05+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
+"PO-Revision-Date: 2021-05-22 06:38+0000\n"
+"Last-Translator: Chengyu Liu <wer5lcy@live.cn>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-session/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -47,14 +47,12 @@ msgid "Logged in as '%s'"
 msgstr "'%s' 已登录"
 
 #: src/Indicator.vala:370
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "已登录"
+msgstr "未登录"
 
 #: src/Indicator.vala:373
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "点按鼠标中键可下令关机"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
