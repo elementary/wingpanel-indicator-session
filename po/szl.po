@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
 "PO-Revision-Date: 2020-02-22 19:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -34,27 +34,27 @@ msgstr "Zawrzij…"
 msgid "Suspend"
 msgstr "Strzim"
 
-#: src/Indicator.vala:361
+#: src/Indicator.vala:362
 #, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Indicator.vala:367
+#: src/Indicator.vala:368
 #, fuzzy, c-format
 #| msgid "Logged in"
-msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
 msgstr "Wlogowano"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Wlogowano"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 

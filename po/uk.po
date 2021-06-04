@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
 "PO-Revision-Date: 2021-05-05 23:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
@@ -36,24 +36,27 @@ msgstr "Вимкнути…"
 msgid "Suspend"
 msgstr "Режим очікування"
 
-#: src/Indicator.vala:361
-#, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
+#: src/Indicator.vala:362
+#, fuzzy, c-format
+#| msgid "Logged in as '%s', %i other user logged in"
+#| msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Ви увійшли як «%s» і ще %i інший користувач увійшов"
 msgstr[1] "Ви увійшли як «%s» і ще %i інших користувачі увійшли"
 msgstr[2] "Ви увійшли як «%s» і ще %i інших користувачів увійшли"
 
-#: src/Indicator.vala:367
-#, c-format
-msgid "Logged in as '%s'"
+#: src/Indicator.vala:368
+#, fuzzy, c-format
+#| msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
 msgstr "Ви увійшли як «%s»"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 msgid "Not logged in"
 msgstr "Вхід не виконано"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
 msgstr "Клацніть середню кнопку, щоб викликати запит вимкнення"
 

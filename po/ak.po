@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
 "PO-Revision-Date: 2016-12-07 15:39+0000\n"
 "Last-Translator: aberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <ak@li.org>\n"
@@ -39,26 +39,26 @@ msgstr "Dum…"
 msgid "Suspend"
 msgstr "Twe san"
 
-#: src/Indicator.vala:361
+#: src/Indicator.vala:362
 #, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:367
+#: src/Indicator.vala:368
 #, fuzzy, c-format
 #| msgid "Logged in"
-msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
 msgstr "Kɔ mu"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Kɔ mu"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 

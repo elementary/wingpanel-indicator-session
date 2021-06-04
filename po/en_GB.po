@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
 "PO-Revision-Date: 2021-03-12 21:04+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -35,23 +35,26 @@ msgstr "Shut Down…"
 msgid "Suspend"
 msgstr "Suspend"
 
-#: src/Indicator.vala:361
-#, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
+#: src/Indicator.vala:362
+#, fuzzy, c-format
+#| msgid "Logged in as '%s', %i other user logged in"
+#| msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Logged in as '%s', %i other user logged in"
 msgstr[1] "Logged in as '%s', %i other users logged in"
 
-#: src/Indicator.vala:367
-#, c-format
-msgid "Logged in as '%s'"
+#: src/Indicator.vala:368
+#, fuzzy, c-format
+#| msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
 msgstr "Logged in as '%s'"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 msgid "Not logged in"
 msgstr "Not logged in"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
 msgstr "Middle-click to prompt to shut down"
 
