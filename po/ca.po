@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-04 16:21+0000\n"
-"PO-Revision-Date: 2021-03-17 09:52+0000\n"
+"PO-Revision-Date: 2021-06-07 04:54+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ca/>\n"
@@ -36,17 +36,14 @@ msgid "Suspend"
 msgstr "Suspèn"
 
 #: src/Indicator.vala:362
-#, fuzzy, c-format
-#| msgid "Logged in as '%s', %i other user logged in"
-#| msgid_plural "Logged in as '%s', %i other users logged in"
+#, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Sessió iniciada com a %s. %i altre usuari ha iniciat la sessió."
 msgstr[1] "Sessió iniciada com a %s. %i altres usuaris han iniciat la sessió."
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in as '%s'"
+#, c-format
 msgid "Logged in as “%s”"
 msgstr "Sessió iniciada com a %s"
 
