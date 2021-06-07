@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-04 16:21+0000\n"
-"PO-Revision-Date: 2021-03-12 09:56+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"PO-Revision-Date: 2021-06-07 09:25+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/fr/>\n"
 "Language: fr\n"
@@ -36,17 +36,14 @@ msgid "Suspend"
 msgstr "Mettre en veille"
 
 #: src/Indicator.vala:362
-#, fuzzy, c-format
-#| msgid "Logged in as '%s', %i other user logged in"
-#| msgid_plural "Logged in as '%s', %i other users logged in"
+#, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Connecté en tant que « %s », %i autre utilisateur est connecté"
 msgstr[1] "Connecté en tant que « %s », %i autres utilisateurs sont connectés"
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in as '%s'"
+#, c-format
 msgid "Logged in as “%s”"
 msgstr "Connecté en tant que « %s »"
 
