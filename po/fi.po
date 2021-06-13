@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-04 16:21+0000\n"
-"PO-Revision-Date: 2021-05-04 14:26+0000\n"
+"PO-Revision-Date: 2021-06-13 20:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/fi/>\n"
@@ -36,19 +36,16 @@ msgid "Suspend"
 msgstr "Valmiustila"
 
 #: src/Indicator.vala:362
-#, fuzzy, c-format
-#| msgid "Logged in as '%s', %i other user logged in"
-#| msgid_plural "Logged in as '%s', %i other users logged in"
+#, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] "Kirjautuneena tilillä '%s', %i muu käyttäjä sisäänkirjautuneena"
-msgstr[1] "Kirjautuneena tilillä '%s', %i muuta käyttäjää sisäänkirjautuneena"
+msgstr[0] "Kirjautuneena tilillä “%s”, %i muu käyttäjä sisäänkirjautuneena"
+msgstr[1] "Kirjautuneena tilillä “%s”, %i muuta käyttäjää sisäänkirjautuneena"
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in as '%s'"
+#, c-format
 msgid "Logged in as “%s”"
-msgstr "Sisäänkirjautuneena tilillä '%s'"
+msgstr "Sisäänkirjautuneena tilillä “%s”"
 
 #: src/Indicator.vala:371
 msgid "Not logged in"
