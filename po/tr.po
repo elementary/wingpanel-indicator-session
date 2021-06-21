@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2021-03-13 11:57+0000\n"
-"Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
+"PO-Revision-Date: 2021-06-04 19:33+0000\n"
+"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/tr/>\n"
 "Language: tr\n"
@@ -35,25 +35,25 @@ msgstr "Bilgisayarı Kapat…"
 msgid "Suspend"
 msgstr "Askıya Al"
 
-#: src/Indicator.vala:361
+#: src/Indicator.vala:362
 #, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
-msgstr[0] "'%s' olarak oturum açıldı, %i diğer kullanıcı daha oturum açmış"
-msgstr[1] "'%s' olarak oturum açıldı, %i diğer kullanıcı daha oturum açmış"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
+msgstr[0] "“%s” olarak oturum açıldı, %i diğer kullanıcı daha oturum açmış"
+msgstr[1] "“%s” olarak oturum açıldı, %i diğer kullanıcı daha oturum açmış"
 
-#: src/Indicator.vala:367
+#: src/Indicator.vala:368
 #, c-format
-msgid "Logged in as '%s'"
-msgstr "'%s' olarak oturum açıldı"
+msgid "Logged in as “%s”"
+msgstr "“%s” olarak oturum açıldı"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 msgid "Not logged in"
 msgstr "Oturum açılmadı"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr "Orta tıklatma ile bilgisayarı kapat için sor"
+msgstr "Orta tıklatma ile bilgisayarı kapatma menüsünü göster"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"

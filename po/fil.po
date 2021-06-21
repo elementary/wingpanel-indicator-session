@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -36,23 +36,23 @@ msgstr ""
 msgid "Suspend"
 msgstr ""
 
-#: src/Indicator.vala:361
+#: src/Indicator.vala:362
 #, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:367
+#: src/Indicator.vala:368
 #, c-format
-msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
 msgstr ""
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 msgid "Not logged in"
 msgstr ""
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 

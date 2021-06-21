@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
 "PO-Revision-Date: 2019-08-30 21:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
@@ -35,26 +35,26 @@ msgstr "Malŝalti…"
 msgid "Suspend"
 msgstr "Paŭzigi"
 
-#: src/Indicator.vala:361
+#: src/Indicator.vala:362
 #, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:367
+#: src/Indicator.vala:368
 #, fuzzy, c-format
 #| msgid "Logged in"
-msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
 msgstr "Ensalutita"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:371
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Ensalutita"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 

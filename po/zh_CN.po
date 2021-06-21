@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 14:00+0000\n"
-"PO-Revision-Date: 2019-04-06 16:52+0000\n"
+"POT-Creation-Date: 2021-06-04 16:21+0000\n"
+"PO-Revision-Date: 2021-05-28 11:31+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-session/zh_Hans/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
 #: src/Indicator.vala:98
@@ -35,27 +35,27 @@ msgstr "关机…"
 msgid "Suspend"
 msgstr "挂起"
 
-#: src/Indicator.vala:361
-#, c-format
-msgid "Logged in as '%s', %i other user logged in"
-msgid_plural "Logged in as '%s', %i other users logged in"
-msgstr[0] ""
-
-#: src/Indicator.vala:367
+#: src/Indicator.vala:362
 #, fuzzy, c-format
-#| msgid "Logged in"
-msgid "Logged in as '%s'"
-msgstr "已登录"
+#| msgid "Logged in as '%s', %i other user logged in"
+#| msgid_plural "Logged in as '%s', %i other users logged in"
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
+msgstr[0] "'%s' 已登录, 其他 %i 个已登录用户"
 
-#: src/Indicator.vala:370
-#, fuzzy
-#| msgid "Logged in"
+#: src/Indicator.vala:368
+#, fuzzy, c-format
+#| msgid "Logged in as '%s'"
+msgid "Logged in as “%s”"
+msgstr "'%s' 已登录"
+
+#: src/Indicator.vala:371
 msgid "Not logged in"
-msgstr "已登录"
+msgstr "未登录"
 
-#: src/Indicator.vala:373
+#: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "点按鼠标中键可关机"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
