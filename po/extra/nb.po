@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-04 16:21+0000\n"
-"PO-Revision-Date: 2021-05-06 03:25+0000\n"
+"PO-Revision-Date: 2021-07-02 00:12+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
 "wingpanel/indicator-session-extra/nb/>\n"
@@ -29,16 +29,16 @@ msgstr ""
 
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:20
 msgid "Minor updates:"
-msgstr ""
+msgstr "Småoppdateringer:"
 
 #: data/session.appdata.xml.in:13
 msgid "Performance improvements"
-msgstr ""
+msgstr "Ytelsesforbedringer"
 
 #: data/session.appdata.xml.in:14 data/session.appdata.xml.in:23
 #: data/session.appdata.xml.in:29
 msgid "Updated translations"
-msgstr ""
+msgstr "Nye oversettelser"
 
 #: data/session.appdata.xml.in:22
 msgid "Updated styling for keyboard shortcuts"
