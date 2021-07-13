@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 16:21+0000\n"
+"POT-Creation-Date: 2021-07-13 23:29+0000\n"
 "PO-Revision-Date: 2021-06-06 01:57+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
@@ -40,7 +40,8 @@ msgstr "Suspender"
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Sessão iniciada como “%s”, %i outro utilizador com sessão iniciada"
-msgstr[1] "Sessão iniciada como “%s”, %i outros utilizadores com sessão iniciada"
+msgstr[1] ""
+"Sessão iniciada como “%s”, %i outros utilizadores com sessão iniciada"
 
 #: src/Indicator.vala:368
 #, c-format
