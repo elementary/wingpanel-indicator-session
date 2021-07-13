@@ -6,6 +6,17 @@
   <name>Session Indicator</name>
   <summary>Switch users, lock, log out, suspend, or shut down</summary>
   <releases>
+    <release version="2.3.0" date="2021-07-13" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>New colorful avatar fallback</li>
+          <li>Tooltip on hover</li>
+          <li>Performance improvements</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.2.8" date="2020-04-01" urgency="medium">
       <description>
         <p>Minor updates:</p>
