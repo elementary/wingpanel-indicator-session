@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2020-04-06 15:10+0000\n"
+"PO-Revision-Date: 2021-07-14 00:18+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
@@ -36,11 +36,11 @@ msgstr "軽微なアップデート:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
-msgstr ""
+msgstr "アバター画像未設定時に背景を色付きで表示するように変更"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "ホバー時にツールチップテキストを表示するように変更"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
