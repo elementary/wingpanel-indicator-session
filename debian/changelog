@@ -1,3 +1,30 @@
+wingpanel-indicator-session (2.3.0) bionic; urgency=medium
+
+  * Release 2.3.0 (#160)
+  * Update translation files
+  * Update translation template
+  * Indicator: Use typographical quotes in tooltip (#159)
+  * Define log domain (#157)
+  * Use dngettext instead of ngettext (#154)
+  * Indicator tooltip (#151)
+  * Update names of libwingpanel (#152)
+  * Use async versions of Bus.get_proxy (#150)
+  * LINGUAS: sort, remove en_US
+  * EndSessionDialog: Subclass Hdy.Window (#149)
+  * Use GNOME interface for screen lock option (#144)
+  * UserBox: Use Hdy.Avatar (#138)
+  * Indicator: Remove deprecated display_name and description (#132)
+  * Use gnome-session interfaces to end session where possible (#126)
+  * UserManager: Iterate Hashmap values not MapEntries
+  * Indicator: Check mediakeys settings variant type (#129)
+  * UserManager: Fix build
+  * Fix accel labels for Focal (#121)
+  * Revert "Use Seat interface to lock session (#119)" (#120)
+  * Use Seat interface to lock session (#119)
+  * Reduce number of DisplayManger DBus proxies (#116)
+
+ -- elementary LLC <builds@elementary.io>  Tue, 13 Jul 2021 23:29:51 +0000
+
 wingpanel-indicator-session (2.2.8) bionic; urgency=medium
 
   * Release 2.2.8 (#114)
