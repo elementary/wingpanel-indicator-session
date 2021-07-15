@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-07-14 15:40+0000\n"
+"PO-Revision-Date: 2021-07-15 21:31+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/ca/>\n"
@@ -30,7 +30,7 @@ msgstr "Canvieu d'usuari, bloquegeu, sortiu, suspeneu o atureu el sistema."
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
 msgid "Minor updates:"
-msgstr "Petites actualitzacions:"
+msgstr "Actualitzacions menors:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
@@ -38,7 +38,7 @@ msgstr "Avatar acolorit alternatiu nou"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr "Descripció emergent en passar-hi el punter"
+msgstr "Descripció emergent en passar-hi"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
