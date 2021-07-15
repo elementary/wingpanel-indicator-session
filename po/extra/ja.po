@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-07-14 00:18+0000\n"
+"PO-Revision-Date: 2021-07-15 06:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/ja/>\n"
@@ -40,7 +40,7 @@ msgstr "アバター画像未設定時に背景を色付きで表示するよう
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr "ホバー時にツールチップテキストを表示するように変更"
+msgstr "ホバー時にツールチップを表示するように変更"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
