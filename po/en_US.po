@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the session-indicator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: session-indicator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: src/Indicator.vala:98
+msgid "User Accounts Settings…"
+msgstr ""
+
+#: src/Indicator.vala:100
+msgid "Log Out…"
+msgstr ""
+
+#: src/Indicator.vala:109
+msgid "Lock"
+msgstr ""
+
+#: src/Indicator.vala:120
+msgid "Shut Down…"
+msgstr ""
+
+#: src/Indicator.vala:125
+msgid "Suspend"
+msgstr ""
+
+#: src/Indicator.vala:362
+#, c-format
+msgid "Logged in as “%s”, %i other user logged in"
+msgid_plural "Logged in as “%s”, %i other users logged in"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Indicator.vala:368
+#, c-format
+msgid "Logged in as “%s”"
+msgstr ""
+
+#: src/Indicator.vala:371
+msgid "Not logged in"
+msgstr ""
+
+#: src/Indicator.vala:374
+msgid "Middle-click to prompt to shut down"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:49
+msgid "Are you sure you want to Log Out?"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:50
+msgid "This will close all open applications."
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:51
+msgid "Log Out"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:56
+msgid "Are you sure you want to Shut Down?"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:57
+msgid "This will close all open applications and turn off this device."
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:58
+msgid "Shut Down"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:80
+msgid "Cancel"
+msgstr ""
+
+#: src/Widgets/EndSessionDialog.vala:96
+msgid "Restart"
+msgstr ""
+
+#: src/Widgets/UserBox.vala:42
+msgid "Guest"
+msgstr ""
+
+#: src/Widgets/UserBox.vala:137
+msgid "Logged in"
+msgstr ""
+
+#: src/Widgets/UserBox.vala:139
+msgid "Logged out"
+msgstr ""
