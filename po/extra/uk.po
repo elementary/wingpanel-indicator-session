@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-07-15 21:31+0000\n"
+"PO-Revision-Date: 2021-07-16 00:30+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/uk/>\n"
@@ -45,7 +45,7 @@ msgstr "Підказка наведенням"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
-msgstr "Поліпшено швидкодію"
+msgstr "Поліпшення швидкодії"
 
 #: data/session.appdata.xml.in:16 data/session.appdata.xml.in:25
 #: data/session.appdata.xml.in:34 data/session.appdata.xml.in:40
