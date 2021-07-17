@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2020-04-06 15:10+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
+"PO-Revision-Date: 2021-07-17 23:52+0000\n"
+"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "wingpanel/indicator-session-extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
@@ -34,11 +34,11 @@ msgstr "Minor updates:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
-msgstr ""
+msgstr "New colourful avatar fallback"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "Tooltip on hover"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
