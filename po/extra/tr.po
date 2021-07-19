@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-07-15 21:31+0000\n"
+"PO-Revision-Date: 2021-07-20 11:25+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/tr/>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
 msgid "Minor updates:"
-msgstr "Küçük düzeltmeler:"
+msgstr "Küçük güncellemeler:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
