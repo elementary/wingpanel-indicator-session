@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-07-24 19:23+0000\n"
+"PO-Revision-Date: 2021-08-16 07:29+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/fi/>\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
-msgstr ""
+msgstr "Parannuksia suorituskykyyn"
 
 #: data/session.appdata.xml.in:16 data/session.appdata.xml.in:25
 #: data/session.appdata.xml.in:34 data/session.appdata.xml.in:40
