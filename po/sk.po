@@ -3,19 +3,21 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2016-01-10 09:59+0000\n"
-"Last-Translator: Lukáš Papík <stereo839@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-08-20 01:13+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-session/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
 
 #: src/Indicator.vala:98
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "Nastavenia užívateľských účtov…"
 
 #: src/Indicator.vala:100
 msgid "Log Out…"
@@ -23,12 +25,11 @@ msgstr "Odhlásiť sa…"
 
 #: src/Indicator.vala:109
 msgid "Lock"
-msgstr "Zamknúť"
+msgstr "Uzamknúť"
 
 #: src/Indicator.vala:120
-#, fuzzy
 msgid "Shut Down…"
-msgstr "Vypnúť"
+msgstr "Vypnúť…"
 
 #: src/Indicator.vala:125
 msgid "Suspend"
@@ -38,32 +39,30 @@ msgstr "Uspať"
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Prihlásený ako „%s“, %i ďalší užívateľ prihlásený"
+msgstr[1] "Prihlásený ako „%s“, %i ďalší užívatelia prihlásení"
+msgstr[2] "Prihlásený ako „%s“, %i ďalších užívateľov prihlásených"
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as “%s”"
-msgstr "Prihlásený"
+msgstr "Prihlásený ako „%s“"
 
 #: src/Indicator.vala:371
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "Prihlásený"
+msgstr "Neprihlásený"
 
 #: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "Stlačením kolieska zobraziť panel vypnutia"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
-msgstr "Skutočne sa chcete odhlásiť?"
+msgstr "Naozaj sa chcete odhlásiť?"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
-msgstr "Toto zavrie všetky otvorené aplikácie."
+msgstr "Týmto sa ukončia všetky otvorené aplikácie."
 
 #: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
@@ -71,11 +70,11 @@ msgstr "Odhlásiť sa"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "Skutočne chcete vypnúť?"
+msgstr "Naozaj chcete vypnúť zariadenie?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr "Toto vypne všetky otvorené aplikácie a vypne zariadenie."
+msgstr "Týmto za ukončia všetky otvorené aplikácie a vypne sa toto zariadenie."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
