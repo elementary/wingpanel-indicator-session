@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-08-20 01:13+0000\n"
+"PO-Revision-Date: 2021-08-20 14:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/sk/>\n"
@@ -21,11 +21,13 @@ msgstr ""
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
-msgstr ""
+msgstr "Indikátor relácie"
 
 #: data/session.appdata.xml.in:7
 msgid "Switch users, lock, log out, suspend, or shut down"
 msgstr ""
+"Prepínajte užívateľov, uzamknite, odhláste sa, uspite alebo vypnite "
+"zariadenie"
 
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
@@ -34,11 +36,11 @@ msgstr "Menšie aktualizácie:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
-msgstr ""
+msgstr "Nový farebný záložný avatar"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "Popis po umiestnení kurzora"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
@@ -51,7 +53,7 @@ msgstr "Aktualizované preklady"
 
 #: data/session.appdata.xml.in:33
 msgid "Updated styling for keyboard shortcuts"
-msgstr ""
+msgstr "Aktualizovaný štýl klávesových skratiek"
 
 #: data/session.appdata.xml.in:49
 msgid "elementary, Inc."
