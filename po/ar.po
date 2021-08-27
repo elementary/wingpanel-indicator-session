@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2020-05-21 23:55+0000\n"
-"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"PO-Revision-Date: 2021-08-27 13:57+0000\n"
+"Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ar/>\n"
 "Language: ar\n"
@@ -13,59 +13,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:98
 msgid "User Accounts Settings…"
-msgstr "إعدادات الحسابات…"
+msgstr "إعدادات حسابات المستخدمين…"
 
 #: src/Indicator.vala:100
 msgid "Log Out…"
-msgstr "تسجيل خروج…"
+msgstr "سجل خروجك…"
 
 #: src/Indicator.vala:109
 msgid "Lock"
-msgstr "قفل"
+msgstr "أقفل"
 
 #: src/Indicator.vala:120
 msgid "Shut Down…"
-msgstr "إيقاف التشغيل…"
+msgstr "أوقف التشغيل…"
 
 #: src/Indicator.vala:125
 msgid "Suspend"
-msgstr "سكون"
+msgstr "أغلق"
 
 #: src/Indicator.vala:362
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "مسجل الدخول باسم ”%s“"
+msgstr[1] "مسجل الدخول باسم ”%s“، هناك مستخدم آخر مسجل دخوله"
+msgstr[2] "مسجل الدخول باسم ”%s“، هناك مستخدمان آخران مسجل دخولهما"
+msgstr[3] "مسجل الدخول باسم ”%s“، هناك %i مستخدمين آخرين مسجل دخولهم"
+msgstr[4] "مسجل الدخول باسم ”%s“، هناك %i مستخدماً آخراً مسجل دخوله"
+msgstr[5] "مسجل الدخول باسم ”%s“، هناك عدد %i من المستخدمين الآخرين مسجل دخولهم"
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as “%s”"
-msgstr "مسجل دخول"
+msgstr "مسجل الدخول باسم ”%s“"
 
 #: src/Indicator.vala:371
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "مسجل دخول"
+msgstr "ليس مسجلاً الدخول"
 
 #: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "اضغط الزر الأوسط لإيقاف التشغيل"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
-msgstr "هل انت متأكد أنك تريد تسجيل الخروج؟"
+msgstr "هل أنت متأكد بأنك تريد تسجيل الخروج؟"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
@@ -73,27 +70,27 @@ msgstr "سيؤدي هذا إلى إغلاق جميع التطبيقات المف
 
 #: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
-msgstr "تسجيل خروج"
+msgstr "سجل خروجك"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "هل أنت متأكد أنك تريد إيقاف التشغيل؟"
+msgstr "هل أنت متأكد بأنك تريد إيقاف التشغيل؟"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr "سيؤدي هذا إلى إغلاق جميع التطبيقات المفتوحة وإيقاف هذا الجهاز."
+msgstr "سيؤدي هذا إلى إغلاق جميع التطبيقات المفتوحة وإطفاء هذا الجهاز."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
-msgstr "إيقاف التشغيل"
+msgstr "أوقف التشغيل"
 
 #: src/Widgets/EndSessionDialog.vala:80
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "ألغ"
 
 #: src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
-msgstr "إعادة التشغيل"
+msgstr "أعد التشغيل"
 
 #: src/Widgets/UserBox.vala:42
 msgid "Guest"
@@ -101,11 +98,11 @@ msgstr "ضيف"
 
 #: src/Widgets/UserBox.vala:137
 msgid "Logged in"
-msgstr "مسجل دخول"
+msgstr "مسجل الدخول"
 
 #: src/Widgets/UserBox.vala:139
 msgid "Logged out"
-msgstr "مسجل خروج"
+msgstr "مسجل الخروج"
 
 #~ msgid "Session"
 #~ msgstr "جلسة"
