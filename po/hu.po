@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-08-23 19:43+0000\n"
+"PO-Revision-Date: 2021-08-28 22:49+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/hu/>\n"
@@ -69,12 +69,12 @@ msgstr "Kijelentkezés"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "Biztos, hogy ki akarja kapcsolni az eszközt?"
+msgstr "Biztos, hogy ki akarja kapcsolni a készüléket?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
 msgstr ""
-"Az összes megnyitott alkalmazás leállításra kerül és kikapcsol az eszköz."
+"Az összes megnyitott alkalmazás bezárásra kerül és kikapcsol a készülék."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
