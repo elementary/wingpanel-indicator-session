@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-08-28 16:53+0000\n"
+"PO-Revision-Date: 2021-08-28 22:49+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/hu/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
-msgstr ""
+msgstr "Munkamenet-kijelzés"
 
 #: data/session.appdata.xml.in:7
 msgid "Switch users, lock, log out, suspend, or shut down"
@@ -42,12 +42,12 @@ msgstr ""
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
-msgstr ""
+msgstr "Teljesítménybeli javítások"
 
 #: data/session.appdata.xml.in:16 data/session.appdata.xml.in:25
 #: data/session.appdata.xml.in:34 data/session.appdata.xml.in:40
 msgid "Updated translations"
-msgstr "Frissített fordítások"
+msgstr "Fordítási frissítések"
 
 #: data/session.appdata.xml.in:33
 msgid "Updated styling for keyboard shortcuts"
@@ -55,4 +55,4 @@ msgstr ""
 
 #: data/session.appdata.xml.in:49
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
