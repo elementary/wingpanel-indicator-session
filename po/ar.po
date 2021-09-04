@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-08-27 13:57+0000\n"
+"PO-Revision-Date: 2021-09-04 23:27+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ar/>\n"
@@ -45,7 +45,7 @@ msgstr[1] "مسجل الدخول باسم ”%s“، هناك مستخدم آخ�
 msgstr[2] "مسجل الدخول باسم ”%s“، هناك مستخدمان آخران مسجل دخولهما"
 msgstr[3] "مسجل الدخول باسم ”%s“، هناك %i مستخدمين آخرين مسجل دخولهم"
 msgstr[4] "مسجل الدخول باسم ”%s“، هناك %i مستخدماً آخراً مسجل دخوله"
-msgstr[5] "مسجل الدخول باسم ”%s“، هناك عدد %i من المستخدمين الآخرين مسجل دخولهم"
+msgstr[5] "مسجل الدخول باسم ”%s“، هناك %i مستخدم آخر مسجل دخوله"
 
 #: src/Indicator.vala:368
 #, c-format
