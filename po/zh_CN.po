@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-05-28 11:31+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
+"PO-Revision-Date: 2021-09-07 09:51+0000\n"
+"Last-Translator: Yuchen Deng <inbz@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-session/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -36,18 +36,15 @@ msgid "Suspend"
 msgstr "挂起"
 
 #: src/Indicator.vala:362
-#, fuzzy, c-format
-#| msgid "Logged in as '%s', %i other user logged in"
-#| msgid_plural "Logged in as '%s', %i other users logged in"
+#, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] "'%s' 已登录, 其他 %i 个已登录用户"
+msgstr[0] "“%s”已登录, 其他 %i 个已登录用户"
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in as '%s'"
+#, c-format
 msgid "Logged in as “%s”"
-msgstr "'%s' 已登录"
+msgstr "“%s”已登录"
 
 #: src/Indicator.vala:371
 msgid "Not logged in"
