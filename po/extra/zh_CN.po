@@ -8,48 +8,51 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2019-11-07 12:43-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-11-01 08:21+0000\n"
+"Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
+"wingpanel/indicator-session-extra/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
-msgstr ""
+msgstr "会话指示器"
 
 #: data/session.appdata.xml.in:7
 msgid "Switch users, lock, log out, suspend, or shut down"
-msgstr ""
+msgstr "切换用户、锁定、注销、暂停或关闭"
 
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
 msgid "Minor updates:"
-msgstr ""
+msgstr "次要更新："
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
-msgstr ""
+msgstr "新的备用多彩头像"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "悬停时的工具提示"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
-msgstr ""
+msgstr "性能改进"
 
 #: data/session.appdata.xml.in:16 data/session.appdata.xml.in:25
 #: data/session.appdata.xml.in:34 data/session.appdata.xml.in:40
 msgid "Updated translations"
-msgstr ""
+msgstr "更新翻译"
 
 #: data/session.appdata.xml.in:33
 msgid "Updated styling for keyboard shortcuts"
-msgstr ""
+msgstr "更新了键盘快捷键的样式"
 
 #: data/session.appdata.xml.in:49
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
