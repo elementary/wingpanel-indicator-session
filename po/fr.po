@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-06-07 09:25+0000\n"
+"PO-Revision-Date: 2021-11-05 11:08+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/fr/>\n"
@@ -57,7 +57,7 @@ msgstr "Clic central pour afficher l'invite d'extinction"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
-msgstr "Êtes-vous sûr de vouloir fermer la session ?"
+msgstr "Voulez-vous vraiment fermer la session ?"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
@@ -69,7 +69,7 @@ msgstr "Fermer la session"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "Êtes-vous sûr de vouloir éteindre l'ordinateur ?"
+msgstr "Voulez-vous vraiment éteindre l'ordinateur ?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
