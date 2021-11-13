@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-11-03 07:04+0000\n"
+"PO-Revision-Date: 2021-11-13 19:03+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/pl/>\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
-msgstr ""
+msgstr "Wskaźnik sesji"
 
 #: data/session.appdata.xml.in:7
 msgid "Switch users, lock, log out, suspend, or shut down"
-msgstr ""
+msgstr "Zmień użytkownika, zablokuj, wyloguj, uśpij lub zamknij"
 
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
@@ -35,11 +35,11 @@ msgstr "Mniejsze aktualizacje:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
-msgstr ""
+msgstr "Nowy kolorowy awatar zastępczy"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "Tooltip przy najechaniu"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
@@ -52,7 +52,7 @@ msgstr "Zaktualizowano tłumaczenia"
 
 #: data/session.appdata.xml.in:33
 msgid "Updated styling for keyboard shortcuts"
-msgstr ""
+msgstr "Zaktualizowano styl skrótów klawiszowych"
 
 #: data/session.appdata.xml.in:49
 msgid "elementary, Inc."
