@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-08-28 22:49+0000\n"
+"PO-Revision-Date: 2021-12-19 17:54+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/hu/>\n"
@@ -53,7 +53,7 @@ msgstr "Nincs bejelentkezve"
 
 #: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr "Középső kattintás a kikapcsolási panel megjelenítéséhez"
+msgstr "Középső kattintás a kikapcsolási menü megjelenítéséhez"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
