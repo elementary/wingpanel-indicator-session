@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-10-27 04:30+0000\n"
+"PO-Revision-Date: 2021-12-19 17:54+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/hu/>\n"
@@ -26,6 +26,7 @@ msgstr "Munkamenet-kijelzés"
 #: data/session.appdata.xml.in:7
 msgid "Switch users, lock, log out, suspend, or shut down"
 msgstr ""
+"Felhasználók váltása, lezárás, kijelentkezés, felfüggesztés vagy kikapcsolás"
 
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
@@ -34,11 +35,11 @@ msgstr "Apróbb frissítések:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
-msgstr ""
+msgstr "Új, színes alapértelmezett profilkép"
 
 #: data/session.appdata.xml.in:14
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "Lebegő üzenet az egér fölé mozgatásakor"
 
 #: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
 msgid "Performance improvements"
@@ -51,7 +52,7 @@ msgstr "Frissített fordítások"
 
 #: data/session.appdata.xml.in:33
 msgid "Updated styling for keyboard shortcuts"
-msgstr ""
+msgstr "A gombkombinációk stílusa frissítve"
 
 #: data/session.appdata.xml.in:49
 msgid "elementary, Inc."
