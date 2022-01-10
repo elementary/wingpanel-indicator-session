@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2022-01-10 01:06+0000\n"
+"PO-Revision-Date: 2022-01-10 17:06+0000\n"
 "Last-Translator: Michal Grňo <m93a.cz@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/cs/>\n"
@@ -39,9 +39,9 @@ msgstr "Uspat"
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Přihlášeni jako „%s“, %i další uživatel je přihlášen"
+msgstr[1] "Přihlášeni jako „%s“, %i další uživatelé jsou přihlášeno"
+msgstr[2] "Přihlášeni jako „%s“, %i dalších uživatelů je přihlášeno"
 
 #: src/Indicator.vala:368
 #, c-format
@@ -49,14 +49,12 @@ msgid "Logged in as “%s”"
 msgstr "Přihlášeni jako „%s“"
 
 #: src/Indicator.vala:371
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "Přihlášeni"
+msgstr "Nepřihlášeni"
 
 #: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "Klikněte kolečkem pro zobrazení dialogu vypnutí"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
