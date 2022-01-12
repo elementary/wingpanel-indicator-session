@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2022-01-10 17:06+0000\n"
-"Last-Translator: Michal Grňo <m93a.cz@gmail.com>\n"
+"PO-Revision-Date: 2022-01-12 19:06+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/cs/>\n"
 "Language: cs\n"
@@ -21,7 +21,7 @@ msgstr "Nastavení uživatelských účtů…"
 
 #: src/Indicator.vala:100
 msgid "Log Out…"
-msgstr "Odhlásit…"
+msgstr "Odhlásit se…"
 
 #: src/Indicator.vala:109
 msgid "Lock"
@@ -40,7 +40,7 @@ msgstr "Uspat"
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Přihlášeni jako „%s“, %i další uživatel je přihlášen"
-msgstr[1] "Přihlášeni jako „%s“, %i další uživatelé jsou přihlášeno"
+msgstr[1] "Přihlášeni jako „%s“, %i další uživatelé jsou přihlášeni"
 msgstr[2] "Přihlášeni jako „%s“, %i dalších uživatelů je přihlášeno"
 
 #: src/Indicator.vala:368
@@ -74,7 +74,7 @@ msgstr "Opravdu chcete počítač vypnout?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr "Tímto budou zavřeny všechny otevřené aplikace a počítač bude vypnut."
+msgstr "Tímto budou ukončeny všechny otevřené aplikace a počítač bude vypnut."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
