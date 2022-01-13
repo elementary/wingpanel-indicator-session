@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
 "PO-Revision-Date: 2022-01-13 21:09+0000\n"
-"Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/nl/>\n"
 "Language: nl\n"
@@ -39,14 +39,13 @@ msgstr "Slaapstand"
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aangemeld als “%s”, %i andere gebruiker is aangemeld"
+msgstr[1] "Aangemeld als “%s”, %i andere gebruikers zijn aangemeld"
 
 #: src/Indicator.vala:368
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as “%s”"
-msgstr "Aangemeld"
+msgstr "Aangemeld als “%s”"
 
 #: src/Indicator.vala:371
 msgid "Not logged in"
