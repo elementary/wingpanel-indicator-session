@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2022-01-13 21:09+0000\n"
+"PO-Revision-Date: 2022-01-15 17:43+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/nl/>\n"
@@ -61,7 +61,7 @@ msgstr "Weet u zeker dat u wilt afmelden?"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
-msgstr "Alle geopende toepassingen zullen worden gesloten."
+msgstr "Alle geopende applicaties zullen worden gesloten."
 
 #: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
@@ -73,8 +73,7 @@ msgstr "Weet u zeker dat u wilt afsluiten?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr ""
-"Dit zal alle geopende toepassingen sluiten en het toestel uitschakelen."
+msgstr "Dit zal alle geopende applicaties sluiten en het apparaat uitschakelen."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
