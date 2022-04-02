@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-06-07 04:54+0000\n"
+"PO-Revision-Date: 2022-04-03 00:50+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ca/>\n"
@@ -57,7 +57,7 @@ msgstr "Clic del mig per demanar l'aturada"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
-msgstr "Esteu segur que voleu sortir de la sessió?"
+msgstr "Segur que voleu sortir de la sessió?"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
@@ -69,7 +69,7 @@ msgstr "Surt"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "Esteu segur que voleu aturar l'ordinador?"
+msgstr "Segur que voleu aturar l'ordinador?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
