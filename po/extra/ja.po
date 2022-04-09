@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2021-07-15 21:31+0000\n"
+"PO-Revision-Date: 2022-04-09 01:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/ja/>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
 msgid "Minor updates:"
-msgstr "軽微なアップデート:"
+msgstr "そのほかのアップデート:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
