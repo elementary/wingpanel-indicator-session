@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2019-11-07 12:43-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-04-14 22:06+0000\n"
+"Last-Translator: Pikhosh <pikhosh@gmail.com>\n"
+"Language-Team: Persian <https://l10n.elementary.io/projects/wingpanel/"
+"indicator-session-extra/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
@@ -27,7 +30,7 @@ msgstr ""
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
 #: data/session.appdata.xml.in:31
 msgid "Minor updates:"
-msgstr ""
+msgstr "بروزرسانی های جزئی:"
 
 #: data/session.appdata.xml.in:13
 msgid "New colorful avatar fallback"
@@ -44,7 +47,7 @@ msgstr ""
 #: data/session.appdata.xml.in:16 data/session.appdata.xml.in:25
 #: data/session.appdata.xml.in:34 data/session.appdata.xml.in:40
 msgid "Updated translations"
-msgstr ""
+msgstr "ترجمه های بروز شده"
 
 #: data/session.appdata.xml.in:33
 msgid "Updated styling for keyboard shortcuts"
