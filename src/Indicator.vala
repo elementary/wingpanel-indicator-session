@@ -26,7 +26,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private SystemInterface system_interface;
 
     private Wingpanel.IndicatorManager.ServerType server_type;
-    private Wingpanel.Widgets.OverlayIcon indicator_icon;
+    private Gtk.Image indicator_icon;
 
     private Gtk.ModelButton lock_screen;
     private Gtk.ModelButton suspend;
@@ -63,7 +63,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (indicator_icon == null) {
-            indicator_icon = new Wingpanel.Widgets.OverlayIcon (ICON_NAME);
+            indicator_icon = new Gtk.Image () {
+                icon_name = ICON_NAME,
+                pixel_size = 24
+            };
 
             manager.changed.connect (() => {
                 update_tooltip.begin ();
