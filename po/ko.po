@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2022-08-06 22:21+0000\n"
+"PO-Revision-Date: 2022-08-06 23:05+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ko/>\n"
@@ -72,7 +72,7 @@ msgstr "정말 컴퓨터를 끄시겠습니까?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr "모든 애플리케이션을 닫고 컴퓨터를 다시 시작하게 됩니다."
+msgstr "모든 애플리케이션을 닫고 컴퓨터를 끕니다."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
