@@ -43,14 +43,16 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     }
 
     construct {
-        fullname_label = new Gtk.Label ("<b>%s</b>".printf (fullname));
-        fullname_label.use_markup = true;
-        fullname_label.valign = Gtk.Align.END;
-        fullname_label.halign = Gtk.Align.START;
+        fullname_label = new Gtk.Label ("<b>%s</b>".printf (fullname)) {
+            use_markup = true,
+            valign = Gtk.Align.END,
+            halign = Gtk.Align.START
+        };
 
-        status_label = new Gtk.Label (null);
-        status_label.valign = Gtk.Align.START;
-        status_label.halign = Gtk.Align.START;
+        status_label = new Gtk.Label (null) {
+            valign = Gtk.Align.START,
+            halign = Gtk.Align.START
+        };
 
         if (user == null) {
             avatar = new Hdy.Avatar (ICON_SIZE, null, false);

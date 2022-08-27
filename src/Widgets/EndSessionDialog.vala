@@ -62,30 +62,34 @@ public class Session.Widgets.EndSessionDialog : Hdy.Window {
                 break;
         }
 
-        var image = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DIALOG);
-        image.valign = Gtk.Align.START;
+        var image = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DIALOG) {
+            valign = Gtk.Align.START
+        };
 
-        var primary_label = new Gtk.Label (heading_text);
+        var primary_label = new Gtk.Label (heading_text) {
+            hexpand = true,
+            max_width_chars = 50,
+            wrap = true,
+            xalign = 0
+        };
         primary_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
-        primary_label.hexpand = true;
-        primary_label.max_width_chars = 50;
-        primary_label.wrap = true;
-        primary_label.xalign = 0;
 
-        var secondary_label = new Gtk.Label (content_text);
-        secondary_label.max_width_chars = 50;
-        secondary_label.wrap = true;
-        secondary_label.xalign = 0;
+        var secondary_label = new Gtk.Label (content_text) {
+            max_width_chars = 50,
+            wrap = true,
+            xalign = 0
+        };
 
         var cancel = new Gtk.Button.with_label (_("Cancel"));
 
         var confirm = new Gtk.Button.with_label (button_text);
         confirm.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        var action_area = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-        action_area.layout_style = Gtk.ButtonBoxStyle.END;
-        action_area.margin_top = 16;
-        action_area.spacing = 6;
+        var action_area = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
+            layout_style = Gtk.ButtonBoxStyle.END,
+            margin_top = 16,
+            spacing = 6
+        };
 
         /*
          * the indicator does not have a separate item for restart, that's
@@ -107,12 +111,15 @@ public class Session.Widgets.EndSessionDialog : Hdy.Window {
 
         var grid = new Gtk.Grid () {
             column_spacing = 12,
-            margin = 12
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12
         };
         grid.attach (image, 0, 0, 1, 2);
         grid.attach (primary_label, 1, 0);
         grid.attach (secondary_label, 1, 1);
-        grid.attach (action_area, 0, 2, 2);
+        grid.attach (action_area, 0, 2, 2, 1);
 
         deletable = false;
         resizable = false;
@@ -120,7 +127,7 @@ public class Session.Widgets.EndSessionDialog : Hdy.Window {
         skip_pager_hint = true;
         type_hint = Gdk.WindowTypeHint.DIALOG;
         set_keep_above (true);
-        set_position (Gtk.WindowPosition.CENTER);
+        window_position = Gtk.WindowPosition.CENTER;
         stick ();
         add (grid);
 
@@ -141,7 +148,7 @@ public class Session.Widgets.EndSessionDialog : Hdy.Window {
                 cancel_action.activate (null);
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         });
 
         confirm.clicked.connect (() => {

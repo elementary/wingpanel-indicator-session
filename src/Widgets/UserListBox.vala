@@ -22,13 +22,13 @@
     public signal void switch_to_guest ();
     public signal void switch_to_user (string username);
 
-    public UserListBox () {
-        this.set_sort_func (sort_func);
-        this.set_activate_on_single_click (true);
+    construct {
+        set_sort_func (sort_func);
+        activate_on_single_click = true;
     }
 
     public override void row_activated (Gtk.ListBoxRow row) {
-        var userbox = (Userbox)row;
+        var userbox = (Userbox) row;
         if (userbox == null) {
             return;
         }
@@ -46,8 +46,8 @@
 
     // We could use here Act.User.collate () but we want to show the logged user first
     public int sort_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-        var userbox1 = (Userbox)row1;
-        var userbox2 = (Userbox)row2;
+        var userbox1 = (Userbox) row1;
+        var userbox2 = (Userbox) row2;
 
         if (userbox1.state == UserState.ACTIVE) {
             return -1;
