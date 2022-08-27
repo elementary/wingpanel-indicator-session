@@ -36,7 +36,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
 
-    private Gtk.Grid? main_grid;
+    private Gtk.Box? main_box;
     private string active_user_real_name;
 
     private static GLib.Settings? keybinding_settings;
@@ -94,14 +94,14 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget? get_widget () {
-        if (main_grid == null) {
+        if (main_box == null) {
             init_interfaces.begin ();
 
-            main_grid = new Gtk.Grid ();
-            main_grid.set_orientation (Gtk.Orientation.VERTICAL);
+            main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-            var user_settings = new Gtk.ModelButton ();
-            user_settings.text = _("User Accounts Settings…");
+            var user_settings = new Gtk.ModelButton () {
+                text = _("User Accounts Settings…")
+            };
 
             var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
 
@@ -142,23 +142,24 @@ public class Session.Indicator : Wingpanel.Indicator {
                     margin_bottom = 3
                 };
 
-                var scrolled_box = new Gtk.ScrolledWindow (null, null);
-                scrolled_box.hexpand = true;
-                scrolled_box.hscrollbar_policy = Gtk.PolicyType.NEVER;
-                scrolled_box.max_content_height = 300;
-                scrolled_box.propagate_natural_height = true;
+                var scrolled_box = new Gtk.ScrolledWindow (null, null) {
+                    hexpand = true,
+                    hscrollbar_policy = Gtk.PolicyType.NEVER,
+                    max_content_height = 300,
+                    propagate_natural_height = true
+                };
                 scrolled_box.add (manager.user_grid);
 
-                main_grid.add (scrolled_box);
-                main_grid.add (user_settings);
-                main_grid.add (users_separator);
-                main_grid.add (lock_screen);
-                main_grid.add (log_out);
-                main_grid.add (logout_separator);
+                main_box.add (scrolled_box);
+                main_box.add (user_settings);
+                main_box.add (users_separator);
+                main_box.add (lock_screen);
+                main_box.add (log_out);
+                main_box.add (logout_separator);
             }
 
-            main_grid.add (suspend);
-            main_grid.add (shutdown);
+            main_box.add (suspend);
+            main_box.add (shutdown);
 
             if (keybinding_settings != null) {
                 // This key type has changed in recent versions of GNOME Settings Daemon
@@ -237,7 +238,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             });
         }
 
-        return main_grid;
+        return main_box;
     }
 
     private void show_shutdown_dialog () {
@@ -266,7 +267,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             suspend.sensitive = true;
         } catch (IOError e) {
             critical ("Unable to connect to the login interface: %s", e.message);
-            suspend.set_sensitive (false);
+            suspend.sensitive = false;
         }
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
@@ -292,7 +293,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             manager.update_all ();
         }
 
-        main_grid.show_all ();
+        main_box.show_all ();
     }
 
     public override void closed () {}
@@ -310,7 +311,9 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         unowned EndSessionDialogServer server = EndSessionDialogServer.get_default ();
 
-        current_dialog = new Widgets.EndSessionDialog (type);
+        current_dialog = new Widgets.EndSessionDialog (type) {
+            transient_for = (Gtk.Window) indicator_icon.get_toplevel ()
+        };
         current_dialog.destroy.connect (() => {
             server.closed ();
             current_dialog = null;
@@ -348,7 +351,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             }
         });
 
-        current_dialog.set_transient_for (indicator_icon.get_toplevel () as Gtk.Window);
         current_dialog.show_all ();
     }
 
