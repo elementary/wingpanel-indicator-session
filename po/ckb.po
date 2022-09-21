@@ -3,96 +3,98 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2015-08-20 21:20+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-09-21 06:14+0000\n"
+"Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
+"Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
+"wingpanel/wingpanel-indicator-session/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
 
 #: src/Indicator.vala:98
 msgid "User Accounts Settings…"
-msgstr ""
+msgstr "ڕێکخستنەکانی هەژماری بەکارهێنەران…"
 
 #: src/Indicator.vala:100
 msgid "Log Out…"
-msgstr ""
+msgstr "دەرچوون…"
 
 #: src/Indicator.vala:109
 msgid "Lock"
-msgstr ""
+msgstr "قوفڵکردن"
 
 #: src/Indicator.vala:120
 msgid "Shut Down…"
-msgstr ""
+msgstr "خامۆشکردن…"
 
 #: src/Indicator.vala:125
 msgid "Suspend"
-msgstr ""
+msgstr "وەستاندن"
 
 #: src/Indicator.vala:362
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "وەکو \"%s\" چوویەژوور، %i بەکارهێنەری تر چووەژوور"
+msgstr[1] "وەکو \"%s\" چوویەژوور، %i بەکارهێنەری تر چوونەژوور"
 
 #: src/Indicator.vala:368
 #, c-format
 msgid "Logged in as “%s”"
-msgstr ""
+msgstr "وەکو \"%s\" لەژوورەوەی"
 
 #: src/Indicator.vala:371
 msgid "Not logged in"
-msgstr ""
+msgstr "نەچوویە ژوورەوە"
 
 #: src/Indicator.vala:374
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "کرتەی ناوەڕست بۆ داواکردنی خامۆشکردن"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
-msgstr ""
+msgstr "دڵنیایی لە چوونەدەر؟"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
-msgstr ""
+msgstr "ئەمە هەموو بەرنامە کراوەکان دادەخاتەوە."
 
 #: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
-msgstr ""
+msgstr "دەرچوون"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr ""
+msgstr "دڵنیایی لە خامۆشکردن؟"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr ""
+msgstr "ئەمە هەموو بەرنامە کراوەکان دادەخاتەوە و کۆمپیتەرەکەت دەکوژێنێتەوە."
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
-msgstr ""
+msgstr "خامۆشکردن"
 
 #: src/Widgets/EndSessionDialog.vala:80
 msgid "Cancel"
-msgstr ""
+msgstr "هەڵوەشاندنەوە"
 
 #: src/Widgets/EndSessionDialog.vala:96
 msgid "Restart"
-msgstr ""
+msgstr "پێکردنەوە"
 
 #: src/Widgets/UserBox.vala:42
 msgid "Guest"
-msgstr ""
+msgstr "میوان"
 
 #: src/Widgets/UserBox.vala:137
 msgid "Logged in"
-msgstr ""
+msgstr "چوویەژوور"
 
 #: src/Widgets/UserBox.vala:139
 msgid "Logged out"
-msgstr ""
+msgstr "دەرچوویت"
