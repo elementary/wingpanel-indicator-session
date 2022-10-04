@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-13 23:29+0000\n"
-"PO-Revision-Date: 2022-09-30 14:30+0000\n"
+"PO-Revision-Date: 2022-10-04 10:39+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: src/Indicator.vala:98
 msgid "User Accounts Settings…"
-msgstr "Настройки учётных записей…"
+msgstr "Параметры учётных записей…"
 
 #: src/Indicator.vala:100
 msgid "Log Out…"
