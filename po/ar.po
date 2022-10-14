@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2021-09-04 23:27+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,27 +16,27 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "إعدادات حسابات المستخدمين…"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "سجل خروجك…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "أقفل"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "أوقف التشغيل…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "أغلق"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
@@ -47,16 +47,16 @@ msgstr[3] "مسجل الدخول باسم ”%s“، هناك %i مستخدمي�
 msgstr[4] "مسجل الدخول باسم ”%s“، هناك %i مستخدماً آخراً مسجل دخوله"
 msgstr[5] "مسجل الدخول باسم ”%s“، هناك %i مستخدم آخر مسجل دخوله"
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "مسجل الدخول باسم ”%s“"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 msgid "Not logged in"
 msgstr "ليس مسجلاً الدخول"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr "اضغط الزر الأوسط لإيقاف التشغيل"
 
@@ -84,11 +84,11 @@ msgstr "سيؤدي هذا إلى إغلاق جميع التطبيقات المف
 msgid "Shut Down"
 msgstr "أوقف التشغيل"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "ألغ"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "أعد التشغيل"
 
@@ -96,11 +96,11 @@ msgstr "أعد التشغيل"
 msgid "Guest"
 msgstr "ضيف"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "مسجل الدخول"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "مسجل الخروج"
 

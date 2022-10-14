@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2022-09-21 06:14+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -15,43 +15,43 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "ڕێکخستنەکانی هەژماری بەکارهێنەران…"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "دەرچوون…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "قوفڵکردن"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "خامۆشکردن…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "وەستاندن"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "وەکو \"%s\" چوویەژوور، %i بەکارهێنەری تر چووەژوور"
 msgstr[1] "وەکو \"%s\" چوویەژوور، %i بەکارهێنەری تر چوونەژوور"
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "وەکو \"%s\" لەژوورەوەی"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 msgid "Not logged in"
 msgstr "نەچوویە ژوورەوە"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr "کرتەی ناوەڕست بۆ داواکردنی خامۆشکردن"
 
@@ -79,11 +79,11 @@ msgstr "ئەمە هەموو بەرنامە کراوەکان دادەخاتەوە
 msgid "Shut Down"
 msgstr "خامۆشکردن"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "هەڵوەشاندنەوە"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "پێکردنەوە"
 
@@ -91,10 +91,10 @@ msgstr "پێکردنەوە"
 msgid "Guest"
 msgstr "میوان"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "چوویەژوور"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "دەرچوویت"

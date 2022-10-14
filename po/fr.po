@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2021-11-05 11:08+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,43 +15,43 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "Paramètres des comptes utilisateur…"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "Fermer la session…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "Verrouiller"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "Éteindre…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "Mettre en veille"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Connecté en tant que « %s », %i autre utilisateur est connecté"
 msgstr[1] "Connecté en tant que « %s », %i autres utilisateurs sont connectés"
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "Connecté en tant que « %s »"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 msgid "Not logged in"
 msgstr "Non connecté"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr "Clic central pour afficher l'invite d'extinction"
 
@@ -79,11 +79,11 @@ msgstr "Cette action fermera toutes les applications et éteindra cet appareil."
 msgid "Shut Down"
 msgstr "Éteindre"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "Redémarrer"
 
@@ -91,11 +91,11 @@ msgstr "Redémarrer"
 msgid "Guest"
 msgstr "Invité"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "Connecté"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "Déconnecté"
 

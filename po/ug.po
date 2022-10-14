@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-session\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2016-12-27 14:58+0000\n"
 "Last-Translator: ablimet <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -18,47 +18,47 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "تىزىمدىن چىقىش..."
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "قۇلۇپلاش"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 #, fuzzy
 msgid "Shut Down…"
 msgstr "تاقاش...."
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "توڭلىتىش"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, fuzzy, c-format
 #| msgid "Logged in"
 msgid "Logged in as “%s”"
 msgstr "كىرگەن"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "كىرگەن"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 
@@ -86,11 +86,11 @@ msgstr "بۇ مەشغۇلات بارلىق ئىچىلغان ئەپلەرنى ت�
 msgid "Shut Down"
 msgstr "تاقاش"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "قايتا قوزغىتىش"
 
@@ -98,11 +98,11 @@ msgstr "قايتا قوزغىتىش"
 msgid "Guest"
 msgstr "مېھمان"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "كىرگەن"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "چىكىنگەن"
 

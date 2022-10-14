@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2018-04-02 10:47+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/wingpanel/"
@@ -16,27 +16,27 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "Nastavitve uporabniških računov…"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "Odjava…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "Zakleni..."
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "Izklop…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "V pripravljenost"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
@@ -45,19 +45,19 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, fuzzy, c-format
 #| msgid "Logged in"
 msgid "Logged in as “%s”"
 msgstr "Prijavljen"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Prijavljen"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 
@@ -86,11 +86,11 @@ msgstr "To bo zaprlo vse aplikacije in izklopilo računalnik."
 msgid "Shut Down"
 msgstr "Izklop"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "Ponovni zagon"
 
@@ -98,11 +98,11 @@ msgstr "Ponovni zagon"
 msgid "Guest"
 msgstr "Gost"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "Prijavljen"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "Odjavljen"
 

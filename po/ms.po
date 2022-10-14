@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2016-06-07 05:00+0000\n"
 "Last-Translator: Timothy <timothy.wong@rocketmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,44 +13,44 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr ""
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr ""
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr ""
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 #, fuzzy
 msgid "Shut Down…"
 msgstr "Matikan"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr ""
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, c-format
 msgid "Logged in as “%s”"
 msgstr ""
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 msgid "Not logged in"
 msgstr ""
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 
@@ -78,11 +78,11 @@ msgstr "Perbuatan ini akan mematikan semua applikasi terbuka dan peranti ini."
 msgid "Shut Down"
 msgstr "Matikan"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "Batalkan"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr ""
 
@@ -90,10 +90,10 @@ msgstr ""
 msgid "Guest"
 msgstr ""
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr ""
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr ""

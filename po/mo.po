@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2018-05-31 08:17+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/wingpanel/"
@@ -19,46 +19,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "Setările conturilor de utilizator …"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "Deconectare…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "Blocare"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "Închide…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "Suspenda"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, fuzzy, c-format
 #| msgid "Logged in"
 msgid "Logged in as “%s”"
 msgstr "Conectat"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Conectat"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 
@@ -88,11 +88,11 @@ msgstr ""
 msgid "Shut Down"
 msgstr "Închide"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "Repornire"
 
@@ -100,11 +100,11 @@ msgstr "Repornire"
 msgid "Guest"
 msgstr "Invitat"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "Conectat"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "Dezconectat"
 
