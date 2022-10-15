@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2021-06-04 20:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,43 +15,43 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "הגדרות חשבון משתמש…"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "יציאה…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "נעילה"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "כיבוי…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "השהיה"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "נכנסת למערכת בתור „%s”, יש עוד משתמש במערכת"
 msgstr[1] "נכנסת למערכת בתור „%s”, יש עוד %i משתמשים במערכת"
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "נכנסת בתור „%s”"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 msgid "Not logged in"
 msgstr "לא נכנסת"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr "בקשת כיבוי עם כפתור אמצעי"
 
@@ -79,11 +79,11 @@ msgstr "פעולה זו תסגור את כל היישומים הפתוחים ו�
 msgid "Shut Down"
 msgstr "כיבוי"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "הפעלה מחדש"
 
@@ -91,11 +91,11 @@ msgstr "הפעלה מחדש"
 msgid "Guest"
 msgstr "אורח"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "מחובר"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "מנותק"
 

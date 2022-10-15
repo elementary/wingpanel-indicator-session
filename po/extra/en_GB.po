@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2021-07-17 23:52+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -27,32 +27,33 @@ msgstr "Session Indicator"
 msgid "Switch users, lock, log out, suspend, or shut down"
 msgstr "Switch users, lock, log out, suspend, or shut down"
 
-#: data/session.appdata.xml.in:11 data/session.appdata.xml.in:22
-#: data/session.appdata.xml.in:31
+#: data/session.appdata.xml.in:11 data/session.appdata.xml.in:20
+#: data/session.appdata.xml.in:31 data/session.appdata.xml.in:40
 msgid "Minor updates:"
 msgstr "Minor updates:"
 
-#: data/session.appdata.xml.in:13
-msgid "New colorful avatar fallback"
-msgstr "New colourful avatar fallback"
-
-#: data/session.appdata.xml.in:14
-msgid "Tooltip on hover"
-msgstr "Tooltip on hover"
-
-#: data/session.appdata.xml.in:15 data/session.appdata.xml.in:24
-msgid "Performance improvements"
-msgstr "Performance improvements"
-
-#: data/session.appdata.xml.in:16 data/session.appdata.xml.in:25
-#: data/session.appdata.xml.in:34 data/session.appdata.xml.in:40
+#: data/session.appdata.xml.in:13 data/session.appdata.xml.in:25
+#: data/session.appdata.xml.in:34 data/session.appdata.xml.in:43
+#: data/session.appdata.xml.in:49
 msgid "Updated translations"
 msgstr "Updated translations"
 
-#: data/session.appdata.xml.in:33
+#: data/session.appdata.xml.in:22
+msgid "New colorful avatar fallback"
+msgstr "New colourful avatar fallback"
+
+#: data/session.appdata.xml.in:23
+msgid "Tooltip on hover"
+msgstr "Tooltip on hover"
+
+#: data/session.appdata.xml.in:24 data/session.appdata.xml.in:33
+msgid "Performance improvements"
+msgstr "Performance improvements"
+
+#: data/session.appdata.xml.in:42
 msgid "Updated styling for keyboard shortcuts"
 msgstr "Updated styling for keyboard shortcuts"
 
-#: data/session.appdata.xml.in:49
+#: data/session.appdata.xml.in:58
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

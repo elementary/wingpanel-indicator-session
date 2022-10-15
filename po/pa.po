@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 23:29+0000\n"
+"POT-Creation-Date: 2022-10-14 18:48+0000\n"
 "PO-Revision-Date: 2021-08-01 17:35+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/wingpanel/"
@@ -19,43 +19,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/Indicator.vala:98
+#: src/Indicator.vala:103
 msgid "User Accounts Settings…"
 msgstr "ਵਰਤੋਂਕਾਰ ਖਾਤਾ ਸੈਟਿੰਗਾਂ…"
 
-#: src/Indicator.vala:100
+#: src/Indicator.vala:106
 msgid "Log Out…"
 msgstr "ਲੌਗਆਊਟ ਕਰੋ…"
 
-#: src/Indicator.vala:109
+#: src/Indicator.vala:115
 msgid "Lock"
 msgstr "ਤਾਲਾ ਲਾਓ"
 
-#: src/Indicator.vala:120
+#: src/Indicator.vala:126
 msgid "Shut Down…"
 msgstr "ਸ਼ੱਟਡਾਊਨ ਕਰੋ…"
 
-#: src/Indicator.vala:125
+#: src/Indicator.vala:131
 msgid "Suspend"
 msgstr "ਮੁਅੱਤਲ ਕਰੋ"
 
-#: src/Indicator.vala:362
+#: src/Indicator.vala:370
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ, %i ਹੋਰ ਵਰਤੋਂਕਾਰ ਵੀ ਲੌਗਇਨ ਹੈ"
 msgstr[1] "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ, %i ਹੋਰ ਵਰਤੋਂਕਾਰ ਵੀ ਲੌਗਇਨ ਹਨ"
 
-#: src/Indicator.vala:368
+#: src/Indicator.vala:376
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ"
 
-#: src/Indicator.vala:371
+#: src/Indicator.vala:379
 msgid "Not logged in"
 msgstr "ਲੌਗਇਨ ਨਹੀਂ ਹੋ"
 
-#: src/Indicator.vala:374
+#: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
 msgstr "ਸ਼ੱਟਡਾਊਨ ਦਾ ਪੁੱਛਣ ਲਈ ਵਿਚਕਾਰਲੀ-ਕਲਿੱਕ"
 
@@ -77,18 +77,17 @@ msgstr "ਕੀ ਤੁਸੀਂ ਵਾਕਿਆ ਹੀ ਸ਼ੱਟਡਾਊਨ �
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
-msgstr ""
-"ਇਹ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਐਪਾਂ ਨੂੰ ਬੰਦ ਕਰਨ ਤੋਂ ਬਾਅਦ ਡਿਵਾਈਸ ਨੂੰ ਵੀ ਬੰਦ ਕਰ ਦੇਵੇਗਾ।"
+msgstr "ਇਹ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਐਪਾਂ ਨੂੰ ਬੰਦ ਕਰਨ ਤੋਂ ਬਾਅਦ ਡਿਵਾਈਸ ਨੂੰ ਵੀ ਬੰਦ ਕਰ ਦੇਵੇਗਾ।"
 
 #: src/Widgets/EndSessionDialog.vala:58
 msgid "Shut Down"
 msgstr "ਸ਼ੱਟਡਾਊਨ ਕਰੋ"
 
-#: src/Widgets/EndSessionDialog.vala:80
+#: src/Widgets/EndSessionDialog.vala:83
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/Widgets/EndSessionDialog.vala:96
+#: src/Widgets/EndSessionDialog.vala:100
 msgid "Restart"
 msgstr "ਰੀਸਟਾਰਟ ਕਰੋ"
 
@@ -96,10 +95,10 @@ msgstr "ਰੀਸਟਾਰਟ ਕਰੋ"
 msgid "Guest"
 msgstr "ਮਹਿਮਾਨ"
 
-#: src/Widgets/UserBox.vala:137
+#: src/Widgets/UserBox.vala:139
 msgid "Logged in"
 msgstr "ਲੌਗਇਨ ਹੋਇਆ"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:141
 msgid "Logged out"
 msgstr "ਲੌਗਆਊਟ ਹੋਇਆ"
