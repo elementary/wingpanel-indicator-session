@@ -6,7 +6,7 @@
   <name>Session Indicator</name>
   <summary>Switch users, lock, log out, suspend, or shut down</summary>
   <releases>
-    <release version="2.3.1" date="2022-10-14" urgency="medium">
+    <release version="2.3.1" date="2022-10-15" urgency="medium">
       <description>
         <p>Minor updates:</p>
         <ul>
