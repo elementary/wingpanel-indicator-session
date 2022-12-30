@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301 USA
  */
 
- public class Session.Indicator : Wingpanel.Indicator {
+public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
     private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
