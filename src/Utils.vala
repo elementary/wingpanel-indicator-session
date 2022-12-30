@@ -22,7 +22,7 @@ namespace Utils {
             var dis = new DataInputStream (@is);
 
             var line = dis.read_line ();
-            if ("boot=casper" in  line|| "boot=live" in line || "rd.live.image" in line) {
+            if ("boot=casper" in line || "boot=live" in line || "rd.live.image" in line) {
                 return true;
             }
         } catch (Error e) {
