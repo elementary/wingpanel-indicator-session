@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301 USA
  */
 
-public class Session.Indicator : Wingpanel.Indicator {
+ public class Session.Indicator : Wingpanel.Indicator {
     private const string ICON_NAME = "system-shutdown-symbolic";
     private const string KEYBINDING_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
 
@@ -132,27 +132,30 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-                    margin_top = 3,
-                    margin_bottom = 3
-                };
+                if (!Utils.is_running_in_demo_mode ()) {
+                    var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                        margin_top = 3,
+                        margin_bottom = 3
+                    };
+
+                    var scrolled_box = new Gtk.ScrolledWindow (null, null) {
+                        hexpand = true,
+                        hscrollbar_policy = Gtk.PolicyType.NEVER,
+                        max_content_height = 300,
+                        propagate_natural_height = true
+                    };
+                    scrolled_box.add (manager.user_grid);
+
+                    main_box.add (scrolled_box);
+                    main_box.add (user_settings);
+                    main_box.add (users_separator);
+                }
 
                 var logout_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
                     margin_top = 3,
                     margin_bottom = 3
                 };
 
-                var scrolled_box = new Gtk.ScrolledWindow (null, null) {
-                    hexpand = true,
-                    hscrollbar_policy = Gtk.PolicyType.NEVER,
-                    max_content_height = 300,
-                    propagate_natural_height = true
-                };
-                scrolled_box.add (manager.user_grid);
-
-                main_box.add (scrolled_box);
-                main_box.add (user_settings);
-                main_box.add (users_separator);
                 main_box.add (lock_screen);
                 main_box.add (log_out);
                 main_box.add (logout_separator);
@@ -289,7 +292,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override void opened () {
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION && !Utils.is_running_in_demo_mode ()) {
             manager.update_all ();
         }
 
@@ -357,7 +360,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private async void update_tooltip () {
         string description;
 
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION && !Utils.is_running_in_demo_mode ()) {
             if (active_user_real_name == null) {
                 active_user_real_name = Environment.get_real_name ();
             }
