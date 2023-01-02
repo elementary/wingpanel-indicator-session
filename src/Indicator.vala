@@ -132,27 +132,30 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-                    margin_top = 3,
-                    margin_bottom = 3
-                };
+                if (!is_running_in_demo_mode ()) {
+                    var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                        margin_top = 3,
+                        margin_bottom = 3
+                    };
+
+                    var scrolled_box = new Gtk.ScrolledWindow (null, null) {
+                        hexpand = true,
+                        hscrollbar_policy = Gtk.PolicyType.NEVER,
+                        max_content_height = 300,
+                        propagate_natural_height = true
+                    };
+                    scrolled_box.add (manager.user_grid);
+
+                    main_box.add (scrolled_box);
+                    main_box.add (user_settings);
+                    main_box.add (users_separator);
+                }
 
                 var logout_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
                     margin_top = 3,
                     margin_bottom = 3
                 };
 
-                var scrolled_box = new Gtk.ScrolledWindow (null, null) {
-                    hexpand = true,
-                    hscrollbar_policy = Gtk.PolicyType.NEVER,
-                    max_content_height = 300,
-                    propagate_natural_height = true
-                };
-                scrolled_box.add (manager.user_grid);
-
-                main_box.add (scrolled_box);
-                main_box.add (user_settings);
-                main_box.add (users_separator);
                 main_box.add (lock_screen);
                 main_box.add (log_out);
                 main_box.add (logout_separator);
@@ -289,7 +292,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     }
 
     public override void opened () {
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION && !is_running_in_demo_mode ()) {
             manager.update_all ();
         }
 
@@ -357,7 +360,7 @@ public class Session.Indicator : Wingpanel.Indicator {
     private async void update_tooltip () {
         string description;
 
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION && !is_running_in_demo_mode ()) {
             if (active_user_real_name == null) {
                 active_user_real_name = Environment.get_real_name ();
             }
@@ -385,6 +388,23 @@ public class Session.Indicator : Wingpanel.Indicator {
             description,
             accel_label
         );
+    }
+
+    private bool is_running_in_demo_mode () {
+        var proc_cmdline = File.new_for_path ("/proc/cmdline");
+        try {
+            var @is = proc_cmdline.read ();
+            var dis = new DataInputStream (@is);
+
+            var line = dis.read_line ();
+            if ("boot=casper" in line || "boot=live" in line || "rd.live.image" in line) {
+                return true;
+            }
+        } catch (Error e) {
+            critical ("Couldn't detect if running in Demo Mode: %s", e.message);
+        }
+
+        return false;
     }
 }
 
