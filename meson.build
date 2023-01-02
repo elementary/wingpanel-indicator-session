@@ -29,7 +29,6 @@ config_vala = configure_file(
 shared_module(
     meson.project_name(),
     'src/Indicator.vala',
-    'src/Utils.vala',
     'src/Widgets/EndSessionDialog.vala',
     'src/Widgets/UserBox.vala',
     'src/Widgets/UserListBox.vala',
