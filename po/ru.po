@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-14 18:48+0000\n"
-"PO-Revision-Date: 2022-10-04 10:39+0000\n"
+"PO-Revision-Date: 2023-01-08 05:25+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ru/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:103
@@ -22,7 +22,7 @@ msgstr "Параметры учётных записей…"
 
 #: src/Indicator.vala:106
 msgid "Log Out…"
-msgstr "Выйти из системы…"
+msgstr "Выйти…"
 
 #: src/Indicator.vala:115
 msgid "Lock"
@@ -34,7 +34,7 @@ msgstr "Выключить…"
 
 #: src/Indicator.vala:131
 msgid "Suspend"
-msgstr "Ждущий режим"
+msgstr "Режим ожидания"
 
 #: src/Indicator.vala:370
 #, c-format
@@ -55,7 +55,7 @@ msgstr "Вход не выполнен"
 
 #: src/Indicator.vala:382
 msgid "Middle-click to prompt to shut down"
-msgstr "Нажмите средней кнопкой, чтобы запросить завершение работы"
+msgstr "Нажмите средней кнопкой мыши, чтобы запросить выключение"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
@@ -71,7 +71,7 @@ msgstr "Выйти"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "Выключить компьютер?"
+msgstr "Выключить устройство?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
