@@ -6,6 +6,7 @@ project(
 
 i18n = import('i18n')
 gettext_name = meson.project_name() + '-indicator'
+gnome = import('gnome')
 
 prefix = get_option('prefix')
 libdir = join_paths(prefix, get_option('libdir'))
@@ -26,6 +27,12 @@ config_vala = configure_file(
     configuration: config_data
 )
 
+gresource = gnome.compile_resources(
+    'gresource',
+    'data' / 'session.gresource.xml',
+    source_dir: 'data'
+)
+
 shared_module(
     meson.project_name(),
     'src/Indicator.vala',
@@ -36,6 +43,7 @@ shared_module(
     'src/Services/UserManager.vala',
     'src/Services/EndSessionDialogServer.vala',
     config_vala,
+    gresource,
     dependencies: [
         dependency('accountsservice'),
         dependency('glib-2.0'),
