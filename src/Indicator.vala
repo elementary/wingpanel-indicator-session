@@ -146,7 +146,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
-                homogeneous = true,
                 margin_top = 3,
                 margin_end = 6,
                 margin_bottom = 3,
