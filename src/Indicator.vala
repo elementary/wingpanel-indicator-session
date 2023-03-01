@@ -33,11 +33,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.ModelButton shutdown;
     private Gtk.ModelButton log_out;
 
-    private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
 
     private Gtk.Box? main_box;
-    private string active_user_real_name;
 
     private static GLib.Settings? keybinding_settings;
 
@@ -51,8 +49,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
-
-        manager = new Session.Services.UserManager ();
     }
 
     static construct {
@@ -65,12 +61,9 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (indicator_icon == null) {
             indicator_icon = new Gtk.Image () {
                 icon_name = ICON_NAME,
-                pixel_size = 24
+                pixel_size = 24,
+                tooltip_markup = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"))
             };
-
-            manager.changed.connect (() => {
-                update_tooltip.begin ();
-            });
 
             indicator_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
@@ -132,25 +125,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                if (!is_running_in_demo_mode ()) {
-                    var users_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-                        margin_top = 3,
-                        margin_bottom = 3
-                    };
-
-                    var scrolled_box = new Gtk.ScrolledWindow (null, null) {
-                        hexpand = true,
-                        hscrollbar_policy = Gtk.PolicyType.NEVER,
-                        max_content_height = 300,
-                        propagate_natural_height = true
-                    };
-                    scrolled_box.add (manager.user_grid);
-
-                    main_box.add (scrolled_box);
-                    main_box.add (user_settings);
-                    main_box.add (users_separator);
-                }
-
                 var logout_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
                     margin_top = 3,
                     margin_bottom = 3
@@ -191,8 +165,6 @@ public class Session.Indicator : Wingpanel.Indicator {
                     });
                 }
             }
-
-            manager.close.connect (() => close ());
 
             user_settings.clicked.connect (() => {
                 close ();
@@ -291,13 +263,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         }
     }
 
-    public override void opened () {
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION && !is_running_in_demo_mode ()) {
-            manager.update_all ();
-        }
-
-        main_box.show_all ();
-    }
+    public override void opened () {}
 
     public override void closed () {}
 
@@ -355,56 +321,6 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
 
         current_dialog.show_all ();
-    }
-
-    private async void update_tooltip () {
-        string description;
-
-        if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION && !is_running_in_demo_mode ()) {
-            if (active_user_real_name == null) {
-                active_user_real_name = Environment.get_real_name ();
-            }
-
-            int n_online_users = (yield manager.get_n_active_and_online_users ()) - 1;
-
-            if (n_online_users > 0) {
-                description = dngettext (
-                    GETTEXT_PACKAGE,
-                    "Logged in as “%s”, %i other user logged in",
-                    "Logged in as “%s”, %i other users logged in",
-                    n_online_users
-                );
-                description = description.printf (active_user_real_name, n_online_users);
-            } else {
-                description = _("Logged in as “%s”").printf (active_user_real_name);
-            }
-        } else {
-            description = _("Not logged in");
-        }
-
-        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to prompt to shut down"));
-
-        indicator_icon.tooltip_markup = "%s\n%s".printf (
-            description,
-            accel_label
-        );
-    }
-
-    private bool is_running_in_demo_mode () {
-        var proc_cmdline = File.new_for_path ("/proc/cmdline");
-        try {
-            var @is = proc_cmdline.read ();
-            var dis = new DataInputStream (@is);
-
-            var line = dis.read_line ();
-            if ("boot=casper" in line || "boot=live" in line || "rd.live.image" in line) {
-                return true;
-            }
-        } catch (Error e) {
-            critical ("Couldn't detect if running in Demo Mode: %s", e.message);
-        }
-
-        return false;
     }
 }
 
