@@ -99,33 +99,29 @@ public class Session.Indicator : Wingpanel.Indicator {
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/wingpanel/session/Indicator.css");
 
-            var settings_button = new Gtk.Button () {
+            var settings_button = new Gtk.Button.from_icon_name ("preferences-system-symbolic", Gtk.IconSize.MENU) {
                 halign = Gtk.Align.START,
                 hexpand = true,
-                image = new Gtk.Image.from_icon_name ("preferences-system-symbolic", Gtk.IconSize.MENU),
                 tooltip_text = _("System Settings…")
             };
             settings_button.get_style_context ().add_class ("circular");
             settings_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            logout_button = new Gtk.Button () {
-                image = new Gtk.Image.from_icon_name ("system-log-out-symbolic", Gtk.IconSize.MENU),
+            logout_button = new Gtk.Button.from_icon_name ("system-log-out-symbolic", Gtk.IconSize.MENU) {
                 sensitive = false,
                 tooltip_text = _("Log Out…")
             };
             logout_button.get_style_context ().add_class ("circular");
             logout_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            lock_button = new Gtk.Button () {
-                image = new Gtk.Image.from_icon_name ("system-lock-screen-symbolic", Gtk.IconSize.MENU),
+            lock_button = new Gtk.Button.from_icon_name ("system-lock-screen-symbolic", Gtk.IconSize.MENU) {
                 sensitive = false,
                 tooltip_text = _("Lock")
             };
             lock_button.get_style_context ().add_class ("circular");
             lock_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            shutdown_button = new Gtk.Button () {
-                image = new Gtk.Image.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.MENU),
+            shutdown_button = new Gtk.Button.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.MENU) {
                 tooltip_text = _("Shut Down…")
             };
             shutdown_button.get_style_context ().add_class ("circular");
@@ -133,7 +129,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-            var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
+            var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
                 margin_top = 6,
                 margin_end = 12,
                 margin_bottom = 6,
