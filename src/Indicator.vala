@@ -31,7 +31,6 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Gtk.Button lock_button;
     private Gtk.Button logout_button;
     private Gtk.Button shutdown_button;
-    private Gtk.Button suspend_button;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
@@ -101,7 +100,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             provider.load_from_resource ("io/elementary/wingpanel/session/Indicator.css");
 
             var settings_button = new Gtk.Button () {
-                halign = Gtk.Align.CENTER,
+                halign = Gtk.Align.START,
+                hexpand = true,
                 image = new Gtk.Image.from_icon_name ("preferences-system-symbolic", Gtk.IconSize.MENU),
                 tooltip_text = _("System Settings…")
             };
@@ -109,7 +109,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             settings_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             logout_button = new Gtk.Button () {
-                halign = Gtk.Align.CENTER,
                 image = new Gtk.Image.from_icon_name ("system-log-out-symbolic", Gtk.IconSize.MENU),
                 sensitive = false,
                 tooltip_text = _("Log Out…")
@@ -118,7 +117,6 @@ public class Session.Indicator : Wingpanel.Indicator {
             logout_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             lock_button = new Gtk.Button () {
-                halign = Gtk.Align.CENTER,
                 image = new Gtk.Image.from_icon_name ("system-lock-screen-symbolic", Gtk.IconSize.MENU),
                 sensitive = false,
                 tooltip_text = _("Lock")
@@ -127,29 +125,19 @@ public class Session.Indicator : Wingpanel.Indicator {
             lock_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             shutdown_button = new Gtk.Button () {
-                halign = Gtk.Align.CENTER,
                 image = new Gtk.Image.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.MENU),
                 tooltip_text = _("Shut Down…")
             };
             shutdown_button.get_style_context ().add_class ("circular");
             shutdown_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            suspend_button = new Gtk.Button () {
-                halign = Gtk.Align.CENTER,
-                image = new Gtk.Image.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.MENU),
-                sensitive = false,
-                tooltip_text = _("Suspend")
-            };
-            suspend_button.get_style_context ().add_class ("circular");
-            suspend_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
-                margin_top = 3,
-                margin_end = 6,
-                margin_bottom = 3,
-                margin_start = 6
+                margin_top = 6,
+                margin_end = 12,
+                margin_bottom = 6,
+                margin_start = 12
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
@@ -172,11 +160,10 @@ public class Session.Indicator : Wingpanel.Indicator {
                 }
 
                 button_box.add (settings_button);
-                button_box.add (lock_button);
                 button_box.add (logout_button);
             }
 
-            button_box.add (suspend_button);
+            button_box.add (lock_button);
             button_box.add (shutdown_button);
 
             main_box.add (button_box);
@@ -210,16 +197,6 @@ public class Session.Indicator : Wingpanel.Indicator {
                 show_shutdown_dialog ();
             });
 
-            suspend_button.clicked.connect (() => {
-                close ();
-
-                try {
-                    system_interface.suspend (true);
-                } catch (GLib.Error e) {
-                    warning ("Unable to suspend: %s", e.message);
-                }
-            });
-
             logout_button.clicked.connect (() => {
                 session_interface.logout.begin (0, (obj, res) => {
                     try {
@@ -236,9 +213,13 @@ public class Session.Indicator : Wingpanel.Indicator {
                 close ();
 
                 try {
-                    lock_interface.lock ();
+                    if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+                            lock_interface.lock ();
+                    } else {
+                            system_interface.suspend (true);
+                    }
                 } catch (GLib.Error e) {
-                    warning ("Unable to lock: %s", e.message);
+                    critical ("Unable to lock: %s", e.message);
                 }
             });
         }
@@ -269,10 +250,11 @@ public class Session.Indicator : Wingpanel.Indicator {
     private async void init_interfaces () {
         try {
             system_interface = yield Bus.get_proxy (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
-            suspend_button.sensitive = true;
+            if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER) {
+                lock_button.sensitive = true;
+            }
         } catch (IOError e) {
             critical ("Unable to connect to the login interface: %s", e.message);
-            suspend_button.sensitive = false;
         }
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
