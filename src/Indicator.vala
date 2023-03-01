@@ -114,6 +114,12 @@ public class Session.Indicator : Wingpanel.Indicator {
             logout_button.get_style_context ().add_class ("circular");
             logout_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
+            var suspend_button = new Gtk.Button.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.MENU) {
+                tooltip_text = _("Suspend")
+            };
+            suspend_button.get_style_context ().add_class ("circular");
+            suspend_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
             lock_button = new Gtk.Button.from_icon_name ("system-lock-screen-symbolic", Gtk.IconSize.MENU) {
                 sensitive = false,
                 tooltip_text = _("Lock")
@@ -157,6 +163,10 @@ public class Session.Indicator : Wingpanel.Indicator {
 
                 button_box.add (settings_button);
                 button_box.add (logout_button);
+                button_box.add (suspend_button);
+            } else {
+                button_box.halign = Gtk.Align.END;
+                button_box.hexpand = true;
             }
 
             button_box.add (lock_button);
@@ -176,6 +186,10 @@ public class Session.Indicator : Wingpanel.Indicator {
                     lock_button.tooltip_markup = Granite.markup_accel_tooltip (keybinding_settings.get_strv ("screensaver"), _("Lock"));
                 });
             }
+
+            var screensaver_settings = new Settings ("io.elementary.desktop.screensaver");
+            screensaver_settings.bind ("lock-on-suspend", suspend_button, "no-show-all", SettingsBindFlags.GET);
+            screensaver_settings.bind ("lock-on-suspend", suspend_button, "visible", SettingsBindFlags.GET | SettingsBindFlags.INVERT_BOOLEAN);
 
             manager.close.connect (() => close ());
 
@@ -210,10 +224,20 @@ public class Session.Indicator : Wingpanel.Indicator {
 
                 try {
                     if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
-                            lock_interface.lock ();
+                        lock_interface.lock ();
                     } else {
-                            system_interface.suspend (true);
+                        system_interface.suspend (true);
                     }
+                } catch (GLib.Error e) {
+                    critical ("Unable to lock: %s", e.message);
+                }
+            });
+
+            suspend_button.clicked.connect (() => {
+                close ();
+
+                try {
+                    system_interface.suspend (true);
                 } catch (GLib.Error e) {
                     critical ("Unable to lock: %s", e.message);
                 }
