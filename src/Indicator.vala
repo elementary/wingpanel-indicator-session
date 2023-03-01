@@ -48,6 +48,9 @@ public class Session.Indicator : Wingpanel.Indicator {
         this.server_type = server_type;
         this.visible = true;
 
+        unowned var icon_theme = Gtk.IconTheme.get_default ();
+        icon_theme.add_resource_path ("/io/elementary/wingpanel/session");
+
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
 
