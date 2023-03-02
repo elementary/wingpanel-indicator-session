@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2017 elementary LLC. (http://launchpad.net/wingpanel)
+ * Copyright 2011-2023 elementary, Inc. (http://launchpad.net/wingpanel)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -16,12 +16,6 @@
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA
  */
-
-struct UserInfo {
-    uint32 uid;
-    string user_name;
-    ObjectPath? user_object;
-}
 
 [DBus (name = "org.gnome.SessionManager")]
 interface SessionInterface : Object {
@@ -41,18 +35,4 @@ interface SystemInterface : Object {
     public abstract void suspend (bool interactive) throws GLib.Error;
     public abstract void reboot (bool interactive) throws GLib.Error;
     public abstract void power_off (bool interactive) throws GLib.Error;
-
-    public abstract UserInfo[] list_users () throws GLib.Error;
-}
-
-[DBus (name = "org.freedesktop.login1.User")]
-interface UserInterface : Object {
-    public abstract string state { owned get; }
-}
-
-[DBus (name = "org.freedesktop.DisplayManager.Seat")]
-interface SeatInterface : Object {
-    public abstract bool has_guest_account { get; }
-    public abstract void switch_to_guest (string session_name) throws GLib.Error;
-    public abstract void switch_to_user (string username, string session_name) throws GLib.Error;
 }

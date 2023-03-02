@@ -7,7 +7,6 @@
 
 You'll need the following dependencies:
 
-    libaccountsservice-dev
     libgirepository1.0-dev
     libglib2.0-dev
     libgranite-dev >= 5.3.0
