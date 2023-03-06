@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:48+0000\n"
+"POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2021-09-04 23:27+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,27 +16,29 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:103
-msgid "User Accounts Settings…"
+#: src/Indicator.vala:108
+#, fuzzy
+#| msgid "User Accounts Settings…"
+msgid "System Settings…"
 msgstr "إعدادات حسابات المستخدمين…"
 
-#: src/Indicator.vala:106
+#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "سجل خروجك…"
 
-#: src/Indicator.vala:115
-msgid "Lock"
-msgstr "أقفل"
-
-#: src/Indicator.vala:126
-msgid "Shut Down…"
-msgstr "أوقف التشغيل…"
-
-#: src/Indicator.vala:131
+#: src/Indicator.vala:121
 msgid "Suspend"
 msgstr "أغلق"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:128 src/Indicator.vala:182 src/Indicator.vala:189
+msgid "Lock"
+msgstr "أقفل"
+
+#: src/Indicator.vala:134
+msgid "Shut Down…"
+msgstr "أوقف التشغيل…"
+
+#: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
@@ -47,16 +49,16 @@ msgstr[3] "مسجل الدخول باسم ”%s“، هناك %i مستخدمي�
 msgstr[4] "مسجل الدخول باسم ”%s“، هناك %i مستخدماً آخراً مسجل دخوله"
 msgstr[5] "مسجل الدخول باسم ”%s“، هناك %i مستخدم آخر مسجل دخوله"
 
-#: src/Indicator.vala:376
+#: src/Indicator.vala:386
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "مسجل الدخول باسم ”%s“"
 
-#: src/Indicator.vala:379
+#: src/Indicator.vala:389
 msgid "Not logged in"
 msgstr "ليس مسجلاً الدخول"
 
-#: src/Indicator.vala:382
+#: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
 msgstr "اضغط الزر الأوسط لإيقاف التشغيل"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:48+0000\n"
+"POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2021-09-07 09:51+0000\n"
 "Last-Translator: Yuchen Deng <inbz@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -15,42 +15,44 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:04+0000\n"
 
-#: src/Indicator.vala:103
-msgid "User Accounts Settings…"
+#: src/Indicator.vala:108
+#, fuzzy
+#| msgid "User Accounts Settings…"
+msgid "System Settings…"
 msgstr "账户设置…"
 
-#: src/Indicator.vala:106
+#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "注销…"
 
-#: src/Indicator.vala:115
-msgid "Lock"
-msgstr "锁定"
-
-#: src/Indicator.vala:126
-msgid "Shut Down…"
-msgstr "关机…"
-
-#: src/Indicator.vala:131
+#: src/Indicator.vala:121
 msgid "Suspend"
 msgstr "挂起"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:128 src/Indicator.vala:182 src/Indicator.vala:189
+msgid "Lock"
+msgstr "锁定"
+
+#: src/Indicator.vala:134
+msgid "Shut Down…"
+msgstr "关机…"
+
+#: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "“%s”已登录, 其他 %i 个已登录用户"
 
-#: src/Indicator.vala:376
+#: src/Indicator.vala:386
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "“%s”已登录"
 
-#: src/Indicator.vala:379
+#: src/Indicator.vala:389
 msgid "Not logged in"
 msgstr "未登录"
 
-#: src/Indicator.vala:382
+#: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
 msgstr "点按鼠标中键可关机"
 

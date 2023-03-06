@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:48+0000\n"
+"POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2018-05-31 08:17+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/wingpanel/"
@@ -19,46 +19,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Indicator.vala:103
-msgid "User Accounts Settings…"
+#: src/Indicator.vala:108
+#, fuzzy
+#| msgid "User Accounts Settings…"
+msgid "System Settings…"
 msgstr "Setările conturilor de utilizator …"
 
-#: src/Indicator.vala:106
+#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "Deconectare…"
 
-#: src/Indicator.vala:115
-msgid "Lock"
-msgstr "Blocare"
-
-#: src/Indicator.vala:126
-msgid "Shut Down…"
-msgstr "Închide…"
-
-#: src/Indicator.vala:131
+#: src/Indicator.vala:121
 msgid "Suspend"
 msgstr "Suspenda"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:128 src/Indicator.vala:182 src/Indicator.vala:189
+msgid "Lock"
+msgstr "Blocare"
+
+#: src/Indicator.vala:134
+msgid "Shut Down…"
+msgstr "Închide…"
+
+#: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:376
+#: src/Indicator.vala:386
 #, fuzzy, c-format
 #| msgid "Logged in"
 msgid "Logged in as “%s”"
 msgstr "Conectat"
 
-#: src/Indicator.vala:379
+#: src/Indicator.vala:389
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Conectat"
 
-#: src/Indicator.vala:382
+#: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 

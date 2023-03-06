@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:48+0000\n"
+"POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2022-01-12 19:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,27 +15,29 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-03-05 06:26+0000\n"
 
-#: src/Indicator.vala:103
-msgid "User Accounts Settings…"
+#: src/Indicator.vala:108
+#, fuzzy
+#| msgid "User Accounts Settings…"
+msgid "System Settings…"
 msgstr "Nastavení uživatelských účtů…"
 
-#: src/Indicator.vala:106
+#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "Odhlásit se…"
 
-#: src/Indicator.vala:115
-msgid "Lock"
-msgstr "Uzamknout"
-
-#: src/Indicator.vala:126
-msgid "Shut Down…"
-msgstr "Vypnout…"
-
-#: src/Indicator.vala:131
+#: src/Indicator.vala:121
 msgid "Suspend"
 msgstr "Uspat"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:128 src/Indicator.vala:182 src/Indicator.vala:189
+msgid "Lock"
+msgstr "Uzamknout"
+
+#: src/Indicator.vala:134
+msgid "Shut Down…"
+msgstr "Vypnout…"
+
+#: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
@@ -43,16 +45,16 @@ msgstr[0] "Přihlášeni jako „%s“, %i další uživatel je přihlášen"
 msgstr[1] "Přihlášeni jako „%s“, %i další uživatelé jsou přihlášeni"
 msgstr[2] "Přihlášeni jako „%s“, %i dalších uživatelů je přihlášeno"
 
-#: src/Indicator.vala:376
+#: src/Indicator.vala:386
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "Přihlášeni jako „%s“"
 
-#: src/Indicator.vala:379
+#: src/Indicator.vala:389
 msgid "Not logged in"
 msgstr "Nepřihlášeni"
 
-#: src/Indicator.vala:382
+#: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
 msgstr "Klikněte kolečkem pro zobrazení dialogu vypnutí"
 

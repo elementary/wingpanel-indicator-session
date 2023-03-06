@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:48+0000\n"
+"POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2021-11-05 11:08+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,43 +15,45 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:103
-msgid "User Accounts Settings…"
+#: src/Indicator.vala:108
+#, fuzzy
+#| msgid "User Accounts Settings…"
+msgid "System Settings…"
 msgstr "Paramètres des comptes utilisateur…"
 
-#: src/Indicator.vala:106
+#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "Fermer la session…"
 
-#: src/Indicator.vala:115
-msgid "Lock"
-msgstr "Verrouiller"
-
-#: src/Indicator.vala:126
-msgid "Shut Down…"
-msgstr "Éteindre…"
-
-#: src/Indicator.vala:131
+#: src/Indicator.vala:121
 msgid "Suspend"
 msgstr "Mettre en veille"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:128 src/Indicator.vala:182 src/Indicator.vala:189
+msgid "Lock"
+msgstr "Verrouiller"
+
+#: src/Indicator.vala:134
+msgid "Shut Down…"
+msgstr "Éteindre…"
+
+#: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "Connecté en tant que « %s », %i autre utilisateur est connecté"
 msgstr[1] "Connecté en tant que « %s », %i autres utilisateurs sont connectés"
 
-#: src/Indicator.vala:376
+#: src/Indicator.vala:386
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "Connecté en tant que « %s »"
 
-#: src/Indicator.vala:379
+#: src/Indicator.vala:389
 msgid "Not logged in"
 msgstr "Non connecté"
 
-#: src/Indicator.vala:382
+#: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
 msgstr "Clic central pour afficher l'invite d'extinction"
 

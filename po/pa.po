@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:48+0000\n"
+"POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2021-08-01 17:35+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/wingpanel/"
@@ -19,43 +19,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/Indicator.vala:103
-msgid "User Accounts Settings…"
+#: src/Indicator.vala:108
+#, fuzzy
+#| msgid "User Accounts Settings…"
+msgid "System Settings…"
 msgstr "ਵਰਤੋਂਕਾਰ ਖਾਤਾ ਸੈਟਿੰਗਾਂ…"
 
-#: src/Indicator.vala:106
+#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "ਲੌਗਆਊਟ ਕਰੋ…"
 
-#: src/Indicator.vala:115
-msgid "Lock"
-msgstr "ਤਾਲਾ ਲਾਓ"
-
-#: src/Indicator.vala:126
-msgid "Shut Down…"
-msgstr "ਸ਼ੱਟਡਾਊਨ ਕਰੋ…"
-
-#: src/Indicator.vala:131
+#: src/Indicator.vala:121
 msgid "Suspend"
 msgstr "ਮੁਅੱਤਲ ਕਰੋ"
 
-#: src/Indicator.vala:370
+#: src/Indicator.vala:128 src/Indicator.vala:182 src/Indicator.vala:189
+msgid "Lock"
+msgstr "ਤਾਲਾ ਲਾਓ"
+
+#: src/Indicator.vala:134
+msgid "Shut Down…"
+msgstr "ਸ਼ੱਟਡਾਊਨ ਕਰੋ…"
+
+#: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ, %i ਹੋਰ ਵਰਤੋਂਕਾਰ ਵੀ ਲੌਗਇਨ ਹੈ"
 msgstr[1] "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ, %i ਹੋਰ ਵਰਤੋਂਕਾਰ ਵੀ ਲੌਗਇਨ ਹਨ"
 
-#: src/Indicator.vala:376
+#: src/Indicator.vala:386
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ"
 
-#: src/Indicator.vala:379
+#: src/Indicator.vala:389
 msgid "Not logged in"
 msgstr "ਲੌਗਇਨ ਨਹੀਂ ਹੋ"
 
-#: src/Indicator.vala:382
+#: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
 msgstr "ਸ਼ੱਟਡਾਊਨ ਦਾ ਪੁੱਛਣ ਲਈ ਵਿਚਕਾਰਲੀ-ਕਲਿੱਕ"
 
