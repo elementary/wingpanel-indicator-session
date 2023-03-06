@@ -28,10 +28,9 @@ public class Session.Indicator : Wingpanel.Indicator {
     private Wingpanel.IndicatorManager.ServerType server_type;
     private Gtk.Image indicator_icon;
 
-    private Gtk.ModelButton lock_screen;
-    private Gtk.ModelButton suspend;
-    private Gtk.ModelButton shutdown;
-    private Gtk.ModelButton log_out;
+    private Gtk.Button lock_button;
+    private Gtk.Button logout_button;
+    private Gtk.Button shutdown_button;
 
     private Session.Services.UserManager manager;
     private Widgets.EndSessionDialog? current_dialog = null;
@@ -48,6 +47,9 @@ public class Session.Indicator : Wingpanel.Indicator {
         Object (code_name: Wingpanel.Indicator.SESSION);
         this.server_type = server_type;
         this.visible = true;
+
+        unowned var icon_theme = Gtk.IconTheme.get_default ();
+        icon_theme.add_resource_path ("/io/elementary/wingpanel/session");
 
         EndSessionDialogServer.init ();
         EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
@@ -97,38 +99,50 @@ public class Session.Indicator : Wingpanel.Indicator {
         if (main_box == null) {
             init_interfaces.begin ();
 
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("io/elementary/wingpanel/session/Indicator.css");
+
+            var settings_button = new Gtk.Button.from_icon_name ("preferences-system-symbolic", Gtk.IconSize.MENU) {
+                halign = Gtk.Align.START,
+                hexpand = true,
+                tooltip_text = _("System Settings…")
+            };
+            settings_button.get_style_context ().add_class ("circular");
+            settings_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            logout_button = new Gtk.Button.from_icon_name ("system-log-out-symbolic", Gtk.IconSize.MENU) {
+                sensitive = false,
+                tooltip_text = _("Log Out…")
+            };
+            logout_button.get_style_context ().add_class ("circular");
+            logout_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            var suspend_button = new Gtk.Button.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.MENU) {
+                tooltip_text = _("Suspend")
+            };
+            suspend_button.get_style_context ().add_class ("circular");
+            suspend_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            lock_button = new Gtk.Button.from_icon_name ("system-lock-screen-symbolic", Gtk.IconSize.MENU) {
+                sensitive = false,
+                tooltip_text = _("Lock")
+            };
+            lock_button.get_style_context ().add_class ("circular");
+            lock_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            shutdown_button = new Gtk.Button.from_icon_name ("system-shutdown-symbolic", Gtk.IconSize.MENU) {
+                tooltip_text = _("Shut Down…")
+            };
+            shutdown_button.get_style_context ().add_class ("circular");
+            shutdown_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-            var user_settings = new Gtk.ModelButton () {
-                text = _("User Accounts Settings…")
-            };
-
-            var log_out_grid = new Granite.AccelLabel (_("Log Out…"));
-
-            log_out = new Gtk.ModelButton () {
-                sensitive = false
-            };
-
-            log_out.get_child ().destroy ();
-            log_out.add (log_out_grid);
-
-            var lock_screen_grid = new Granite.AccelLabel (_("Lock"));
-
-            lock_screen = new Gtk.ModelButton () {
-                sensitive = false
-            };
-
-            lock_screen.get_child ().destroy ();
-            lock_screen.add (lock_screen_grid);
-
-            shutdown = new Gtk.ModelButton () {
-                hexpand = true,
-                text = _("Shut Down…")
-            };
-
-            suspend = new Gtk.ModelButton () {
-                sensitive = false,
-                text = _("Suspend")
+            var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
+                margin_top = 6,
+                margin_end = 12,
+                margin_bottom = 6,
+                margin_start = 12
             };
 
             if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
@@ -147,78 +161,56 @@ public class Session.Indicator : Wingpanel.Indicator {
                     scrolled_box.add (manager.user_grid);
 
                     main_box.add (scrolled_box);
-                    main_box.add (user_settings);
                     main_box.add (users_separator);
                 }
 
-                var logout_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-                    margin_top = 3,
-                    margin_bottom = 3
-                };
-
-                main_box.add (lock_screen);
-                main_box.add (log_out);
-                main_box.add (logout_separator);
+                button_box.add (settings_button);
+                button_box.add (logout_button);
+                button_box.add (suspend_button);
+            } else {
+                button_box.halign = Gtk.Align.END;
+                button_box.hexpand = true;
             }
 
-            main_box.add (suspend);
-            main_box.add (shutdown);
+            button_box.add (lock_button);
+            button_box.add (shutdown_button);
+
+            main_box.add (button_box);
 
             if (keybinding_settings != null) {
-                // This key type has changed in recent versions of GNOME Settings Daemon
-                unowned VariantType key_type = keybinding_settings.get_value ("logout").get_type ();
-                if (key_type.equal (VariantType.STRING)) {
-                    log_out_grid.accel_string = keybinding_settings.get_string ("logout");
-                    lock_screen_grid.accel_string = keybinding_settings.get_string ("screensaver");
+                logout_button.tooltip_markup = Granite.markup_accel_tooltip (keybinding_settings.get_strv ("logout"), _("Log Out…"));
+                lock_button.tooltip_markup = Granite.markup_accel_tooltip (keybinding_settings.get_strv ("screensaver"), _("Lock"));
 
-                    keybinding_settings.changed["logout"].connect (() => {
-                        log_out_grid.accel_string = keybinding_settings.get_string ("logout");
-                    });
+                keybinding_settings.changed["logout"].connect (() => {
+                    logout_button.tooltip_markup = Granite.markup_accel_tooltip (keybinding_settings.get_strv ("logout"), _("Log Out…"));
+                });
 
-                    keybinding_settings.changed["screensaver"].connect (() => {
-                        lock_screen_grid.accel_string = keybinding_settings.get_string ("screensaver");
-                    });
-                } else if (key_type.equal (VariantType.STRING_ARRAY)) {
-                    log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
-                    lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
-
-                    keybinding_settings.changed["logout"].connect (() => {
-                        log_out_grid.accel_string = keybinding_settings.get_strv ("logout")[0];
-                    });
-
-                    keybinding_settings.changed["screensaver"].connect (() => {
-                        lock_screen_grid.accel_string = keybinding_settings.get_strv ("screensaver")[0];
-                    });
-                }
+                keybinding_settings.changed["screensaver"].connect (() => {
+                    lock_button.tooltip_markup = Granite.markup_accel_tooltip (keybinding_settings.get_strv ("screensaver"), _("Lock"));
+                });
             }
+
+            var screensaver_settings = new Settings ("io.elementary.desktop.screensaver");
+            screensaver_settings.bind ("lock-on-suspend", suspend_button, "no-show-all", SettingsBindFlags.GET);
+            screensaver_settings.bind ("lock-on-suspend", suspend_button, "visible", SettingsBindFlags.GET | SettingsBindFlags.INVERT_BOOLEAN);
 
             manager.close.connect (() => close ());
 
-            user_settings.clicked.connect (() => {
+            settings_button.clicked.connect (() => {
                 close ();
 
                 try {
-                    AppInfo.launch_default_for_uri ("settings://accounts", null);
+                    AppInfo.launch_default_for_uri ("settings://", null);
                 } catch (Error e) {
                     warning ("Failed to open user accounts settings: %s", e.message);
                 }
             });
 
-            shutdown.clicked.connect (() => {
+            shutdown_button.clicked.connect (() => {
                 show_shutdown_dialog ();
             });
 
-            suspend.clicked.connect (() => {
-                close ();
-
-                try {
-                    system_interface.suspend (true);
-                } catch (GLib.Error e) {
-                    warning ("Unable to suspend: %s", e.message);
-                }
-            });
-
-            log_out.clicked.connect (() => {
+            logout_button.clicked.connect (() => {
                 session_interface.logout.begin (0, (obj, res) => {
                     try {
                         session_interface.logout.end (res);
@@ -230,13 +222,27 @@ public class Session.Indicator : Wingpanel.Indicator {
                 });
             });
 
-            lock_screen.clicked.connect (() => {
+            lock_button.clicked.connect (() => {
                 close ();
 
                 try {
-                    lock_interface.lock ();
+                    if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
+                        lock_interface.lock ();
+                    } else {
+                        system_interface.suspend (true);
+                    }
                 } catch (GLib.Error e) {
-                    warning ("Unable to lock: %s", e.message);
+                    critical ("Unable to lock: %s", e.message);
+                }
+            });
+
+            suspend_button.clicked.connect (() => {
+                close ();
+
+                try {
+                    system_interface.suspend (true);
+                } catch (GLib.Error e) {
+                    critical ("Unable to lock: %s", e.message);
                 }
             });
         }
@@ -267,24 +273,25 @@ public class Session.Indicator : Wingpanel.Indicator {
     private async void init_interfaces () {
         try {
             system_interface = yield Bus.get_proxy (BusType.SYSTEM, "org.freedesktop.login1", "/org/freedesktop/login1");
-            suspend.sensitive = true;
+            if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER) {
+                lock_button.sensitive = true;
+            }
         } catch (IOError e) {
             critical ("Unable to connect to the login interface: %s", e.message);
-            suspend.sensitive = false;
         }
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
             try {
                 lock_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
-                lock_screen.sensitive = true;
+                lock_button.sensitive = true;
             } catch (IOError e) {
                 warning ("Unable to connect to lock interface: %s", e.message);
             }
 
             try {
                 session_interface = yield Bus.get_proxy (BusType.SESSION, "org.gnome.SessionManager", "/org/gnome/SessionManager");
-                shutdown.sensitive = true;
-                log_out.sensitive = true;
+                shutdown_button.sensitive = true;
+                logout_button.sensitive = true;
             } catch (IOError e) {
                 critical ("Unable to connect to GNOME session interface: %s", e.message);
             }
