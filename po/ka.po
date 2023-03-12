@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-06 21:52+0000\n"
 "PO-Revision-Date: 2023-03-12 21:03+0000\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@tutanota.de>\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ka/>\n"
 "Language: ka\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: src/Indicator.vala:108
 msgid "System Settings…"
-msgstr ""
+msgstr "სისტემის მორგება…"
 
 #: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
@@ -32,32 +32,32 @@ msgid "Lock"
 msgstr "ჩაკეტვა"
 
 #: src/Indicator.vala:134
-#, fuzzy
 msgid "Shut Down…"
-msgstr "გამორთვა..."
+msgstr "გამორთვა…"
 
 #: src/Indicator.vala:380
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
+"შესული ბრძანდებით, როგორც \"%s\". სისტემაში ასევე შესულია კიდევ \"%i\" "
+"მომხმარებელი"
 msgstr[1] ""
+"შესული ბრძანდებით, როგორც \"%s\". სისტემაში ასევე შესულია კიდევ \"%i\" "
+"მომხმარებელი"
 
 #: src/Indicator.vala:386
-#, fuzzy, c-format
-#| msgid "Logged in"
+#, c-format
 msgid "Logged in as “%s”"
-msgstr "შესული"
+msgstr "შეხვედით, როგორც \"%s\""
 
 #: src/Indicator.vala:389
-#, fuzzy
-#| msgid "Logged in"
 msgid "Not logged in"
-msgstr "შესული"
+msgstr "შესული არ ბრძანდებით"
 
 #: src/Indicator.vala:392
 msgid "Middle-click to prompt to shut down"
-msgstr ""
+msgstr "შუა წკაპი გამორთვის მოთხოვნისთვის"
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
