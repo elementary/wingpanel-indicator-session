@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-06 21:52+0000\n"
-"PO-Revision-Date: 2023-03-12 21:03+0000\n"
+"PO-Revision-Date: 2023-03-15 09:25+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ka/>\n"
@@ -65,7 +65,7 @@ msgstr "დარწმუნებული ხართ, რომ გამ�
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
-msgstr "ეს გამოიწვევს ყველა პროგრამის დახურვას"
+msgstr "ეს ყველა პროგრამის დახურვას გამოიწვევს."
 
 #: src/Widgets/EndSessionDialog.vala:51
 msgid "Log Out"
