@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-06 21:52+0000\n"
-"PO-Revision-Date: 2023-03-12 18:25+0000\n"
+"PO-Revision-Date: 2023-04-15 00:59+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-session-extra/ka/>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 
 #: data/session.appdata.xml.in:6
 msgid "Session Indicator"
-msgstr ""
+msgstr "სესიის მაჩვენებელი"
 
 #: data/session.appdata.xml.in:7
 msgid "Switch users, lock, log out, suspend, or shut down"
-msgstr ""
+msgstr "გადართეთ მომხმარებლები, დაბლოკეთ, გადით, შეაჩერეთ ან გამორთეთ"
 
 #: data/session.appdata.xml.in:11 data/session.appdata.xml.in:20
 #: data/session.appdata.xml.in:31 data/session.appdata.xml.in:40
 msgid "Minor updates:"
-msgstr ""
+msgstr "მცირე განახლებები:"
 
 #: data/session.appdata.xml.in:13 data/session.appdata.xml.in:25
 #: data/session.appdata.xml.in:34 data/session.appdata.xml.in:43
@@ -44,11 +44,11 @@ msgstr ""
 
 #: data/session.appdata.xml.in:23
 msgid "Tooltip on hover"
-msgstr ""
+msgstr "მინიშნება გადატარებისას"
 
 #: data/session.appdata.xml.in:24 data/session.appdata.xml.in:33
 msgid "Performance improvements"
-msgstr ""
+msgstr "წარმადობის გაუმჯობესებები"
 
 #: data/session.appdata.xml.in:42
 msgid "Updated styling for keyboard shortcuts"
