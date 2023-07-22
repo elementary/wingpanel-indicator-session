@@ -43,6 +43,7 @@ interface SystemInterface : Object {
     public abstract void power_off (bool interactive) throws GLib.Error;
 
     public abstract UserInfo[] list_users () throws GLib.Error;
+    public abstract string can_suspend () throws GLib.Error;
 }
 
 [DBus (name = "org.freedesktop.login1.User")]

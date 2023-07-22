@@ -97,8 +97,6 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_box == null) {
-            init_interfaces.begin ();
-
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/wingpanel/session/Indicator.css");
 
@@ -118,7 +116,8 @@ public class Session.Indicator : Wingpanel.Indicator {
             logout_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             var suspend_button = new Gtk.Button.from_icon_name ("system-suspend-symbolic", Gtk.IconSize.MENU) {
-                tooltip_text = _("Suspend")
+                tooltip_text = _("Suspend"),
+                no_show_all = true
             };
             suspend_button.get_style_context ().add_class ("circular");
             suspend_button.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -190,9 +189,15 @@ public class Session.Indicator : Wingpanel.Indicator {
                 });
             }
 
-            var screensaver_settings = new Settings ("io.elementary.desktop.screensaver");
-            screensaver_settings.bind ("lock-on-suspend", suspend_button, "no-show-all", SettingsBindFlags.GET);
-            screensaver_settings.bind ("lock-on-suspend", suspend_button, "visible", SettingsBindFlags.GET | SettingsBindFlags.INVERT_BOOLEAN);
+            init_interfaces.begin (() => {
+                try {
+                    if (system_interface.can_suspend () == "yes") {
+                        suspend_button.show ();
+                    }
+                } catch (Error e) {
+                    warning ("Failed to get information about suspend availability: %s", e.message);
+                }
+            });
 
             manager.close.connect (() => close ());
 
