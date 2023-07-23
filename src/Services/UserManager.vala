@@ -186,6 +186,7 @@ public class Session.Services.UserManager : Object {
         }
 
         user_boxes[uid] = new Session.Widgets.Userbox (user);
+        user_boxes[uid].show ();
         user_grid.add (user_boxes[uid]);
 
         changed ();
