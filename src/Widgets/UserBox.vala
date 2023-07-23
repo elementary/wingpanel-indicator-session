@@ -20,6 +20,8 @@
 public class Session.Widgets.Userbox : Gtk.ListBoxRow {
     private const int ICON_SIZE = 48;
 
+    private static Gtk.CssProvider provider;
+
     public Act.User? user { get; construct; default = null; }
     public string fullname { get; construct set; }
     public UserState state { get; private set; }
@@ -42,12 +44,18 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         Object (fullname: _("Guest"));
     }
 
+    static construct {
+        provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("io/elementary/wingpanel/session/Userbox.css");
+    }
+
     construct {
-        fullname_label = new Gtk.Label ("<b>%s</b>".printf (fullname)) {
-            use_markup = true,
+        fullname_label = new Gtk.Label (fullname) {
             valign = Gtk.Align.END,
             halign = Gtk.Align.START
         };
+        fullname_label.get_style_context ().add_class ("fullname-label");
+        fullname_label.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         status_label = new Gtk.Label (null) {
             valign = Gtk.Align.START,
@@ -125,7 +133,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
             return;
         }
 
-        fullname_label.label = "<b>%s</b>".printf (user.real_name);
+        fullname_label.label = user.real_name;
         avatar.set_image_load_func (avatar_image_load_func);
     }
 
