@@ -38,7 +38,7 @@ public class Session.Services.UserManager : Object {
     public signal void close ();
     public signal void changed ();
 
-    public Session.Widgets.UserListBox user_grid { get; private set; }
+    public Session.Widgets.UserListBox user_box { get; private set; }
 
     private const uint GUEST_USER_UID = 999;
     private const uint NOBODY_USER_UID = 65534;
@@ -121,8 +121,8 @@ public class Session.Services.UserManager : Object {
     construct {
         user_boxes = new Gee.HashMap<uint, Widgets.Userbox> ();
 
-        user_grid = new Session.Widgets.UserListBox ();
-        user_grid.close.connect (() => close ());
+        user_box = new Session.Widgets.UserListBox ();
+        user_box.close.connect (() => close ());
 
         manager = Act.UserManager.get_default ();
         init_users ();
@@ -150,7 +150,7 @@ public class Session.Services.UserManager : Object {
         }
 
         if (dm_proxy != null) {
-            user_grid.switch_to_guest.connect (() => {
+            user_box.switch_to_guest.connect (() => {
                 try {
                     dm_proxy.switch_to_guest ("");
                 } catch (Error e) {
@@ -158,7 +158,7 @@ public class Session.Services.UserManager : Object {
                 }
             });
 
-            user_grid.switch_to_user.connect ((username) => {
+            user_box.switch_to_user.connect ((username) => {
                 try {
                     dm_proxy.switch_to_user (username, session_path);
                 } catch (Error e) {
@@ -186,7 +186,8 @@ public class Session.Services.UserManager : Object {
         }
 
         user_boxes[uid] = new Session.Widgets.Userbox (user);
-        user_grid.add (user_boxes[uid]);
+        user_boxes[uid].show ();
+        user_box.add (user_boxes[uid]);
 
         changed ();
     }
@@ -199,7 +200,7 @@ public class Session.Services.UserManager : Object {
         }
 
         user_boxes.unset (uid);
-        user_grid.remove (userbox);
+        user_box.remove (userbox);
         changed ();
     }
 
@@ -227,7 +228,7 @@ public class Session.Services.UserManager : Object {
         user_boxes[GUEST_USER_UID] = new Session.Widgets.Userbox.guest ();
         user_boxes[GUEST_USER_UID].show ();
 
-        user_grid.add (user_boxes[GUEST_USER_UID]);
+        user_box.add (user_boxes[GUEST_USER_UID]);
     }
 
     // Can't use JUST online users, see comment below.

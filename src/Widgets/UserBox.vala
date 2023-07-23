@@ -94,6 +94,7 @@ public class Session.Widgets.Userbox : Gtk.ListBoxRow {
         grid.attach (avatar, 0, 0, 3, 3);
         grid.attach (fullname_label, 3, 0, 2, 1);
         grid.attach (status_label, 3, 1, 2, 1);
+        grid.show_all ();
 
         get_style_context ().add_class ("menuitem");
         add (grid);
