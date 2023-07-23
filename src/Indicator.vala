@@ -157,7 +157,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                         max_content_height = 300,
                         propagate_natural_height = true
                     };
-                    scrolled_box.add (manager.user_box);
+                    scrolled_box.add (manager.user_grid);
 
                     main_box.add (scrolled_box);
                     main_box.add (users_separator);
