@@ -367,6 +367,8 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
 
         current_dialog.show_all ();
+
+        current_dialog.present ();
     }
 
     private async void update_tooltip () {
