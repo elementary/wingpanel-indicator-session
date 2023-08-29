@@ -44,7 +44,7 @@ public class Session.EndSessionDialogServer : Object {
     }
 
     [DBus (visible = false)]
-    public signal void show_dialog (uint type);
+    public signal void show_dialog (uint type, uint32 triggering_event_timestamp);
 
     public signal void confirmed_logout ();
     public signal void confirmed_reboot ();
@@ -61,6 +61,6 @@ public class Session.EndSessionDialogServer : Object {
             throw new DBusError.NOT_SUPPORTED ("Hibernate, suspend and hybrid sleep are not supported actions yet");
         }
 
-        show_dialog (type);
+        show_dialog (type, timestamp);
     }
 }
