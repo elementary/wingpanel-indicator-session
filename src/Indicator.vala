@@ -52,7 +52,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         icon_theme.add_resource_path ("/io/elementary/wingpanel/session");
 
         EndSessionDialogServer.init ();
-        EndSessionDialogServer.get_default ().show_dialog.connect ((type) => show_dialog ((Widgets.EndSessionDialogType)type));
+        EndSessionDialogServer.get_default ().show_dialog.connect ((type, timestamp) => show_dialog ((Widgets.EndSessionDialogType)type, timestamp));
 
         manager = new Session.Services.UserManager ();
     }
@@ -75,14 +75,15 @@ public class Session.Indicator : Wingpanel.Indicator {
             });
 
             indicator_icon.button_press_event.connect ((e) => {
+                var timestamp = Gtk.get_current_event_time ();
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     if (session_interface == null) {
                         init_interfaces.begin ((obj, res) => {
                             init_interfaces.end (res);
-                            show_shutdown_dialog ();
+                            show_shutdown_dialog (timestamp);
                         });
                     } else {
-                        show_shutdown_dialog ();
+                        show_shutdown_dialog (timestamp);
                     }
 
                     return Gdk.EVENT_STOP;
@@ -212,7 +213,7 @@ public class Session.Indicator : Wingpanel.Indicator {
             });
 
             shutdown_button.clicked.connect (() => {
-                show_shutdown_dialog ();
+                show_shutdown_dialog (Gtk.get_current_event_time ());
             });
 
             logout_button.clicked.connect (() => {
@@ -255,7 +256,7 @@ public class Session.Indicator : Wingpanel.Indicator {
         return main_box;
     }
 
-    private void show_shutdown_dialog () {
+    private void show_shutdown_dialog (uint32 triggering_event_timestamp) {
         close ();
 
         if (server_type == Wingpanel.IndicatorManager.ServerType.SESSION) {
@@ -271,7 +272,7 @@ public class Session.Indicator : Wingpanel.Indicator {
                 }
             });
         } else {
-            show_dialog (Widgets.EndSessionDialogType.RESTART);
+            show_dialog (Widgets.EndSessionDialogType.RESTART, triggering_event_timestamp);
         }
     }
 
@@ -313,7 +314,7 @@ public class Session.Indicator : Wingpanel.Indicator {
 
     public override void closed () {}
 
-    private void show_dialog (Widgets.EndSessionDialogType type) {
+    private void show_dialog (Widgets.EndSessionDialogType type, uint32 triggering_event_timestamp) {
         close ();
 
         if (current_dialog != null) {
@@ -367,6 +368,8 @@ public class Session.Indicator : Wingpanel.Indicator {
         });
 
         current_dialog.show_all ();
+
+        current_dialog.present_with_time (triggering_event_timestamp);
     }
 
     private async void update_tooltip () {
