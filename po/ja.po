@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-06 21:52+0000\n"
-"PO-Revision-Date: 2023-10-07 17:03+0000\n"
+"PO-Revision-Date: 2024-02-12 08:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-session/ja/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
 #: src/Indicator.vala:108
@@ -56,7 +56,7 @@ msgstr "終了ダイアログを表示するには中クリックしてくださ
 
 #: src/Widgets/EndSessionDialog.vala:49
 msgid "Are you sure you want to Log Out?"
-msgstr "ログアウトしてもよろしいですか？"
+msgstr "ログアウトしてもよろしいですか?"
 
 #: src/Widgets/EndSessionDialog.vala:50
 msgid "This will close all open applications."
@@ -68,7 +68,7 @@ msgstr "ログアウト"
 
 #: src/Widgets/EndSessionDialog.vala:56
 msgid "Are you sure you want to Shut Down?"
-msgstr "シャットダウンしてもよろしいですか？"
+msgstr "シャットダウンしてもよろしいですか?"
 
 #: src/Widgets/EndSessionDialog.vala:57
 msgid "This will close all open applications and turn off this device."
