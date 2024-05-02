@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:107
 msgid "System Settings…"
 msgstr ""
 
-#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
+#: src/Indicator.vala:114 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr ""
 
-#: src/Indicator.vala:121
+#: src/Indicator.vala:120
 msgid "Suspend"
 msgstr ""
 
@@ -36,23 +36,23 @@ msgstr ""
 msgid "Shut Down…"
 msgstr ""
 
-#: src/Indicator.vala:380
+#: src/Indicator.vala:388
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:386
+#: src/Indicator.vala:394
 #, c-format
 msgid "Logged in as “%s”"
 msgstr ""
 
-#: src/Indicator.vala:389
+#: src/Indicator.vala:397
 msgid "Not logged in"
 msgstr ""
 
-#: src/Indicator.vala:392
+#: src/Indicator.vala:400
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 
@@ -88,14 +88,14 @@ msgstr ""
 msgid "Restart"
 msgstr ""
 
-#: src/Widgets/UserBox.vala:42
+#: src/Widgets/UserBox.vala:44
 msgid "Guest"
 msgstr ""
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:148
 msgid "Logged in"
 msgstr ""
 
-#: src/Widgets/UserBox.vala:141
+#: src/Widgets/UserBox.vala:150
 msgid "Logged out"
 msgstr ""

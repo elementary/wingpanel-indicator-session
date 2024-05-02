@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: 2024-02-12 08:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,15 +15,15 @@ msgstr ""
 "X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:107
 msgid "System Settings…"
 msgstr "システム設定…"
 
-#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
+#: src/Indicator.vala:114 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "ログアウト…"
 
-#: src/Indicator.vala:121
+#: src/Indicator.vala:120
 msgid "Suspend"
 msgstr "サスペンド"
 
@@ -35,22 +35,22 @@ msgstr "ロック"
 msgid "Shut Down…"
 msgstr "シャットダウン…"
 
-#: src/Indicator.vala:380
+#: src/Indicator.vala:388
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "“%s” としてログイン中、ほかに%i人のユーザーがログイン中"
 
-#: src/Indicator.vala:386
+#: src/Indicator.vala:394
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "“%s” としてログイン中"
 
-#: src/Indicator.vala:389
+#: src/Indicator.vala:397
 msgid "Not logged in"
 msgstr "ログインしていません"
 
-#: src/Indicator.vala:392
+#: src/Indicator.vala:400
 msgid "Middle-click to prompt to shut down"
 msgstr "終了ダイアログを表示するには中クリックしてください"
 
@@ -88,15 +88,15 @@ msgstr "キャンセル"
 msgid "Restart"
 msgstr "再起動"
 
-#: src/Widgets/UserBox.vala:42
+#: src/Widgets/UserBox.vala:44
 msgid "Guest"
 msgstr "ゲスト"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:148
 msgid "Logged in"
 msgstr "ログイン中"
 
-#: src/Widgets/UserBox.vala:141
+#: src/Widgets/UserBox.vala:150
 msgid "Logged out"
 msgstr "ログアウト中"
 

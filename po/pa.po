@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: session-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: 2021-08-01 17:35+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/wingpanel/"
@@ -19,17 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:107
 #, fuzzy
 #| msgid "User Accounts Settings…"
 msgid "System Settings…"
 msgstr "ਵਰਤੋਂਕਾਰ ਖਾਤਾ ਸੈਟਿੰਗਾਂ…"
 
-#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
+#: src/Indicator.vala:114 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "ਲੌਗਆਊਟ ਕਰੋ…"
 
-#: src/Indicator.vala:121
+#: src/Indicator.vala:120
 msgid "Suspend"
 msgstr "ਮੁਅੱਤਲ ਕਰੋ"
 
@@ -41,23 +41,23 @@ msgstr "ਤਾਲਾ ਲਾਓ"
 msgid "Shut Down…"
 msgstr "ਸ਼ੱਟਡਾਊਨ ਕਰੋ…"
 
-#: src/Indicator.vala:380
+#: src/Indicator.vala:388
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ, %i ਹੋਰ ਵਰਤੋਂਕਾਰ ਵੀ ਲੌਗਇਨ ਹੈ"
 msgstr[1] "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ, %i ਹੋਰ ਵਰਤੋਂਕਾਰ ਵੀ ਲੌਗਇਨ ਹਨ"
 
-#: src/Indicator.vala:386
+#: src/Indicator.vala:394
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "ਬਤੌਰ “%s” ਲੌਗਇਨ ਹੋ"
 
-#: src/Indicator.vala:389
+#: src/Indicator.vala:397
 msgid "Not logged in"
 msgstr "ਲੌਗਇਨ ਨਹੀਂ ਹੋ"
 
-#: src/Indicator.vala:392
+#: src/Indicator.vala:400
 msgid "Middle-click to prompt to shut down"
 msgstr "ਸ਼ੱਟਡਾਊਨ ਦਾ ਪੁੱਛਣ ਲਈ ਵਿਚਕਾਰਲੀ-ਕਲਿੱਕ"
 
@@ -93,14 +93,14 @@ msgstr "ਰੱਦ ਕਰੋ"
 msgid "Restart"
 msgstr "ਰੀਸਟਾਰਟ ਕਰੋ"
 
-#: src/Widgets/UserBox.vala:42
+#: src/Widgets/UserBox.vala:44
 msgid "Guest"
 msgstr "ਮਹਿਮਾਨ"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:148
 msgid "Logged in"
 msgstr "ਲੌਗਇਨ ਹੋਇਆ"
 
-#: src/Widgets/UserBox.vala:141
+#: src/Widgets/UserBox.vala:150
 msgid "Logged out"
 msgstr "ਲੌਗਆਊਟ ਹੋਇਆ"

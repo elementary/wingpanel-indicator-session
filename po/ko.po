@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: 2022-08-06 23:05+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,17 +15,17 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:107
 #, fuzzy
 #| msgid "User Accounts Settings…"
 msgid "System Settings…"
 msgstr "사용자 계정 설정…"
 
-#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
+#: src/Indicator.vala:114 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "로그 아웃…"
 
-#: src/Indicator.vala:121
+#: src/Indicator.vala:120
 msgid "Suspend"
 msgstr "대기 모드"
 
@@ -37,22 +37,22 @@ msgstr "잠그기"
 msgid "Shut Down…"
 msgstr "컴퓨터 끄기…"
 
-#: src/Indicator.vala:380
+#: src/Indicator.vala:388
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] "로그인 “%s”, %i 다른 사용자 로그인함"
 
-#: src/Indicator.vala:386
+#: src/Indicator.vala:394
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "“%s” 로그인 했습니다"
 
-#: src/Indicator.vala:389
+#: src/Indicator.vala:397
 msgid "Not logged in"
 msgstr "로그인 안 함"
 
-#: src/Indicator.vala:392
+#: src/Indicator.vala:400
 msgid "Middle-click to prompt to shut down"
 msgstr "마우스 가운데 버튼을 클릭하여 종료 프롬프트 표시"
 
@@ -88,15 +88,15 @@ msgstr "취소"
 msgid "Restart"
 msgstr "다시 시작"
 
-#: src/Widgets/UserBox.vala:42
+#: src/Widgets/UserBox.vala:44
 msgid "Guest"
 msgstr "손님"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:148
 msgid "Logged in"
 msgstr "로그인 함"
 
-#: src/Widgets/UserBox.vala:141
+#: src/Widgets/UserBox.vala:150
 msgid "Logged out"
 msgstr "로그 아웃 됨"
 

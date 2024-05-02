@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: 2017-08-31 23:12+0000\n"
 "Last-Translator: Grammatopoulos Athanasios-Vasi <darkthanos.gr@gmail.com>\n"
 "Language-Team: Greek <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,15 +15,15 @@ msgstr ""
 "X-Generator: Weblate 2.16\n"
 "X-Launchpad-Export-Date: 2017-02-15 06:47+0000\n"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:107
 msgid "System Settings…"
 msgstr ""
 
-#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
+#: src/Indicator.vala:114 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "Αποσύνδεση…"
 
-#: src/Indicator.vala:121
+#: src/Indicator.vala:120
 msgid "Suspend"
 msgstr "Aναστολή"
 
@@ -35,26 +35,26 @@ msgstr "Κλείδωμα"
 msgid "Shut Down…"
 msgstr "Τερματισμός…"
 
-#: src/Indicator.vala:380
+#: src/Indicator.vala:388
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Indicator.vala:386
+#: src/Indicator.vala:394
 #, fuzzy, c-format
 #| msgid "Logged in"
 msgid "Logged in as “%s”"
 msgstr "Συνδεδεμένος/-η"
 
-#: src/Indicator.vala:389
+#: src/Indicator.vala:397
 #, fuzzy
 #| msgid "Logged in"
 msgid "Not logged in"
 msgstr "Συνδεδεμένος/-η"
 
-#: src/Indicator.vala:392
+#: src/Indicator.vala:400
 msgid "Middle-click to prompt to shut down"
 msgstr ""
 
@@ -92,15 +92,15 @@ msgstr "Ακύρωση"
 msgid "Restart"
 msgstr "Επανεκκίνηση"
 
-#: src/Widgets/UserBox.vala:42
+#: src/Widgets/UserBox.vala:44
 msgid "Guest"
 msgstr "Επισκέπτης"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:148
 msgid "Logged in"
 msgstr "Συνδεδεμένος/-η"
 
-#: src/Widgets/UserBox.vala:141
+#: src/Widgets/UserBox.vala:150
 msgid "Logged out"
 msgstr "Αποσυνδεδεμένος/-η"
 

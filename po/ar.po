@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: 2021-09-04 23:27+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,17 +16,17 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-09 06:03+0000\n"
 
-#: src/Indicator.vala:108
+#: src/Indicator.vala:107
 #, fuzzy
 #| msgid "User Accounts Settings…"
 msgid "System Settings…"
 msgstr "إعدادات حسابات المستخدمين…"
 
-#: src/Indicator.vala:115 src/Indicator.vala:181 src/Indicator.vala:185
+#: src/Indicator.vala:114 src/Indicator.vala:181 src/Indicator.vala:185
 msgid "Log Out…"
 msgstr "سجل خروجك…"
 
-#: src/Indicator.vala:121
+#: src/Indicator.vala:120
 msgid "Suspend"
 msgstr "أغلق"
 
@@ -38,7 +38,7 @@ msgstr "أقفل"
 msgid "Shut Down…"
 msgstr "أوقف التشغيل…"
 
-#: src/Indicator.vala:380
+#: src/Indicator.vala:388
 #, c-format
 msgid "Logged in as “%s”, %i other user logged in"
 msgid_plural "Logged in as “%s”, %i other users logged in"
@@ -49,16 +49,16 @@ msgstr[3] "مسجل الدخول باسم ”%s“، هناك %i مستخدمي�
 msgstr[4] "مسجل الدخول باسم ”%s“، هناك %i مستخدماً آخراً مسجل دخوله"
 msgstr[5] "مسجل الدخول باسم ”%s“، هناك %i مستخدم آخر مسجل دخوله"
 
-#: src/Indicator.vala:386
+#: src/Indicator.vala:394
 #, c-format
 msgid "Logged in as “%s”"
 msgstr "مسجل الدخول باسم ”%s“"
 
-#: src/Indicator.vala:389
+#: src/Indicator.vala:397
 msgid "Not logged in"
 msgstr "ليس مسجلاً الدخول"
 
-#: src/Indicator.vala:392
+#: src/Indicator.vala:400
 msgid "Middle-click to prompt to shut down"
 msgstr "اضغط الزر الأوسط لإيقاف التشغيل"
 
@@ -94,15 +94,15 @@ msgstr "ألغ"
 msgid "Restart"
 msgstr "أعد التشغيل"
 
-#: src/Widgets/UserBox.vala:42
+#: src/Widgets/UserBox.vala:44
 msgid "Guest"
 msgstr "ضيف"
 
-#: src/Widgets/UserBox.vala:139
+#: src/Widgets/UserBox.vala:148
 msgid "Logged in"
 msgstr "مسجل الدخول"
 
-#: src/Widgets/UserBox.vala:141
+#: src/Widgets/UserBox.vala:150
 msgid "Logged out"
 msgstr "مسجل الخروج"
 
