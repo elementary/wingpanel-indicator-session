@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 21:52+0000\n"
+"POT-Creation-Date: 2024-05-02 06:43+0000\n"
 "PO-Revision-Date: 2023-04-15 00:59+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
@@ -54,6 +54,5 @@ msgstr "წარმადობის გაუმჯობესებებ�
 msgid "Updated styling for keyboard shortcuts"
 msgstr ""
 
-#: data/session.appdata.xml.in:58
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
