@@ -55,7 +55,9 @@
       <image>https://raw.githubusercontent.com/elementary/wingpanel-indicator-session/master/data/screenshot.png</image>
     </screenshot>
   </screenshots>
-  <developer_name>elementary, Inc.</developer_name>
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
   <url type="homepage">https://elementary.io/</url>
   <url type="bugtracker">https://github.com/elementary/wingpanel-indicator-session/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
